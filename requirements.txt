@@ -1,0 +1,7 @@
+timm
+datasets
+scikit-learn
+pandas
+numpy
+matplotlib
+Pillow
