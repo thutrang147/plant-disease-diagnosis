@@ -1,0 +1,48 @@
+source,row_id,original_class,original_split,class_name,label_id,split
+plantdoc,2489,Tomato Early blight leaf,test,Early Blight,1,field_test
+plantdoc,2490,Tomato Early blight leaf,test,Early Blight,1,field_test
+plantdoc,2491,Tomato Early blight leaf,test,Early Blight,1,field_test
+plantdoc,2492,Tomato Early blight leaf,test,Early Blight,1,field_test
+plantdoc,2493,Tomato Early blight leaf,test,Early Blight,1,field_test
+plantdoc,2494,Tomato Early blight leaf,test,Early Blight,1,field_test
+plantdoc,2495,Tomato Early blight leaf,test,Early Blight,1,field_test
+plantdoc,2496,Tomato Early blight leaf,test,Early Blight,1,field_test
+plantdoc,2497,Tomato Early blight leaf,test,Early Blight,1,field_test
+plantdoc,2498,Tomato Septoria leaf spot,test,Septoria Leaf Spot,4,field_test
+plantdoc,2499,Tomato Septoria leaf spot,test,Septoria Leaf Spot,4,field_test
+plantdoc,2500,Tomato Septoria leaf spot,test,Septoria Leaf Spot,4,field_test
+plantdoc,2501,Tomato Septoria leaf spot,test,Septoria Leaf Spot,4,field_test
+plantdoc,2502,Tomato Septoria leaf spot,test,Septoria Leaf Spot,4,field_test
+plantdoc,2503,Tomato Septoria leaf spot,test,Septoria Leaf Spot,4,field_test
+plantdoc,2504,Tomato Septoria leaf spot,test,Septoria Leaf Spot,4,field_test
+plantdoc,2505,Tomato Septoria leaf spot,test,Septoria Leaf Spot,4,field_test
+plantdoc,2506,Tomato Septoria leaf spot,test,Septoria Leaf Spot,4,field_test
+plantdoc,2507,Tomato Septoria leaf spot,test,Septoria Leaf Spot,4,field_test
+plantdoc,2508,Tomato Septoria leaf spot,test,Septoria Leaf Spot,4,field_test
+plantdoc,2509,Tomato leaf,test,Healthy,0,field_test
+plantdoc,2510,Tomato leaf,test,Healthy,0,field_test
+plantdoc,2511,Tomato leaf,test,Healthy,0,field_test
+plantdoc,2512,Tomato leaf,test,Healthy,0,field_test
+plantdoc,2513,Tomato leaf,test,Healthy,0,field_test
+plantdoc,2514,Tomato leaf,test,Healthy,0,field_test
+plantdoc,2515,Tomato leaf,test,Healthy,0,field_test
+plantdoc,2516,Tomato leaf,test,Healthy,0,field_test
+plantdoc,2517,Tomato leaf bacterial spot,test,Bacterial Spot,3,field_test
+plantdoc,2518,Tomato leaf bacterial spot,test,Bacterial Spot,3,field_test
+plantdoc,2519,Tomato leaf bacterial spot,test,Bacterial Spot,3,field_test
+plantdoc,2520,Tomato leaf bacterial spot,test,Bacterial Spot,3,field_test
+plantdoc,2521,Tomato leaf bacterial spot,test,Bacterial Spot,3,field_test
+plantdoc,2522,Tomato leaf bacterial spot,test,Bacterial Spot,3,field_test
+plantdoc,2523,Tomato leaf bacterial spot,test,Bacterial Spot,3,field_test
+plantdoc,2524,Tomato leaf bacterial spot,test,Bacterial Spot,3,field_test
+plantdoc,2525,Tomato leaf bacterial spot,test,Bacterial Spot,3,field_test
+plantdoc,2526,Tomato leaf late blight,test,Late Blight,2,field_test
+plantdoc,2527,Tomato leaf late blight,test,Late Blight,2,field_test
+plantdoc,2528,Tomato leaf late blight,test,Late Blight,2,field_test
+plantdoc,2529,Tomato leaf late blight,test,Late Blight,2,field_test
+plantdoc,2530,Tomato leaf late blight,test,Late Blight,2,field_test
+plantdoc,2531,Tomato leaf late blight,test,Late Blight,2,field_test
+plantdoc,2532,Tomato leaf late blight,test,Late Blight,2,field_test
+plantdoc,2533,Tomato leaf late blight,test,Late Blight,2,field_test
+plantdoc,2534,Tomato leaf late blight,test,Late Blight,2,field_test
+plantdoc,2535,Tomato leaf late blight,test,Late Blight,2,field_test

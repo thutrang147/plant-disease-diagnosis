@@ -1,0 +1,13 @@
+{
+  "plantvillage": {
+    "repository": "geraldmc/plantvillage-full",
+    "requested_revision": "default"
+  },
+  "plantdoc": {
+    "repository": "geraldmc/plantdoc-full",
+    "requested_revision": "v0.1.0"
+  },
+  "seed": 42,
+  "validation_strategy": "StratifiedGroupKFold: selected fold closest to 20% of original PlantVillage Train",
+  "note": "Row IDs refer to the loading order of these datasets. Pin resolved dataset commit SHAs before a published experiment."
+}
