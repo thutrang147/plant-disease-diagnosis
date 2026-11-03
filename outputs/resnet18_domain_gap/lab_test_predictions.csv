@@ -1,0 +1,1693 @@
+source,row_id,class_name,label_id,predicted_label_id,predicted_class,confidence,correct
+plantvillage,36146,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,36150,Bacterial Spot,3,3,Bacterial Spot,0.9999871253967285,True
+plantvillage,36158,Bacterial Spot,3,3,Bacterial Spot,0.9999995231628418,True
+plantvillage,36160,Bacterial Spot,3,3,Bacterial Spot,0.9999995231628418,True
+plantvillage,36168,Bacterial Spot,3,3,Bacterial Spot,0.9999743700027466,True
+plantvillage,36171,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,36175,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,36179,Bacterial Spot,3,3,Bacterial Spot,0.9968819618225098,True
+plantvillage,36180,Bacterial Spot,3,3,Bacterial Spot,0.9999992847442627,True
+plantvillage,36185,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,36186,Bacterial Spot,3,3,Bacterial Spot,0.999997615814209,True
+plantvillage,36189,Bacterial Spot,3,3,Bacterial Spot,0.9999998807907104,True
+plantvillage,36198,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,36202,Bacterial Spot,3,3,Bacterial Spot,0.9999972581863403,True
+plantvillage,36203,Bacterial Spot,3,3,Bacterial Spot,0.9999983310699463,True
+plantvillage,36209,Bacterial Spot,3,3,Bacterial Spot,0.9997513890266418,True
+plantvillage,36212,Bacterial Spot,3,3,Bacterial Spot,0.9999979734420776,True
+plantvillage,36222,Bacterial Spot,3,3,Bacterial Spot,0.9999963045120239,True
+plantvillage,36225,Bacterial Spot,3,3,Bacterial Spot,0.9999973773956299,True
+plantvillage,36227,Bacterial Spot,3,3,Bacterial Spot,0.9999996423721313,True
+plantvillage,36233,Bacterial Spot,3,3,Bacterial Spot,0.9999969005584717,True
+plantvillage,36236,Bacterial Spot,3,3,Bacterial Spot,0.9999758005142212,True
+plantvillage,36237,Bacterial Spot,3,3,Bacterial Spot,0.9977371692657471,True
+plantvillage,36239,Bacterial Spot,3,3,Bacterial Spot,0.9999984502792358,True
+plantvillage,36246,Bacterial Spot,3,3,Bacterial Spot,0.9999805688858032,True
+plantvillage,36249,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,36261,Bacterial Spot,3,3,Bacterial Spot,0.9999988079071045,True
+plantvillage,36266,Bacterial Spot,3,3,Bacterial Spot,0.9999710321426392,True
+plantvillage,36283,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,36284,Bacterial Spot,3,3,Bacterial Spot,0.9999923706054688,True
+plantvillage,36293,Bacterial Spot,3,3,Bacterial Spot,0.9998972415924072,True
+plantvillage,36295,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,36300,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,36306,Bacterial Spot,3,3,Bacterial Spot,0.9999988079071045,True
+plantvillage,36321,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,36328,Bacterial Spot,3,3,Bacterial Spot,0.9999920129776001,True
+plantvillage,36329,Bacterial Spot,3,3,Bacterial Spot,0.9999988079071045,True
+plantvillage,36333,Bacterial Spot,3,3,Bacterial Spot,0.9999501705169678,True
+plantvillage,36334,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,36343,Bacterial Spot,3,3,Bacterial Spot,0.9999921321868896,True
+plantvillage,36345,Bacterial Spot,3,3,Bacterial Spot,0.9998745918273926,True
+plantvillage,36359,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,36361,Bacterial Spot,3,3,Bacterial Spot,0.999974250793457,True
+plantvillage,36362,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,36364,Bacterial Spot,3,3,Bacterial Spot,0.9999998807907104,True
+plantvillage,36366,Bacterial Spot,3,3,Bacterial Spot,0.9999998807907104,True
+plantvillage,36379,Bacterial Spot,3,3,Bacterial Spot,0.9999998807907104,True
+plantvillage,36384,Bacterial Spot,3,3,Bacterial Spot,0.999997615814209,True
+plantvillage,36385,Bacterial Spot,3,3,Bacterial Spot,0.9999786615371704,True
+plantvillage,36390,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,36391,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,36393,Bacterial Spot,3,3,Bacterial Spot,0.9999854564666748,True
+plantvillage,36398,Bacterial Spot,3,3,Bacterial Spot,0.9999322891235352,True
+plantvillage,36415,Bacterial Spot,3,3,Bacterial Spot,0.9999998807907104,True
+plantvillage,36421,Bacterial Spot,3,3,Bacterial Spot,0.9999916553497314,True
+plantvillage,36424,Bacterial Spot,3,3,Bacterial Spot,0.9997380375862122,True
+plantvillage,36428,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,36429,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,36431,Bacterial Spot,3,3,Bacterial Spot,0.9999969005584717,True
+plantvillage,36432,Bacterial Spot,3,3,Bacterial Spot,0.9999077320098877,True
+plantvillage,36440,Bacterial Spot,3,3,Bacterial Spot,0.9999033212661743,True
+plantvillage,36448,Bacterial Spot,3,3,Bacterial Spot,0.9999409914016724,True
+plantvillage,36451,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,36453,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,36454,Bacterial Spot,3,3,Bacterial Spot,0.999982476234436,True
+plantvillage,36461,Bacterial Spot,3,3,Bacterial Spot,0.9999603033065796,True
+plantvillage,36463,Bacterial Spot,3,3,Bacterial Spot,0.9999997615814209,True
+plantvillage,36476,Bacterial Spot,3,3,Bacterial Spot,0.9999992847442627,True
+plantvillage,36477,Bacterial Spot,3,3,Bacterial Spot,0.9999985694885254,True
+plantvillage,36480,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,36484,Bacterial Spot,3,3,Bacterial Spot,0.9999988079071045,True
+plantvillage,36485,Bacterial Spot,3,3,Bacterial Spot,0.9999880790710449,True
+plantvillage,36500,Bacterial Spot,3,3,Bacterial Spot,0.9999960660934448,True
+plantvillage,36504,Bacterial Spot,3,3,Bacterial Spot,0.9999978542327881,True
+plantvillage,36510,Bacterial Spot,3,3,Bacterial Spot,0.9999992847442627,True
+plantvillage,36514,Bacterial Spot,3,3,Bacterial Spot,0.9999797344207764,True
+plantvillage,36518,Bacterial Spot,3,3,Bacterial Spot,0.9999945163726807,True
+plantvillage,36520,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,36521,Bacterial Spot,3,3,Bacterial Spot,0.9999998807907104,True
+plantvillage,36522,Bacterial Spot,3,3,Bacterial Spot,0.9999994039535522,True
+plantvillage,36523,Bacterial Spot,3,3,Bacterial Spot,0.9999493360519409,True
+plantvillage,36524,Bacterial Spot,3,3,Bacterial Spot,0.9999700784683228,True
+plantvillage,36532,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,36539,Bacterial Spot,3,3,Bacterial Spot,0.9999443292617798,True
+plantvillage,36548,Bacterial Spot,3,3,Bacterial Spot,0.9999991655349731,True
+plantvillage,36563,Bacterial Spot,3,3,Bacterial Spot,0.999994158744812,True
+plantvillage,36565,Bacterial Spot,3,3,Bacterial Spot,0.9999984502792358,True
+plantvillage,36571,Bacterial Spot,3,3,Bacterial Spot,0.9997931122779846,True
+plantvillage,36574,Bacterial Spot,3,3,Bacterial Spot,0.9999998807907104,True
+plantvillage,36578,Bacterial Spot,3,3,Bacterial Spot,0.999962329864502,True
+plantvillage,36584,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,36599,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,36605,Bacterial Spot,3,3,Bacterial Spot,0.9999998807907104,True
+plantvillage,36607,Bacterial Spot,3,3,Bacterial Spot,0.9718323349952698,True
+plantvillage,36612,Bacterial Spot,3,3,Bacterial Spot,0.9999990463256836,True
+plantvillage,36613,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,36615,Bacterial Spot,3,3,Bacterial Spot,0.99997878074646,True
+plantvillage,36619,Bacterial Spot,3,3,Bacterial Spot,0.9999876022338867,True
+plantvillage,36627,Bacterial Spot,3,3,Bacterial Spot,0.9999991655349731,True
+plantvillage,36635,Bacterial Spot,3,3,Bacterial Spot,0.9031885266304016,True
+plantvillage,36636,Bacterial Spot,3,3,Bacterial Spot,0.9999955892562866,True
+plantvillage,36637,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,36650,Bacterial Spot,3,3,Bacterial Spot,0.9999998807907104,True
+plantvillage,36664,Bacterial Spot,3,3,Bacterial Spot,0.9999997615814209,True
+plantvillage,36668,Bacterial Spot,3,3,Bacterial Spot,0.9999841451644897,True
+plantvillage,36670,Bacterial Spot,3,3,Bacterial Spot,0.9999998807907104,True
+plantvillage,36671,Bacterial Spot,3,3,Bacterial Spot,0.9999998807907104,True
+plantvillage,36677,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,36684,Bacterial Spot,3,3,Bacterial Spot,0.9996521472930908,True
+plantvillage,36688,Bacterial Spot,3,3,Bacterial Spot,0.9988753199577332,True
+plantvillage,36698,Bacterial Spot,3,3,Bacterial Spot,0.9999939203262329,True
+plantvillage,36707,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,36708,Bacterial Spot,3,3,Bacterial Spot,0.9992389678955078,True
+plantvillage,36709,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,36712,Bacterial Spot,3,3,Bacterial Spot,0.9935926795005798,True
+plantvillage,36715,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,36717,Bacterial Spot,3,3,Bacterial Spot,0.9965188503265381,True
+plantvillage,36718,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,36722,Bacterial Spot,3,3,Bacterial Spot,0.999505877494812,True
+plantvillage,36732,Bacterial Spot,3,3,Bacterial Spot,0.9999960660934448,True
+plantvillage,36737,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,36740,Bacterial Spot,3,3,Bacterial Spot,0.9999983310699463,True
+plantvillage,36741,Bacterial Spot,3,3,Bacterial Spot,0.9995670914649963,True
+plantvillage,36748,Bacterial Spot,3,3,Bacterial Spot,0.9999992847442627,True
+plantvillage,36756,Bacterial Spot,3,3,Bacterial Spot,0.9999953508377075,True
+plantvillage,36782,Bacterial Spot,3,3,Bacterial Spot,0.9999996423721313,True
+plantvillage,36786,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,36788,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,36800,Bacterial Spot,3,3,Bacterial Spot,0.9995437264442444,True
+plantvillage,36804,Bacterial Spot,3,3,Bacterial Spot,0.9999980926513672,True
+plantvillage,36805,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,36813,Bacterial Spot,3,3,Bacterial Spot,0.9999980926513672,True
+plantvillage,36814,Bacterial Spot,3,3,Bacterial Spot,0.9999997615814209,True
+plantvillage,36817,Bacterial Spot,3,3,Bacterial Spot,0.9999961853027344,True
+plantvillage,36826,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,36830,Bacterial Spot,3,3,Bacterial Spot,0.9999796152114868,True
+plantvillage,36831,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,36869,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,36871,Bacterial Spot,3,3,Bacterial Spot,0.9999774694442749,True
+plantvillage,36888,Bacterial Spot,3,3,Bacterial Spot,0.9998718500137329,True
+plantvillage,36891,Bacterial Spot,3,3,Bacterial Spot,0.9999998807907104,True
+plantvillage,36897,Bacterial Spot,3,3,Bacterial Spot,0.9999934434890747,True
+plantvillage,36899,Bacterial Spot,3,3,Bacterial Spot,0.9999724626541138,True
+plantvillage,36902,Bacterial Spot,3,3,Bacterial Spot,0.9999833106994629,True
+plantvillage,36917,Bacterial Spot,3,3,Bacterial Spot,0.9999998807907104,True
+plantvillage,36920,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,36923,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,36932,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,36937,Bacterial Spot,3,3,Bacterial Spot,0.9999983310699463,True
+plantvillage,36938,Bacterial Spot,3,3,Bacterial Spot,0.9999158382415771,True
+plantvillage,36940,Bacterial Spot,3,3,Bacterial Spot,0.9999974966049194,True
+plantvillage,36947,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,36952,Bacterial Spot,3,3,Bacterial Spot,0.9999876022338867,True
+plantvillage,36955,Bacterial Spot,3,3,Bacterial Spot,0.9999972581863403,True
+plantvillage,36961,Bacterial Spot,3,3,Bacterial Spot,0.999980092048645,True
+plantvillage,36963,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,36970,Bacterial Spot,3,3,Bacterial Spot,0.9991907477378845,True
+plantvillage,36973,Bacterial Spot,3,3,Bacterial Spot,0.9999841451644897,True
+plantvillage,36991,Bacterial Spot,3,3,Bacterial Spot,0.9999983310699463,True
+plantvillage,36994,Bacterial Spot,3,3,Bacterial Spot,0.999987006187439,True
+plantvillage,37006,Bacterial Spot,3,3,Bacterial Spot,0.9999868869781494,True
+plantvillage,37017,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,37027,Bacterial Spot,3,3,Bacterial Spot,0.9999998807907104,True
+plantvillage,37040,Bacterial Spot,3,3,Bacterial Spot,0.9999971389770508,True
+plantvillage,37050,Bacterial Spot,3,3,Bacterial Spot,0.9999932050704956,True
+plantvillage,37052,Bacterial Spot,3,3,Bacterial Spot,0.9999988079071045,True
+plantvillage,37053,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,37059,Bacterial Spot,3,3,Bacterial Spot,0.9999998807907104,True
+plantvillage,37067,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,37068,Bacterial Spot,3,3,Bacterial Spot,0.999277651309967,True
+plantvillage,37073,Bacterial Spot,3,3,Bacterial Spot,0.9996261596679688,True
+plantvillage,37076,Bacterial Spot,3,3,Bacterial Spot,0.9999997615814209,True
+plantvillage,37078,Bacterial Spot,3,3,Bacterial Spot,0.9999924898147583,True
+plantvillage,37094,Bacterial Spot,3,3,Bacterial Spot,0.9999994039535522,True
+plantvillage,37099,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,37111,Bacterial Spot,3,3,Bacterial Spot,0.9999310970306396,True
+plantvillage,37112,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,37113,Bacterial Spot,3,3,Bacterial Spot,0.9991825222969055,True
+plantvillage,37115,Bacterial Spot,3,3,Bacterial Spot,0.9999909400939941,True
+plantvillage,37117,Bacterial Spot,3,3,Bacterial Spot,0.9999818801879883,True
+plantvillage,37130,Bacterial Spot,3,3,Bacterial Spot,0.9999995231628418,True
+plantvillage,37137,Bacterial Spot,3,3,Bacterial Spot,0.9999901056289673,True
+plantvillage,37138,Bacterial Spot,3,3,Bacterial Spot,0.9998873472213745,True
+plantvillage,37139,Bacterial Spot,3,3,Bacterial Spot,0.9998493194580078,True
+plantvillage,37148,Bacterial Spot,3,3,Bacterial Spot,0.9999970197677612,True
+plantvillage,37149,Bacterial Spot,3,3,Bacterial Spot,0.9999797344207764,True
+plantvillage,37152,Bacterial Spot,3,3,Bacterial Spot,0.9986415505409241,True
+plantvillage,37157,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,37158,Bacterial Spot,3,3,Bacterial Spot,0.9999396800994873,True
+plantvillage,37160,Bacterial Spot,3,3,Bacterial Spot,0.9999958276748657,True
+plantvillage,37162,Bacterial Spot,3,3,Bacterial Spot,0.9999901056289673,True
+plantvillage,37168,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,37174,Bacterial Spot,3,3,Bacterial Spot,0.999988317489624,True
+plantvillage,37176,Bacterial Spot,3,3,Bacterial Spot,0.9999758005142212,True
+plantvillage,37180,Bacterial Spot,3,3,Bacterial Spot,0.9999984502792358,True
+plantvillage,37181,Bacterial Spot,3,3,Bacterial Spot,0.9969164133071899,True
+plantvillage,37191,Bacterial Spot,3,3,Bacterial Spot,0.9999992847442627,True
+plantvillage,37206,Bacterial Spot,3,3,Bacterial Spot,0.9999550580978394,True
+plantvillage,37216,Bacterial Spot,3,3,Bacterial Spot,0.9999978542327881,True
+plantvillage,37221,Bacterial Spot,3,3,Bacterial Spot,0.9999995231628418,True
+plantvillage,37223,Bacterial Spot,3,3,Bacterial Spot,0.9995094537734985,True
+plantvillage,37226,Bacterial Spot,3,3,Bacterial Spot,0.999990701675415,True
+plantvillage,37228,Bacterial Spot,3,3,Bacterial Spot,0.9997956156730652,True
+plantvillage,37231,Bacterial Spot,3,3,Bacterial Spot,0.9991902709007263,True
+plantvillage,37235,Bacterial Spot,3,3,Bacterial Spot,0.9999531507492065,True
+plantvillage,37237,Bacterial Spot,3,3,Bacterial Spot,0.9999995231628418,True
+plantvillage,37243,Bacterial Spot,3,3,Bacterial Spot,0.9977739453315735,True
+plantvillage,37245,Bacterial Spot,3,3,Bacterial Spot,0.9999790191650391,True
+plantvillage,37252,Bacterial Spot,3,3,Bacterial Spot,0.9983534812927246,True
+plantvillage,37261,Bacterial Spot,3,3,Bacterial Spot,0.9999619722366333,True
+plantvillage,37262,Bacterial Spot,3,3,Bacterial Spot,0.9999988079071045,True
+plantvillage,37263,Bacterial Spot,3,3,Bacterial Spot,0.9999954700469971,True
+plantvillage,37264,Bacterial Spot,3,3,Bacterial Spot,0.9988780617713928,True
+plantvillage,37271,Bacterial Spot,3,3,Bacterial Spot,0.9999892711639404,True
+plantvillage,37272,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,37290,Bacterial Spot,3,3,Bacterial Spot,0.9999544620513916,True
+plantvillage,37292,Bacterial Spot,3,3,Bacterial Spot,0.9999994039535522,True
+plantvillage,37296,Bacterial Spot,3,3,Bacterial Spot,0.9999997615814209,True
+plantvillage,37298,Bacterial Spot,3,3,Bacterial Spot,0.9999828338623047,True
+plantvillage,37308,Bacterial Spot,3,3,Bacterial Spot,0.9999966621398926,True
+plantvillage,37318,Bacterial Spot,3,3,Bacterial Spot,0.9999997615814209,True
+plantvillage,37328,Bacterial Spot,3,3,Bacterial Spot,0.9999998807907104,True
+plantvillage,37332,Bacterial Spot,3,3,Bacterial Spot,0.9998103976249695,True
+plantvillage,37339,Bacterial Spot,3,3,Bacterial Spot,0.9999929666519165,True
+plantvillage,37341,Bacterial Spot,3,3,Bacterial Spot,0.9998770952224731,True
+plantvillage,37343,Bacterial Spot,3,3,Bacterial Spot,0.9999139308929443,True
+plantvillage,37349,Bacterial Spot,3,3,Bacterial Spot,0.9765732288360596,True
+plantvillage,37351,Bacterial Spot,3,3,Bacterial Spot,0.9999996423721313,True
+plantvillage,37357,Bacterial Spot,3,3,Bacterial Spot,0.9999986886978149,True
+plantvillage,37374,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,37378,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,37383,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,37403,Bacterial Spot,3,3,Bacterial Spot,0.9998793601989746,True
+plantvillage,37408,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,37409,Bacterial Spot,3,3,Bacterial Spot,0.9997969269752502,True
+plantvillage,37416,Bacterial Spot,3,3,Bacterial Spot,0.9999997615814209,True
+plantvillage,37419,Bacterial Spot,3,3,Bacterial Spot,0.9999333620071411,True
+plantvillage,37423,Bacterial Spot,3,3,Bacterial Spot,0.9993035793304443,True
+plantvillage,37442,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,37443,Bacterial Spot,3,3,Bacterial Spot,0.9999997615814209,True
+plantvillage,37444,Bacterial Spot,3,3,Bacterial Spot,0.9999946355819702,True
+plantvillage,37451,Bacterial Spot,3,3,Bacterial Spot,0.9999703168869019,True
+plantvillage,37456,Bacterial Spot,3,3,Bacterial Spot,0.9998492002487183,True
+plantvillage,37457,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,37467,Bacterial Spot,3,3,Bacterial Spot,0.999996542930603,True
+plantvillage,37471,Bacterial Spot,3,3,Bacterial Spot,0.9999850988388062,True
+plantvillage,37473,Bacterial Spot,3,3,Bacterial Spot,0.9999864101409912,True
+plantvillage,37475,Bacterial Spot,3,3,Bacterial Spot,0.9905505180358887,True
+plantvillage,37476,Bacterial Spot,3,3,Bacterial Spot,0.9999576807022095,True
+plantvillage,37478,Bacterial Spot,3,3,Bacterial Spot,0.9999796152114868,True
+plantvillage,37479,Bacterial Spot,3,3,Bacterial Spot,0.999981164932251,True
+plantvillage,37488,Bacterial Spot,3,3,Bacterial Spot,0.9999994039535522,True
+plantvillage,37492,Bacterial Spot,3,3,Bacterial Spot,0.9999995231628418,True
+plantvillage,37497,Bacterial Spot,3,3,Bacterial Spot,0.9999591112136841,True
+plantvillage,37499,Bacterial Spot,3,3,Bacterial Spot,0.9830054640769958,True
+plantvillage,37502,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,37503,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,37504,Bacterial Spot,3,3,Bacterial Spot,0.9994901418685913,True
+plantvillage,37512,Bacterial Spot,3,3,Bacterial Spot,0.9999189376831055,True
+plantvillage,37513,Bacterial Spot,3,3,Bacterial Spot,0.9999998807907104,True
+plantvillage,37526,Bacterial Spot,3,3,Bacterial Spot,0.9893652200698853,True
+plantvillage,37533,Bacterial Spot,3,3,Bacterial Spot,0.999769389629364,True
+plantvillage,37535,Bacterial Spot,3,3,Bacterial Spot,0.9999996423721313,True
+plantvillage,37537,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,37538,Bacterial Spot,3,3,Bacterial Spot,0.999650239944458,True
+plantvillage,37540,Bacterial Spot,3,3,Bacterial Spot,0.9999926090240479,True
+plantvillage,37543,Bacterial Spot,3,3,Bacterial Spot,0.9999805688858032,True
+plantvillage,37553,Bacterial Spot,3,3,Bacterial Spot,0.9999996423721313,True
+plantvillage,37559,Bacterial Spot,3,3,Bacterial Spot,0.9999997615814209,True
+plantvillage,37560,Bacterial Spot,3,3,Bacterial Spot,0.9999998807907104,True
+plantvillage,37562,Bacterial Spot,3,3,Bacterial Spot,0.9996155500411987,True
+plantvillage,37568,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,37570,Bacterial Spot,3,3,Bacterial Spot,0.9999996423721313,True
+plantvillage,37574,Bacterial Spot,3,3,Bacterial Spot,0.9959936141967773,True
+plantvillage,37579,Bacterial Spot,3,3,Bacterial Spot,0.9999284744262695,True
+plantvillage,37589,Bacterial Spot,3,3,Bacterial Spot,0.9999496936798096,True
+plantvillage,37594,Bacterial Spot,3,3,Bacterial Spot,0.9996009469032288,True
+plantvillage,37608,Bacterial Spot,3,3,Bacterial Spot,0.9999998807907104,True
+plantvillage,37611,Bacterial Spot,3,3,Bacterial Spot,0.9999762773513794,True
+plantvillage,37619,Bacterial Spot,3,3,Bacterial Spot,0.9999909400939941,True
+plantvillage,37621,Bacterial Spot,3,3,Bacterial Spot,0.9999960660934448,True
+plantvillage,37622,Bacterial Spot,3,3,Bacterial Spot,0.9805082678794861,True
+plantvillage,37627,Bacterial Spot,3,3,Bacterial Spot,0.9999998807907104,True
+plantvillage,37629,Bacterial Spot,3,3,Bacterial Spot,0.9999996423721313,True
+plantvillage,37645,Bacterial Spot,3,3,Bacterial Spot,0.9999998807907104,True
+plantvillage,37646,Bacterial Spot,3,3,Bacterial Spot,0.9999809265136719,True
+plantvillage,37647,Bacterial Spot,3,3,Bacterial Spot,0.9999938011169434,True
+plantvillage,37651,Bacterial Spot,3,3,Bacterial Spot,0.9965708255767822,True
+plantvillage,37654,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,37663,Bacterial Spot,3,3,Bacterial Spot,0.9999997615814209,True
+plantvillage,37665,Bacterial Spot,3,3,Bacterial Spot,0.9999651908874512,True
+plantvillage,37669,Bacterial Spot,3,3,Bacterial Spot,0.9999463558197021,True
+plantvillage,37671,Bacterial Spot,3,3,Bacterial Spot,0.9991722106933594,True
+plantvillage,37672,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,37673,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,37687,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,37689,Bacterial Spot,3,3,Bacterial Spot,0.9999759197235107,True
+plantvillage,37693,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,37694,Bacterial Spot,3,3,Bacterial Spot,0.9999997615814209,True
+plantvillage,37705,Bacterial Spot,3,3,Bacterial Spot,0.9999998807907104,True
+plantvillage,37707,Bacterial Spot,3,3,Bacterial Spot,0.9999998807907104,True
+plantvillage,37711,Bacterial Spot,3,3,Bacterial Spot,0.9999855756759644,True
+plantvillage,37715,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,37741,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,37745,Bacterial Spot,3,3,Bacterial Spot,0.9999961853027344,True
+plantvillage,37746,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,37748,Bacterial Spot,3,3,Bacterial Spot,0.999891996383667,True
+plantvillage,37749,Bacterial Spot,3,3,Bacterial Spot,0.9999948740005493,True
+plantvillage,37755,Bacterial Spot,3,3,Bacterial Spot,0.9999998807907104,True
+plantvillage,37756,Bacterial Spot,3,3,Bacterial Spot,0.999985933303833,True
+plantvillage,37757,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,37761,Bacterial Spot,3,3,Bacterial Spot,0.999998927116394,True
+plantvillage,37769,Bacterial Spot,3,3,Bacterial Spot,0.9999922513961792,True
+plantvillage,37771,Bacterial Spot,3,3,Bacterial Spot,0.9995890259742737,True
+plantvillage,37776,Bacterial Spot,3,3,Bacterial Spot,0.999992847442627,True
+plantvillage,37786,Bacterial Spot,3,3,Bacterial Spot,0.9998382329940796,True
+plantvillage,37789,Bacterial Spot,3,3,Bacterial Spot,0.9999996423721313,True
+plantvillage,37797,Bacterial Spot,3,3,Bacterial Spot,0.9999940395355225,True
+plantvillage,37801,Bacterial Spot,3,3,Bacterial Spot,0.999707043170929,True
+plantvillage,37804,Bacterial Spot,3,3,Bacterial Spot,0.9551807045936584,True
+plantvillage,37807,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,37810,Bacterial Spot,3,3,Bacterial Spot,0.9999996423721313,True
+plantvillage,37815,Bacterial Spot,3,3,Bacterial Spot,0.9999439716339111,True
+plantvillage,37820,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,37829,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,37830,Bacterial Spot,3,3,Bacterial Spot,0.9999679327011108,True
+plantvillage,37831,Bacterial Spot,3,3,Bacterial Spot,0.9948337078094482,True
+plantvillage,37834,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,37836,Bacterial Spot,3,3,Bacterial Spot,0.9999970197677612,True
+plantvillage,37838,Bacterial Spot,3,3,Bacterial Spot,0.9999998807907104,True
+plantvillage,37845,Bacterial Spot,3,3,Bacterial Spot,0.9998764991760254,True
+plantvillage,37851,Bacterial Spot,3,3,Bacterial Spot,0.9999978542327881,True
+plantvillage,37852,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,37853,Bacterial Spot,3,3,Bacterial Spot,0.9996877908706665,True
+plantvillage,37855,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,37857,Bacterial Spot,3,3,Bacterial Spot,0.9999998807907104,True
+plantvillage,37861,Bacterial Spot,3,3,Bacterial Spot,0.9932721257209778,True
+plantvillage,37867,Bacterial Spot,3,3,Bacterial Spot,0.9999833106994629,True
+plantvillage,37870,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,37872,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,37880,Bacterial Spot,3,3,Bacterial Spot,0.9999996423721313,True
+plantvillage,37884,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,37893,Bacterial Spot,3,3,Bacterial Spot,0.9999983310699463,True
+plantvillage,37894,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,37897,Bacterial Spot,3,3,Bacterial Spot,0.9999872446060181,True
+plantvillage,37903,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,37906,Bacterial Spot,3,3,Bacterial Spot,0.9999990463256836,True
+plantvillage,37909,Bacterial Spot,3,3,Bacterial Spot,0.9999997615814209,True
+plantvillage,37914,Bacterial Spot,3,3,Bacterial Spot,0.9999408721923828,True
+plantvillage,37919,Bacterial Spot,3,3,Bacterial Spot,0.6999848484992981,True
+plantvillage,37925,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,37927,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,37928,Bacterial Spot,3,3,Bacterial Spot,0.999517560005188,True
+plantvillage,37938,Bacterial Spot,3,3,Bacterial Spot,0.9999996423721313,True
+plantvillage,37940,Bacterial Spot,3,3,Bacterial Spot,0.9999892711639404,True
+plantvillage,37945,Bacterial Spot,3,3,Bacterial Spot,0.9999990463256836,True
+plantvillage,37947,Bacterial Spot,3,3,Bacterial Spot,0.9999525547027588,True
+plantvillage,37956,Bacterial Spot,3,3,Bacterial Spot,0.9703335165977478,True
+plantvillage,37959,Bacterial Spot,3,3,Bacterial Spot,0.9999994039535522,True
+plantvillage,37961,Bacterial Spot,3,3,Bacterial Spot,0.9999997615814209,True
+plantvillage,37964,Bacterial Spot,3,3,Bacterial Spot,0.9999703168869019,True
+plantvillage,37965,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,37967,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,37968,Bacterial Spot,3,3,Bacterial Spot,0.9999997615814209,True
+plantvillage,37987,Bacterial Spot,3,3,Bacterial Spot,0.9979107975959778,True
+plantvillage,37989,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,37992,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,37993,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,37995,Bacterial Spot,3,3,Bacterial Spot,0.9999945163726807,True
+plantvillage,38003,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,38005,Bacterial Spot,3,3,Bacterial Spot,0.9999840259552002,True
+plantvillage,38007,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,38010,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,38016,Bacterial Spot,3,3,Bacterial Spot,0.999992847442627,True
+plantvillage,38035,Bacterial Spot,3,3,Bacterial Spot,0.9999809265136719,True
+plantvillage,38038,Bacterial Spot,3,3,Bacterial Spot,0.9999998807907104,True
+plantvillage,38043,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,38044,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,38045,Bacterial Spot,3,3,Bacterial Spot,0.9999998807907104,True
+plantvillage,38049,Bacterial Spot,3,3,Bacterial Spot,0.9999997615814209,True
+plantvillage,38071,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,38072,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,38073,Bacterial Spot,3,3,Bacterial Spot,0.9999949932098389,True
+plantvillage,38075,Bacterial Spot,3,3,Bacterial Spot,0.9999997615814209,True
+plantvillage,38076,Bacterial Spot,3,3,Bacterial Spot,0.9999990463256836,True
+plantvillage,38080,Bacterial Spot,3,3,Bacterial Spot,0.9999918937683105,True
+plantvillage,38083,Bacterial Spot,3,3,Bacterial Spot,0.9999986886978149,True
+plantvillage,38102,Bacterial Spot,3,3,Bacterial Spot,0.9999985694885254,True
+plantvillage,38103,Bacterial Spot,3,3,Bacterial Spot,0.9999982118606567,True
+plantvillage,38107,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,38122,Bacterial Spot,3,3,Bacterial Spot,0.999995231628418,True
+plantvillage,38126,Bacterial Spot,3,3,Bacterial Spot,0.9999997615814209,True
+plantvillage,38132,Bacterial Spot,3,3,Bacterial Spot,0.9998856782913208,True
+plantvillage,38141,Bacterial Spot,3,3,Bacterial Spot,0.5105553269386292,True
+plantvillage,38147,Bacterial Spot,3,3,Bacterial Spot,0.9797157049179077,True
+plantvillage,38148,Bacterial Spot,3,3,Bacterial Spot,0.9999998807907104,True
+plantvillage,38149,Bacterial Spot,3,3,Bacterial Spot,0.9998266100883484,True
+plantvillage,38152,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,38153,Bacterial Spot,3,3,Bacterial Spot,0.9999951124191284,True
+plantvillage,38157,Bacterial Spot,3,3,Bacterial Spot,0.9999997615814209,True
+plantvillage,38159,Bacterial Spot,3,3,Bacterial Spot,0.9999997615814209,True
+plantvillage,38161,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,38162,Bacterial Spot,3,3,Bacterial Spot,0.9999997615814209,True
+plantvillage,38165,Bacterial Spot,3,3,Bacterial Spot,0.9999582767486572,True
+plantvillage,38178,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,38179,Bacterial Spot,3,3,Bacterial Spot,0.9999922513961792,True
+plantvillage,38184,Bacterial Spot,3,3,Bacterial Spot,0.9997552037239075,True
+plantvillage,38186,Bacterial Spot,3,3,Bacterial Spot,0.99979168176651,True
+plantvillage,38189,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,38204,Bacterial Spot,3,3,Bacterial Spot,0.9999603033065796,True
+plantvillage,38205,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,38208,Bacterial Spot,3,3,Bacterial Spot,0.9999926090240479,True
+plantvillage,38211,Bacterial Spot,3,3,Bacterial Spot,0.9999998807907104,True
+plantvillage,38215,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,38216,Bacterial Spot,3,3,Bacterial Spot,0.999985933303833,True
+plantvillage,38217,Bacterial Spot,3,3,Bacterial Spot,0.9999173879623413,True
+plantvillage,38218,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,38231,Bacterial Spot,3,3,Bacterial Spot,0.9999819993972778,True
+plantvillage,38249,Bacterial Spot,3,3,Bacterial Spot,1.0,True
+plantvillage,38257,Bacterial Spot,3,3,Bacterial Spot,0.9999876022338867,True
+plantvillage,38263,Bacterial Spot,3,3,Bacterial Spot,0.9999992847442627,True
+plantvillage,38264,Bacterial Spot,3,3,Bacterial Spot,0.9999874830245972,True
+plantvillage,38266,Bacterial Spot,3,3,Bacterial Spot,0.9999408721923828,True
+plantvillage,38267,Bacterial Spot,3,3,Bacterial Spot,0.8408666849136353,True
+plantvillage,38275,Early Blight,1,1,Early Blight,0.9697566032409668,True
+plantvillage,38281,Early Blight,1,1,Early Blight,0.9999673366546631,True
+plantvillage,38288,Early Blight,1,1,Early Blight,0.9971038699150085,True
+plantvillage,38289,Early Blight,1,1,Early Blight,0.9999960660934448,True
+plantvillage,38292,Early Blight,1,1,Early Blight,0.9999911785125732,True
+plantvillage,38305,Early Blight,1,1,Early Blight,0.9993427395820618,True
+plantvillage,38312,Early Blight,1,1,Early Blight,0.999886155128479,True
+plantvillage,38318,Early Blight,1,1,Early Blight,0.9999697208404541,True
+plantvillage,38322,Early Blight,1,1,Early Blight,0.9744283556938171,True
+plantvillage,38323,Early Blight,1,1,Early Blight,0.9941722750663757,True
+plantvillage,38325,Early Blight,1,1,Early Blight,0.9822267293930054,True
+plantvillage,38329,Early Blight,1,1,Early Blight,0.8710150122642517,True
+plantvillage,38337,Early Blight,1,1,Early Blight,0.999998927116394,True
+plantvillage,38348,Early Blight,1,1,Early Blight,0.892223060131073,True
+plantvillage,38351,Early Blight,1,1,Early Blight,0.999721109867096,True
+plantvillage,38354,Early Blight,1,1,Early Blight,0.7415052652359009,True
+plantvillage,38355,Early Blight,1,1,Early Blight,0.9992814660072327,True
+plantvillage,38358,Early Blight,1,1,Early Blight,0.9425352215766907,True
+plantvillage,38365,Early Blight,1,1,Early Blight,0.9999916553497314,True
+plantvillage,38370,Early Blight,1,1,Early Blight,0.9684514999389648,True
+plantvillage,38371,Early Blight,1,1,Early Blight,0.9465593695640564,True
+plantvillage,38383,Early Blight,1,1,Early Blight,0.9999982118606567,True
+plantvillage,38384,Early Blight,1,1,Early Blight,1.0,True
+plantvillage,38386,Early Blight,1,1,Early Blight,0.9999971389770508,True
+plantvillage,38394,Early Blight,1,1,Early Blight,0.9505169987678528,True
+plantvillage,38398,Early Blight,1,1,Early Blight,1.0,True
+plantvillage,38400,Early Blight,1,0,Healthy,0.9033472537994385,False
+plantvillage,38402,Early Blight,1,1,Early Blight,0.9999978542327881,True
+plantvillage,38406,Early Blight,1,1,Early Blight,0.9985044002532959,True
+plantvillage,38413,Early Blight,1,1,Early Blight,0.9999946355819702,True
+plantvillage,38419,Early Blight,1,1,Early Blight,0.9961877465248108,True
+plantvillage,38422,Early Blight,1,1,Early Blight,0.9999997615814209,True
+plantvillage,38423,Early Blight,1,1,Early Blight,0.9868448972702026,True
+plantvillage,38424,Early Blight,1,1,Early Blight,0.9995607733726501,True
+plantvillage,38425,Early Blight,1,1,Early Blight,0.9998894929885864,True
+plantvillage,38427,Early Blight,1,4,Septoria Leaf Spot,0.478022038936615,False
+plantvillage,38428,Early Blight,1,1,Early Blight,0.9965746402740479,True
+plantvillage,38432,Early Blight,1,1,Early Blight,0.9999375343322754,True
+plantvillage,38440,Early Blight,1,1,Early Blight,0.9999990463256836,True
+plantvillage,38446,Early Blight,1,1,Early Blight,0.9999878406524658,True
+plantvillage,38449,Early Blight,1,1,Early Blight,0.999997615814209,True
+plantvillage,38451,Early Blight,1,1,Early Blight,0.9933369159698486,True
+plantvillage,38466,Early Blight,1,1,Early Blight,0.999885082244873,True
+plantvillage,38473,Early Blight,1,1,Early Blight,0.9979639053344727,True
+plantvillage,38477,Early Blight,1,1,Early Blight,0.9984801411628723,True
+plantvillage,38483,Early Blight,1,1,Early Blight,0.6384316682815552,True
+plantvillage,38486,Early Blight,1,1,Early Blight,0.9720914959907532,True
+plantvillage,38490,Early Blight,1,1,Early Blight,0.9999812841415405,True
+plantvillage,38495,Early Blight,1,1,Early Blight,0.9998576641082764,True
+plantvillage,38496,Early Blight,1,1,Early Blight,0.999985933303833,True
+plantvillage,38498,Early Blight,1,1,Early Blight,0.9999150037765503,True
+plantvillage,38502,Early Blight,1,1,Early Blight,0.998370349407196,True
+plantvillage,38507,Early Blight,1,1,Early Blight,0.9996552467346191,True
+plantvillage,38515,Early Blight,1,1,Early Blight,0.9894943833351135,True
+plantvillage,38519,Early Blight,1,1,Early Blight,0.9997515082359314,True
+plantvillage,38520,Early Blight,1,1,Early Blight,0.6707362532615662,True
+plantvillage,38527,Early Blight,1,1,Early Blight,0.9996155500411987,True
+plantvillage,38537,Early Blight,1,1,Early Blight,0.9938644766807556,True
+plantvillage,38544,Early Blight,1,1,Early Blight,0.9999099969863892,True
+plantvillage,38548,Early Blight,1,1,Early Blight,0.8320242762565613,True
+plantvillage,38561,Early Blight,1,1,Early Blight,0.9909070730209351,True
+plantvillage,38564,Early Blight,1,1,Early Blight,0.999650239944458,True
+plantvillage,38568,Early Blight,1,1,Early Blight,0.9999544620513916,True
+plantvillage,38576,Early Blight,1,1,Early Blight,0.9999997615814209,True
+plantvillage,38579,Early Blight,1,2,Late Blight,0.8613216280937195,False
+plantvillage,38592,Early Blight,1,1,Early Blight,0.9999998807907104,True
+plantvillage,38601,Early Blight,1,4,Septoria Leaf Spot,0.8278809189796448,False
+plantvillage,38602,Early Blight,1,1,Early Blight,0.9995419979095459,True
+plantvillage,38605,Early Blight,1,1,Early Blight,0.9995654225349426,True
+plantvillage,38611,Early Blight,1,1,Early Blight,0.9949107766151428,True
+plantvillage,38620,Early Blight,1,1,Early Blight,0.9999189376831055,True
+plantvillage,38621,Early Blight,1,1,Early Blight,0.7627191543579102,True
+plantvillage,38624,Early Blight,1,1,Early Blight,0.9999994039535522,True
+plantvillage,38625,Early Blight,1,1,Early Blight,0.9999994039535522,True
+plantvillage,38641,Early Blight,1,1,Early Blight,0.9953255653381348,True
+plantvillage,38644,Early Blight,1,1,Early Blight,0.9999964237213135,True
+plantvillage,38653,Early Blight,1,1,Early Blight,0.999945878982544,True
+plantvillage,38654,Early Blight,1,1,Early Blight,1.0,True
+plantvillage,38657,Early Blight,1,1,Early Blight,0.9788875579833984,True
+plantvillage,38661,Early Blight,1,1,Early Blight,0.9999997615814209,True
+plantvillage,38671,Early Blight,1,1,Early Blight,0.9999963045120239,True
+plantvillage,38680,Early Blight,1,1,Early Blight,0.9999873638153076,True
+plantvillage,38687,Early Blight,1,1,Early Blight,0.9998738765716553,True
+plantvillage,38695,Early Blight,1,4,Septoria Leaf Spot,0.7163496613502502,False
+plantvillage,38700,Early Blight,1,1,Early Blight,0.9999995231628418,True
+plantvillage,38705,Early Blight,1,1,Early Blight,0.9761693477630615,True
+plantvillage,38713,Early Blight,1,4,Septoria Leaf Spot,0.8130120635032654,False
+plantvillage,38716,Early Blight,1,1,Early Blight,0.9989211559295654,True
+plantvillage,38722,Early Blight,1,1,Early Blight,0.9999984502792358,True
+plantvillage,38726,Early Blight,1,1,Early Blight,0.9998620748519897,True
+plantvillage,38737,Early Blight,1,1,Early Blight,0.9569317102432251,True
+plantvillage,38742,Early Blight,1,1,Early Blight,0.9999797344207764,True
+plantvillage,38746,Early Blight,1,1,Early Blight,0.9999964237213135,True
+plantvillage,38758,Early Blight,1,1,Early Blight,0.9999785423278809,True
+plantvillage,38768,Early Blight,1,1,Early Blight,0.9352092146873474,True
+plantvillage,38774,Early Blight,1,1,Early Blight,0.9925138354301453,True
+plantvillage,38775,Early Blight,1,1,Early Blight,0.9999960660934448,True
+plantvillage,38794,Early Blight,1,1,Early Blight,0.986396074295044,True
+plantvillage,38801,Early Blight,1,1,Early Blight,0.9999006986618042,True
+plantvillage,38815,Early Blight,1,1,Early Blight,0.9999932050704956,True
+plantvillage,38816,Early Blight,1,1,Early Blight,0.9999839067459106,True
+plantvillage,38817,Early Blight,1,1,Early Blight,0.9981599450111389,True
+plantvillage,38825,Early Blight,1,1,Early Blight,0.7634274959564209,True
+plantvillage,38827,Early Blight,1,1,Early Blight,0.9999985694885254,True
+plantvillage,38829,Early Blight,1,1,Early Blight,0.9996330738067627,True
+plantvillage,38832,Early Blight,1,1,Early Blight,0.9721439480781555,True
+plantvillage,38833,Early Blight,1,1,Early Blight,0.9984446167945862,True
+plantvillage,38834,Early Blight,1,1,Early Blight,1.0,True
+plantvillage,38837,Early Blight,1,1,Early Blight,0.9999812841415405,True
+plantvillage,38844,Early Blight,1,1,Early Blight,0.9999938011169434,True
+plantvillage,38861,Early Blight,1,1,Early Blight,0.9999850988388062,True
+plantvillage,38868,Early Blight,1,1,Early Blight,0.9802518486976624,True
+plantvillage,38880,Early Blight,1,1,Early Blight,0.9833074808120728,True
+plantvillage,38883,Early Blight,1,1,Early Blight,0.965193510055542,True
+plantvillage,38885,Early Blight,1,3,Bacterial Spot,0.88982754945755,False
+plantvillage,38886,Early Blight,1,1,Early Blight,0.9999549388885498,True
+plantvillage,38889,Early Blight,1,4,Septoria Leaf Spot,0.6200745701789856,False
+plantvillage,38891,Early Blight,1,1,Early Blight,0.9969504475593567,True
+plantvillage,38893,Early Blight,1,1,Early Blight,0.8139858841896057,True
+plantvillage,38894,Early Blight,1,1,Early Blight,0.6104791760444641,True
+plantvillage,38895,Early Blight,1,1,Early Blight,0.9999637603759766,True
+plantvillage,38896,Early Blight,1,1,Early Blight,0.9915792942047119,True
+plantvillage,38897,Early Blight,1,4,Septoria Leaf Spot,0.7710636854171753,False
+plantvillage,38907,Early Blight,1,1,Early Blight,0.9998394250869751,True
+plantvillage,38914,Early Blight,1,1,Early Blight,0.9999973773956299,True
+plantvillage,38916,Early Blight,1,1,Early Blight,0.9923503994941711,True
+plantvillage,38917,Early Blight,1,1,Early Blight,0.9999995231628418,True
+plantvillage,38919,Early Blight,1,1,Early Blight,0.9996131062507629,True
+plantvillage,38931,Early Blight,1,1,Early Blight,0.9998942613601685,True
+plantvillage,38932,Early Blight,1,1,Early Blight,0.9997599720954895,True
+plantvillage,38933,Early Blight,1,1,Early Blight,0.9999951124191284,True
+plantvillage,38936,Early Blight,1,1,Early Blight,0.9994729161262512,True
+plantvillage,38938,Early Blight,1,1,Early Blight,0.9879217743873596,True
+plantvillage,38939,Early Blight,1,1,Early Blight,0.979191243648529,True
+plantvillage,38958,Early Blight,1,1,Early Blight,0.9999984502792358,True
+plantvillage,38964,Early Blight,1,1,Early Blight,0.9999969005584717,True
+plantvillage,38966,Early Blight,1,1,Early Blight,0.9996849298477173,True
+plantvillage,38977,Early Blight,1,1,Early Blight,0.806469202041626,True
+plantvillage,38978,Early Blight,1,1,Early Blight,0.9993215799331665,True
+plantvillage,38998,Early Blight,1,1,Early Blight,0.9999933242797852,True
+plantvillage,39003,Early Blight,1,1,Early Blight,0.9937757253646851,True
+plantvillage,39004,Early Blight,1,1,Early Blight,0.9999550580978394,True
+plantvillage,39015,Early Blight,1,1,Early Blight,0.9999932050704956,True
+plantvillage,39016,Early Blight,1,1,Early Blight,0.9998507499694824,True
+plantvillage,39024,Early Blight,1,1,Early Blight,0.9999179840087891,True
+plantvillage,39025,Early Blight,1,1,Early Blight,0.999115526676178,True
+plantvillage,39037,Early Blight,1,1,Early Blight,0.9998112320899963,True
+plantvillage,39040,Early Blight,1,1,Early Blight,0.9999566078186035,True
+plantvillage,39044,Early Blight,1,1,Early Blight,0.9932284951210022,True
+plantvillage,39050,Early Blight,1,1,Early Blight,0.9999492168426514,True
+plantvillage,39055,Early Blight,1,1,Early Blight,0.9986991882324219,True
+plantvillage,39071,Early Blight,1,1,Early Blight,0.9999744892120361,True
+plantvillage,39075,Early Blight,1,1,Early Blight,0.9949407577514648,True
+plantvillage,39078,Early Blight,1,1,Early Blight,0.9589133858680725,True
+plantvillage,39079,Early Blight,1,1,Early Blight,0.9998805522918701,True
+plantvillage,39080,Early Blight,1,1,Early Blight,0.9999651908874512,True
+plantvillage,39086,Early Blight,1,1,Early Blight,0.9999659061431885,True
+plantvillage,39090,Early Blight,1,1,Early Blight,0.9996674060821533,True
+plantvillage,39094,Early Blight,1,1,Early Blight,0.8792830109596252,True
+plantvillage,39112,Early Blight,1,1,Early Blight,0.9999171495437622,True
+plantvillage,39113,Early Blight,1,1,Early Blight,0.9999887943267822,True
+plantvillage,39122,Early Blight,1,1,Early Blight,0.9998770952224731,True
+plantvillage,39125,Early Blight,1,1,Early Blight,0.9999972581863403,True
+plantvillage,39140,Early Blight,1,1,Early Blight,0.9999994039535522,True
+plantvillage,39141,Early Blight,1,1,Early Blight,0.9999994039535522,True
+plantvillage,39143,Early Blight,1,1,Early Blight,0.9983749389648438,True
+plantvillage,39144,Early Blight,1,1,Early Blight,0.9998730421066284,True
+plantvillage,39147,Early Blight,1,1,Early Blight,0.9999405145645142,True
+plantvillage,39148,Early Blight,1,1,Early Blight,0.99986732006073,True
+plantvillage,39149,Early Blight,1,1,Early Blight,0.9996671676635742,True
+plantvillage,39150,Early Blight,1,1,Early Blight,0.9999195337295532,True
+plantvillage,39151,Early Blight,1,1,Early Blight,0.9999996423721313,True
+plantvillage,39156,Early Blight,1,1,Early Blight,0.9996767044067383,True
+plantvillage,39167,Early Blight,1,1,Early Blight,0.8510345220565796,True
+plantvillage,39170,Early Blight,1,1,Early Blight,0.9786084294319153,True
+plantvillage,39171,Early Blight,1,1,Early Blight,0.999937891960144,True
+plantvillage,39187,Early Blight,1,1,Early Blight,0.99953293800354,True
+plantvillage,39189,Early Blight,1,1,Early Blight,0.9903712868690491,True
+plantvillage,39193,Early Blight,1,1,Early Blight,0.9999648332595825,True
+plantvillage,39197,Early Blight,1,1,Early Blight,0.9966055154800415,True
+plantvillage,39210,Early Blight,1,1,Early Blight,1.0,True
+plantvillage,39211,Early Blight,1,1,Early Blight,0.9999994039535522,True
+plantvillage,39212,Early Blight,1,1,Early Blight,0.9999960660934448,True
+plantvillage,39213,Early Blight,1,1,Early Blight,0.9999454021453857,True
+plantvillage,39215,Early Blight,1,1,Early Blight,0.9960111379623413,True
+plantvillage,39228,Early Blight,1,2,Late Blight,0.6694214940071106,False
+plantvillage,39235,Early Blight,1,1,Early Blight,0.9980049729347229,True
+plantvillage,39236,Early Blight,1,1,Early Blight,0.9965683221817017,True
+plantvillage,39238,Early Blight,1,1,Early Blight,0.9947932362556458,True
+plantvillage,39240,Early Blight,1,1,Early Blight,0.9999992847442627,True
+plantvillage,39241,Early Blight,1,1,Early Blight,0.9999984502792358,True
+plantvillage,39242,Early Blight,1,1,Early Blight,0.9995498061180115,True
+plantvillage,39246,Early Blight,1,1,Early Blight,0.9990511536598206,True
+plantvillage,39252,Early Blight,1,1,Early Blight,0.9970138072967529,True
+plantvillage,39253,Early Blight,1,1,Early Blight,0.9999641180038452,True
+plantvillage,39254,Early Blight,1,1,Early Blight,0.9997963309288025,True
+plantvillage,39255,Early Blight,1,1,Early Blight,0.990578830242157,True
+plantvillage,39259,Early Blight,1,4,Septoria Leaf Spot,0.5785260200500488,False
+plantvillage,39264,Early Blight,1,1,Early Blight,0.9999998807907104,True
+plantvillage,39266,Early Blight,1,1,Early Blight,0.9999947547912598,True
+plantvillage,39279,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,39280,Late Blight,2,2,Late Blight,0.9999998807907104,True
+plantvillage,39281,Late Blight,2,2,Late Blight,0.9627044200897217,True
+plantvillage,39283,Late Blight,2,2,Late Blight,0.9999914169311523,True
+plantvillage,39286,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,39289,Late Blight,2,2,Late Blight,0.9999997615814209,True
+plantvillage,39293,Late Blight,2,2,Late Blight,0.9999849796295166,True
+plantvillage,39299,Late Blight,2,2,Late Blight,0.5584604740142822,True
+plantvillage,39300,Late Blight,2,2,Late Blight,0.9999709129333496,True
+plantvillage,39305,Late Blight,2,2,Late Blight,0.9999973773956299,True
+plantvillage,39307,Late Blight,2,2,Late Blight,0.991169810295105,True
+plantvillage,39311,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,39322,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,39326,Late Blight,2,2,Late Blight,0.9999899864196777,True
+plantvillage,39327,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,39328,Late Blight,2,2,Late Blight,0.8753454685211182,True
+plantvillage,39329,Late Blight,2,2,Late Blight,0.9999731779098511,True
+plantvillage,39330,Late Blight,2,2,Late Blight,0.9999990463256836,True
+plantvillage,39331,Late Blight,2,2,Late Blight,0.9999977350234985,True
+plantvillage,39336,Late Blight,2,1,Early Blight,0.8755174279212952,False
+plantvillage,39340,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,39344,Late Blight,2,1,Early Blight,0.5667588710784912,False
+plantvillage,39346,Late Blight,2,2,Late Blight,0.9999938011169434,True
+plantvillage,39348,Late Blight,2,2,Late Blight,0.9999980926513672,True
+plantvillage,39349,Late Blight,2,2,Late Blight,0.9999901056289673,True
+plantvillage,39353,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,39358,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,39360,Late Blight,2,2,Late Blight,0.9722847938537598,True
+plantvillage,39361,Late Blight,2,2,Late Blight,0.999914288520813,True
+plantvillage,39367,Late Blight,2,2,Late Blight,0.9999997615814209,True
+plantvillage,39374,Late Blight,2,2,Late Blight,0.9999997615814209,True
+plantvillage,39381,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,39390,Late Blight,2,2,Late Blight,0.9999853372573853,True
+plantvillage,39404,Late Blight,2,2,Late Blight,0.9999998807907104,True
+plantvillage,39406,Late Blight,2,2,Late Blight,0.9999995231628418,True
+plantvillage,39414,Late Blight,2,2,Late Blight,0.9999998807907104,True
+plantvillage,39415,Late Blight,2,2,Late Blight,0.9999997615814209,True
+plantvillage,39422,Late Blight,2,2,Late Blight,0.9999994039535522,True
+plantvillage,39425,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,39431,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,39435,Late Blight,2,2,Late Blight,0.9999966621398926,True
+plantvillage,39442,Late Blight,2,1,Early Blight,0.6905788779258728,False
+plantvillage,39447,Late Blight,2,2,Late Blight,0.9999004602432251,True
+plantvillage,39448,Late Blight,2,2,Late Blight,0.9999996423721313,True
+plantvillage,39450,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,39455,Late Blight,2,2,Late Blight,0.9989830851554871,True
+plantvillage,39456,Late Blight,2,2,Late Blight,0.9999977350234985,True
+plantvillage,39461,Late Blight,2,2,Late Blight,0.9877514839172363,True
+plantvillage,39462,Late Blight,2,2,Late Blight,0.9999451637268066,True
+plantvillage,39471,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,39472,Late Blight,2,2,Late Blight,0.9999995231628418,True
+plantvillage,39482,Late Blight,2,2,Late Blight,0.9999986886978149,True
+plantvillage,39483,Late Blight,2,2,Late Blight,0.9999929666519165,True
+plantvillage,39486,Late Blight,2,2,Late Blight,0.9999423027038574,True
+plantvillage,39491,Late Blight,2,2,Late Blight,0.9999990463256836,True
+plantvillage,39492,Late Blight,2,2,Late Blight,0.9999220371246338,True
+plantvillage,39495,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,39497,Late Blight,2,2,Late Blight,0.9999942779541016,True
+plantvillage,39500,Late Blight,2,2,Late Blight,0.999997615814209,True
+plantvillage,39502,Late Blight,2,4,Septoria Leaf Spot,0.9182572960853577,False
+plantvillage,39503,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,39514,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,39519,Late Blight,2,2,Late Blight,0.9997439980506897,True
+plantvillage,39525,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,39527,Late Blight,2,2,Late Blight,0.9999804496765137,True
+plantvillage,39533,Late Blight,2,2,Late Blight,0.9999978542327881,True
+plantvillage,39537,Late Blight,2,2,Late Blight,0.9999998807907104,True
+plantvillage,39541,Late Blight,2,2,Late Blight,0.9928202033042908,True
+plantvillage,39542,Late Blight,2,2,Late Blight,0.9999998807907104,True
+plantvillage,39545,Late Blight,2,2,Late Blight,0.9998412132263184,True
+plantvillage,39548,Late Blight,2,2,Late Blight,0.9999992847442627,True
+plantvillage,39551,Late Blight,2,1,Early Blight,0.5831068754196167,False
+plantvillage,39555,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,39559,Late Blight,2,2,Late Blight,0.9999867677688599,True
+plantvillage,39566,Late Blight,2,2,Late Blight,0.9974023699760437,True
+plantvillage,39571,Late Blight,2,2,Late Blight,0.9999998807907104,True
+plantvillage,39587,Late Blight,2,2,Late Blight,0.99996018409729,True
+plantvillage,39589,Late Blight,2,2,Late Blight,0.9999996423721313,True
+plantvillage,39591,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,39592,Late Blight,2,2,Late Blight,0.9999606609344482,True
+plantvillage,39595,Late Blight,2,2,Late Blight,0.999958872795105,True
+plantvillage,39597,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,39598,Late Blight,2,2,Late Blight,0.9999746084213257,True
+plantvillage,39619,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,39622,Late Blight,2,2,Late Blight,0.9999990463256836,True
+plantvillage,39628,Late Blight,2,2,Late Blight,0.9999755620956421,True
+plantvillage,39633,Late Blight,2,2,Late Blight,0.9951504468917847,True
+plantvillage,39634,Late Blight,2,2,Late Blight,0.9999994039535522,True
+plantvillage,39638,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,39647,Late Blight,2,2,Late Blight,0.9999842643737793,True
+plantvillage,39668,Late Blight,2,1,Early Blight,0.9440183043479919,False
+plantvillage,39672,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,39677,Late Blight,2,2,Late Blight,0.9987801909446716,True
+plantvillage,39678,Late Blight,2,2,Late Blight,0.9999998807907104,True
+plantvillage,39679,Late Blight,2,2,Late Blight,0.9997817873954773,True
+plantvillage,39681,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,39689,Late Blight,2,2,Late Blight,0.9999990463256836,True
+plantvillage,39695,Late Blight,2,2,Late Blight,0.9994940757751465,True
+plantvillage,39698,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,39702,Late Blight,2,2,Late Blight,0.9998805522918701,True
+plantvillage,39706,Late Blight,2,2,Late Blight,0.9999998807907104,True
+plantvillage,39711,Late Blight,2,2,Late Blight,0.9999674558639526,True
+plantvillage,39713,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,39714,Late Blight,2,2,Late Blight,0.9999995231628418,True
+plantvillage,39723,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,39725,Late Blight,2,2,Late Blight,0.8682548999786377,True
+plantvillage,39732,Late Blight,2,2,Late Blight,0.999945878982544,True
+plantvillage,39733,Late Blight,2,2,Late Blight,0.9750413298606873,True
+plantvillage,39739,Late Blight,2,2,Late Blight,0.999981164932251,True
+plantvillage,39750,Late Blight,2,1,Early Blight,0.9597037434577942,False
+plantvillage,39751,Late Blight,2,2,Late Blight,0.9999904632568359,True
+plantvillage,39758,Late Blight,2,2,Late Blight,0.9999932050704956,True
+plantvillage,39761,Late Blight,2,1,Early Blight,0.9224417805671692,False
+plantvillage,39765,Late Blight,2,2,Late Blight,0.9657095670700073,True
+plantvillage,39767,Late Blight,2,2,Late Blight,0.9999994039535522,True
+plantvillage,39770,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,39789,Late Blight,2,2,Late Blight,0.9999843835830688,True
+plantvillage,39792,Late Blight,2,1,Early Blight,0.9999730587005615,False
+plantvillage,39801,Late Blight,2,2,Late Blight,0.9920552372932434,True
+plantvillage,39802,Late Blight,2,2,Late Blight,0.9999998807907104,True
+plantvillage,39803,Late Blight,2,2,Late Blight,0.9468340873718262,True
+plantvillage,39809,Late Blight,2,2,Late Blight,0.999937891960144,True
+plantvillage,39812,Late Blight,2,2,Late Blight,0.9485475420951843,True
+plantvillage,39814,Late Blight,2,2,Late Blight,0.9970844388008118,True
+plantvillage,39817,Late Blight,2,2,Late Blight,0.9999556541442871,True
+plantvillage,39825,Late Blight,2,2,Late Blight,0.9990863800048828,True
+plantvillage,39827,Late Blight,2,2,Late Blight,0.9991129040718079,True
+plantvillage,39835,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,39841,Late Blight,2,2,Late Blight,0.9999992847442627,True
+plantvillage,39853,Late Blight,2,2,Late Blight,0.999995231628418,True
+plantvillage,39854,Late Blight,2,2,Late Blight,0.449904203414917,True
+plantvillage,39876,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,39878,Late Blight,2,2,Late Blight,0.995101809501648,True
+plantvillage,39879,Late Blight,2,2,Late Blight,0.9998574256896973,True
+plantvillage,39880,Late Blight,2,2,Late Blight,0.9999133348464966,True
+plantvillage,39884,Late Blight,2,2,Late Blight,0.9999991655349731,True
+plantvillage,39892,Late Blight,2,2,Late Blight,0.9999990463256836,True
+plantvillage,39894,Late Blight,2,2,Late Blight,0.9999406337738037,True
+plantvillage,39896,Late Blight,2,4,Septoria Leaf Spot,0.9993222951889038,False
+plantvillage,39900,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,39902,Late Blight,2,2,Late Blight,0.9963969588279724,True
+plantvillage,39903,Late Blight,2,2,Late Blight,0.9999998807907104,True
+plantvillage,39905,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,39907,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,39909,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,39916,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,39917,Late Blight,2,2,Late Blight,0.9998408555984497,True
+plantvillage,39919,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,39921,Late Blight,2,2,Late Blight,0.9999973773956299,True
+plantvillage,39938,Late Blight,2,2,Late Blight,0.9999966621398926,True
+plantvillage,39953,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,39965,Late Blight,2,2,Late Blight,0.99998939037323,True
+plantvillage,39966,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,39968,Late Blight,2,2,Late Blight,0.9999655485153198,True
+plantvillage,39972,Late Blight,2,2,Late Blight,0.9999885559082031,True
+plantvillage,39975,Late Blight,2,2,Late Blight,0.9996092915534973,True
+plantvillage,39985,Late Blight,2,2,Late Blight,0.9284668564796448,True
+plantvillage,39997,Late Blight,2,2,Late Blight,0.9999241828918457,True
+plantvillage,39999,Late Blight,2,1,Early Blight,0.8770705461502075,False
+plantvillage,40008,Late Blight,2,2,Late Blight,0.9999991655349731,True
+plantvillage,40009,Late Blight,2,2,Late Blight,0.9999704360961914,True
+plantvillage,40015,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40016,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40022,Late Blight,2,2,Late Blight,0.9999105930328369,True
+plantvillage,40023,Late Blight,2,2,Late Blight,0.9999958276748657,True
+plantvillage,40027,Late Blight,2,2,Late Blight,0.975026547908783,True
+plantvillage,40033,Late Blight,2,2,Late Blight,0.9999995231628418,True
+plantvillage,40042,Late Blight,2,2,Late Blight,0.9999997615814209,True
+plantvillage,40048,Late Blight,2,2,Late Blight,0.9987590312957764,True
+plantvillage,40053,Late Blight,2,2,Late Blight,0.9523381590843201,True
+plantvillage,40054,Late Blight,2,2,Late Blight,0.9968850016593933,True
+plantvillage,40058,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40063,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40064,Late Blight,2,2,Late Blight,0.9999994039535522,True
+plantvillage,40102,Late Blight,2,2,Late Blight,0.9999998807907104,True
+plantvillage,40108,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40110,Late Blight,2,2,Late Blight,0.9931167364120483,True
+plantvillage,40111,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40118,Late Blight,2,2,Late Blight,0.999950647354126,True
+plantvillage,40121,Late Blight,2,2,Late Blight,0.8496045470237732,True
+plantvillage,40124,Late Blight,2,2,Late Blight,0.9998144507408142,True
+plantvillage,40126,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40129,Late Blight,2,2,Late Blight,0.8719732761383057,True
+plantvillage,40134,Late Blight,2,2,Late Blight,0.9998109936714172,True
+plantvillage,40135,Late Blight,2,2,Late Blight,0.9999990463256836,True
+plantvillage,40136,Late Blight,2,2,Late Blight,0.4475031793117523,True
+plantvillage,40142,Late Blight,2,2,Late Blight,0.9999992847442627,True
+plantvillage,40149,Late Blight,2,2,Late Blight,0.9999991655349731,True
+plantvillage,40153,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40154,Late Blight,2,2,Late Blight,0.999994158744812,True
+plantvillage,40168,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40169,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40176,Late Blight,2,2,Late Blight,0.9999990463256836,True
+plantvillage,40189,Late Blight,2,2,Late Blight,0.9998431205749512,True
+plantvillage,40193,Late Blight,2,2,Late Blight,0.9999998807907104,True
+plantvillage,40217,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40227,Late Blight,2,2,Late Blight,0.9999997615814209,True
+plantvillage,40230,Late Blight,2,2,Late Blight,0.5997018814086914,True
+plantvillage,40243,Late Blight,2,2,Late Blight,0.9609982967376709,True
+plantvillage,40252,Late Blight,2,2,Late Blight,0.9829065203666687,True
+plantvillage,40254,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40263,Late Blight,2,2,Late Blight,0.9998205304145813,True
+plantvillage,40270,Late Blight,2,2,Late Blight,0.999993085861206,True
+plantvillage,40273,Late Blight,2,2,Late Blight,0.9950429201126099,True
+plantvillage,40293,Late Blight,2,2,Late Blight,0.9996762275695801,True
+plantvillage,40295,Late Blight,2,2,Late Blight,0.9999939203262329,True
+plantvillage,40296,Late Blight,2,2,Late Blight,0.9999954700469971,True
+plantvillage,40298,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40300,Late Blight,2,2,Late Blight,0.9999998807907104,True
+plantvillage,40305,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40306,Late Blight,2,2,Late Blight,0.8428223729133606,True
+plantvillage,40307,Late Blight,2,2,Late Blight,0.9999500513076782,True
+plantvillage,40311,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40312,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40318,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40327,Late Blight,2,2,Late Blight,0.9999998807907104,True
+plantvillage,40333,Late Blight,2,2,Late Blight,0.8189799189567566,True
+plantvillage,40340,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40343,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40345,Late Blight,2,2,Late Blight,0.9999920129776001,True
+plantvillage,40346,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40354,Late Blight,2,2,Late Blight,0.9999995231628418,True
+plantvillage,40364,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40374,Late Blight,2,2,Late Blight,0.9999964237213135,True
+plantvillage,40380,Late Blight,2,2,Late Blight,0.9944625496864319,True
+plantvillage,40384,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40386,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40388,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40394,Late Blight,2,2,Late Blight,0.9945436716079712,True
+plantvillage,40399,Late Blight,2,2,Late Blight,0.9944307208061218,True
+plantvillage,40400,Late Blight,2,2,Late Blight,0.975642204284668,True
+plantvillage,40401,Late Blight,2,2,Late Blight,0.9996218681335449,True
+plantvillage,40439,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40440,Late Blight,2,2,Late Blight,0.9992031455039978,True
+plantvillage,40444,Late Blight,2,2,Late Blight,0.9966349005699158,True
+plantvillage,40445,Late Blight,2,2,Late Blight,0.9999949932098389,True
+plantvillage,40447,Late Blight,2,2,Late Blight,0.9992052912712097,True
+plantvillage,40451,Late Blight,2,2,Late Blight,0.9999673366546631,True
+plantvillage,40453,Late Blight,2,2,Late Blight,0.9999879598617554,True
+plantvillage,40455,Late Blight,2,2,Late Blight,0.9986764788627625,True
+plantvillage,40457,Late Blight,2,2,Late Blight,0.9976581335067749,True
+plantvillage,40458,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40465,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40466,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40468,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40479,Late Blight,2,2,Late Blight,0.9999587535858154,True
+plantvillage,40484,Late Blight,2,2,Late Blight,0.9999998807907104,True
+plantvillage,40489,Late Blight,2,2,Late Blight,0.9999719858169556,True
+plantvillage,40502,Late Blight,2,2,Late Blight,0.8077348470687866,True
+plantvillage,40505,Late Blight,2,2,Late Blight,0.9999998807907104,True
+plantvillage,40511,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40513,Late Blight,2,2,Late Blight,0.9999005794525146,True
+plantvillage,40516,Late Blight,2,2,Late Blight,0.9999991655349731,True
+plantvillage,40523,Late Blight,2,2,Late Blight,0.9914421439170837,True
+plantvillage,40525,Late Blight,2,2,Late Blight,0.9455472826957703,True
+plantvillage,40527,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40538,Late Blight,2,1,Early Blight,0.6187406778335571,False
+plantvillage,40543,Late Blight,2,2,Late Blight,0.9953823685646057,True
+plantvillage,40547,Late Blight,2,2,Late Blight,0.9417684078216553,True
+plantvillage,40548,Late Blight,2,2,Late Blight,0.999997615814209,True
+plantvillage,40554,Late Blight,2,2,Late Blight,0.9973414540290833,True
+plantvillage,40558,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40560,Late Blight,2,2,Late Blight,0.9998981952667236,True
+plantvillage,40561,Late Blight,2,2,Late Blight,0.9997490048408508,True
+plantvillage,40567,Late Blight,2,2,Late Blight,0.9999921321868896,True
+plantvillage,40572,Late Blight,2,2,Late Blight,0.9999227523803711,True
+plantvillage,40578,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40589,Late Blight,2,2,Late Blight,0.9073103666305542,True
+plantvillage,40598,Late Blight,2,2,Late Blight,0.9999948740005493,True
+plantvillage,40599,Late Blight,2,2,Late Blight,0.9999994039535522,True
+plantvillage,40603,Late Blight,2,2,Late Blight,0.8505810499191284,True
+plantvillage,40605,Late Blight,2,2,Late Blight,0.9999964237213135,True
+plantvillage,40610,Late Blight,2,2,Late Blight,0.9999982118606567,True
+plantvillage,40612,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40615,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40623,Late Blight,2,2,Late Blight,0.9999997615814209,True
+plantvillage,40625,Late Blight,2,2,Late Blight,0.9999481439590454,True
+plantvillage,40630,Late Blight,2,2,Late Blight,0.9999991655349731,True
+plantvillage,40632,Late Blight,2,2,Late Blight,0.9895490407943726,True
+plantvillage,40638,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40639,Late Blight,2,2,Late Blight,0.9999047517776489,True
+plantvillage,40649,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40652,Late Blight,2,2,Late Blight,0.9921991229057312,True
+plantvillage,40653,Late Blight,2,2,Late Blight,0.9983804225921631,True
+plantvillage,40657,Late Blight,2,2,Late Blight,0.9999955892562866,True
+plantvillage,40665,Late Blight,2,2,Late Blight,0.9994335770606995,True
+plantvillage,40676,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40688,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40700,Late Blight,2,2,Late Blight,0.9999233484268188,True
+plantvillage,40702,Late Blight,2,2,Late Blight,0.9996218681335449,True
+plantvillage,40704,Late Blight,2,2,Late Blight,0.5373610258102417,True
+plantvillage,40711,Late Blight,2,2,Late Blight,0.999487042427063,True
+plantvillage,40717,Late Blight,2,2,Late Blight,0.9999995231628418,True
+plantvillage,40719,Late Blight,2,2,Late Blight,0.9999997615814209,True
+plantvillage,40723,Late Blight,2,2,Late Blight,0.9999997615814209,True
+plantvillage,40726,Late Blight,2,2,Late Blight,0.9999998807907104,True
+plantvillage,40730,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40731,Late Blight,2,2,Late Blight,0.9999995231628418,True
+plantvillage,40733,Late Blight,2,2,Late Blight,0.9999849796295166,True
+plantvillage,40737,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40739,Late Blight,2,2,Late Blight,0.9999988079071045,True
+plantvillage,40745,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40755,Late Blight,2,2,Late Blight,0.9467108845710754,True
+plantvillage,40758,Late Blight,2,2,Late Blight,0.9999570846557617,True
+plantvillage,40795,Late Blight,2,2,Late Blight,0.9998989105224609,True
+plantvillage,40799,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40801,Late Blight,2,2,Late Blight,0.9999959468841553,True
+plantvillage,40806,Late Blight,2,2,Late Blight,0.7961823344230652,True
+plantvillage,40808,Late Blight,2,2,Late Blight,0.9990125894546509,True
+plantvillage,40813,Late Blight,2,2,Late Blight,0.9999767541885376,True
+plantvillage,40815,Late Blight,2,2,Late Blight,0.871060848236084,True
+plantvillage,40823,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40831,Late Blight,2,2,Late Blight,0.9999970197677612,True
+plantvillage,40832,Late Blight,2,2,Late Blight,0.9999997615814209,True
+plantvillage,40837,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40840,Late Blight,2,2,Late Blight,0.9997625946998596,True
+plantvillage,40847,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40854,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40858,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40860,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40862,Late Blight,2,2,Late Blight,0.9999876022338867,True
+plantvillage,40865,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40867,Late Blight,2,2,Late Blight,0.9999994039535522,True
+plantvillage,40870,Late Blight,2,2,Late Blight,0.9999864101409912,True
+plantvillage,40873,Late Blight,2,2,Late Blight,0.9999821186065674,True
+plantvillage,40874,Late Blight,2,0,Healthy,0.9999959468841553,False
+plantvillage,40877,Late Blight,2,2,Late Blight,0.9999997615814209,True
+plantvillage,40880,Late Blight,2,1,Early Blight,0.9437620043754578,False
+plantvillage,40881,Late Blight,2,2,Late Blight,0.9999997615814209,True
+plantvillage,40885,Late Blight,2,1,Early Blight,0.8850567936897278,False
+plantvillage,40886,Late Blight,2,2,Late Blight,0.9996762275695801,True
+plantvillage,40893,Late Blight,2,2,Late Blight,0.9999997615814209,True
+plantvillage,40905,Late Blight,2,2,Late Blight,0.823765218257904,True
+plantvillage,40928,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40938,Late Blight,2,1,Early Blight,0.8883702754974365,False
+plantvillage,40943,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40945,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,40946,Late Blight,2,1,Early Blight,0.9999837875366211,False
+plantvillage,40948,Late Blight,2,2,Late Blight,0.9971343278884888,True
+plantvillage,40951,Late Blight,2,2,Late Blight,0.9990901947021484,True
+plantvillage,40970,Late Blight,2,2,Late Blight,0.9943230152130127,True
+plantvillage,40981,Late Blight,2,1,Early Blight,0.9879960417747498,False
+plantvillage,40992,Late Blight,2,2,Late Blight,0.9999984502792358,True
+plantvillage,40993,Late Blight,2,2,Late Blight,0.9860947132110596,True
+plantvillage,41002,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,41004,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,41006,Late Blight,2,2,Late Blight,0.9999842643737793,True
+plantvillage,41009,Late Blight,2,2,Late Blight,0.9999856948852539,True
+plantvillage,41027,Late Blight,2,1,Early Blight,0.8672366738319397,False
+plantvillage,41029,Late Blight,2,2,Late Blight,0.9999998807907104,True
+plantvillage,41031,Late Blight,2,2,Late Blight,0.9999707937240601,True
+plantvillage,41042,Late Blight,2,2,Late Blight,0.9999997615814209,True
+plantvillage,41046,Late Blight,2,2,Late Blight,0.9999995231628418,True
+plantvillage,41048,Late Blight,2,2,Late Blight,0.9788079261779785,True
+plantvillage,41051,Late Blight,2,1,Early Blight,0.9940258264541626,False
+plantvillage,41056,Late Blight,2,2,Late Blight,0.9999990463256836,True
+plantvillage,41057,Late Blight,2,2,Late Blight,0.9986518025398254,True
+plantvillage,41059,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,41062,Late Blight,2,2,Late Blight,0.9999890327453613,True
+plantvillage,41068,Late Blight,2,2,Late Blight,0.9999828338623047,True
+plantvillage,41069,Late Blight,2,1,Early Blight,0.5222627520561218,False
+plantvillage,41088,Late Blight,2,2,Late Blight,0.9999986886978149,True
+plantvillage,41090,Late Blight,2,2,Late Blight,0.9999998807907104,True
+plantvillage,41092,Late Blight,2,2,Late Blight,0.999995231628418,True
+plantvillage,41096,Late Blight,2,2,Late Blight,0.9999566078186035,True
+plantvillage,41098,Late Blight,2,2,Late Blight,0.999988317489624,True
+plantvillage,41100,Late Blight,2,2,Late Blight,0.9985939860343933,True
+plantvillage,41105,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,41109,Late Blight,2,2,Late Blight,0.9999998807907104,True
+plantvillage,41114,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,41123,Late Blight,2,2,Late Blight,0.9999998807907104,True
+plantvillage,41130,Late Blight,2,2,Late Blight,0.9017929434776306,True
+plantvillage,41132,Late Blight,2,2,Late Blight,0.999992847442627,True
+plantvillage,41137,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,41150,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,41151,Late Blight,2,2,Late Blight,0.9999686479568481,True
+plantvillage,41153,Late Blight,2,2,Late Blight,0.9999858140945435,True
+plantvillage,41155,Late Blight,2,2,Late Blight,0.9999536275863647,True
+plantvillage,41158,Late Blight,2,2,Late Blight,0.9999998807907104,True
+plantvillage,41165,Late Blight,2,2,Late Blight,0.9999991655349731,True
+plantvillage,41168,Late Blight,2,2,Late Blight,1.0,True
+plantvillage,41179,Late Blight,2,2,Late Blight,0.9999978542327881,True
+plantvillage,42133,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.999990701675415,True
+plantvillage,42138,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9989386200904846,True
+plantvillage,42149,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,42150,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.936985194683075,True
+plantvillage,42156,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999980926513672,True
+plantvillage,42157,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9997023940086365,True
+plantvillage,42163,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999996423721313,True
+plantvillage,42166,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,42168,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999823570251465,True
+plantvillage,42177,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9993937015533447,True
+plantvillage,42178,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,42179,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999908208847046,True
+plantvillage,42193,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999998807907104,True
+plantvillage,42195,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9987627267837524,True
+plantvillage,42209,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,42217,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,42219,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.6821538209915161,True
+plantvillage,42227,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999985694885254,True
+plantvillage,42230,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9993174076080322,True
+plantvillage,42233,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999988079071045,True
+plantvillage,42235,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999973773956299,True
+plantvillage,42238,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,42257,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,42272,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999998807907104,True
+plantvillage,42274,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,42276,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999997615814209,True
+plantvillage,42278,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999867677688599,True
+plantvillage,42291,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9998148083686829,True
+plantvillage,42293,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9997480511665344,True
+plantvillage,42294,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,42299,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999983310699463,True
+plantvillage,42309,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999998807907104,True
+plantvillage,42310,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9993195533752441,True
+plantvillage,42315,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999945163726807,True
+plantvillage,42326,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999967813491821,True
+plantvillage,42334,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9998449087142944,True
+plantvillage,42339,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.999972939491272,True
+plantvillage,42342,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999357461929321,True
+plantvillage,42347,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9921533465385437,True
+plantvillage,42359,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999446868896484,True
+plantvillage,42369,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,42377,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.999964714050293,True
+plantvillage,42380,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999985694885254,True
+plantvillage,42389,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999639987945557,True
+plantvillage,42391,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9997500777244568,True
+plantvillage,42401,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.99998939037323,True
+plantvillage,42402,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9994832277297974,True
+plantvillage,42404,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999750852584839,True
+plantvillage,42405,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9998078942298889,True
+plantvillage,42407,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999958276748657,True
+plantvillage,42409,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,42412,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,42414,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9998776912689209,True
+plantvillage,42417,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999818801879883,True
+plantvillage,42418,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9989296793937683,True
+plantvillage,42420,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999998807907104,True
+plantvillage,42421,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999123811721802,True
+plantvillage,42423,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,42426,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999978542327881,True
+plantvillage,42431,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999996423721313,True
+plantvillage,42432,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.999893307685852,True
+plantvillage,42433,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999997615814209,True
+plantvillage,42439,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999339580535889,True
+plantvillage,42449,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999988079071045,True
+plantvillage,42455,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999997615814209,True
+plantvillage,42456,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999940395355225,True
+plantvillage,42464,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,42471,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999995231628418,True
+plantvillage,42475,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999853372573853,True
+plantvillage,42480,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999958276748657,True
+plantvillage,42492,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999815225601196,True
+plantvillage,42497,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999797344207764,True
+plantvillage,42513,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999698400497437,True
+plantvillage,42516,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,42525,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,42543,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9998449087142944,True
+plantvillage,42545,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999994039535522,True
+plantvillage,42549,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999955892562866,True
+plantvillage,42552,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999719858169556,True
+plantvillage,42557,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9989000558853149,True
+plantvillage,42558,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999988079071045,True
+plantvillage,42560,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999983310699463,True
+plantvillage,42564,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999903440475464,True
+plantvillage,42574,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999998807907104,True
+plantvillage,42575,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999011754989624,True
+plantvillage,42576,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,42580,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999995231628418,True
+plantvillage,42581,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999992847442627,True
+plantvillage,42586,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999997615814209,True
+plantvillage,42587,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999964237213135,True
+plantvillage,42588,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999990463256836,True
+plantvillage,42593,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9994437098503113,True
+plantvillage,42596,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.999786913394928,True
+plantvillage,42599,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.999998927116394,True
+plantvillage,42605,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999963045120239,True
+plantvillage,42606,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999988079071045,True
+plantvillage,42609,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.999998927116394,True
+plantvillage,42615,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.999984860420227,True
+plantvillage,42618,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999971389770508,True
+plantvillage,42619,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,42623,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999783039093018,True
+plantvillage,42630,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.999993085861206,True
+plantvillage,42638,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999874830245972,True
+plantvillage,42644,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9998705387115479,True
+plantvillage,42645,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9971402883529663,True
+plantvillage,42651,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,42656,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,42662,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,42664,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999818801879883,True
+plantvillage,42669,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9984148740768433,True
+plantvillage,42675,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999992847442627,True
+plantvillage,42680,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9998879432678223,True
+plantvillage,42682,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9939574003219604,True
+plantvillage,42686,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999980926513672,True
+plantvillage,42696,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9997879862785339,True
+plantvillage,42708,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999998807907104,True
+plantvillage,42709,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,42717,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999998807907104,True
+plantvillage,42725,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999982118606567,True
+plantvillage,42726,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999986886978149,True
+plantvillage,42738,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999995231628418,True
+plantvillage,42741,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999949932098389,True
+plantvillage,42750,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,42752,Septoria Leaf Spot,4,2,Late Blight,0.5323020219802856,False
+plantvillage,42758,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.5325286388397217,True
+plantvillage,42760,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999432563781738,True
+plantvillage,42766,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9855362772941589,True
+plantvillage,42772,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999978542327881,True
+plantvillage,42777,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999961853027344,True
+plantvillage,42783,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999821186065674,True
+plantvillage,42786,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,42793,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999604225158691,True
+plantvillage,42794,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.998079776763916,True
+plantvillage,42799,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9998764991760254,True
+plantvillage,42804,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999915361404419,True
+plantvillage,42805,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9903811812400818,True
+plantvillage,42809,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,42814,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.8160996437072754,True
+plantvillage,42822,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,42828,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999935626983643,True
+plantvillage,42834,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999880790710449,True
+plantvillage,42836,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.999976634979248,True
+plantvillage,42842,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999991655349731,True
+plantvillage,42843,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.999996542930603,True
+plantvillage,42849,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,42852,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999997615814209,True
+plantvillage,42855,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999244213104248,True
+plantvillage,42865,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999997615814209,True
+plantvillage,42867,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999184608459473,True
+plantvillage,42882,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.999561607837677,True
+plantvillage,42883,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9992430210113525,True
+plantvillage,42891,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9998717308044434,True
+plantvillage,42893,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,42896,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999990463256836,True
+plantvillage,42898,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,42899,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9906953573226929,True
+plantvillage,42900,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9991206526756287,True
+plantvillage,42906,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999997615814209,True
+plantvillage,42926,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9647547602653503,True
+plantvillage,42930,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,42938,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999674558639526,True
+plantvillage,42941,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999959468841553,True
+plantvillage,42942,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999996423721313,True
+plantvillage,42943,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999991655349731,True
+plantvillage,42950,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999998807907104,True
+plantvillage,42953,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9992532134056091,True
+plantvillage,42956,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999971389770508,True
+plantvillage,42958,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999516010284424,True
+plantvillage,42960,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999594688415527,True
+plantvillage,42965,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999945163726807,True
+plantvillage,42967,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9926851987838745,True
+plantvillage,42978,Septoria Leaf Spot,4,1,Early Blight,0.9642483592033386,False
+plantvillage,42980,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999706745147705,True
+plantvillage,42986,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999986886978149,True
+plantvillage,42989,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999860525131226,True
+plantvillage,43000,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.999993085861206,True
+plantvillage,43012,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999971389770508,True
+plantvillage,43018,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.999995231628418,True
+plantvillage,43020,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9950055480003357,True
+plantvillage,43024,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9998860359191895,True
+plantvillage,43028,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,43037,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999973773956299,True
+plantvillage,43038,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999815225601196,True
+plantvillage,43039,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,43040,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999879598617554,True
+plantvillage,43042,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999051094055176,True
+plantvillage,43044,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9974188804626465,True
+plantvillage,43045,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999934434890747,True
+plantvillage,43047,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9994314312934875,True
+plantvillage,43052,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,43057,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999885559082031,True
+plantvillage,43059,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999998807907104,True
+plantvillage,43061,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9991052746772766,True
+plantvillage,43064,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999996423721313,True
+plantvillage,43072,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9984373450279236,True
+plantvillage,43075,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9995493292808533,True
+plantvillage,43078,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9974932670593262,True
+plantvillage,43081,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999994039535522,True
+plantvillage,43086,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.999996542930603,True
+plantvillage,43087,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,43088,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999996423721313,True
+plantvillage,43089,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9992017149925232,True
+plantvillage,43091,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,43104,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999971389770508,True
+plantvillage,43109,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999996423721313,True
+plantvillage,43112,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,43123,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999998807907104,True
+plantvillage,43126,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,43127,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999980926513672,True
+plantvillage,43132,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999990463256836,True
+plantvillage,43135,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999815225601196,True
+plantvillage,43136,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999990463256836,True
+plantvillage,43137,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999984502792358,True
+plantvillage,43138,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,43140,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9998759031295776,True
+plantvillage,43143,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.995814859867096,True
+plantvillage,43144,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.999996542930603,True
+plantvillage,43147,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9989864230155945,True
+plantvillage,43153,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,43159,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999997615814209,True
+plantvillage,43163,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.999982476234436,True
+plantvillage,43165,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9989017248153687,True
+plantvillage,43170,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999998807907104,True
+plantvillage,43175,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999568462371826,True
+plantvillage,43186,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,43190,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9998774528503418,True
+plantvillage,43192,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9991635084152222,True
+plantvillage,43193,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,43195,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9920452833175659,True
+plantvillage,43196,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999842643737793,True
+plantvillage,43198,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9828222393989563,True
+plantvillage,43207,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999995231628418,True
+plantvillage,43211,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,43217,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9998192191123962,True
+plantvillage,43232,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999667406082153,True
+plantvillage,43234,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,43235,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999822378158569,True
+plantvillage,43237,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9997022747993469,True
+plantvillage,43243,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,43251,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999558925628662,True
+plantvillage,43252,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999982118606567,True
+plantvillage,43253,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999995231628418,True
+plantvillage,43255,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,43259,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9970102310180664,True
+plantvillage,43267,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999117851257324,True
+plantvillage,43271,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.7231450080871582,True
+plantvillage,43277,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999814033508301,True
+plantvillage,43281,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9993236064910889,True
+plantvillage,43296,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9994398951530457,True
+plantvillage,43297,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999969005584717,True
+plantvillage,43299,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999785423278809,True
+plantvillage,43305,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999957084655762,True
+plantvillage,43313,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999998807907104,True
+plantvillage,43317,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9995729327201843,True
+plantvillage,43320,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999982118606567,True
+plantvillage,43322,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999951124191284,True
+plantvillage,43326,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999080896377563,True
+plantvillage,43333,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999810457229614,True
+plantvillage,43344,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,43350,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999946355819702,True
+plantvillage,43356,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999946355819702,True
+plantvillage,43360,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999964237213135,True
+plantvillage,43377,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999806880950928,True
+plantvillage,43390,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999563694000244,True
+plantvillage,43392,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,43402,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999998807907104,True
+plantvillage,43403,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.99276202917099,True
+plantvillage,43407,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9901266098022461,True
+plantvillage,43421,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999709129333496,True
+plantvillage,43423,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9871280193328857,True
+plantvillage,43427,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999971389770508,True
+plantvillage,43438,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999991655349731,True
+plantvillage,43448,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999983310699463,True
+plantvillage,43461,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9992952346801758,True
+plantvillage,43465,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.999992847442627,True
+plantvillage,43467,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999990463256836,True
+plantvillage,43470,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999836683273315,True
+plantvillage,43479,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,43486,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999865293502808,True
+plantvillage,43489,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999988079071045,True
+plantvillage,43490,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999797344207764,True
+plantvillage,43496,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,43499,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999866485595703,True
+plantvillage,43503,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999988079071045,True
+plantvillage,43505,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999995231628418,True
+plantvillage,43511,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999083280563354,True
+plantvillage,43516,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.999731719493866,True
+plantvillage,43519,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.999987006187439,True
+plantvillage,43523,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999958276748657,True
+plantvillage,43527,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999970197677612,True
+plantvillage,43531,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999264478683472,True
+plantvillage,43533,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,43534,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9996008276939392,True
+plantvillage,43537,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9894363880157471,True
+plantvillage,43542,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999980926513672,True
+plantvillage,43543,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,43545,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999821186065674,True
+plantvillage,43551,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.99994957447052,True
+plantvillage,43552,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,43564,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999786615371704,True
+plantvillage,43582,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999762773513794,True
+plantvillage,43585,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9996553659439087,True
+plantvillage,43590,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,43596,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999091625213623,True
+plantvillage,43604,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999878406524658,True
+plantvillage,43611,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999992847442627,True
+plantvillage,43622,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,43626,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999977350234985,True
+plantvillage,43630,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9998871088027954,True
+plantvillage,43631,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9998365640640259,True
+plantvillage,43639,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.99647456407547,True
+plantvillage,43644,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9990867376327515,True
+plantvillage,43651,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999784231185913,True
+plantvillage,43653,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9859894514083862,True
+plantvillage,43658,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9998908042907715,True
+plantvillage,43660,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9167368412017822,True
+plantvillage,43669,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999984502792358,True
+plantvillage,43680,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999994039535522,True
+plantvillage,43681,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.8750239610671997,True
+plantvillage,43687,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999312162399292,True
+plantvillage,43697,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999979734420776,True
+plantvillage,43705,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999997615814209,True
+plantvillage,43714,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9991145730018616,True
+plantvillage,43718,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,43719,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.999998927116394,True
+plantvillage,43720,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999957084655762,True
+plantvillage,43725,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999998807907104,True
+plantvillage,43746,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,43747,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999570846557617,True
+plantvillage,43753,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,43763,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9976089000701904,True
+plantvillage,43777,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999016523361206,True
+plantvillage,43785,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999994039535522,True
+plantvillage,43788,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999847412109375,True
+plantvillage,43789,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999969005584717,True
+plantvillage,43790,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999775886535645,True
+plantvillage,43798,Septoria Leaf Spot,4,2,Late Blight,0.55528724193573,False
+plantvillage,43801,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.8539688587188721,True
+plantvillage,43807,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9989640712738037,True
+plantvillage,43815,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999998807907104,True
+plantvillage,43819,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9970996379852295,True
+plantvillage,43831,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999793767929077,True
+plantvillage,43834,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999998807907104,True
+plantvillage,43841,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.999998927116394,True
+plantvillage,43844,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,43851,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,43857,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999775886535645,True
+plantvillage,43858,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9998949766159058,True
+plantvillage,43861,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999998807907104,True
+plantvillage,43867,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999858140945435,True
+plantvillage,43869,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,43872,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9996077418327332,True
+plantvillage,43874,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999997615814209,True
+plantvillage,43875,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999619722366333,True
+plantvillage,43878,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999890327453613,True
+plantvillage,43880,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9999994039535522,True
+plantvillage,43883,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.999984860420227,True
+plantvillage,43888,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9989109039306641,True
+plantvillage,43889,Septoria Leaf Spot,4,4,Septoria Leaf Spot,1.0,True
+plantvillage,43896,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9996205568313599,True
+plantvillage,52733,Healthy,0,0,Healthy,0.9999649524688721,True
+plantvillage,52753,Healthy,0,0,Healthy,0.9816624522209167,True
+plantvillage,52764,Healthy,0,0,Healthy,0.9999996423721313,True
+plantvillage,52772,Healthy,0,0,Healthy,0.9999544620513916,True
+plantvillage,52775,Healthy,0,0,Healthy,0.9991564750671387,True
+plantvillage,52777,Healthy,0,0,Healthy,0.9998607635498047,True
+plantvillage,52780,Healthy,0,0,Healthy,0.9985834360122681,True
+plantvillage,52786,Healthy,0,0,Healthy,0.8927037119865417,True
+plantvillage,52794,Healthy,0,0,Healthy,0.9999992847442627,True
+plantvillage,52796,Healthy,0,0,Healthy,0.9999823570251465,True
+plantvillage,52805,Healthy,0,0,Healthy,0.9993545413017273,True
+plantvillage,52812,Healthy,0,0,Healthy,0.9999926090240479,True
+plantvillage,52814,Healthy,0,0,Healthy,0.9999877214431763,True
+plantvillage,52819,Healthy,0,0,Healthy,1.0,True
+plantvillage,52824,Healthy,0,0,Healthy,0.999874472618103,True
+plantvillage,52826,Healthy,0,0,Healthy,0.9997565150260925,True
+plantvillage,52829,Healthy,0,0,Healthy,0.964677631855011,True
+plantvillage,52835,Healthy,0,0,Healthy,0.9999997615814209,True
+plantvillage,52836,Healthy,0,0,Healthy,0.9999957084655762,True
+plantvillage,52841,Healthy,0,0,Healthy,0.9995618462562561,True
+plantvillage,52846,Healthy,0,0,Healthy,0.9999333620071411,True
+plantvillage,52848,Healthy,0,0,Healthy,0.9994872808456421,True
+plantvillage,52849,Healthy,0,0,Healthy,0.9999629259109497,True
+plantvillage,52851,Healthy,0,0,Healthy,0.9999839067459106,True
+plantvillage,52857,Healthy,0,0,Healthy,0.9999147653579712,True
+plantvillage,52858,Healthy,0,0,Healthy,1.0,True
+plantvillage,52860,Healthy,0,0,Healthy,0.9999997615814209,True
+plantvillage,52863,Healthy,0,0,Healthy,0.9999984502792358,True
+plantvillage,52864,Healthy,0,0,Healthy,0.9017550349235535,True
+plantvillage,52866,Healthy,0,0,Healthy,0.9989057779312134,True
+plantvillage,52868,Healthy,0,0,Healthy,0.9999861717224121,True
+plantvillage,52877,Healthy,0,0,Healthy,0.9999983310699463,True
+plantvillage,52894,Healthy,0,0,Healthy,0.9998730421066284,True
+plantvillage,52895,Healthy,0,0,Healthy,0.9999994039535522,True
+plantvillage,52898,Healthy,0,0,Healthy,0.9961191415786743,True
+plantvillage,52902,Healthy,0,0,Healthy,0.9999704360961914,True
+plantvillage,52912,Healthy,0,0,Healthy,0.9999988079071045,True
+plantvillage,52914,Healthy,0,0,Healthy,0.9971264004707336,True
+plantvillage,52915,Healthy,0,0,Healthy,0.999998927116394,True
+plantvillage,52929,Healthy,0,0,Healthy,0.9989928603172302,True
+plantvillage,52939,Healthy,0,0,Healthy,0.999998927116394,True
+plantvillage,52953,Healthy,0,0,Healthy,0.9999984502792358,True
+plantvillage,52956,Healthy,0,0,Healthy,0.9999850988388062,True
+plantvillage,52957,Healthy,0,0,Healthy,0.9998745918273926,True
+plantvillage,52958,Healthy,0,0,Healthy,0.9977668523788452,True
+plantvillage,52967,Healthy,0,0,Healthy,0.9999945163726807,True
+plantvillage,52976,Healthy,0,0,Healthy,0.9994896650314331,True
+plantvillage,52980,Healthy,0,0,Healthy,0.9999617338180542,True
+plantvillage,52983,Healthy,0,0,Healthy,0.9999995231628418,True
+plantvillage,52991,Healthy,0,0,Healthy,0.9999850988388062,True
+plantvillage,52993,Healthy,0,0,Healthy,1.0,True
+plantvillage,52996,Healthy,0,0,Healthy,0.9999997615814209,True
+plantvillage,52998,Healthy,0,0,Healthy,0.9999716281890869,True
+plantvillage,53016,Healthy,0,0,Healthy,0.9999988079071045,True
+plantvillage,53020,Healthy,0,0,Healthy,0.9999845027923584,True
+plantvillage,53026,Healthy,0,0,Healthy,0.999725878238678,True
+plantvillage,53031,Healthy,0,0,Healthy,0.9999843835830688,True
+plantvillage,53032,Healthy,0,0,Healthy,0.9999977350234985,True
+plantvillage,53034,Healthy,0,0,Healthy,0.9999203681945801,True
+plantvillage,53035,Healthy,0,0,Healthy,1.0,True
+plantvillage,53037,Healthy,0,0,Healthy,0.9487988948822021,True
+plantvillage,53038,Healthy,0,0,Healthy,0.9999984502792358,True
+plantvillage,53044,Healthy,0,0,Healthy,0.9999817609786987,True
+plantvillage,53045,Healthy,0,0,Healthy,0.999950647354126,True
+plantvillage,53047,Healthy,0,0,Healthy,0.9999939203262329,True
+plantvillage,53052,Healthy,0,0,Healthy,0.9997695088386536,True
+plantvillage,53057,Healthy,0,0,Healthy,0.9999902248382568,True
+plantvillage,53059,Healthy,0,0,Healthy,0.9999997615814209,True
+plantvillage,53061,Healthy,0,0,Healthy,0.9999994039535522,True
+plantvillage,53063,Healthy,0,0,Healthy,0.9999983310699463,True
+plantvillage,53065,Healthy,0,0,Healthy,0.9999994039535522,True
+plantvillage,53066,Healthy,0,0,Healthy,0.9999990463256836,True
+plantvillage,53069,Healthy,0,0,Healthy,1.0,True
+plantvillage,53074,Healthy,0,0,Healthy,0.9999852180480957,True
+plantvillage,53075,Healthy,0,0,Healthy,0.9999603033065796,True
+plantvillage,53084,Healthy,0,0,Healthy,0.9998438358306885,True
+plantvillage,53090,Healthy,0,0,Healthy,0.9998214840888977,True
+plantvillage,53091,Healthy,0,0,Healthy,0.999955415725708,True
+plantvillage,53092,Healthy,0,0,Healthy,0.9997850060462952,True
+plantvillage,53098,Healthy,0,0,Healthy,0.999981164932251,True
+plantvillage,53101,Healthy,0,0,Healthy,0.9999998807907104,True
+plantvillage,53102,Healthy,0,0,Healthy,0.999931812286377,True
+plantvillage,53105,Healthy,0,0,Healthy,0.9992807507514954,True
+plantvillage,53109,Healthy,0,0,Healthy,0.9999998807907104,True
+plantvillage,53122,Healthy,0,0,Healthy,0.9999856948852539,True
+plantvillage,53123,Healthy,0,0,Healthy,0.9999713897705078,True
+plantvillage,53128,Healthy,0,0,Healthy,0.9999927282333374,True
+plantvillage,53133,Healthy,0,0,Healthy,0.9999947547912598,True
+plantvillage,53135,Healthy,0,0,Healthy,0.9998970031738281,True
+plantvillage,53139,Healthy,0,0,Healthy,0.9980170726776123,True
+plantvillage,53141,Healthy,0,0,Healthy,0.9999141693115234,True
+plantvillage,53143,Healthy,0,0,Healthy,0.9999996423721313,True
+plantvillage,53145,Healthy,0,0,Healthy,0.9999980926513672,True
+plantvillage,53157,Healthy,0,0,Healthy,0.9999994039535522,True
+plantvillage,53159,Healthy,0,0,Healthy,0.9999978542327881,True
+plantvillage,53162,Healthy,0,0,Healthy,0.9997621178627014,True
+plantvillage,53164,Healthy,0,0,Healthy,0.9665824770927429,True
+plantvillage,53167,Healthy,0,0,Healthy,0.9999960660934448,True
+plantvillage,53169,Healthy,0,0,Healthy,0.9999949932098389,True
+plantvillage,53181,Healthy,0,0,Healthy,0.9999507665634155,True
+plantvillage,53184,Healthy,0,0,Healthy,0.9970351457595825,True
+plantvillage,53186,Healthy,0,0,Healthy,0.9999992847442627,True
+plantvillage,53187,Healthy,0,0,Healthy,0.9999997615814209,True
+plantvillage,53203,Healthy,0,0,Healthy,0.9849991202354431,True
+plantvillage,53205,Healthy,0,0,Healthy,0.9999712705612183,True
+plantvillage,53208,Healthy,0,0,Healthy,0.9999998807907104,True
+plantvillage,53211,Healthy,0,0,Healthy,0.9998055100440979,True
+plantvillage,53215,Healthy,0,0,Healthy,0.9999414682388306,True
+plantvillage,53224,Healthy,0,0,Healthy,0.9998947381973267,True
+plantvillage,53231,Healthy,0,0,Healthy,0.999998927116394,True
+plantvillage,53238,Healthy,0,0,Healthy,0.9999953508377075,True
+plantvillage,53243,Healthy,0,0,Healthy,0.9997518658638,True
+plantvillage,53247,Healthy,0,0,Healthy,0.9999350309371948,True
+plantvillage,53248,Healthy,0,0,Healthy,0.9999406337738037,True
+plantvillage,53254,Healthy,0,0,Healthy,0.9999949932098389,True
+plantvillage,53256,Healthy,0,0,Healthy,0.9973804354667664,True
+plantvillage,53262,Healthy,0,0,Healthy,0.9999639987945557,True
+plantvillage,53265,Healthy,0,0,Healthy,0.9999986886978149,True
+plantvillage,53272,Healthy,0,0,Healthy,0.9995978474617004,True
+plantvillage,53281,Healthy,0,0,Healthy,0.9931373596191406,True
+plantvillage,53282,Healthy,0,0,Healthy,0.9999914169311523,True
+plantvillage,53294,Healthy,0,0,Healthy,0.9999991655349731,True
+plantvillage,53299,Healthy,0,0,Healthy,0.9906890392303467,True
+plantvillage,53302,Healthy,0,0,Healthy,0.9991887211799622,True
+plantvillage,53307,Healthy,0,0,Healthy,0.9999992847442627,True
+plantvillage,53316,Healthy,0,0,Healthy,0.999985933303833,True
+plantvillage,53321,Healthy,0,0,Healthy,0.9999991655349731,True
+plantvillage,53330,Healthy,0,0,Healthy,0.9999836683273315,True
+plantvillage,53332,Healthy,0,0,Healthy,0.9999991655349731,True
+plantvillage,53337,Healthy,0,0,Healthy,0.9988648891448975,True
+plantvillage,53339,Healthy,0,0,Healthy,0.999915361404419,True
+plantvillage,53341,Healthy,0,0,Healthy,0.9999949932098389,True
+plantvillage,53343,Healthy,0,0,Healthy,1.0,True
+plantvillage,53350,Healthy,0,0,Healthy,0.9999806880950928,True
+plantvillage,53351,Healthy,0,0,Healthy,0.9999995231628418,True
+plantvillage,53353,Healthy,0,0,Healthy,0.9999920129776001,True
+plantvillage,53361,Healthy,0,0,Healthy,0.9999810457229614,True
+plantvillage,53363,Healthy,0,0,Healthy,0.9999986886978149,True
+plantvillage,53368,Healthy,0,0,Healthy,0.9985264539718628,True
+plantvillage,53371,Healthy,0,0,Healthy,0.9999920129776001,True
+plantvillage,53398,Healthy,0,0,Healthy,0.9949518442153931,True
+plantvillage,53403,Healthy,0,0,Healthy,0.9999836683273315,True
+plantvillage,53404,Healthy,0,0,Healthy,0.9999991655349731,True
+plantvillage,53407,Healthy,0,0,Healthy,0.9997320771217346,True
+plantvillage,53419,Healthy,0,0,Healthy,0.9999942779541016,True
+plantvillage,53430,Healthy,0,0,Healthy,0.9978626370429993,True
+plantvillage,53433,Healthy,0,0,Healthy,0.9999998807907104,True
+plantvillage,53442,Healthy,0,0,Healthy,1.0,True
+plantvillage,53450,Healthy,0,0,Healthy,0.9999535083770752,True
+plantvillage,53457,Healthy,0,0,Healthy,0.9999426603317261,True
+plantvillage,53468,Healthy,0,0,Healthy,0.9999784231185913,True
+plantvillage,53470,Healthy,0,0,Healthy,0.9999610185623169,True
+plantvillage,53478,Healthy,0,0,Healthy,1.0,True
+plantvillage,53491,Healthy,0,0,Healthy,0.999975323677063,True
+plantvillage,53504,Healthy,0,0,Healthy,0.99980229139328,True
+plantvillage,53506,Healthy,0,0,Healthy,0.9997106194496155,True
+plantvillage,53511,Healthy,0,0,Healthy,0.9999923706054688,True
+plantvillage,53523,Healthy,0,0,Healthy,0.9999986886978149,True
+plantvillage,53528,Healthy,0,0,Healthy,0.9995166063308716,True
+plantvillage,53535,Healthy,0,0,Healthy,1.0,True
+plantvillage,53540,Healthy,0,0,Healthy,0.9984112977981567,True
+plantvillage,53547,Healthy,0,0,Healthy,0.9998170733451843,True
+plantvillage,53548,Healthy,0,0,Healthy,0.9999294281005859,True
+plantvillage,53549,Healthy,0,0,Healthy,0.9999864101409912,True
+plantvillage,53550,Healthy,0,0,Healthy,0.9997640252113342,True
+plantvillage,53561,Healthy,0,0,Healthy,0.9999969005584717,True
+plantvillage,53563,Healthy,0,0,Healthy,0.9999998807907104,True
+plantvillage,53571,Healthy,0,0,Healthy,0.9996588230133057,True
+plantvillage,53572,Healthy,0,0,Healthy,0.9999794960021973,True
+plantvillage,53577,Healthy,0,0,Healthy,1.0,True
+plantvillage,53578,Healthy,0,0,Healthy,0.9999994039535522,True
+plantvillage,53584,Healthy,0,0,Healthy,0.999818742275238,True
+plantvillage,53602,Healthy,0,0,Healthy,0.9999983310699463,True
+plantvillage,53604,Healthy,0,0,Healthy,0.9999524354934692,True
+plantvillage,53605,Healthy,0,0,Healthy,0.9980207681655884,True
+plantvillage,53611,Healthy,0,0,Healthy,0.9999979734420776,True
+plantvillage,53617,Healthy,0,0,Healthy,0.9999992847442627,True
+plantvillage,53621,Healthy,0,0,Healthy,0.9999750852584839,True
+plantvillage,53625,Healthy,0,0,Healthy,0.9997654557228088,True
+plantvillage,53628,Healthy,0,0,Healthy,1.0,True
+plantvillage,53634,Healthy,0,0,Healthy,0.9998786449432373,True
+plantvillage,53644,Healthy,0,0,Healthy,0.999983549118042,True
+plantvillage,53647,Healthy,0,0,Healthy,0.9992138147354126,True
+plantvillage,53654,Healthy,0,0,Healthy,0.9994006156921387,True
+plantvillage,53657,Healthy,0,0,Healthy,0.9911280870437622,True
+plantvillage,53663,Healthy,0,0,Healthy,0.9999905824661255,True
+plantvillage,53686,Healthy,0,0,Healthy,0.9998084902763367,True
+plantvillage,53688,Healthy,0,0,Healthy,0.9999468326568604,True
+plantvillage,53691,Healthy,0,0,Healthy,0.999228835105896,True
+plantvillage,53693,Healthy,0,0,Healthy,0.9999872446060181,True
+plantvillage,53703,Healthy,0,0,Healthy,0.9999998807907104,True
+plantvillage,53704,Healthy,0,0,Healthy,0.9999986886978149,True
+plantvillage,53707,Healthy,0,0,Healthy,0.9999990463256836,True
+plantvillage,53708,Healthy,0,0,Healthy,0.9999833106994629,True
+plantvillage,53711,Healthy,0,0,Healthy,0.9999966621398926,True
+plantvillage,53712,Healthy,0,0,Healthy,0.9983225464820862,True
+plantvillage,53715,Healthy,0,0,Healthy,0.9999778270721436,True
+plantvillage,53716,Healthy,0,0,Healthy,0.9999992847442627,True
+plantvillage,53718,Healthy,0,0,Healthy,0.9998679161071777,True
+plantvillage,53728,Healthy,0,0,Healthy,0.9999842643737793,True
+plantvillage,53729,Healthy,0,0,Healthy,0.9999806880950928,True
+plantvillage,53731,Healthy,0,0,Healthy,0.9999889135360718,True
+plantvillage,53734,Healthy,0,0,Healthy,0.8374845385551453,True
+plantvillage,53740,Healthy,0,0,Healthy,0.9999884366989136,True
+plantvillage,53743,Healthy,0,0,Healthy,0.9999208450317383,True
+plantvillage,53744,Healthy,0,0,Healthy,0.9998003840446472,True
+plantvillage,53745,Healthy,0,0,Healthy,0.9999755620956421,True
+plantvillage,53749,Healthy,0,0,Healthy,0.9999991655349731,True
+plantvillage,53753,Healthy,0,0,Healthy,0.9999904632568359,True
+plantvillage,53754,Healthy,0,0,Healthy,0.9999998807907104,True
+plantvillage,53764,Healthy,0,0,Healthy,0.9999983310699463,True
+plantvillage,53770,Healthy,0,0,Healthy,0.999994158744812,True
+plantvillage,53774,Healthy,0,0,Healthy,0.9999241828918457,True
+plantvillage,53776,Healthy,0,0,Healthy,0.9999734163284302,True
+plantvillage,53778,Healthy,0,0,Healthy,0.9999531507492065,True
+plantvillage,53780,Healthy,0,0,Healthy,0.9999995231628418,True
+plantvillage,53785,Healthy,0,0,Healthy,0.8382167220115662,True
+plantvillage,53790,Healthy,0,0,Healthy,0.9999790191650391,True
+plantvillage,53791,Healthy,0,0,Healthy,0.9964654445648193,True
+plantvillage,53792,Healthy,0,0,Healthy,0.9999980926513672,True
+plantvillage,53797,Healthy,0,0,Healthy,0.9989098310470581,True
+plantvillage,53799,Healthy,0,0,Healthy,0.9999994039535522,True
+plantvillage,53810,Healthy,0,0,Healthy,0.9999967813491821,True
+plantvillage,53821,Healthy,0,0,Healthy,0.9999997615814209,True
+plantvillage,53822,Healthy,0,0,Healthy,0.9999964237213135,True
+plantvillage,53824,Healthy,0,0,Healthy,0.9997569918632507,True
+plantvillage,53826,Healthy,0,0,Healthy,0.9999984502792358,True
+plantvillage,53831,Healthy,0,0,Healthy,0.9999997615814209,True
+plantvillage,53835,Healthy,0,0,Healthy,0.9998944997787476,True
+plantvillage,53846,Healthy,0,0,Healthy,0.9993777275085449,True
+plantvillage,53854,Healthy,0,0,Healthy,0.9999973773956299,True
+plantvillage,53855,Healthy,0,0,Healthy,0.9924161434173584,True
+plantvillage,53864,Healthy,0,0,Healthy,0.9999786615371704,True
+plantvillage,53868,Healthy,0,0,Healthy,0.9999957084655762,True
+plantvillage,53871,Healthy,0,0,Healthy,0.9985750913619995,True
+plantvillage,53888,Healthy,0,0,Healthy,0.9989792704582214,True
+plantvillage,53890,Healthy,0,0,Healthy,0.9999896287918091,True
+plantvillage,53892,Healthy,0,0,Healthy,0.9999997615814209,True
+plantvillage,53897,Healthy,0,0,Healthy,0.9997712969779968,True
+plantvillage,53903,Healthy,0,0,Healthy,0.9999992847442627,True
+plantvillage,53906,Healthy,0,0,Healthy,0.9999979734420776,True
+plantvillage,53914,Healthy,0,0,Healthy,0.9999908208847046,True
+plantvillage,53915,Healthy,0,0,Healthy,0.9999920129776001,True
+plantvillage,53918,Healthy,0,0,Healthy,0.9999771118164062,True
+plantvillage,53924,Healthy,0,0,Healthy,0.9997549653053284,True
+plantvillage,53925,Healthy,0,0,Healthy,0.9999644756317139,True
+plantvillage,53926,Healthy,0,0,Healthy,0.9999997615814209,True
+plantvillage,53933,Healthy,0,0,Healthy,0.9999982118606567,True
+plantvillage,53937,Healthy,0,0,Healthy,0.9999940395355225,True
+plantvillage,53940,Healthy,0,0,Healthy,0.9998394250869751,True
+plantvillage,53942,Healthy,0,0,Healthy,0.9999996423721313,True
+plantvillage,53944,Healthy,0,0,Healthy,1.0,True
+plantvillage,53945,Healthy,0,0,Healthy,0.9987050294876099,True
+plantvillage,53950,Healthy,0,0,Healthy,0.9999948740005493,True
+plantvillage,53951,Healthy,0,0,Healthy,0.9999980926513672,True
+plantvillage,53953,Healthy,0,0,Healthy,0.9999997615814209,True
+plantvillage,53963,Healthy,0,0,Healthy,0.9999855756759644,True
+plantvillage,53965,Healthy,0,0,Healthy,0.9997245669364929,True
+plantvillage,53973,Healthy,0,0,Healthy,0.9999970197677612,True
+plantvillage,53978,Healthy,0,0,Healthy,0.9999994039535522,True
+plantvillage,53980,Healthy,0,0,Healthy,0.9999803304672241,True
+plantvillage,53984,Healthy,0,0,Healthy,0.9999984502792358,True
+plantvillage,53990,Healthy,0,0,Healthy,0.9999483823776245,True
+plantvillage,53998,Healthy,0,0,Healthy,0.9986030459403992,True
+plantvillage,54007,Healthy,0,0,Healthy,0.9999996423721313,True
+plantvillage,54016,Healthy,0,0,Healthy,0.9999970197677612,True
+plantvillage,54030,Healthy,0,0,Healthy,1.0,True
+plantvillage,54034,Healthy,0,0,Healthy,0.9991045594215393,True
+plantvillage,54040,Healthy,0,0,Healthy,0.9999995231628418,True
+plantvillage,54050,Healthy,0,0,Healthy,0.9997108578681946,True
+plantvillage,54054,Healthy,0,0,Healthy,0.9999969005584717,True
+plantvillage,54057,Healthy,0,0,Healthy,0.9999805688858032,True
+plantvillage,54060,Healthy,0,0,Healthy,0.9999994039535522,True
+plantvillage,54064,Healthy,0,0,Healthy,0.9999630451202393,True
+plantvillage,54073,Healthy,0,0,Healthy,0.9999915361404419,True
+plantvillage,54090,Healthy,0,0,Healthy,0.9915063977241516,True
+plantvillage,54094,Healthy,0,0,Healthy,0.9999978542327881,True
+plantvillage,54098,Healthy,0,0,Healthy,0.9999890327453613,True
+plantvillage,54102,Healthy,0,0,Healthy,0.9999996423721313,True
+plantvillage,54115,Healthy,0,0,Healthy,0.9999450445175171,True
+plantvillage,54117,Healthy,0,0,Healthy,0.9990259408950806,True
+plantvillage,54122,Healthy,0,0,Healthy,0.9998804330825806,True
+plantvillage,54129,Healthy,0,0,Healthy,0.9999995231628418,True
+plantvillage,54132,Healthy,0,0,Healthy,0.9999978542327881,True
+plantvillage,54134,Healthy,0,0,Healthy,0.9999974966049194,True
+plantvillage,54135,Healthy,0,0,Healthy,0.999993085861206,True
+plantvillage,54141,Healthy,0,0,Healthy,0.9999922513961792,True
+plantvillage,54144,Healthy,0,0,Healthy,0.9999896287918091,True
+plantvillage,54145,Healthy,0,0,Healthy,0.9999974966049194,True
+plantvillage,54149,Healthy,0,0,Healthy,0.9992117881774902,True
+plantvillage,54150,Healthy,0,0,Healthy,0.9999853372573853,True
+plantvillage,54154,Healthy,0,0,Healthy,0.9999995231628418,True
+plantvillage,54159,Healthy,0,0,Healthy,0.9978746175765991,True
+plantvillage,54163,Healthy,0,0,Healthy,0.9999722242355347,True
+plantvillage,54166,Healthy,0,0,Healthy,0.9999998807907104,True
+plantvillage,54167,Healthy,0,0,Healthy,0.9999244213104248,True
+plantvillage,54168,Healthy,0,0,Healthy,0.9998243451118469,True
+plantvillage,54169,Healthy,0,0,Healthy,0.9992209672927856,True
+plantvillage,54171,Healthy,0,0,Healthy,0.9999991655349731,True
+plantvillage,54176,Healthy,0,0,Healthy,0.9999996423721313,True
+plantvillage,54179,Healthy,0,0,Healthy,0.9999659061431885,True
+plantvillage,54189,Healthy,0,0,Healthy,0.9999995231628418,True
+plantvillage,54198,Healthy,0,0,Healthy,0.999941349029541,True
+plantvillage,54200,Healthy,0,0,Healthy,0.9999982118606567,True
+plantvillage,54202,Healthy,0,0,Healthy,0.9996306896209717,True
+plantvillage,54205,Healthy,0,0,Healthy,0.9999945163726807,True
+plantvillage,54207,Healthy,0,0,Healthy,0.9999716281890869,True
+plantvillage,54209,Healthy,0,0,Healthy,0.9999954700469971,True
+plantvillage,54212,Healthy,0,0,Healthy,0.9997909665107727,True
+plantvillage,54218,Healthy,0,0,Healthy,0.9997401833534241,True
+plantvillage,54237,Healthy,0,0,Healthy,0.9999998807907104,True
+plantvillage,54244,Healthy,0,0,Healthy,0.9999924898147583,True
+plantvillage,54245,Healthy,0,0,Healthy,0.999699592590332,True
+plantvillage,54246,Healthy,0,0,Healthy,0.9999998807907104,True
+plantvillage,54247,Healthy,0,0,Healthy,0.999976634979248,True
+plantvillage,54249,Healthy,0,0,Healthy,0.9999924898147583,True
+plantvillage,54255,Healthy,0,0,Healthy,0.9999949932098389,True
+plantvillage,54263,Healthy,0,0,Healthy,0.9999966621398926,True
+plantvillage,54266,Healthy,0,0,Healthy,0.9935542345046997,True
+plantvillage,54271,Healthy,0,0,Healthy,0.999981164932251,True
+plantvillage,54277,Healthy,0,0,Healthy,0.9995561242103577,True
+plantvillage,54282,Healthy,0,0,Healthy,0.9998815059661865,True
+plantvillage,54287,Healthy,0,0,Healthy,0.9999872446060181,True
+plantvillage,54290,Healthy,0,0,Healthy,0.9998456239700317,True
+plantvillage,54299,Healthy,0,0,Healthy,0.9999654293060303,True
+plantvillage,54303,Healthy,0,0,Healthy,0.999043881893158,True

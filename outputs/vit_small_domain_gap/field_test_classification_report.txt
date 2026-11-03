@@ -1,0 +1,11 @@
+                    precision    recall  f1-score   support
+
+           Healthy     1.0000    0.1250    0.2222         8
+      Early Blight     0.5000    0.5556    0.5263         9
+       Late Blight     0.4667    0.7000    0.5600        10
+    Bacterial Spot     0.0000    0.0000    0.0000         9
+Septoria Leaf Spot     0.3810    0.7273    0.5000        11
+
+          accuracy                         0.4468        47
+         macro avg     0.4695    0.4216    0.3617        47
+      weighted avg     0.4544    0.4468    0.3748        47

@@ -1,11 +1,15 @@
-data/
-checkpoints/
-outputs/
-__pycache__/
-.ipynb_checkpoints/
-.venv/
-.env
-.DS_Store
+# Large datasets and generated data
+data/raw/
+data/processed/
+data/interim/
+
+# Model checkpoints
+models/
 *.pth
 *.pt
 *.ckpt
+
+# Local environment
+.venv/
+__pycache__/
+.DS_Store
