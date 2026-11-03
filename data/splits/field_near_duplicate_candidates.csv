@@ -1,0 +1,21 @@
+partition_a,row_id_a,class_a,partition_b,row_id_b,class_b,phash_distance,same_class
+field_train,1561,Early Blight,field_train,1604,Early Blight,4,True
+field_train,1567,Early Blight,field_train,1628,Early Blight,0,True
+field_train,1569,Early Blight,field_train,1571,Early Blight,0,True
+field_train,1577,Early Blight,field_train,1673,Septoria Leaf Spot,0,False
+field_train,1589,Early Blight,field_train,1698,Septoria Leaf Spot,0,False
+field_train,1591,Early Blight,field_train,1623,Early Blight,4,True
+field_train,1618,Early Blight,field_train,2026,Late Blight,0,False
+field_train,1657,Septoria Leaf Spot,field_train,1710,Septoria Leaf Spot,0,True
+field_train,1676,Septoria Leaf Spot,field_train,1862,Bacterial Spot,0,False
+field_train,1680,Septoria Leaf Spot,field_train,1765,Septoria Leaf Spot,2,True
+field_train,1693,Septoria Leaf Spot,field_train,1876,Bacterial Spot,0,False
+field_train,1709,Septoria Leaf Spot,field_test,2507,Septoria Leaf Spot,0,True
+field_train,1711,Septoria Leaf Spot,field_train,1770,Septoria Leaf Spot,0,True
+field_train,1760,Septoria Leaf Spot,field_test,2524,Bacterial Spot,0,False
+field_train,1843,Bacterial Spot,field_train,1844,Bacterial Spot,0,True
+field_train,1894,Bacterial Spot,field_test,2518,Bacterial Spot,0,True
+field_train,1928,Late Blight,field_train,1941,Late Blight,0,True
+field_train,1933,Late Blight,field_train,1955,Late Blight,0,True
+field_train,1967,Late Blight,field_train,2007,Late Blight,0,True
+field_train,1981,Late Blight,field_test,2527,Late Blight,0,True

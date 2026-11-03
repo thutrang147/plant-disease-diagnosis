@@ -1,0 +1,16 @@
+experiment,class_name,support,precision,recall,f1
+baseline,Healthy,11,0.0,0.0,0.0
+baseline,Early Blight,16,0.23636363636363636,0.8125,0.36619718309859156
+baseline,Late Blight,20,0.42857142857142855,0.45,0.43902439024390244
+baseline,Bacterial Spot,18,0.0,0.0,0.0
+baseline,Septoria Leaf Spot,27,0.5,0.2962962962962963,0.37209302325581395
+photometric,Healthy,11,0.0,0.0,0.0
+photometric,Early Blight,16,0.23809523809523808,0.625,0.3448275862068966
+photometric,Late Blight,20,0.4583333333333333,0.55,0.5
+photometric,Bacterial Spot,18,0.0,0.0,0.0
+photometric,Septoria Leaf Spot,27,0.38461538461538464,0.37037037037037035,0.37735849056603776
+geometric,Healthy,11,0.0,0.0,0.0
+geometric,Early Blight,16,0.27906976744186046,0.75,0.4067796610169492
+geometric,Late Blight,20,0.34375,0.55,0.4230769230769231
+geometric,Bacterial Spot,18,0.0,0.0,0.0
+geometric,Septoria Leaf Spot,27,0.5625,0.3333333333333333,0.4186046511627907

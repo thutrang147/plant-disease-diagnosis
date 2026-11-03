@@ -1,0 +1,3 @@
+source,row_id,original_class,original_split,class_name,label_id,split,exact_hash
+plantdoc,1709,Tomato Septoria leaf spot,train,Septoria Leaf Spot,4,field_train,ea49e8e36188874da9036fc8760e3d96ebbdd62a981192df89ac8ac5e1989b44
+plantdoc,1760,Tomato Septoria leaf spot,train,Septoria Leaf Spot,4,field_train,42172c0701d01f13607828f9abd860e551d8777966c0523e1655b2037022a306

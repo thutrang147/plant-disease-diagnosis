@@ -1,0 +1,93 @@
+source,row_id,class_name,label_id,predicted_label_id,predicted_class,confidence,correct
+plantdoc,1554,Early Blight,1,1,Early Blight,0.9876402020454407,True
+plantdoc,1555,Early Blight,1,1,Early Blight,0.9990690350532532,True
+plantdoc,1576,Early Blight,1,1,Early Blight,0.9965721368789673,True
+plantdoc,1580,Early Blight,1,2,Late Blight,0.894842803478241,False
+plantdoc,1583,Early Blight,1,1,Early Blight,0.9999765157699585,True
+plantdoc,1584,Early Blight,1,1,Early Blight,0.9973142743110657,True
+plantdoc,1595,Early Blight,1,2,Late Blight,0.7192506194114685,False
+plantdoc,1596,Early Blight,1,2,Late Blight,0.9998010993003845,False
+plantdoc,1597,Early Blight,1,1,Early Blight,0.9990260601043701,True
+plantdoc,1598,Early Blight,1,1,Early Blight,0.9999736547470093,True
+plantdoc,1599,Early Blight,1,1,Early Blight,0.6722030639648438,True
+plantdoc,1602,Early Blight,1,2,Late Blight,0.9986773133277893,False
+plantdoc,1606,Early Blight,1,1,Early Blight,0.994178295135498,True
+plantdoc,1608,Early Blight,1,1,Early Blight,0.9999961853027344,True
+plantdoc,1627,Early Blight,1,1,Early Blight,0.94198077917099,True
+plantdoc,1629,Early Blight,1,1,Early Blight,0.9999890327453613,True
+plantdoc,1647,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.6933164596557617,True
+plantdoc,1649,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.997134804725647,True
+plantdoc,1651,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9256226420402527,True
+plantdoc,1652,Septoria Leaf Spot,4,1,Early Blight,0.9464859962463379,False
+plantdoc,1656,Septoria Leaf Spot,4,2,Late Blight,0.9965360164642334,False
+plantdoc,1680,Septoria Leaf Spot,4,1,Early Blight,0.9997904896736145,False
+plantdoc,1682,Septoria Leaf Spot,4,1,Early Blight,0.9999514818191528,False
+plantdoc,1683,Septoria Leaf Spot,4,2,Late Blight,0.973861813545227,False
+plantdoc,1688,Septoria Leaf Spot,4,3,Bacterial Spot,0.9971586465835571,False
+plantdoc,1689,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.8736516833305359,True
+plantdoc,1694,Septoria Leaf Spot,4,1,Early Blight,0.9613750576972961,False
+plantdoc,1696,Septoria Leaf Spot,4,1,Early Blight,0.8784914612770081,False
+plantdoc,1699,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.7742903232574463,True
+plantdoc,1704,Septoria Leaf Spot,4,1,Early Blight,0.8918654322624207,False
+plantdoc,1713,Septoria Leaf Spot,4,2,Late Blight,0.5822577476501465,False
+plantdoc,1714,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9993606209754944,True
+plantdoc,1717,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9981841444969177,True
+plantdoc,1718,Septoria Leaf Spot,4,1,Early Blight,0.8034666776657104,False
+plantdoc,1723,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9996507167816162,True
+plantdoc,1734,Septoria Leaf Spot,4,4,Septoria Leaf Spot,0.9535433650016785,True
+plantdoc,1743,Septoria Leaf Spot,4,1,Early Blight,0.9958042502403259,False
+plantdoc,1752,Septoria Leaf Spot,4,1,Early Blight,0.9515292048454285,False
+plantdoc,1755,Septoria Leaf Spot,4,2,Late Blight,0.9493448734283447,False
+plantdoc,1756,Septoria Leaf Spot,4,1,Early Blight,0.9973772764205933,False
+plantdoc,1759,Septoria Leaf Spot,4,1,Early Blight,0.7848925590515137,False
+plantdoc,1764,Septoria Leaf Spot,4,1,Early Blight,0.9998181462287903,False
+plantdoc,1765,Septoria Leaf Spot,4,1,Early Blight,0.9998076558113098,False
+plantdoc,1779,Healthy,0,1,Early Blight,0.931092381477356,False
+plantdoc,1781,Healthy,0,1,Early Blight,0.8616263270378113,False
+plantdoc,1789,Healthy,0,2,Late Blight,0.9318957924842834,False
+plantdoc,1792,Healthy,0,1,Early Blight,0.9999908208847046,False
+plantdoc,1799,Healthy,0,2,Late Blight,0.8685603737831116,False
+plantdoc,1804,Healthy,0,2,Late Blight,0.982272744178772,False
+plantdoc,1811,Healthy,0,2,Late Blight,0.9999569654464722,False
+plantdoc,1812,Healthy,0,2,Late Blight,0.968017041683197,False
+plantdoc,1813,Healthy,0,2,Late Blight,0.9043721556663513,False
+plantdoc,1818,Healthy,0,2,Late Blight,0.9947428703308105,False
+plantdoc,1822,Healthy,0,2,Late Blight,0.9992585778236389,False
+plantdoc,1839,Bacterial Spot,3,1,Early Blight,0.9895597696304321,False
+plantdoc,1841,Bacterial Spot,3,1,Early Blight,0.6419414281845093,False
+plantdoc,1857,Bacterial Spot,3,2,Late Blight,0.9467938542366028,False
+plantdoc,1874,Bacterial Spot,3,1,Early Blight,0.999381422996521,False
+plantdoc,1881,Bacterial Spot,3,2,Late Blight,0.9998284578323364,False
+plantdoc,1884,Bacterial Spot,3,1,Early Blight,0.9997757077217102,False
+plantdoc,1890,Bacterial Spot,3,2,Late Blight,0.9999555349349976,False
+plantdoc,1891,Bacterial Spot,3,1,Early Blight,0.6455048322677612,False
+plantdoc,1899,Bacterial Spot,3,4,Septoria Leaf Spot,0.9954481720924377,False
+plantdoc,1901,Bacterial Spot,3,2,Late Blight,0.703520655632019,False
+plantdoc,1904,Bacterial Spot,3,4,Septoria Leaf Spot,0.9736661314964294,False
+plantdoc,1909,Bacterial Spot,3,4,Septoria Leaf Spot,0.9994547963142395,False
+plantdoc,1912,Bacterial Spot,3,4,Septoria Leaf Spot,0.6570166945457458,False
+plantdoc,1914,Bacterial Spot,3,1,Early Blight,0.9983294606208801,False
+plantdoc,1915,Bacterial Spot,3,1,Early Blight,0.765234112739563,False
+plantdoc,1916,Bacterial Spot,3,2,Late Blight,0.990710437297821,False
+plantdoc,1921,Bacterial Spot,3,4,Septoria Leaf Spot,0.9262668490409851,False
+plantdoc,1923,Bacterial Spot,3,1,Early Blight,0.9286091327667236,False
+plantdoc,1929,Late Blight,2,1,Early Blight,0.662667453289032,False
+plantdoc,1932,Late Blight,2,2,Late Blight,0.9975541234016418,True
+plantdoc,1938,Late Blight,2,2,Late Blight,0.8329774141311646,True
+plantdoc,1954,Late Blight,2,2,Late Blight,0.9999111890792847,True
+plantdoc,1958,Late Blight,2,1,Early Blight,0.9839416146278381,False
+plantdoc,1968,Late Blight,2,2,Late Blight,0.9785349369049072,True
+plantdoc,1970,Late Blight,2,1,Early Blight,0.997416615486145,False
+plantdoc,1977,Late Blight,2,1,Early Blight,0.9462273120880127,False
+plantdoc,1986,Late Blight,2,2,Late Blight,0.9909857511520386,True
+plantdoc,1987,Late Blight,2,4,Septoria Leaf Spot,0.7909418940544128,False
+plantdoc,1992,Late Blight,2,4,Septoria Leaf Spot,0.9593088626861572,False
+plantdoc,1994,Late Blight,2,1,Early Blight,0.9860259890556335,False
+plantdoc,1995,Late Blight,2,2,Late Blight,0.9975090026855469,True
+plantdoc,2003,Late Blight,2,2,Late Blight,0.9988502264022827,True
+plantdoc,2004,Late Blight,2,2,Late Blight,0.9944859147071838,True
+plantdoc,2011,Late Blight,2,2,Late Blight,0.9999691247940063,True
+plantdoc,2017,Late Blight,2,2,Late Blight,0.9121701121330261,True
+plantdoc,2022,Late Blight,2,1,Early Blight,0.7464131712913513,False
+plantdoc,2024,Late Blight,2,2,Late Blight,0.9781261086463928,True
+plantdoc,2025,Late Blight,2,1,Early Blight,0.7389238476753235,False
