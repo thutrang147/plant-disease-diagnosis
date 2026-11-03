@@ -1,0 +1,97 @@
+source,row_id,original_class,original_split,class_name,label_id,split
+plantdoc,1553,Tomato Early blight leaf,train,Early Blight,1,field_train
+plantdoc,1555,Tomato Early blight leaf,train,Early Blight,1,field_train
+plantdoc,1557,Tomato Early blight leaf,train,Early Blight,1,field_train
+plantdoc,1559,Tomato Early blight leaf,train,Early Blight,1,field_train
+plantdoc,1569,Tomato Early blight leaf,train,Early Blight,1,field_train
+plantdoc,1577,Tomato Early blight leaf,train,Early Blight,1,field_train
+plantdoc,1586,Tomato Early blight leaf,train,Early Blight,1,field_train
+plantdoc,1587,Tomato Early blight leaf,train,Early Blight,1,field_train
+plantdoc,1595,Tomato Early blight leaf,train,Early Blight,1,field_train
+plantdoc,1598,Tomato Early blight leaf,train,Early Blight,1,field_train
+plantdoc,1601,Tomato Early blight leaf,train,Early Blight,1,field_train
+plantdoc,1605,Tomato Early blight leaf,train,Early Blight,1,field_train
+plantdoc,1614,Tomato Early blight leaf,train,Early Blight,1,field_train
+plantdoc,1620,Tomato Early blight leaf,train,Early Blight,1,field_train
+plantdoc,1622,Tomato Early blight leaf,train,Early Blight,1,field_train
+plantdoc,1623,Tomato Early blight leaf,train,Early Blight,1,field_train
+plantdoc,1636,Tomato Septoria leaf spot,train,Septoria Leaf Spot,4,field_train
+plantdoc,1648,Tomato Septoria leaf spot,train,Septoria Leaf Spot,4,field_train
+plantdoc,1654,Tomato Septoria leaf spot,train,Septoria Leaf Spot,4,field_train
+plantdoc,1655,Tomato Septoria leaf spot,train,Septoria Leaf Spot,4,field_train
+plantdoc,1662,Tomato Septoria leaf spot,train,Septoria Leaf Spot,4,field_train
+plantdoc,1663,Tomato Septoria leaf spot,train,Septoria Leaf Spot,4,field_train
+plantdoc,1667,Tomato Septoria leaf spot,train,Septoria Leaf Spot,4,field_train
+plantdoc,1676,Tomato Septoria leaf spot,train,Septoria Leaf Spot,4,field_train
+plantdoc,1684,Tomato Septoria leaf spot,train,Septoria Leaf Spot,4,field_train
+plantdoc,1688,Tomato Septoria leaf spot,train,Septoria Leaf Spot,4,field_train
+plantdoc,1693,Tomato Septoria leaf spot,train,Septoria Leaf Spot,4,field_train
+plantdoc,1697,Tomato Septoria leaf spot,train,Septoria Leaf Spot,4,field_train
+plantdoc,1715,Tomato Septoria leaf spot,train,Septoria Leaf Spot,4,field_train
+plantdoc,1717,Tomato Septoria leaf spot,train,Septoria Leaf Spot,4,field_train
+plantdoc,1723,Tomato Septoria leaf spot,train,Septoria Leaf Spot,4,field_train
+plantdoc,1725,Tomato Septoria leaf spot,train,Septoria Leaf Spot,4,field_train
+plantdoc,1729,Tomato Septoria leaf spot,train,Septoria Leaf Spot,4,field_train
+plantdoc,1734,Tomato Septoria leaf spot,train,Septoria Leaf Spot,4,field_train
+plantdoc,1736,Tomato Septoria leaf spot,train,Septoria Leaf Spot,4,field_train
+plantdoc,1746,Tomato Septoria leaf spot,train,Septoria Leaf Spot,4,field_train
+plantdoc,1747,Tomato Septoria leaf spot,train,Septoria Leaf Spot,4,field_train
+plantdoc,1752,Tomato Septoria leaf spot,train,Septoria Leaf Spot,4,field_train
+plantdoc,1754,Tomato Septoria leaf spot,train,Septoria Leaf Spot,4,field_train
+plantdoc,1755,Tomato Septoria leaf spot,train,Septoria Leaf Spot,4,field_train
+plantdoc,1761,Tomato Septoria leaf spot,train,Septoria Leaf Spot,4,field_train
+plantdoc,1762,Tomato Septoria leaf spot,train,Septoria Leaf Spot,4,field_train
+plantdoc,1767,Tomato Septoria leaf spot,train,Septoria Leaf Spot,4,field_train
+plantdoc,1770,Tomato Septoria leaf spot,train,Septoria Leaf Spot,4,field_train
+plantdoc,1778,Tomato leaf,train,Healthy,0,field_train
+plantdoc,1781,Tomato leaf,train,Healthy,0,field_train
+plantdoc,1785,Tomato leaf,train,Healthy,0,field_train
+plantdoc,1789,Tomato leaf,train,Healthy,0,field_train
+plantdoc,1791,Tomato leaf,train,Healthy,0,field_train
+plantdoc,1793,Tomato leaf,train,Healthy,0,field_train
+plantdoc,1799,Tomato leaf,train,Healthy,0,field_train
+plantdoc,1809,Tomato leaf,train,Healthy,0,field_train
+plantdoc,1813,Tomato leaf,train,Healthy,0,field_train
+plantdoc,1816,Tomato leaf,train,Healthy,0,field_train
+plantdoc,1822,Tomato leaf,train,Healthy,0,field_train
+plantdoc,1826,Tomato leaf bacterial spot,train,Bacterial Spot,3,field_train
+plantdoc,1832,Tomato leaf bacterial spot,train,Bacterial Spot,3,field_train
+plantdoc,1836,Tomato leaf bacterial spot,train,Bacterial Spot,3,field_train
+plantdoc,1844,Tomato leaf bacterial spot,train,Bacterial Spot,3,field_train
+plantdoc,1845,Tomato leaf bacterial spot,train,Bacterial Spot,3,field_train
+plantdoc,1848,Tomato leaf bacterial spot,train,Bacterial Spot,3,field_train
+plantdoc,1856,Tomato leaf bacterial spot,train,Bacterial Spot,3,field_train
+plantdoc,1858,Tomato leaf bacterial spot,train,Bacterial Spot,3,field_train
+plantdoc,1864,Tomato leaf bacterial spot,train,Bacterial Spot,3,field_train
+plantdoc,1865,Tomato leaf bacterial spot,train,Bacterial Spot,3,field_train
+plantdoc,1867,Tomato leaf bacterial spot,train,Bacterial Spot,3,field_train
+plantdoc,1875,Tomato leaf bacterial spot,train,Bacterial Spot,3,field_train
+plantdoc,1877,Tomato leaf bacterial spot,train,Bacterial Spot,3,field_train
+plantdoc,1882,Tomato leaf bacterial spot,train,Bacterial Spot,3,field_train
+plantdoc,1892,Tomato leaf bacterial spot,train,Bacterial Spot,3,field_train
+plantdoc,1896,Tomato leaf bacterial spot,train,Bacterial Spot,3,field_train
+plantdoc,1907,Tomato leaf bacterial spot,train,Bacterial Spot,3,field_train
+plantdoc,1915,Tomato leaf bacterial spot,train,Bacterial Spot,3,field_train
+plantdoc,1921,Tomato leaf bacterial spot,train,Bacterial Spot,3,field_train
+plantdoc,1926,Tomato leaf bacterial spot,train,Bacterial Spot,3,field_train
+plantdoc,1927,Tomato leaf late blight,train,Late Blight,2,field_train
+plantdoc,1929,Tomato leaf late blight,train,Late Blight,2,field_train
+plantdoc,1930,Tomato leaf late blight,train,Late Blight,2,field_train
+plantdoc,1931,Tomato leaf late blight,train,Late Blight,2,field_train
+plantdoc,1935,Tomato leaf late blight,train,Late Blight,2,field_train
+plantdoc,1940,Tomato leaf late blight,train,Late Blight,2,field_train
+plantdoc,1941,Tomato leaf late blight,train,Late Blight,2,field_train
+plantdoc,1949,Tomato leaf late blight,train,Late Blight,2,field_train
+plantdoc,1953,Tomato leaf late blight,train,Late Blight,2,field_train
+plantdoc,1955,Tomato leaf late blight,train,Late Blight,2,field_train
+plantdoc,1968,Tomato leaf late blight,train,Late Blight,2,field_train
+plantdoc,1969,Tomato leaf late blight,train,Late Blight,2,field_train
+plantdoc,1977,Tomato leaf late blight,train,Late Blight,2,field_train
+plantdoc,1978,Tomato leaf late blight,train,Late Blight,2,field_train
+plantdoc,1989,Tomato leaf late blight,train,Late Blight,2,field_train
+plantdoc,2003,Tomato leaf late blight,train,Late Blight,2,field_train
+plantdoc,2004,Tomato leaf late blight,train,Late Blight,2,field_train
+plantdoc,2005,Tomato leaf late blight,train,Late Blight,2,field_train
+plantdoc,2016,Tomato leaf late blight,train,Late Blight,2,field_train
+plantdoc,2018,Tomato leaf late blight,train,Late Blight,2,field_train
+plantdoc,2023,Tomato leaf late blight,train,Late Blight,2,field_train
