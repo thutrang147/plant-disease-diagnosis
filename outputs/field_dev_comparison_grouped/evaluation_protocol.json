@@ -1,0 +1,14 @@
+{
+  "evaluation_set": "data/splits/field_dev.csv",
+  "field_dev_sha256": "3064e691e65879a4251ce728e65a7dbef8ca06e1f413931657a3dd4ffdadf663",
+  "field_dev_images": 95,
+  "evaluated_variants": [
+    "baseline",
+    "photometric",
+    "geometric"
+  ],
+  "training_updates_performed": false,
+  "original_field_test_used_for_inference": false,
+  "preprocessing": "ResNet18_Weights.IMAGENET1K_V1.transforms()",
+  "note": "Development metrics only. Check near-duplicates and obtain an independent field test for confirmatory claims."
+}

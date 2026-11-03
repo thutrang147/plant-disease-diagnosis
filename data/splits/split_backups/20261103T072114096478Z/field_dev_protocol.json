@@ -1,0 +1,11 @@
+{
+  "source_manifest": "data/splits/field_train.csv",
+  "adapt_train_manifest": "data/splits/field_adapt_train.csv",
+  "development_manifest": "data/splits/field_dev.csv",
+  "field_test_manifest": "data/splits/field_test.csv",
+  "seed": 42,
+  "dev_fraction_requested": 0.2,
+  "strategy": "Stratified random split using label_id",
+  "field_test_used": false,
+  "caveat": "No duplicate-image grouping is available in the input manifest. Audit exact/near-duplicates across partitions before field adaptation and confirmatory reporting."
+}
