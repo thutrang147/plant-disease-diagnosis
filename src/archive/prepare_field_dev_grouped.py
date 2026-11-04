@@ -1,7 +1,7 @@
 """Regenerate PlantDoc adaptation/development manifests without image-content leakage.
 
 Run from the repository root after installing `datasets`, `pandas`, and `scikit-learn`:
-    python src/prepare_field_dev_grouped.py --replace-existing
+    python src/archive/prepare_field_dev_grouped.py --replace-existing
 
 - Only uses PlantDoc's original training partition for model-development splitting.
 - Groups exact pixel-identical images by SHA-256 of (image size, RGB pixels).
@@ -27,7 +27,7 @@ import numpy as np
 import pandas as pd
 from sklearn.model_selection import GroupShuffleSplit
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parents[2]
 SPLITS = ROOT / "data" / "splits"
 SOURCE_DATASET = "geraldmc/plantdoc-full"
 SOURCE_REVISION = "v0.1.0"
@@ -35,7 +35,7 @@ SOURCE_REVISION = "v0.1.0"
 
 def rgb_content_hash(pil_image) -> str:
     image = pil_image.convert("RGB")
-    # Deliberately identical to the check in 06_field_adaptation.ipynb.
+    # Deliberately identical to the check in notebooks/archive/06_field_adaptation.ipynb.
     return hashlib.sha256(f"{image.size}".encode("utf-8") + image.tobytes()).hexdigest()
 
 

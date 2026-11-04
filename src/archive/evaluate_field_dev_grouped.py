@@ -1,7 +1,7 @@
 """Re-evaluate frozen ResNet18 models on a GROUPED PlantDoc Field Dev split.
 
 Run locally from the project root (no GPU needed):
-    python -m src.evaluate_field_dev_grouped
+    python -m src.archive.evaluate_field_dev_grouped
 
 Requires:
     data/splits/{field_dev,field_adapt_train,field_test,label_map}.csv/json
@@ -38,7 +38,7 @@ from torch import nn
 from torch.utils.data import DataLoader
 from torchvision.models import ResNet18_Weights, resnet18
 
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 MODEL_FILES = {
     "baseline": "resnet18_lab_best.pt",
     "photometric": "resnet18_aug_photometric_best.pt",
@@ -65,7 +65,7 @@ def validate_manifests(splits_dir: Path) -> tuple[pd.DataFrame, list[str], str]:
     protocol = json.loads((splits_dir / "field_dev_protocol.json").read_text(encoding="utf-8"))
     if not protocol.get("strategy", "").startswith("Exact RGB pixel SHA-256 grouping"):
         raise ValueError("This evaluation requires the NEW grouped Field Dev split; "
-                         "run prepare_field_dev_grouped.py first.")
+                         "run src/archive/prepare_field_dev_grouped.py against historical manifests first.")
     for name, frame in manifests.items():
         if name == "field_test" and len(frame) != 47:
             raise ValueError(f"Original Field Test size changed: {len(frame)}")

@@ -1,7 +1,7 @@
 """Create a fixed PlantDoc development split without modifying the original manifests.
 
 Run from the repository root:
-    python src/prepare_field_dev.py
+    python src/archive/prepare_field_dev.py
 
 Uses only data/splits/field_train.csv. Never uses or modifies field_test.csv.
 The outputs are metadata manifests, not image copies.
@@ -17,7 +17,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_SPLITS_DIR = ROOT / "data" / "splits"
 
 

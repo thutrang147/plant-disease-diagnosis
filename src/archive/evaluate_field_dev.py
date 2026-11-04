@@ -1,7 +1,7 @@
 """Evaluate frozen ResNet18 augmentation experiments on the same PlantDoc Field Dev split.
 
 Run locally from the project root (no GPU needed):
-    python -m src.evaluate_field_dev
+    python -m src.archive.evaluate_field_dev
 
 Requires:
     data/splits/{field_dev,field_adapt_train,field_test,label_map}.csv/json
@@ -38,7 +38,7 @@ from torch import nn
 from torch.utils.data import DataLoader
 from torchvision.models import ResNet18_Weights, resnet18
 
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 MODEL_FILES = {
     "baseline": "resnet18_lab_best.pt",
     "photometric": "resnet18_aug_photometric_best.pt",

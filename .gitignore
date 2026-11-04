@@ -5,6 +5,7 @@ data/interim/
 
 # Model checkpoints
 models/
+checkpoints/
 *.pth
 *.pt
 *.ckpt
@@ -13,3 +14,10 @@ models/
 .venv/
 __pycache__/
 .DS_Store
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+.cache/
+
+# New generated results stay local; existing tracked evidence remains tracked.
+outputs/

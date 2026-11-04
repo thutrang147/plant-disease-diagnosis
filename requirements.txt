@@ -1,7 +1,12 @@
 timm
+torch
+torchvision
 datasets
 scikit-learn
 pandas
 numpy
 matplotlib
 Pillow
+scipy
+ImageHash
+ipykernel
