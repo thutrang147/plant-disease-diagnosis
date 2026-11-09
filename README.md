@@ -2,7 +2,7 @@
 
 ## Abstract
 
-This assignment compares ImageNet-pretrained ResNet18 and ViT-Small for five-class tomato disease classification, with PlantVillage as the laboratory source domain and PlantDoc as the field target domain. Completed experiments cover laboratory baselines, lab-to-field evaluation, photometric and geometric augmentation, supervised field adaptation with duplicate-aware splits, mixed-domain fine-tuning, and exploratory error analysis. Both laboratory baselines lose substantial macro-F1 on PlantDoc. The geometric-initialized mixed-domain ResNet18 achieves the highest Field Dev macro-F1 among the four models in the final comparison (0.4459), while mixed-domain ViT-Small retains higher Lab Test macro-F1 (0.9886 versus 0.9140). Field Dev was used for checkpoint selection; these field results are developmental rather than independent confirmation.
+This study compares ImageNet-pretrained ResNet18 and ViT-Small for five-class tomato disease classification, with PlantVillage as the laboratory source domain and PlantDoc as the field target domain. Completed experiments cover laboratory baselines, lab-to-field evaluation, photometric and geometric augmentation, supervised field adaptation with duplicate-aware splits, mixed-domain fine-tuning, and exploratory error analysis. Both laboratory baselines lose substantial macro-F1 on PlantDoc. Mixed-domain ResNet18 initialized from the geometric-augmentation checkpoint achieves the highest Field Dev macro-F1 among the four models in the final comparison (0.4459), while mixed-domain ViT-Small retains higher Lab Test macro-F1 (0.9886 versus 0.9140). Field Dev was used for checkpoint selection; these field results are developmental rather than independent confirmation.
 
 ## Research Questions
 
@@ -52,16 +52,7 @@ Two superseded adaptation notebooks and four historical scripts remain in `noteb
 
 ## Main Results
 
-Values below are rounded to four decimals from saved outputs; no training or inference was performed for this documentation revision.
-
-Laboratory checkpoint selection ([02](notebooks/02_train_cnn.ipynb), [03](notebooks/03_train_vit.ipynb)):
-
-| Baseline | Lab Validation accuracy | Lab Validation macro-F1 |
-| --- | ---: | ---: |
-| ResNet18 | 0.9896 | 0.9879 |
-| ViT-Small | 0.9970 | 0.9966 |
-
-Final fixed-model comparison, from [notebook 09](notebooks/09_final_model_comparison.ipynb):
+The main comparison evaluates four fixed checkpoints on Lab Test (1,692 images) and verified Field Dev (92 images), as recorded in [notebook 09](notebooks/09_final_model_comparison.ipynb). Values are rounded to four decimals. Field Dev selected the mixed checkpoints, so its scores describe development performance.
 
 | Model | Lab Test accuracy | Lab Test macro-F1 | Field Dev correct / 92 | Field Dev accuracy | Field Dev macro-F1 |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -70,7 +61,9 @@ Final fixed-model comparison, from [notebook 09](notebooks/09_final_model_compar
 | ResNet18 geometric + mixed | 0.9297 | 0.9140 | 43 | 0.4674 | 0.4459 |
 | ViT-Small mixed | 0.9900 | 0.9886 | 37 | 0.4022 | 0.3872 |
 
-Mixed-domain ViT improves macro-F1 while retaining the same number of correct Field Dev predictions as its baseline, indicating a change in class-level errors. The ResNet18 comparison combines geometric initialization and mixed-domain fine-tuning; it cannot attribute the full change to mixing alone.
+Mixed-domain ResNet18 has the highest observed Field Dev macro-F1 of these four models, while mixed-domain ViT retains higher Lab Test performance. Mixed-domain ViT increases macro-F1 without changing its number of correct Field Dev predictions, reflecting a redistribution of class-level errors. The ResNet18 contrast combines geometric initialization and mixed-domain fine-tuning; the full change cannot be attributed to mixing alone.
+
+Supporting laboratory results in [02](notebooks/02_train_cnn.ipynb) and [03](notebooks/03_train_vit.ipynb) report Lab Validation accuracy/macro-F1 of 0.9896/0.9879 for ResNet18 and 0.9970/0.9966 for ViT-Small on 1,341 images. These are checkpoint-selection scores, separate from Lab Test.
 
 On the current verified Field Dev, frozen ResNet18 macro-F1 is 0.2355 without augmentation, 0.2444 with photometric augmentation, and 0.2497 with geometric augmentation ([saved evaluation](outputs/field_dev_comparison_verified/summary.csv)). Their Lab Validation macro-F1 values are 0.9879, 0.9841, and 0.9753, respectively.
 
@@ -84,40 +77,21 @@ Field-only versus mixed-domain adaptation, from [06](notebooks/06_field_adaptati
 
 Mixing retains more laboratory performance than field-only adaptation in all three saved comparisons, but does not uniformly increase Field Dev macro-F1. The small ViT difference is descriptive and has no repeated-run uncertainty estimate.
 
-Historical baseline Field Test evaluation ([04](notebooks/04_domain_gap.ipynb), 47 images):
-
-| Baseline | Field Test accuracy | Field Test macro-F1 | Lab Test minus Field Test macro-F1 |
-| --- | ---: | ---: | ---: |
-| ResNet18 | 0.3617 | 0.2802 | 0.6942 |
-| ViT-Small | 0.4468 | 0.3617 | 0.6321 |
-
-These historical results establish the observed baseline domain gap. They are not post-adaptation test results or an independent confirmation of later model choices.
+The historical [baseline Field Test evaluation](notebooks/04_domain_gap.ipynb) used 47 images: ResNet18 accuracy/macro-F1 was 0.3617/0.2802, and ViT-Small was 0.4468/0.3617. The corresponding Lab Test minus Field Test macro-F1 gaps were 0.6942 and 0.6321. These observations document the baseline domain shift; they do not test the adapted models or independently confirm later choices.
 
 ## Error Analysis
 
 On Field Dev, the two mixed-domain models are both correct on 24 images and both wrong on 36; ResNet18 alone is correct on 19 and ViT alone on 13. Each recognizes only 3 of 18 Bacterial Spot images. ResNet18 makes 49 errors, including three with softmax confidence ≥ 0.90; ViT makes 55 errors, including nine above that threshold. Softmax scores are not calibrated probabilities of correctness.
 
-[Notebook 10](notebooks/10_error_analysis.ipynb) visualizes eight deterministically selected cases using predicted-class ResNet18 Grad-CAM and mean-head CLS-to-patch attention from the final ViT block. These are different visualization mechanisms and do not establish causal reliance on lesions. The saved manual review template has no completed interpretations; biological attribution remains unverified.
+[Notebook 10](notebooks/10_error_analysis.ipynb) visualizes eight deterministically selected cases using predicted-class ResNet18 Grad-CAM and mean-head CLS-to-patch attention from the final ViT block. These are different visualization mechanisms and do not establish causal reliance on lesions. The notebook exports an unfilled manual review template, and no completed review is recorded in the available evidence; biological attribution remains unverified.
 
 ## Reproducibility
 
-The ten main notebooks are executable records of completed runs. Viewing their saved outputs requires no retraining. Re-executing training notebooks updates models and artifacts; preparation scripts construct splits and are not required to inspect saved evidence. Reuse the existing manifests, label map, protocol, audits, and split backups.
+For the recorded findings, start with [09: final comparison](notebooks/09_final_model_comparison.ipynb) and [10: error analysis](notebooks/10_error_analysis.ipynb); the notebook index above links the preceding experiments. Their saved outputs can be inspected without executing training or inference. Committed CSV evidence is available in [baseline comparison](outputs/comparison/cnn_vs_vit_metrics.csv) and [verified augmentation evaluation](outputs/field_dev_comparison_verified/summary.csv).
 
-For a local Python environment, from the repository root:
+Checkpoints are not distributed in Git. This local checkout contains four ignored baseline/augmentation checkpoints; field-adapted and mixed-domain checkpoints, their training histories, and the complete notebook 09–10 artifact directories remain external Drive dependencies. The checkout alone cannot reproduce those analyses from images. Exact filenames, artifact locations, local setup, and execution behavior are documented in [workflow and artifact provenance](docs/workflow.md#local-setup-and-saved-evidence).
 
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements.txt
-```
-
-The requirements are not a lock of the historical environment. A read-only view of current saved augmentation metrics is available with:
-
-```bash
-python -c "import pandas as pd; print(pd.read_csv('outputs/field_dev_comparison_verified/summary.csv').to_string(index=False))"
-```
-
-Notebook 04 can recompute comparisons from committed predictions without a GPU, image downloads, or checkpoints, but execution writes to `outputs/comparison/`. Notebooks 02–03 and 05–08 contain Colab training workflows. Notebooks 09–10 use fixed checkpoints for evaluation/visualization; 09's recorded run used CPU. Drive checkpoints and extension CSVs are not all available in this checkout. See [workflow and artifact provenance](docs/workflow.md) for exact paths, prerequisites, and separate output destinations.
+Existing manifests, label mappings, protocols, and audits define the reported samples and should be reused. Notebook 04 can recompute baseline comparisons from committed predictions without checkpoints or image downloads, but writes comparison artifacts when executed. Dependencies are not locked to a complete historical environment.
 
 The active pipeline is implemented in the notebooks, `src/dataset.py`, the evaluation scripts, and the verified split preparation script. `src/models.py` is a starter factory whose ViT-B/16 is not the research ViT-Small; `src/train.py` raises `NotImplementedError`, and `configs/config.yaml` does not configure the reported runs. The optional Streamlit app uploads images without prediction. These scaffolds are retained; their disposition is recorded in the [documentation audit](docs/documentation_audit.md).
 
@@ -132,7 +106,7 @@ The active pipeline is implemented in the notebooks, `src/dataset.py`, the evalu
 
 ## References
 
-The following source identifiers are those used in the implementation; they are not a substitute for a verified scholarly bibliography:
+Dataset and software resources used by the implementation are listed below. A verified scholarly bibliography is not yet included.
 
 - PlantVillage mirror: `geraldmc/plantvillage-full`, linked in the dataset section; default revision.
 - PlantDoc mirror: `geraldmc/plantdoc-full`, linked in the dataset section; requested revision `v0.1.0`.

@@ -1,5 +1,24 @@
 # Documentation audit
 
+## Status of the earlier record
+
+The inventory and completion report below describe the earlier documentation
+pass, including changes then present in its working tree. At the start of the
+selective review, Git revision was
+`f689c524ee4d1aa91705116ca2e81a7cc0ccd0fa`. That revision contains the README,
+notebook Markdown, and documentation revisions, but not the Python docstring or
+YAML comment edits described in the earlier completion report.
+
+Those edits were already uncommitted in nine protected files:
+`app/streamlit_app.py`, `configs/config.yaml`, `src/dataset.py`,
+`src/evaluate.py`, `src/evaluate_field_dev_verified.py`, `src/evaluate_vit.py`,
+`src/models.py`, `src/prepare_field_dev_verified.py`, and `src/train.py`.
+They are preserved byte-for-byte in this review. The earlier statement that
+“all changes remain unstaged” is a historical observation, not the current
+status of every file. The original record is retained below.
+
+## Earlier audit and completion report
+
 Audit date: 2026-11-09. This inventory was written before revising the README or notebook Markdown. Evidence: local source, committed manifests and result tables, and saved notebook outputs; no training or inference was run. The working tree was clean at the start.
 
 | File | Original issue and editorial action |
@@ -77,3 +96,47 @@ Verification used the clean starting revision and pre-edit snapshots:
 The changed files are the README, ten main notebooks, the eight Python modules
 listed above, the YAML comments, and three documents under `docs/` (including
 this new audit). All changes remain unstaged for review.
+
+## Selective review of revision f689c52
+
+The final review retained the existing research narrative. Remaining issues
+were the classroom-style abstract opening, supporting tables preceding the
+main comparison, setup commands mixed with overview text, and notebook prose
+describing the editorial pass rather than experimental provenance. “Improves
+the balance of class-level F1” was more specific than macro-F1 alone supports;
+it now states that mean class-level F1 increased. References to the unfilled
+visual-review template now distinguish notebook behavior from inspection of
+external Drive files. No conflicting final metrics or partition counts were
+found in the available evidence.
+
+Changes are limited to `README.md`, this historical-record clarification,
+`docs/workflow.md`, and nine Markdown cells in notebooks 01, 05, 06, 07, 09,
+and 10. Notebooks 02, 03, 04, and 08 were reviewed and retained unchanged.
+The four-model table now leads the results section; supporting validation and
+historical test values remain in prose. Setup commands moved to the workflow
+document. All numerical notebook findings and experiment settings are retained.
+
+Automated verification compared all twelve notebooks, including archives,
+against the full starting revision recorded above. Cell counts and order match;
+masking only allowed Markdown source values leaves identical serialized bytes.
+Thus code cells, their whitespace, outputs, execution counts, metadata, IDs,
+attachments, embedded figures, and all other saved state are unchanged. Only
+the nine whitelisted documentation files changed during this review. SHA-256
+checks of 103 protected files match the starting working-tree snapshot,
+including the nine pre-existing Python/YAML edits. Those files still differ
+from Git HEAD and were neither reverted nor edited by this review.
+
+The final four-model table matches saved notebook 09 accuracy, macro-F1, and
+correct-image counts. Manifest counts and the separate 96/95/92-image
+development protocols agree with the saved files. Other four-decimal notebook
+claims were checked against their outputs or, for notebook 03's ResNet18
+comparison and notebook 05's field results, the corresponding notebook/CSV
+evidence. Local documentation links and heading anchors resolve;
+`git diff --check` passes. No notebooks or research scripts were executed,
+and no training, inference, split generation, commit, or push was performed.
+
+The scientific and reproducibility gaps listed earlier remain unresolved:
+external artifacts, incomplete environment/dataset provenance, the missing A2
+log line, incomplete cross-notebook checkpoint verification, pending visual
+adjudication, one-seed uncertainty, independent field confirmation, and a
+verified scholarly bibliography.

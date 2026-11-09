@@ -1,5 +1,31 @@
 # Workflow and artifact provenance
 
+## Local setup and saved evidence
+
+From the repository root, create a local environment for inspecting saved CSVs
+or running notebook 04:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+```
+
+The requirements describe dependencies rather than a complete historical
+environment lock. The verified augmentation summary can be read without
+training, inference, or image downloads:
+
+```bash
+python -c "import pandas as pd; print(pd.read_csv('outputs/field_dev_comparison_verified/summary.csv').to_string(index=False))"
+```
+
+Saved notebook outputs can also be viewed without execution. Notebooks 02–03
+and 05–08 contain Colab training workflows; notebook 04 reads committed
+predictions but writes comparison artifacts when run. Notebook 09 performs
+fixed-checkpoint inference, and notebook 10 loads images and checkpoints for
+visualization. Their saved runs used CPU. Checkpoint and external-artifact
+requirements are listed below; none of the checkpoints is tracked in Git.
+
 ## Current workflow
 
 Run commands from the repository root so `src` imports resolve. Preparation scripts are retained for provenance and deliberate future dataset construction. They are **not** prerequisites when the committed manifests already exist. In particular, `src/data_prep.py` writes original splits and label mappings, and the verified preparation script can replace derived splits with backups when explicitly requested. Neither was run during cleanup.
