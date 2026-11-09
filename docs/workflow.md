@@ -8,6 +8,12 @@ The current verified pair is `src/prepare_field_dev_verified.py` and `src/evalua
 
 Experiment parameters remain in notebook configuration cells. `configs/config.yaml`, `src/train.py`, and `src/models.py` are starter scaffolds, not an alternative reproduction pipeline. Moving notebook parameters into YAML would change the working code and is outside this cleanup.
 
+The current sequence contains ten main notebooks (01–10). Notebook 09 evaluates
+four fixed models on Lab Test and verified Field Dev; notebook 10 reads its
+predictions for error analysis and loads the two mixed models for visualization.
+Neither performs training. See the [research overview](../README.md) for results
+and the [documentation audit](documentation_audit.md) for editorial findings.
+
 ## Manifests and audit evidence
 
 All paths below are relative to `data/splits/`:
@@ -61,6 +67,31 @@ Google Drive paths below are relative to `/content/drive/MyDrive/plant-disease-d
 | 07 | `vit_small_field_adaptation_verified/<experiment>/vit_small_field_best.pt` |
 | 08 | `mixed_domain_verified/<experiment>/mixed_domain_best.pt` |
 
+Notebook 09 additionally requires the two baseline checkpoints, the geometric
+ResNet18 source checkpoint, and the R2/V1 mixed checkpoints. It writes
+`final_comparison_development/` under the same Drive root, including
+`final_comparison_summary.csv`, per-class results, eight prediction CSVs,
+checkpoint/manifest hashes in `comparison_protocol.json`, and figures.
+
+Notebook 10 reads `predictions_model1_field_dev.csv` through
+`predictions_model4_field_dev.csv` from that directory. Locally, its input
+directory is `outputs/final_comparison_development/`; the four-model order is
+baseline ResNet18, baseline ViT-Small, geometric + mixed ResNet18, and mixed
+ViT-Small. It also requires PlantDoc images, the two mixed checkpoints, and the
+original ViT checkpoint for preprocessing. Its local mixed-checkpoint filenames
+are `models/resnet18_geometric_mixed_best.pt` and
+`models/vit_small_mixed_best.pt`. These are required inputs, not files supplied
+by this checkout.
+
+Error-analysis outputs go to `error_analysis_development/` in Drive or
+`outputs/error_analysis_development/` locally. They include paired errors,
+class-level and high-confidence error tables, eight selected image cases,
+Grad-CAM/attention figures, a manual review template, and
+`error_analysis_protocol.json`. No completed manual visual interpretations are
+recorded in the notebook. The code checks model/split metadata and selected-case
+predictions but does not verify both mixed checkpoint hashes against notebook
+09's exported record; exact cross-notebook identity depends on preserved files.
+
 Histories, predictions, summaries, plots, and experiment metadata are written alongside the Drive experiments. Preserve them there. This checkout contains only four local checkpoints in ignored `models/`:
 
 | Local filename | Corresponding Drive checkpoint |
@@ -109,3 +140,10 @@ Archived evaluators are importable as `src.archive.evaluate_field_dev` and `src.
 `requirements.txt` now declares the directly imported research packages, including previously missing `torch`, `torchvision`, `scipy`, and `ImageHash`; `ipykernel` supports local VS Code execution. `app/requirements.txt` adds optional Streamlit. Google Colab supplies `google.colab`; it should not be installed into the macOS environment. Notebook setup cells retain their existing dependency installation commands and rely on the Colab runtime for PyTorch.
 
 Versions remain unpinned because historical training versions were not recovered. Installing the requirements is not an exact historical environment reconstruction. Record resolved dataset SHAs, package versions, runtime/hardware, source commit, split hashes, and checkpoint metadata for future experiments. This cleanup does not retroactively change existing experiment provenance.
+
+Some runtime evidence is present: notebook 02 records Python 3.12.13, PyTorch
+2.10.0+cu128, and torchvision 0.25.0+cu128; ViT notebooks record timm 1.0.26,
+and later setup cells explicitly install that version. These partial records
+do not constitute a complete environment lock. The documentation revision on
+2026-11-09 used saved notebook outputs and local CSV evidence; it did not reload
+external Drive artifacts, execute notebooks, or reproduce training/inference.

@@ -1,5 +1,12 @@
 # Repository cleanup record
 
+This is the historical 2026-11-04 snapshot. Its notebook counts, directory tree,
+and working-tree observations describe that cleanup, not the current checkout.
+For the ten-notebook research record, see the [README](../README.md),
+[current workflow](workflow.md), and [documentation audit](documentation_audit.md).
+The staging/commit commands below are a historical proposal, not required steps
+for reviewing the documentation revision.
+
 Cleanup date: 2026-11-04. Scope: organization and documentation only; no model training, split generation, label changes, metric changes, commit, or push.
 
 ## Updated directory tree
