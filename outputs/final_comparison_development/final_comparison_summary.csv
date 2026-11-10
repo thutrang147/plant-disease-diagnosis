@@ -1,0 +1,9 @@
+model,phase,partition,accuracy,macro_f1,correct,images
+ResNet18 · Lab baseline,lab_only,lab_test,0.9793,0.9744,1657,1692
+ResNet18 · Lab baseline,lab_only,field_dev,0.3261,0.2355,30,92
+ViT-Small · Lab baseline,lab_only,lab_test,0.9947,0.9938,1683,1692
+ViT-Small · Lab baseline,lab_only,field_dev,0.4022,0.2677,37,92
+ResNet18 · Geometric + Mixed,mixed_domain,lab_test,0.9297,0.914,1573,1692
+ResNet18 · Geometric + Mixed,mixed_domain,field_dev,0.4674,0.4459,43,92
+ViT-Small · Mixed,mixed_domain,lab_test,0.99,0.9886,1675,1692
+ViT-Small · Mixed,mixed_domain,field_dev,0.4022,0.3872,37,92

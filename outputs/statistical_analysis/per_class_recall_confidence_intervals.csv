@@ -1,0 +1,21 @@
+class_name,support,model,correct,recall,wilson_95ci_low,wilson_95ci_high
+Healthy,11,ResNet18 · Lab baseline,0,0.0,0.0,0.2588
+Healthy,11,ViT-Small · Lab baseline,0,0.0,0.0,0.2588
+Healthy,11,ResNet18 · Geometric + Mixed,6,0.5455,0.2801,0.7873
+Healthy,11,ViT-Small · Mixed,6,0.5455,0.2801,0.7873
+Early Blight,16,ResNet18 · Lab baseline,13,0.8125,0.5699,0.9341
+Early Blight,16,ViT-Small · Lab baseline,4,0.25,0.1018,0.495
+Early Blight,16,ResNet18 · Geometric + Mixed,5,0.3125,0.1416,0.556
+Early Blight,16,ViT-Small · Mixed,4,0.25,0.1018,0.495
+Late Blight,20,ResNet18 · Lab baseline,9,0.45,0.2582,0.6579
+Late Blight,20,ViT-Small · Lab baseline,14,0.7,0.481,0.8545
+Late Blight,20,ResNet18 · Geometric + Mixed,11,0.55,0.3421,0.7418
+Late Blight,20,ViT-Small · Mixed,9,0.45,0.2582,0.6579
+Bacterial Spot,18,ResNet18 · Lab baseline,0,0.0,0.0,0.1759
+Bacterial Spot,18,ViT-Small · Lab baseline,0,0.0,0.0,0.1759
+Bacterial Spot,18,ResNet18 · Geometric + Mixed,3,0.1667,0.0584,0.3922
+Bacterial Spot,18,ViT-Small · Mixed,3,0.1667,0.0584,0.3922
+Septoria Leaf Spot,27,ResNet18 · Lab baseline,8,0.2963,0.1585,0.4848
+Septoria Leaf Spot,27,ViT-Small · Lab baseline,19,0.7037,0.5152,0.8415
+Septoria Leaf Spot,27,ResNet18 · Geometric + Mixed,18,0.6667,0.4782,0.8136
+Septoria Leaf Spot,27,ViT-Small · Mixed,15,0.5556,0.3731,0.7241

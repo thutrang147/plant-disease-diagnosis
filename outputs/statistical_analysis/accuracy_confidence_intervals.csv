@@ -1,0 +1,13 @@
+model,partition,correct,total,accuracy,wilson_95ci_low,wilson_95ci_high,bootstrap_acc_95ci_low,bootstrap_acc_95ci_high,macro_f1,bootstrap_f1_95ci_low,bootstrap_f1_95ci_high
+ResNet18 · Lab baseline,lab_test,1657,1692,0.9793,0.9714,0.9851,0.9722,0.9858,0.9744,0.9656,0.9824
+ResNet18 · Lab baseline,field_dev,30,92,0.3261,0.2389,0.4272,0.2283,0.4239,0.2355,0.1672,0.2976
+ViT-Small · Lab baseline,lab_test,1683,1692,0.9947,0.9899,0.9972,0.9911,0.9976,0.9938,0.9895,0.9974
+ViT-Small · Lab baseline,field_dev,37,92,0.4022,0.3078,0.5043,0.3043,0.5,0.2677,,
+ResNet18 · Geometric + Mixed,lab_test,1573,1692,0.9297,0.9165,0.9409,0.9173,0.9415,0.914,,
+ResNet18 · Geometric + Mixed,field_dev,43,92,0.4674,0.3688,0.5686,0.3696,0.5652,0.4459,,
+ViT-Small · Mixed,lab_test,1675,1692,0.99,0.984,0.9937,0.9846,0.9941,0.9886,,
+ViT-Small · Mixed,field_dev,37,92,0.4022,0.3078,0.5043,0.3043,0.5,0.3872,,
+ResNet18 · Lab baseline,field_test,17,47,0.3617,0.2397,0.5046,0.2128,0.4894,0.2802,0.1781,0.3625
+ViT-Small · Lab baseline,field_test,21,47,0.4468,0.3141,0.5875,0.2979,0.5957,0.3617,0.2338,0.4824
+ResNet18 · Photometric (frozen),field_dev,31,92,0.337,0.2486,0.4383,0.2391,0.4348,0.2444,0.1785,0.3058
+ResNet18 · Geometric (frozen),field_dev,32,92,0.3478,0.2584,0.4495,0.25,0.4457,0.2497,0.183,0.3109

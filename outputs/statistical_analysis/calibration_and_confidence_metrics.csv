@@ -1,0 +1,10 @@
+model,partition,n,accuracy,mean_confidence,mean_conf_correct,mean_conf_error,ece_10bins,total_errors,high_conf_errors_ge_0_90,high_conf_share_of_errors
+ResNet18 · Lab baseline,lab_test,1692,0.9793,0.9884,0.9922,0.8064,0.0098,35,13,0.3714
+ViT-Small · Lab baseline,lab_test,1692,0.9947,0.9939,0.9951,0.7835,0.0022,9,3,0.3333
+ResNet18 · Lab baseline,field_test,47,0.3617,0.9076,0.9488,0.8842,0.5459,30,21,0.7
+ViT-Small · Lab baseline,field_test,47,0.4468,0.8629,0.9198,0.8169,0.4161,26,11,0.4231
+ResNet18 · Lab baseline,field_dev,92,0.3261,0.8921,0.9136,0.8816,0.566,62,39,0.629
+ResNet18 · Photometric (frozen),field_dev,92,0.337,0.8578,0.8894,0.8417,0.5245,61,33,0.541
+ResNet18 · Geometric (frozen),field_dev,92,0.3478,0.9263,0.9526,0.9123,0.5785,60,42,0.7
+ResNet18 · Geometric + Mixed,field_dev,92,0.4674,,,,,49,3,0.0612
+ViT-Small · Mixed,field_dev,92,0.4022,,,,,55,9,0.1636

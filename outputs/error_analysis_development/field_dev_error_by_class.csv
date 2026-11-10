@@ -1,0 +1,6 @@
+class_name,images,resnet_correct,vit_correct,both_wrong,resnet_recall,vit_recall
+Healthy,11,6,6,2,0.5455,0.5455
+Early Blight,16,5,4,8,0.3125,0.25
+Late Blight,20,11,9,5,0.55,0.45
+Bacterial Spot,18,3,3,13,0.1667,0.1667
+Septoria Leaf Spot,27,18,15,8,0.6667,0.5556

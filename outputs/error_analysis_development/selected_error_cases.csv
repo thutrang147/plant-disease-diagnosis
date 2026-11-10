@@ -1,0 +1,9 @@
+panel_row,row_id,reason,class_name,resnet_mixed_prediction,vit_mixed_prediction,resnet_mixed_confidence,vit_mixed_confidence
+0,1899,both_wrong,Bacterial Spot,Septoria Leaf Spot,Septoria Leaf Spot,0.966,0.997
+1,1994,both_wrong,Late Blight,Septoria Leaf Spot,Septoria Leaf Spot,0.387,0.97
+2,1596,both_wrong,Early Blight,Late Blight,Late Blight,0.733,0.958
+3,1812,resnet_only,Healthy,Healthy,Late Blight,0.959,0.654
+4,1629,resnet_only,Early Blight,Early Blight,Septoria Leaf Spot,0.419,0.952
+5,1602,vit_only,Early Blight,Late Blight,Early Blight,0.752,0.987
+6,1804,vit_only,Healthy,Bacterial Spot,Healthy,0.501,0.956
+7,1909,bacterial_spot,Bacterial Spot,Septoria Leaf Spot,Septoria Leaf Spot,0.925,0.953
