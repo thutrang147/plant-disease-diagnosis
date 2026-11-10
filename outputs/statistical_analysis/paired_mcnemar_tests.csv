@@ -1,0 +1,5 @@
+comparison,partition,n,both_correct,model_a_only,model_b_only,both_wrong,acc_a,acc_b,acc_diff_a_minus_b,mcnemar_exact_p,significant_at_0_05,oracle_union_correct,oracle_union_acc,max_conf_selector_correct,max_conf_selector_acc
+ResNet18 · Geometric + Mixed vs. ViT-Small · Mixed,field_dev,92,24,19,13,36,0.4674,0.4022,0.0652,0.3771,False,56,0.6087,,
+ResNet18 · Lab baseline vs. ViT-Small · Lab baseline,field_test,47,13,4,8,22,0.3617,0.4468,-0.0851,0.3877,False,25,0.5319,19.0,0.4043
+ResNet18 · Lab baseline vs. ViT-Small · Lab baseline,lab_test,1692,1651,6,32,3,0.9793,0.9947,-0.0154,2.4e-05,True,1689,0.9982,,
+ResNet18 · Lab baseline vs. ResNet18 · Geometric (frozen),field_dev,92,26,4,6,56,0.3261,0.3478,-0.0217,0.7539,False,36,0.3913,,

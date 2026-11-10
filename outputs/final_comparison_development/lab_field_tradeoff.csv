@@ -1,0 +1,5 @@
+model,accuracy_field_dev,accuracy_lab_test,macro_f1_field_dev,macro_f1_lab_test,macro_f1_lab_minus_field
+ResNet18 · Lab baseline,0.3261,0.9793,0.2355,0.9744,0.739
+ViT-Small · Lab baseline,0.4022,0.9947,0.2677,0.9938,0.7261
+ResNet18 · Geometric + Mixed,0.4674,0.9297,0.4459,0.914,0.468
+ViT-Small · Mixed,0.4022,0.99,0.3872,0.9886,0.6015

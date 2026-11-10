@@ -1,0 +1,6 @@
+class_name,support,ResNet18 · Lab baseline,ViT-Small · Lab baseline,ResNet18 · Geometric + Mixed,ViT-Small · Mixed
+Healthy,11,0.0,0.0,0.5455,0.5455
+Early Blight,16,0.8125,0.25,0.3125,0.25
+Late Blight,20,0.45,0.7,0.55,0.45
+Bacterial Spot,18,0.0,0.0,0.1667,0.1667
+Septoria Leaf Spot,27,0.2963,0.7037,0.6667,0.5556
