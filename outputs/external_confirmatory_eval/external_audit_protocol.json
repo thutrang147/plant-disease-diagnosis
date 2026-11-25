@@ -1,0 +1,69 @@
+{
+  "dataset_name": "tomato_field_eval_v1",
+  "total_images": 62,
+  "all_file_sha256_matched_manifest": true,
+  "phash_threshold": 4,
+  "plantdoc_reference_images_checked": 476,
+  "cross_dataset_leaks_count": 0,
+  "cross_dataset_leaks": [],
+  "within_dataset_near_duplicate_pairs_count": 0,
+  "within_dataset_near_duplicate_pairs": [],
+  "min_phash_distance_to_plantdoc_stats": {
+    "min": 16,
+    "median": 20.0,
+    "mean": 19.13,
+    "max": 22
+  },
+  "class_distribution": {
+    "Healthy": 16,
+    "Early Blight": 13,
+    "Septoria Leaf Spot": 13,
+    "Late Blight": 11,
+    "Bacterial Spot": 9
+  },
+  "source_distribution": {
+    "online_sources": 46,
+    "self_collected": 16
+  },
+  "image_type_distribution": {
+    "multi_leaf": 39,
+    "cropped": 18,
+    "single_leaf": 5
+  },
+  "visible_leaf_context_distribution": {
+    "multiple_leaves": 47,
+    "single_or_partial_leaf": 15
+  },
+  "resolution_compression_by_class": {
+    "Bacterial Spot": {
+      "verified_width": 1080.0,
+      "verified_height": 1440.0,
+      "downsample_area_ratio_to_224": 41.33,
+      "downsample_linear_ratio_to_224": 6.43
+    },
+    "Early Blight": {
+      "verified_width": 1800.0,
+      "verified_height": 1800.0,
+      "downsample_area_ratio_to_224": 72.35,
+      "downsample_linear_ratio_to_224": 8.51
+    },
+    "Healthy": {
+      "verified_width": 3490.0,
+      "verified_height": 2903.0,
+      "downsample_area_ratio_to_224": 183.69,
+      "downsample_linear_ratio_to_224": 13.37
+    },
+    "Late Blight": {
+      "verified_width": 1024.0,
+      "verified_height": 772.0,
+      "downsample_area_ratio_to_224": 15.76,
+      "downsample_linear_ratio_to_224": 3.97
+    },
+    "Septoria Leaf Spot": {
+      "verified_width": 1130.0,
+      "verified_height": 1452.0,
+      "downsample_area_ratio_to_224": 37.95,
+      "downsample_linear_ratio_to_224": 6.16
+    }
+  }
+}
