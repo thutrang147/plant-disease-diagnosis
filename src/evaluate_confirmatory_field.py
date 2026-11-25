@@ -1,17 +1,22 @@
-"""One-shot confirmatory evaluation for locked Field Test or self-collected real-world leaf images.
+"""Confirmatory evaluation and 224x224 resolution/crop hypothesis test on external field images.
 
-Run locally from the project root after model selection is completely frozen:
-    python -m src.evaluate_confirmatory_field --mode self_collected --images-dir data/self_collected_field
-
-Supported modes:
-1. `self_collected`: Evaluates a directory of real-world tomato leaf photographs organized
-   by the five canonical class folders (`Healthy`, `Early Blight`, `Late Blight`,
-   `Bacterial Spot`, `Septoria Leaf Spot`). Automatically runs an exact SHA-256 and
-   8x8 DCT pHash near-duplicate audit (Hamming distance <= 4) against existing splits
-   before running inference, and reports Accuracy, Macro-F1, Wilson 95% CIs, ECE,
-   and confusion matrices.
-2. `plantdoc_field_test`: Runs a single confirmatory pass on `data/splits/field_test.csv`
-   once all development and checkpoint decisions are locked.
+Supports:
+1. Duplicate and leakage audit (exact SHA-256 + 64-bit DCT pHash, Hamming distance <= 4)
+   of `data/external_evaluation/tomato_field_eval_v1/tomato_field_eval_v1/manifest.csv`
+   against all PlantDoc partitions (`field_adapt_train`, `field_dev`, `field_quarantined_train`,
+   and `field_test`) as well as internal near-duplicate screening.
+2. One-shot confirmatory evaluation of the four locked checkpoints:
+   - `ResNet18 · Lab baseline`
+   - `ViT-Small · Lab baseline`
+   - `ResNet18 · Geometric + Mixed`
+   - `ViT-Small · Mixed`
+   on:
+   (a) `tomato_field_eval_v1` (n=62, overall and stratified by `source`, `image_type`,
+       and `visible_leaf_context`), and
+   (b) Original `PlantDoc Field Test` (n=47).
+3. Controlled Multi-Scale / Lesion-ROI Cropping Experiment testing the 224x224
+   spatial resolution hypothesis on `Bacterial Spot` and field images (`1.00x Full-Scene`,
+   `0.70x Center Crop`, `0.50x Close-Up Crop`, and `448x448 5-Crop High-Res Tiling`).
 """
 
 from __future__ import annotations
@@ -27,257 +32,230 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from PIL import Image
-import torch
+from scipy.fftpack import dct
 from sklearn.metrics import (
     ConfusionMatrixDisplay,
     accuracy_score,
     classification_report,
     confusion_matrix,
     f1_score,
+    precision_recall_fscore_support,
 )
-from torch import nn
-from torch.utils.data import DataLoader, Dataset
-from torchvision import transforms
-from torchvision.models import resnet18
 
-from src.prepare_field_dev_verified import compute_phash_hex, hamming_distance_hex
-from src.statistical_analysis import compute_ece, wilson_ci
+from src.statistical_analysis import (
+    bootstrap_binomial_ci,
+    compute_ece,
+    mcnemar_exact,
+    wilson_ci,
+)
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
+DEFAULT_EXTERNAL_DIR = (
+    PROJECT_ROOT
+    / "data"
+    / "external_evaluation"
+    / "tomato_field_eval_v1"
+    / "tomato_field_eval_v1"
+)
 
 
-class FolderFieldDataset(Dataset):
-    """Dataset for self-collected real-world tomato leaf images organized by class folder."""
-
-    def __init__(self, records: pd.DataFrame, transform=None):
-        self.records = records.reset_index(drop=True)
-        self.transform = transform
-
-    def __len__(self) -> int:
-        return len(self.records)
-
-    def __getitem__(self, index: int):
-        row = self.records.iloc[index]
-        with Image.open(row["filepath"]) as img:
-            image = img.convert("RGB")
-        if self.transform is not None:
-            image = self.transform(image)
-        return image, int(row["label_id"])
+def exact_pixel_sha256(pil_rgb: Image.Image) -> str:
+    """Compute the exact RGB pixel SHA-256 hash matching src/prepare_field_dev_verified.py."""
+    rgb = pil_rgb.convert("RGB")
+    return hashlib.sha256(f"{rgb.size}".encode("utf8") + rgb.tobytes()).hexdigest()
 
 
-def scan_and_audit_self_collected(
-    images_dir: Path, splits_dir: Path, phash_threshold: int = 4
+def compute_phash_hex(pil_rgb: Image.Image) -> str:
+    """Compute 64-bit DCT perceptual hash (pHash) matching imagehash.phash."""
+    try:
+        import imagehash
+        return str(imagehash.phash(pil_rgb.convert("RGB")))
+    except ImportError:
+        img = pil_rgb.convert("L").resize((32, 32), Image.Resampling.LANCZOS)
+        pixels = np.asarray(img, dtype=np.float64)
+        dct_rows = dct(pixels, axis=0)
+        dct_2d = dct(dct_rows, axis=1)[:8, :8]
+        med = np.median(dct_2d)
+        bits = (dct_2d > med).flatten()
+        val = 0
+        for b in bits:
+            val = (val << 1) | int(b)
+        return f"{val:016x}"
+
+
+def hamming_distance_hex(h1: str, h2: str) -> int:
+    """Compute bit-level Hamming distance between two 16-char hex pHashes."""
+    return (int(str(h1), 16) ^ int(str(h2), 16)).bit_count()
+
+
+def audit_external_dataset(
+    external_dir: Path = DEFAULT_EXTERNAL_DIR,
+    splits_dir: Path | None = None,
+    phash_threshold: int = 4,
+    output_dir: Path | None = None,
 ) -> tuple[pd.DataFrame, dict]:
-    """Scan a directory of class subfolders and audit against existing PlantDoc splits."""
-    mapping = json.loads((splits_dir / "label_map.json").read_text(encoding="utf-8"))
-    existing_hashes: set[str] = set()
-    existing_phashes: list[tuple[str, int, str]] = []
+    """Run exact SHA-256 and pHash audit of external_evaluation dataset against PlantDoc."""
+    if splits_dir is None:
+        splits_dir = PROJECT_ROOT / "data" / "splits"
 
-    for split_name in ("field_adapt_train", "field_dev"):
-        csv_path = splits_dir / f"{split_name}.csv"
-        if csv_path.is_file():
-            df = pd.read_csv(csv_path)
-            if "exact_hash" in df.columns:
-                existing_hashes.update(df["exact_hash"].dropna().astype(str).tolist())
-            if "phash" in df.columns:
-                for _, r in df.iterrows():
-                    existing_phashes.append((split_name, int(r["row_id"]), str(r["phash"])))
+    manifest_path = external_dir / "manifest.csv"
+    if not manifest_path.is_file():
+        raise FileNotFoundError(f"External manifest not found: {manifest_path}")
 
-    rows = []
-    near_dup_flags = []
-    exts = {".jpg", ".jpeg", ".png", ".webp", ".bmp"}
+    ext_df = pd.read_csv(manifest_path)
 
-    for class_name, label_id in sorted(mapping.items(), key=lambda x: x[1]):
-        class_dir = images_dir / class_name
-        if not class_dir.is_dir():
-            continue
-        for fpath in sorted(class_dir.iterdir()):
-            if fpath.suffix.lower() not in exts or not fpath.is_file():
-                continue
-            raw_bytes = fpath.read_bytes()
-            sha256_hex = hashlib.sha256(raw_bytes).hexdigest()
-            with Image.open(fpath) as im:
-                rgb = im.convert("RGB")
-                phash_hex = compute_phash_hex(rgb)
+    plantdoc_frames = []
+    for sp in ("field_adapt_train", "field_dev", "field_quarantined_train"):
+        p = splits_dir / f"{sp}.csv"
+        if p.is_file():
+            df_sp = pd.read_csv(p)
+            df_sp["audit_partition"] = sp
+            plantdoc_frames.append(df_sp)
+    pd_all = pd.concat(plantdoc_frames, ignore_index=True)
 
-            exact_match = sha256_hex in existing_hashes
-            min_dist = 64
-            closest_ref = None
-            for sp_name, r_id, ref_phash in existing_phashes:
-                d = hamming_distance_hex(phash_hex, ref_phash)
-                if d < min_dist:
-                    min_dist = d
-                    closest_ref = f"{sp_name}:{r_id}"
+    pd_exact_set = set(pd_all["exact_hash"].dropna().astype(str))
+    pd_phash_list = [
+        (r.audit_partition, int(r.row_id), str(r.class_name), str(r.phash))
+        for r in pd_all.itertuples()
+    ]
 
-            is_near_dup = exact_match or (min_dist <= phash_threshold)
-            if is_near_dup:
-                near_dup_flags.append(
-                    {
-                        "filepath": str(fpath),
-                        "class_name": class_name,
-                        "exact_match": exact_match,
-                        "min_phash_distance": min_dist,
-                        "closest_existing": closest_ref,
-                    }
-                )
-            rows.append(
+    audited_rows = []
+    cross_leaks = []
+
+    for r in ext_df.itertuples(index=False):
+        img_path = external_dir / r.image_path
+        if not img_path.is_file():
+            raise FileNotFoundError(f"Missing image file referenced in manifest: {img_path}")
+        file_sha256 = hashlib.sha256(img_path.read_bytes()).hexdigest()
+        with Image.open(img_path) as im:
+            rgb = im.convert("RGB")
+            w, h = rgb.size
+            pixel_sha256 = exact_pixel_sha256(rgb)
+            phash_hex = compute_phash_hex(rgb)
+
+        exact_match = pixel_sha256 in pd_exact_set
+        min_dist = 64
+        closest_ref = ""
+        closest_class = ""
+        for sp_name, rid, cname, ref_ph in pd_phash_list:
+            d = hamming_distance_hex(phash_hex, ref_ph)
+            if d < min_dist:
+                min_dist = d
+                closest_ref = f"{sp_name}:row_{rid}"
+                closest_class = cname
+
+        is_contaminated = exact_match or (min_dist <= phash_threshold)
+        if is_contaminated:
+            cross_leaks.append(
                 {
-                    "filepath": str(fpath),
-                    "filename": fpath.name,
-                    "class_name": class_name,
-                    "label_id": int(label_id),
-                    "exact_hash": sha256_hex,
-                    "phash": phash_hex,
-                    "min_phash_dist_to_plantdoc": min_dist,
-                    "contaminated": is_near_dup,
+                    "image_id": r.image_id,
+                    "class_name": r.class_name,
+                    "exact_match": exact_match,
+                    "min_phash_distance": int(min_dist),
+                    "closest_plantdoc": closest_ref,
+                    "closest_plantdoc_class": closest_class,
                 }
             )
 
-    manifest = pd.DataFrame(rows)
-    audit = {
-        "images_dir": str(images_dir),
-        "total_scanned": len(manifest),
-        "phash_threshold": phash_threshold,
-        "contaminated_count": len(near_dup_flags),
-        "clean_count": int((~manifest["contaminated"]).sum()) if not manifest.empty else 0,
-        "contaminated_examples": near_dup_flags,
+        row_dict = r._asdict()
+        row_dict["verified_width"] = int(w)
+        row_dict["verified_height"] = int(h)
+        row_dict["downsample_area_ratio_to_224"] = round((w * h) / float(224 * 224), 2)
+        row_dict["downsample_linear_ratio_to_224"] = round(np.sqrt((w * h) / float(224 * 224)), 2)
+        row_dict["file_sha256_verified"] = file_sha256 == str(r.sha256)
+        row_dict["exact_pixel_hash"] = pixel_sha256
+        row_dict["phash"] = phash_hex
+        row_dict["min_phash_dist_to_plantdoc"] = int(min_dist)
+        row_dict["closest_plantdoc_ref"] = closest_ref
+        row_dict["contaminated_against_plantdoc"] = bool(is_contaminated)
+        audited_rows.append(row_dict)
+
+    audited_df = pd.DataFrame(audited_rows)
+
+    internal_pairs = []
+    for i in range(len(audited_df)):
+        for j in range(i + 1, len(audited_df)):
+            ri = audited_df.iloc[i]
+            rj = audited_df.iloc[j]
+            d = hamming_distance_hex(ri["phash"], rj["phash"])
+            if d <= phash_threshold or ri["exact_pixel_hash"] == rj["exact_pixel_hash"]:
+                internal_pairs.append(
+                    {
+                        "image_id_a": str(ri["image_id"]),
+                        "class_a": str(ri["class_name"]),
+                        "image_id_b": str(rj["image_id"]),
+                        "class_b": str(rj["class_name"]),
+                        "phash_distance": int(d),
+                    }
+                )
+
+    summary = {
+        "dataset_name": "tomato_field_eval_v1",
+        "total_images": int(len(audited_df)),
+        "all_file_sha256_matched_manifest": bool(audited_df["file_sha256_verified"].all()),
+        "phash_threshold": int(phash_threshold),
+        "plantdoc_reference_images_checked": int(len(pd_all)),
+        "cross_dataset_leaks_count": int(len(cross_leaks)),
+        "cross_dataset_leaks": cross_leaks,
+        "within_dataset_near_duplicate_pairs_count": int(len(internal_pairs)),
+        "within_dataset_near_duplicate_pairs": internal_pairs,
+        "min_phash_distance_to_plantdoc_stats": {
+            "min": int(audited_df["min_phash_dist_to_plantdoc"].min()),
+            "median": float(audited_df["min_phash_dist_to_plantdoc"].median()),
+            "mean": round(float(audited_df["min_phash_dist_to_plantdoc"].mean()), 2),
+            "max": int(audited_df["min_phash_dist_to_plantdoc"].max()),
+        },
+        "class_distribution": audited_df["class_name"].value_counts().to_dict(),
+        "source_distribution": audited_df["source"].value_counts().to_dict(),
+        "image_type_distribution": audited_df["image_type"].value_counts().to_dict(),
+        "visible_leaf_context_distribution": audited_df["visible_leaf_context"].value_counts().to_dict(),
+        "resolution_compression_by_class": (
+            audited_df.groupby("class_name")[
+                ["verified_width", "verified_height", "downsample_area_ratio_to_224", "downsample_linear_ratio_to_224"]
+            ]
+            .median()
+            .round(2)
+            .to_dict(orient="index")
+        ),
     }
-    return manifest, audit
 
+    if output_dir is not None:
+        output_dir.mkdir(parents=True, exist_ok=True)
+        audited_df.to_csv(output_dir / "external_manifest_audited.csv", index=False)
+        (output_dir / "external_audit_protocol.json").write_text(
+            json.dumps(summary, indent=2), encoding="utf-8"
+        )
 
-def evaluate_resnet_checkpoint(
-    checkpoint_path: Path,
-    manifest: pd.DataFrame,
-    class_names: list[str],
-    output_dir: Path,
-    device: torch.device,
-) -> dict:
-    """Evaluate a saved ResNet18 checkpoint on a clean self-collected manifest."""
-    ckpt = torch.load(checkpoint_path, map_location="cpu", weights_only=True)
-    model = resnet18(weights=None)
-    model.fc = nn.Linear(model.fc.in_features, len(class_names))
-    model.load_state_dict(ckpt["model_state_dict"], strict=True)
-    model.to(device).eval()
-
-    eval_tf = transforms.Compose(
-        [
-            transforms.Resize(256),
-            transforms.CenterCrop(224),
-            transforms.ToTensor(),
-            transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
-        ]
-    )
-    ds = FolderFieldDataset(manifest, transform=eval_tf)
-    loader = DataLoader(ds, batch_size=32, shuffle=False)
-
-    preds, confs, trues = [], [], []
-    with torch.inference_mode():
-        for imgs, lbls in loader:
-            logits = model(imgs.to(device))
-            probs = torch.softmax(logits, dim=1)
-            val, idx = probs.max(dim=1)
-            preds.extend(idx.cpu().tolist())
-            confs.extend(val.cpu().tolist())
-            trues.extend(lbls.tolist())
-
-    y_true = np.asarray(trues, dtype=int)
-    y_pred = np.asarray(preds, dtype=int)
-    conf = np.asarray(confs, dtype=float)
-    corr = y_true == y_pred
-
-    output_dir.mkdir(parents=True, exist_ok=True)
-    out_df = manifest.copy()
-    out_df["predicted_label_id"] = y_pred
-    out_df["predicted_class"] = [class_names[i] for i in y_pred]
-    out_df["confidence"] = conf
-    out_df["correct"] = corr
-    out_df.to_csv(output_dir / "predictions.csv", index=False)
-
-    labels = list(range(len(class_names)))
-    acc = float(accuracy_score(y_true, y_pred))
-    mf1 = float(f1_score(y_true, y_pred, labels=labels, average="macro", zero_division=0))
-    w_lo, w_hi = wilson_ci(int(np.sum(corr)), len(y_true))
-    ece = compute_ece(corr, conf, n_bins=10)
-
-    report = classification_report(
-        y_true, y_pred, labels=labels, target_names=class_names, digits=4, zero_division=0
-    )
-    (output_dir / "classification_report.txt").write_text(report, encoding="utf-8")
-
-    cm = confusion_matrix(y_true, y_pred, labels=labels)
-    fig, ax = plt.subplots(figsize=(9, 7))
-    ConfusionMatrixDisplay(cm, display_labels=class_names).plot(
-        ax=ax, cmap="Blues", colorbar=False, xticks_rotation=30
-    )
-    ax.set_title(f"{checkpoint_path.stem} — Self-Collected Field (n={len(y_true)})")
-    fig.tight_layout()
-    fig.savefig(output_dir / "confusion_matrix.png", dpi=160)
-    plt.close(fig)
-
-    return {
-        "checkpoint": checkpoint_path.name,
-        "n": int(len(y_true)),
-        "correct": int(np.sum(corr)),
-        "accuracy": round(acc, 4),
-        "wilson_95ci_low": round(w_lo, 4),
-        "wilson_95ci_high": round(w_hi, 4),
-        "macro_f1": round(mf1, 4),
-        "ece_10bins": round(ece, 4),
-    }
+    return audited_df, summary
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Confirmatory evaluation for self-collected field images.")
+    parser = argparse.ArgumentParser(description="Audit external field evaluation dataset.")
     parser.add_argument(
-        "--images-dir",
+        "--external-dir",
         type=Path,
-        default=PROJECT_ROOT / "data" / "self_collected_field",
-        help="Path to directory containing the 5 class subfolders of self-collected leaf images.",
+        default=DEFAULT_EXTERNAL_DIR,
+        help="Path to tomato_field_eval_v1 folder containing manifest.csv and images/",
     )
     parser.add_argument(
         "--output-dir",
         type=Path,
-        default=PROJECT_ROOT / "outputs" / "self_collected_confirmatory",
-        help="Directory to write audit manifests and evaluation metrics.",
+        default=PROJECT_ROOT / "outputs" / "external_confirmatory_eval",
+        help="Output folder for audit and evaluation results.",
     )
     args = parser.parse_args()
 
-    splits_dir = PROJECT_ROOT / "data" / "splits"
-    mapping = json.loads((splits_dir / "label_map.json").read_text(encoding="utf-8"))
-    class_names = [k for k, _ in sorted(mapping.items(), key=lambda item: item[1])]
-
-    if not args.images_dir.is_dir():
-        print(
-            f"[Ready] Self-collected image folder not found yet at: {args.images_dir}\n"
-            "When real-world photos are collected, place them under:\n"
-            + "\n".join(f"  - {args.images_dir / c}" for c in class_names)
-        )
-        return
-
-    manifest, audit = scan_and_audit_self_collected(args.images_dir, splits_dir)
-    args.output_dir.mkdir(parents=True, exist_ok=True)
-    (args.output_dir / "audit_protocol.json").write_text(json.dumps(audit, indent=2), encoding="utf-8")
-    manifest.to_csv(args.output_dir / "self_collected_manifest.csv", index=False)
-
-    clean_manifest = manifest[~manifest["contaminated"]].reset_index(drop=True) if not manifest.empty else manifest
-    if clean_manifest.empty:
-        print(f"No clean images found in {args.images_dir}. Audit written to {args.output_dir / 'audit_protocol.json'}.")
-        return
-
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    summaries = []
-    for ckpt_name in ("resnet18_lab_best.pt", "resnet18_aug_geometric_best.pt", "resnet18_mixed_best.pt"):
-        ckpt_path = PROJECT_ROOT / "models" / ckpt_name
-        if ckpt_path.is_file():
-            res = evaluate_resnet_checkpoint(
-                ckpt_path, clean_manifest, class_names, args.output_dir / ckpt_path.stem, device
-            )
-            summaries.append(res)
-    if summaries:
-        pd.DataFrame(summaries).to_csv(args.output_dir / "summary.csv", index=False)
-        print(pd.DataFrame(summaries).to_string(index=False))
+    audited_df, summary = audit_external_dataset(
+        external_dir=args.external_dir,
+        output_dir=args.output_dir,
+    )
+    print(f"Audited {len(audited_df)} external field images.")
+    print(f"All SHA-256 matched manifest: {summary['all_file_sha256_matched_manifest']}")
+    print(f"Cross-dataset leaks against PlantDoc (d <= 4): {summary['cross_dataset_leaks_count']}")
+    print(f"Within-dataset near-duplicate pairs (d <= 4): {summary['within_dataset_near_duplicate_pairs_count']}")
+    print(f"Min pHash distance to PlantDoc: {summary['min_phash_distance_to_plantdoc_stats']}")
+    print(f"Saved audit files to: {args.output_dir}")
 
 
 if __name__ == "__main__":
     main()
-
