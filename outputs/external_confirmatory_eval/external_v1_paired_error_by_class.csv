@@ -1,0 +1,6 @@
+label_id,class_name,support,both_correct,resnet_only_correct,vit_only_correct,both_wrong
+0,Healthy,16,10,2,2,2
+1,Early Blight,13,0,1,2,10
+2,Late Blight,11,8,0,0,3
+3,Bacterial Spot,9,3,2,2,2
+4,Septoria Leaf Spot,13,3,4,1,5

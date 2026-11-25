@@ -1,0 +1,29 @@
+model,stratum_column,stratum_value,n,correct,accuracy,wilson_95ci_low,wilson_95ci_high,macro_f1_present_classes
+ResNet18 · Lab baseline,source,online_sources,46,19,0.413,0.2829,0.5566,0.36
+ResNet18 · Lab baseline,source,self_collected,16,0,0.0,0.0,0.1936,0.0
+ResNet18 · Lab baseline,visible_leaf_context,multiple_leaves,47,17,0.3617,0.2397,0.5046,0.2878
+ResNet18 · Lab baseline,visible_leaf_context,single_or_partial_leaf,15,2,0.1333,0.0374,0.3788,0.0833
+ResNet18 · Lab baseline,image_type,cropped,18,3,0.1667,0.0584,0.3922,0.1015
+ResNet18 · Lab baseline,image_type,multi_leaf,39,15,0.3846,0.2489,0.541,0.3199
+ResNet18 · Lab baseline,image_type,single_leaf,5,1,0.2,0.0362,0.6245,0.1111
+ViT-Small · Lab baseline,source,online_sources,46,22,0.4783,0.3412,0.6186,0.4447
+ViT-Small · Lab baseline,source,self_collected,16,6,0.375,0.1848,0.6136,0.5455
+ViT-Small · Lab baseline,visible_leaf_context,multiple_leaves,47,20,0.4255,0.2951,0.5672,0.3824
+ViT-Small · Lab baseline,visible_leaf_context,single_or_partial_leaf,15,8,0.5333,0.3012,0.7519,0.5595
+ViT-Small · Lab baseline,image_type,cropped,18,9,0.5,0.2903,0.7097,0.3455
+ViT-Small · Lab baseline,image_type,multi_leaf,39,15,0.3846,0.2489,0.541,0.3674
+ViT-Small · Lab baseline,image_type,single_leaf,5,4,0.8,0.3755,0.9638,0.8222
+ResNet18 · Geometric + Mixed,source,online_sources,46,21,0.4565,0.3215,0.5982,0.4372
+ResNet18 · Geometric + Mixed,source,self_collected,16,12,0.75,0.505,0.8982,0.8571
+ResNet18 · Geometric + Mixed,visible_leaf_context,multiple_leaves,47,26,0.5532,0.4125,0.6859,0.5278
+ResNet18 · Geometric + Mixed,visible_leaf_context,single_or_partial_leaf,15,7,0.4667,0.2481,0.6988,0.3352
+ResNet18 · Geometric + Mixed,image_type,cropped,18,9,0.5,0.2903,0.7097,0.3861
+ResNet18 · Geometric + Mixed,image_type,multi_leaf,39,22,0.5641,0.4098,0.707,0.5464
+ResNet18 · Geometric + Mixed,image_type,single_leaf,5,2,0.4,0.1176,0.7693,0.2222
+ViT-Small · Mixed,source,online_sources,46,19,0.413,0.2829,0.5566,0.3988
+ViT-Small · Mixed,source,self_collected,16,12,0.75,0.505,0.8982,0.8571
+ViT-Small · Mixed,visible_leaf_context,multiple_leaves,47,22,0.4681,0.3333,0.6077,0.4548
+ViT-Small · Mixed,visible_leaf_context,single_or_partial_leaf,15,9,0.6,0.3575,0.8018,0.4833
+ViT-Small · Mixed,image_type,cropped,18,10,0.5556,0.3372,0.7544,0.3439
+ViT-Small · Mixed,image_type,multi_leaf,39,19,0.4872,0.3387,0.638,0.4792
+ViT-Small · Mixed,image_type,single_leaf,5,2,0.4,0.1176,0.7693,0.4667

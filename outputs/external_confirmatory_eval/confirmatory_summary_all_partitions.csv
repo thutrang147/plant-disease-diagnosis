@@ -1,0 +1,9 @@
+model,partition,n,correct,accuracy,wilson_95ci_low,wilson_95ci_high,bootstrap_95ci_low,bootstrap_95ci_high,macro_f1,ece_10bins,mean_confidence,mean_conf_correct,mean_conf_error,total_errors,high_conf_errors_ge_0_90,high_conf_share_of_errors
+ResNet18 · Lab baseline,external_field_v1,62,19,0.3065,0.2058,0.4297,0.1935,0.4194,0.2456,0.5623,0.8688,0.8736,0.8666,43,26,0.6047
+ResNet18 · Lab baseline,plantdoc_field_test,47,17,0.3617,0.2397,0.5046,0.234,0.5106,0.2802,0.5459,0.9076,0.9488,0.8842,30,21,0.7
+ViT-Small · Lab baseline,external_field_v1,62,28,0.4516,0.3342,0.5747,0.3226,0.5806,0.4346,0.3631,0.7413,0.7459,0.7376,34,10,0.2941
+ViT-Small · Lab baseline,plantdoc_field_test,47,21,0.4468,0.3141,0.5875,0.2979,0.5957,0.3617,0.4161,0.8629,0.9198,0.8169,26,11,0.4231
+ResNet18 · Geometric + Mixed,external_field_v1,62,33,0.5323,0.4098,0.6509,0.4032,0.6613,0.4882,0.1273,0.6093,0.6972,0.5093,29,0,0.0
+ResNet18 · Geometric + Mixed,plantdoc_field_test,47,19,0.4043,0.2764,0.5466,0.2766,0.5532,0.3587,0.2408,0.6451,0.7274,0.5892,28,2,0.0714
+ViT-Small · Mixed,external_field_v1,62,31,0.5,0.3792,0.6208,0.371,0.629,0.471,0.2551,0.7415,0.7936,0.6894,31,7,0.2258
+ViT-Small · Mixed,plantdoc_field_test,47,25,0.5319,0.3923,0.6667,0.383,0.6809,0.5103,0.2748,0.804,0.8509,0.7507,22,7,0.3182

@@ -1,0 +1,9 @@
+partition,model_a,model_b,n,both_correct,only_a_correct,only_b_correct,both_wrong,exact_mcnemar_p
+external_field_v1,ResNet18 · Geometric + Mixed,ResNet18 · Lab baseline,62,9,24,10,19,0.024307
+external_field_v1,ViT-Small · Mixed,ViT-Small · Lab baseline,62,20,11,8,23,0.647606
+external_field_v1,ResNet18 · Geometric + Mixed,ViT-Small · Mixed,62,24,9,7,22,0.803619
+external_field_v1,ViT-Small · Lab baseline,ResNet18 · Lab baseline,62,9,19,10,24,0.136046
+plantdoc_field_test,ResNet18 · Geometric + Mixed,ResNet18 · Lab baseline,47,11,8,6,22,0.790527
+plantdoc_field_test,ViT-Small · Mixed,ViT-Small · Lab baseline,47,19,6,2,20,0.289062
+plantdoc_field_test,ResNet18 · Geometric + Mixed,ViT-Small · Mixed,47,16,3,9,19,0.145996
+plantdoc_field_test,ViT-Small · Lab baseline,ResNet18 · Lab baseline,47,13,8,4,22,0.387695

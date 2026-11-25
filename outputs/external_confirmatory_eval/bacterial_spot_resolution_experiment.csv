@@ -1,0 +1,33 @@
+partition,model,regime,overall_n,overall_accuracy,overall_macro_f1,bacterial_spot_n,bacterial_spot_correct,bacterial_spot_recall,bacterial_spot_misclassified_as_septoria,bacterial_spot_mean_true_prob,bacterial_spot_mean_septoria_prob
+external_field_v1,ResNet18 · Geometric + Mixed,1.00x_full_scene,62,0.5323,0.4882,9,5,0.5556,1,0.3515,0.2068
+external_field_v1,ResNet18 · Geometric + Mixed,0.70x_center_crop,62,0.5161,0.454,9,4,0.4444,2,0.3079,0.3168
+external_field_v1,ResNet18 · Geometric + Mixed,0.50x_closeup_crop,62,0.5,0.4284,9,5,0.5556,2,0.3955,0.278
+external_field_v1,ResNet18 · Geometric + Mixed,highres_448_5crop,62,0.5161,0.4441,9,5,0.5556,1,0.3915,0.223
+external_field_v1,ViT-Small · Mixed,1.00x_full_scene,62,0.5,0.471,9,5,0.5556,4,0.4671,0.4055
+external_field_v1,ViT-Small · Mixed,0.70x_center_crop,62,0.5323,0.5084,9,4,0.4444,4,0.3707,0.4887
+external_field_v1,ViT-Small · Mixed,0.50x_closeup_crop,62,0.5323,0.4897,9,2,0.2222,5,0.2138,0.4903
+external_field_v1,ViT-Small · Mixed,highres_448_5crop,62,0.6129,0.584,9,6,0.6667,2,0.4263,0.3317
+external_field_v1,ResNet18 · Lab baseline,1.00x_full_scene,62,0.3065,0.2456,9,1,0.1111,1,0.0836,0.1152
+external_field_v1,ResNet18 · Lab baseline,0.70x_center_crop,62,0.2742,0.2049,9,0,0.0,1,0.0002,0.134
+external_field_v1,ResNet18 · Lab baseline,0.50x_closeup_crop,62,0.2742,0.2096,9,0,0.0,3,0.0003,0.2584
+external_field_v1,ResNet18 · Lab baseline,highres_448_5crop,62,0.2903,0.2096,9,0,0.0,0,0.0081,0.0914
+external_field_v1,ViT-Small · Lab baseline,1.00x_full_scene,62,0.4516,0.4346,9,2,0.2222,6,0.186,0.6211
+external_field_v1,ViT-Small · Lab baseline,0.70x_center_crop,62,0.4839,0.4542,9,1,0.1111,8,0.0664,0.8364
+external_field_v1,ViT-Small · Lab baseline,0.50x_closeup_crop,62,0.4839,0.4239,9,0,0.0,8,0.0065,0.7709
+external_field_v1,ViT-Small · Lab baseline,highres_448_5crop,62,0.3548,0.3293,9,1,0.1111,7,0.1016,0.6594
+verified_field_dev,ResNet18 · Geometric + Mixed,1.00x_full_scene,92,0.4674,0.4459,18,3,0.1667,9,0.1644,0.4705
+verified_field_dev,ResNet18 · Geometric + Mixed,0.70x_center_crop,92,0.4239,0.3694,18,3,0.1667,7,0.171,0.4348
+verified_field_dev,ResNet18 · Geometric + Mixed,0.50x_closeup_crop,92,0.4022,0.3603,18,2,0.1111,9,0.1634,0.4859
+verified_field_dev,ResNet18 · Geometric + Mixed,highres_448_5crop,92,0.413,0.4121,18,2,0.1111,8,0.1694,0.3963
+verified_field_dev,ViT-Small · Mixed,1.00x_full_scene,92,0.4022,0.3872,18,3,0.1667,8,0.1419,0.3941
+verified_field_dev,ViT-Small · Mixed,0.70x_center_crop,92,0.4457,0.4201,18,4,0.2222,9,0.2793,0.3728
+verified_field_dev,ViT-Small · Mixed,0.50x_closeup_crop,92,0.4239,0.4181,18,5,0.2778,7,0.2832,0.3697
+verified_field_dev,ViT-Small · Mixed,highres_448_5crop,92,0.3913,0.3761,18,3,0.1667,7,0.2174,0.375
+verified_field_dev,ResNet18 · Lab baseline,1.00x_full_scene,92,0.3261,0.2355,18,0,0.0,4,0.0002,0.2859
+verified_field_dev,ResNet18 · Lab baseline,0.70x_center_crop,92,0.3261,0.2344,18,0,0.0,4,0.0004,0.275
+verified_field_dev,ResNet18 · Lab baseline,0.50x_closeup_crop,92,0.3913,0.2836,18,0,0.0,5,0.0032,0.2872
+verified_field_dev,ResNet18 · Lab baseline,highres_448_5crop,92,0.3152,0.2219,18,0,0.0,5,0.0006,0.2889
+verified_field_dev,ViT-Small · Lab baseline,1.00x_full_scene,92,0.4022,0.2677,18,0,0.0,12,0.0212,0.6075
+verified_field_dev,ViT-Small · Lab baseline,0.70x_center_crop,92,0.4239,0.3303,18,2,0.1111,12,0.1036,0.6146
+verified_field_dev,ViT-Small · Lab baseline,0.50x_closeup_crop,92,0.4348,0.315,18,2,0.1111,12,0.1023,0.6176
+verified_field_dev,ViT-Small · Lab baseline,highres_448_5crop,92,0.3804,0.2509,18,0,0.0,11,0.0384,0.586
