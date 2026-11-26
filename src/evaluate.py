@@ -3,8 +3,9 @@
 Run from the repository root (no training or GPU required):
     python -m src.evaluate --checkpoint models/resnet18_lab_best.pt
 
-The model is never updated. Both test partitions are evaluated exactly once
-under the same ResNet18 ImageNet preprocessing used during training.
+The model is never updated. Each invocation makes one pass per test partition
+using the original ResNet18 preprocessing and writes reports and predictions.
+Use a separate --output directory to retain existing evaluation artifacts.
 """
 
 from __future__ import annotations

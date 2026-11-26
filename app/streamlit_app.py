@@ -1,4 +1,4 @@
-"""Minimal Streamlit interface for the plant disease diagnosis project."""
+"""Upload-only Streamlit scaffold; no checkpoint loading or inference."""
 
 import streamlit as st
 

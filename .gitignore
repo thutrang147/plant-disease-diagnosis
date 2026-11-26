@@ -21,3 +21,16 @@ __pycache__/
 
 # New generated results stay local; existing tracked evidence remains tracked.
 outputs/
+
+# Third-party evaluation images (local only)
+/data/external_evaluation/tomato_field_eval_v1/images/
+
+# Evaluation v2 images and raw crop parents stay local (including third-party photos).
+/data/external_evaluation/tomato_field_eval_v2/images/
+/data/external_evaluation/tomato_field_eval_v2/provenance/parents/
+
+# Also exclude evaluation photos inside accidentally nested upstream packages.
+/data/external_evaluation/**/images/
+
+# Private evaluation packages include annotations, provenance workbooks and images.
+/data/external_evaluation/
