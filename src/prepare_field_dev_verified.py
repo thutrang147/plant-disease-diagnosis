@@ -1,7 +1,9 @@
-"""Prepare PlantDoc field adaptation/dev split with near-duplicate protection.
+"""Construct pHash-grouped PlantDoc adaptation/development manifests.
 
-Run locally, from the repo root:
-    python src/prepare_field_dev_verified.py --replace-existing
+Reuse saved manifests to inspect reported results. Deliberate reconstruction
+can write derived files via --splits-dir, which must contain original manifests;
+--replace-existing backs up and replaces existing derived files. Split
+construction is not an evaluation prerequisite.
 
 Uses pHash Hamming distance <= 4 to create connected image groups across the
 original PlantDoc field_train + field_test manifests (no model inference).

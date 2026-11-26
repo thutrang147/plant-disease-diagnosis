@@ -1,19 +1,8 @@
-"""PyTorch dataset for the five-class PlantVillage / PlantDoc experiments.
+"""Manifest-backed PyTorch dataset for the five-class lab-to-field experiments.
 
-Reads CSV split manifests produced by src/data_prep.py. Images are loaded
-from Hugging Face datasets on demand, not copied into the Git repository.
-
-Usage:
-    from src.dataset import PlantDiseaseDataset
-    from torchvision import transforms
-    ds = PlantDiseaseDataset(
-        "data/splits/lab_train.csv",
-        transform=transforms.Compose([
-            transforms.Resize((224, 224)),
-            transforms.ToTensor(),
-        ]),
-    )
-    image, label = ds[0]
+Reads original or verified CSV manifests using preserved Hugging Face row IDs.
+Source containers load at initialization; images are decoded during indexing.
+The caller supplies the pretrained model's transform for research evaluation.
 """
 
 from pathlib import Path
@@ -36,7 +25,20 @@ REQUIRED_COLUMNS = {
 
 
 class PlantDiseaseDataset(Dataset):
-    """Return (RGB image tensor, class ID) from a split manifest."""
+    """Load images and integer class IDs in manifest order.
+
+    Args:
+        manifest_path: CSV with source, row_id, original_class, class_name,
+            and label_id columns. Source/row pairs must be unique; IDs are 0–4.
+        transform: Callable applied to each RGB PIL image. The default produces
+            a 224 × 224 tensor without pretrained-model normalization.
+        revisions: Optional source-name to Hugging Face revision overrides.
+            Revisions must preserve the row ordering represented by the CSV.
+
+    Indexing returns (transformed image, integer label) and checks the source
+    class against original_class. This check does not verify image-content
+    hashes or duplicate-group separation.
+    """
 
     def __init__(self, manifest_path, transform=None, revisions=None):
         self.manifest_path = Path(manifest_path)
@@ -54,8 +56,8 @@ class PlantDiseaseDataset(Dataset):
         if self.metadata.duplicated(subset=["source", "row_id"]).any():
             raise ValueError("Duplicate source + row_id in manifest")
 
-        # Temporary smoke-test transform; replace at training time with the
-        # preprocessing required by the selected pretrained model.
+        # The fallback is for image inspection; research runs pass the model's
+        # preprocessing explicitly, including its required normalization.
         self.transform = transform or transforms.Compose([
             transforms.Resize((224, 224)),
             transforms.ToTensor(),

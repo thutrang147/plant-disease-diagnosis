@@ -1,11 +1,19 @@
-"""Model factory for the supported image-classification architectures."""
+"""Starter torchvision factory; not used by the recorded notebook experiments.
+
+The ViT option is ViT-B/16, not the research pipeline's timm ViT-Small.
+"""
 
 from torch import nn
 from torchvision import models
 
 
 def create_model(name: str, num_classes: int, pretrained: bool = True):
-    """Create a torchvision classifier with a head for ``num_classes``."""
+    """Return ResNet18 or ViT-B/16 with a replacement classification head.
+
+    ``name`` is ``resnet18`` or ``vit_b_16``; ``num_classes`` must be positive.
+    ``pretrained`` selects torchvision's default weights, not a saved research
+    checkpoint. Unsupported names raise ``ValueError``.
+    """
     if num_classes < 1:
         raise ValueError("num_classes must be a positive integer")
 

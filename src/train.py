@@ -1,8 +1,8 @@
-"""Training entry point for plant disease classifiers."""
+"""Unimplemented starter entry point; recorded training lives in notebooks."""
 
 
 def train(config_path: str = "configs/config.yaml") -> None:
-    """Load configuration and run the training workflow."""
+    """Raise ``NotImplementedError``; ``config_path`` is not read or validated."""
     raise NotImplementedError(
         "Training workflow is a project-specific starting point; "
         "implement it after selecting the dataset and experiment."

@@ -1,3 +1,6 @@
+# Starter configuration; not consumed by src/train.py or the research notebooks.
+# Directory-based data paths and ViT-B/16 describe scaffolding, not saved runs.
+# Active experiments use CSV manifests and parameters defined in notebooks.
 seed: 42
 
 data:

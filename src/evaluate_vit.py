@@ -5,6 +5,7 @@ Run locally from the root of plant-disease-diagnosis:
 
 The model is never updated. The same checkpoint and its saved preprocessing
 are used for both test sets. Test results must not be used for model tuning.
+Use a separate --output directory to retain existing evaluation artifacts.
 """
 
 from __future__ import annotations

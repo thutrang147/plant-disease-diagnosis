@@ -1,4 +1,4 @@
-"""Re-evaluate frozen ResNet18 models on a near-duplicate-safe Field Dev split.
+"""Evaluate frozen ResNet18 variants on the recorded pHash-grouped Field Dev.
 
 Run locally from the project root (no GPU needed):
     python -m src.evaluate_field_dev_verified
@@ -11,6 +11,8 @@ Requires:
 
 The original PlantDoc Field Test is checked for row-index overlap but NEVER loaded
 for inference. The Field Dev set is for model development, not final confirmation.
+Checks use stored manifest hashes/groups, not a new image-content duplicate
+audit. Use a separate --output-dir to retain existing evaluation artifacts.
 """
 
 from __future__ import annotations
@@ -52,7 +54,12 @@ EXPECTED_AUGMENTATION = {
 
 
 def validate_manifests(splits_dir: Path) -> tuple[pd.DataFrame, list[str], str]:
-    """Check partition integrity and retrieve the fixed label order."""
+    """Validate stored partitions; return Dev rows, class order, and Dev SHA-256.
+
+    ``splits_dir`` contains manifests, label mapping, and verified protocol.
+    Missing files or inconsistent counts, labels, IDs, hashes, or groups raise
+    an exception. No images are downloaded or fingerprints recomputed here.
+    """
     needed = ["field_dev.csv", "field_adapt_train.csv", "field_test.csv", "label_map.json", "field_dev_protocol.json"]
     for filename in needed:
         if not (splits_dir / filename).is_file():
