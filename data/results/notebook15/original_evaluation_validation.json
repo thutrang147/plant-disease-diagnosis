@@ -1,0 +1,7 @@
+{
+  "metrics_recomputed_from_saved_predictions": true,
+  "field_test_n": 47,
+  "seed_count": 3,
+  "no_test_based_checkpoint_selection": true,
+  "independence_scope": "Verified source rows, existing groups and asset exact/pHash screen; historical test already inspected, not a fresh prospective test."
+}

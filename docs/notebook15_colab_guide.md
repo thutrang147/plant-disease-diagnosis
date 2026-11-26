@@ -1,6 +1,35 @@
 # Notebook 15: Google Colab execution guide
 
-Training has not run. This workflow prepares the controlled experiment; only an executed Colab notebook can supply results. All code, notebook text and exported evidence are in English.
+The ResNet18 experiment `controlled_resnet18_s42_43_44_v1` completed on a Tesla T4 with seeds 42, 43 and 44. The main [Notebook 15](../notebooks/15_controlled_field_mixed_finetuning.ipynb) is now a report that executes only lightweight analysis and plotting. The [original executed training notebook](../notebooks/archive/15_controlled_field_mixed_colab_executed.ipynb) is preserved byte-for-byte with all original cells, logs and figures. All numbered training-cell instructions below refer to that archived notebook.
+
+## Reproduce the report without training
+
+Open the main notebook from the repository and run its analysis cells. It needs Python, NumPy, pandas, Matplotlib and IPython; it does not mount Drive, import PyTorch or perform inference. Locally use the project environment. In Colab, upload the main notebook or open it from GitHub. Its compact setup fetches report sources from `experiment/controlled-field-mixed`; that ref must contain the report module, archived execution and `data/results/notebook15/`. Use an exact published report commit in `REPORT_REF` for a fixed revision. A private repository requires Git authentication.
+
+The original image-level CSVs in `data/results/notebook15/prediction_exports/` supply report metrics. Their hashes, canonical source/image identities, labels, probabilities and correctness flags are checked. The earlier `confusion_counts_from_notebook.csv` transcription remains a separately labeled cross-check against the original saved confusion-matrix annotations. All six aggregate metrics and 30 class rows match the original exports and notebook HTML tables. Sample SD uses `ddof=1`; all deltas are calculated before rounding. Original training logs and Dev curves remain in the archive. New figure files go only to `outputs/controlled_field_mixed/notebook15_report/`.
+
+The complete Drive run is imported locally at `outputs/controlled_field_mixed/controlled_resnet18_s42_43_44_v1/`. The report also checks those local prediction files when present; set `PLANT_CONTROLLED_RUN` to use another imported location. It never writes to the imported run or performs inference. The compact original prediction exports remain sufficient for report execution when large model files are unavailable.
+
+A read-only audit of all imported artifacts passes: all batch Field identities and tensor hashes match, every Field row has eight presentations, each condition has 192 updates, Mixed adds 2,960 Lab presentations, and the selected epochs are 8/7/8 from full-precision histories. It validates all six Dev prediction files against selected history rows, all six Field Test files against original summary/per-class/confusion outputs, baseline/source/split/asset hashes, and six selected checkpoint hashes and metadata against completion records and the evaluation seal. It hashes all 53 imported files before and after verification, including the resume files; it does not execute training or inference. Resume files are preserved and hashed but are not loaded to replay optimizer state.
+
+To repeat this audit locally with the original run and assets present:
+
+```bash
+.venv/bin/python scripts/audit_notebook15_results.py
+```
+
+Audit outputs go only to `outputs/controlled_field_mixed/notebook15_finalization/`. A portable audit snapshot, original configuration/environment, training validation, evaluation seal and original summary/per-class exports are retained in `data/results/notebook15/`. These establish consistency of the recorded protocol, not proof that no undocumented human inspection occurred.
+
+The report is executed locally with:
+
+```bash
+.venv/bin/python -m jupyter nbconvert --execute --to notebook --inplace \
+  notebooks/15_controlled_field_mixed_finetuning.ipynb
+```
+
+## Original training execution reference
+
+Training source revision: `0066ddb3a93996252a8c80591a4ac49ac6324034`; runtime: Tesla T4, PyTorch `2.11.0+cu128`. Original baseline SHA-256: `65d53766258f26cb505cce4c319c3f783cb0f3c6ef4608680906919731f2782d`. The archived code cells preserve the original configuration; the full saved `config.json` and `environment.json` are preserved in Drive, the imported run, and the compact evidence directory. Do not infer a complete version lock from the displayed runtime alone. Finalization performed no new training or ViT-Small run.
 
 ## Ready-to-upload files
 
@@ -26,19 +55,19 @@ MyDrive/plant-disease-diagnosis/
   outputs/controlled_field_mixed/    # created by the notebook
 ```
 
-Upload `notebooks/15_controlled_field_mixed_finetuning.ipynb` directly in Colab via **File → Upload notebook**. Keep the private assets on your own Drive. Code cell 4 clones/fetches the helper module and exact four CSV splits plus label map from `https://github.com/thutrang147/plant-disease-diagnosis.git`. No code ZIP is required. Data and baseline checkpoints are excluded from Git and must remain on Drive. A private repository requires Git authentication in Colab.
+For the original training workflow, upload `notebooks/archive/15_controlled_field_mixed_colab_executed.ipynb` in Colab via **File → Upload notebook**. Keep the private assets on your own Drive. Code cell 4 clones/fetches the helper module and exact four CSV splits plus label map from `https://github.com/thutrang147/plant-disease-diagnosis.git`. No code ZIP is required. Data and baseline checkpoints are excluded from Git and must remain on Drive. A private repository requires Git authentication in Colab.
 
-Before using Colab, commit and push `src/controlled_field_mixed.py`, this notebook and guide, and the canonical split files to the intended GitHub branch. In code cell 3, set `GIT_REF` to that branch (default `main`) or a commit SHA. Code cell 4 reports missing files if the chosen revision does not contain the helper. It fetches the requested ref and checks it out without overwriting local changes. Save the printed commit SHA and use it as `GIT_REF` when resuming. Branch names fetch their latest revision whenever cell 4 runs.
+For an exact reproduction of the recorded training code, set `GIT_REF` in archived code cell 3 to `0066ddb3a93996252a8c80591a4ac49ac6324034`. The original branch value is preserved in the archive; a branch can advance. Keep the original assets and split hashes. Code cell 4 reports missing files if the chosen revision does not contain the helper. It fetches the requested ref and checks it out without overwriting local changes. Save the printed commit SHA and use it as `GIT_REF` when resuming. Branch names fetch their latest revision whenever cell 4 runs.
 
-## Execute in Colab
+## Archived training cell order
 
 1. Select **Runtime → Change runtime type → GPU**. A T4 is a reasonable starting runtime; resource feasibility is determined by the CUDA smoke test.
 2. Execute **code cells 1–4**, identified by comments at their top: CUDA gate, dependency installation, Drive mount/paths, and GitHub clone/fetch. Check `GIT_REF` before running cell 4. Grant Drive access when Colab asks. Keep Colab's existing matched CUDA PyTorch/torchvision installation.
-3. In **code cell 5**, choose `ARCHITECTURE='resnet18'`, a unique `EXPERIMENT_ID`, and the seed budget **before opening the run**. The default declares `(42, 43, 44)`. For a shorter pilot choose `(42,)` and a matching ID such as `controlled_resnet18_s42_pilot_v1`. Execute cell 5 to verify every asset, baseline hash and canonical split.
+3. **Code cell 5** records `ARCHITECTURE='resnet18'`, experiment ID `controlled_resnet18_s42_43_44_v1` and seeds `(42, 43, 44)`. It verifies assets, baseline hash and canonical splits. Preserve that configuration for the completed experiment.
 4. Execute **code cell 6** to assert the matched schedule. Execute **code cell 7** for the real CUDA smoke test: baseline/data loading, forward, backward, AdamW update, persistent checkpoint write/read. The smoke model is discarded; baseline files remain unchanged.
-5. Execute **code cell 8** to train the seed-42 pair. Execute **code cell 9** to finish all remaining declared seeds and validate actual exposure, update counts and shared selection. For a declared one-seed pilot cell 9 only validates the completed pair.
+5. Execute **code cell 8** to train the seed-42 pair. Execute **code cell 9** to finish all remaining declared seeds and validate actual exposure, update counts and shared selection.
 6. Execute **code cell 10** for Field Dev learning curves. Execute **code cell 11** only when all declared seeds have finished: checkpoint hashes are sealed before historical Field Test inference. Execute **code cells 12–15** for per-class recall, confusion matrices, Early Blight errors and saved findings.
-7. To extend to ViT-Small, first complete ResNet and obtain `training_validation.json` from cell 9. In a fresh GPU session, run setup cells, then set `ARCHITECTURE='vit_small'`, a new ID, and `RESNET_RUN_FOR_VIT` to the completed ResNet run in cell 5. Repeat cells 5–15. Run the architectures independently.
+7. ViT-Small support remains in the original implementation, but it has not been executed as part of this controlled result. Any extension requires a separately declared scope; it is not part of report reproduction.
 
 Do not use **Run all** before checking the paths and experiment budget. Each numbered code cell also has surrounding research explanations; notebook cell positions include Markdown cells and differ from the code-cell numbers above.
 
@@ -103,4 +132,4 @@ print(target)
 PY
 ```
 
-The workflow does not commit or push. Conclusions remain pending until Colab executes training and evaluation.
+The workflow does not commit or push. The completed ResNet18 conclusions are reported in Notebook 15 and `docs/research_results_summary.md`; the imported raw artifacts have passed a read-only audit without training, inference or source-artifact changes.

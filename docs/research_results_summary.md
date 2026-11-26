@@ -2,7 +2,7 @@
 
 ## Objective and design
 
-This project compares ImageNet-pretrained ResNet18 and ViT-Small for five-class tomato classification under laboratory-to-field domain shift. The experiments test augmentation, supervised field adaptation, mixed-domain fine-tuning, external transfer and sensitivity to crop framing. Different pretraining recipes and model-specific transforms mean the comparison does not isolate architecture alone. The executed local Notebooks 01–14 and their verified outputs form the canonical experimental record.
+This project compares ImageNet-pretrained ResNet18 and ViT-Small for five-class tomato classification under laboratory-to-field domain shift. The experiments test augmentation, supervised field adaptation, mixed-domain fine-tuning, external transfer and sensitivity to crop framing. Different pretraining recipes and model-specific transforms mean the comparison does not isolate architecture alone. Notebooks 01–14 retain the historical experimental record. Notebook 15 adds the completed three-seed controlled ResNet18 comparison without revising those earlier observations.
 
 ## Datasets and evaluation units
 
@@ -69,18 +69,56 @@ ViT Mixed five-crop external accuracy/macro-F1 is **0.6129 / 0.5840** (38/62), c
 
 These policies were compared after observing external outcomes. Results are exploratory and do not select a deployment policy or provide a new independent test. Human-reviewed Healthy crops in Notebook 13 and automatic spatial interventions here have different selection mechanisms and should not be pooled.
 
+## Controlled Field-only versus Mixed-domain Fine-tuning
+
+[Notebook 15](../notebooks/15_controlled_field_mixed_finetuning.ipynb) tests whether Lab rehearsal helps ResNet18 when Field exposure and optimizer updates match. Historical Notebooks 06–08 used unequal Field exposure, independent selection/stopping and, in the final geometric ResNet18 comparison, different initialization. Their Mixed advantage did not isolate laboratory rehearsal.
+
+Both controlled conditions reload the same Lab baseline, use all 370 Field Adapt Train images per epoch in identical order with identical augmented tensors, and complete two head epochs plus six final-block epochs. Each condition receives **2,960 Field presentations and 192 updates per seed**; Mixed adds **2,960 Lab presentations**. AdamW, fixed phase learning rates, frozen BatchNorm statistics, transforms and the Field loss coefficient match. Mixed adds mean Lab cross-entropy with a fixed weight of 1.0, so information and compute remain unequal. Seeds 42, 43 and 44 were declared before training.
+
+Checkpoint selection maximizes the pair's mean five-class Field Dev macro-F1, with the earliest tie and epoch zero eligible. Both conditions share the selected epoch within each pair. Saved validation output reports epochs **8, 7 and 8**: evaluated seed-43 checkpoints have **2,590 Field presentations and 168 updates per condition**, while the other evaluated pairs have 2,960 and 192. All three full runs completed the matched eight-epoch budget. The implementation validates exposure and selection before sealing checkpoint hashes and accessing the historical 47-image Field Test; test data do not select the checkpoints.
+
+| Seed | Field-only correct / 47 | Mixed correct / 47 | Field-only macro-F1 | Mixed macro-F1 | Mixed − Field-only macro-F1 |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| 42 | 22/47 | 21/47 | 0.4338 | 0.3970 | −0.0368 |
+| 43 | 21/47 | 20/47 | 0.4214 | 0.3840 | −0.0373 |
+| 44 | 22/47 | 22/47 | 0.4349 | 0.4405 | +0.0056 |
+
+| Condition | Accuracy mean ± sample SD | Macro-F1 mean ± sample SD |
+| --- | ---: | ---: |
+| Field-only | 0.4610 ± 0.0123 | 0.4300 ± 0.0075 |
+| Mixed | 0.4468 ± 0.0213 | 0.4072 ± 0.0296 |
+| Paired Mixed − Field-only | −0.0142 ± 0.0123 | −0.0228 ± 0.0246 |
+
+Differences and sample SD (`ddof=1`) are calculated before rounding. Accuracy favors Field-only in two seeds and ties in one; macro-F1 favors Field-only in two and Mixed in one. The mean accuracy change is −1.42 percentage points. Three seeds reuse the same test images, so these SDs describe seed variation rather than independent dataset uncertainty. No statistical significance is claimed.
+
+| Class (images per run) | Field-only correct, seeds 42 / 43 / 44 | Mixed correct, seeds 42 / 43 / 44 | Field-only mean recall | Mixed mean recall |
+| --- | --- | --- | ---: | ---: |
+| Healthy (8) | 3 / 3 / 3 | 2 / 2 / 3 | 0.3750 | 0.2917 |
+| Early Blight (9) | 1 / 2 / 2 | 2 / 2 / 3 | 0.1852 | 0.2593 |
+| Late Blight (10) | 8 / 7 / 8 | 8 / 7 / 7 | 0.7667 | 0.7333 |
+| Bacterial Spot (9) | 2 / 1 / 1 | 1 / 1 / 1 | 0.1481 | 0.1111 |
+| Septoria Leaf Spot (11) | 8 / 8 / 8 | 8 / 8 / 8 | 0.7273 | 0.7273 |
+
+Mixed modestly improves Early Blight recall in two seeds and ties in one, but reduces Healthy recall in two and Bacterial Spot recall in one, tying the others. Bacterial Spot is predominantly assigned Septoria Leaf Spot: 7/9 images in Field-only seed 42 and 8/9 in every other run. The external Healthy gains and Early Blight losses from earlier notebooks concern different comparisons and samples; the controlled Field Test does not reproduce that same trade-off.
+
+**Conclusion:** Field-only has higher mean accuracy and macro-F1 under this fixed ResNet18 recipe. The historical Mixed advantage is not consistently reproduced after matching initialization, Field exposure and update counts. This does not establish universal Mixed inferiority, explain which historical difference caused the earlier result, or establish a laboratory-retention benefit for the new checkpoints; Lab retention was not evaluated here.
+
+The small and previously inspected Field Test, shared images across three seeds, correlated observations, coupled selection, one fixed Lab-loss weight, additional Mixed compute/data and a single architecture/recipe constrain interpretation. Previously explored External v1/v2 and Healthy v2 were not used to retrospectively optimize the controlled run. No ViT-Small extension or new training was performed during finalization.
+
+Evidence includes the [unaltered executed Colab notebook](../notebooks/archive/15_controlled_field_mixed_colab_executed.ipynb), [original prediction exports and provenance](../data/results/notebook15/), and the unchanged [training implementation](../src/controlled_field_mixed.py). The full Drive run has been imported locally. A [read-only artifact audit](../data/results/notebook15/imported_artifact_audit.json) confirms all six aggregate results and 30 class rows directly from original prediction CSVs, canonical source/image identities and labels, probabilities/correctness, all batch Field IDs and tensor hashes, per-row exposure, update budgets, full-precision common-epoch selection, and six selected checkpoint hashes against completion records and the evaluation seal. The recorded identical initial state also matches the local Lab baseline. All 53 imported file hashes remain unchanged. These checks establish consistency of the saved evidence, not proof against undocumented human inspection; the scientific sampling limitations remain. No training or inference was repeated.
+
 ## Scientific limitations
 
 - Field Dev participates in checkpoint selection; the 47-image test was inspected historically and external v1 was reused for sensitivity analysis.
 - Class denominators are small; source, class and acquisition conditions are entangled. Crops and parent photographs are correlated, and scene identifiers do not count independent plants.
 - Exact/pHash screening across all 523 PlantDoc rows found no external matches within the tested rule, but cannot prove independence or eliminate overlap with untested pretraining sources.
-- Single-seed model recipes and pretraining differ. Class trade-offs, especially Early Blight degradation, must accompany aggregate improvements.
-- Field-only and mixed-domain training have unequal field-image exposure, limiting causal attribution of their differences.
+- Historical model recipes are single-seed and differ in pretraining. Notebook 15 repeats one controlled ResNet18 recipe across three seeds sharing one test set. Class trade-offs must accompany aggregate comparisons.
+- Historical Field-only and Mixed training have unequal Field exposure; Notebook 15 matches exposure and updates but retains additional Lab information/compute and coupled checkpoint selection.
 - No lesion annotations, controlled object sizes or localization judgments establish loss/recovery of lesion information. Prospective confirmation needs a locked protocol and newly collected grouped photographs.
 - Third-party photographs retain their source attributions and require appropriate usage rights; image files are excluded from the public source distribution.
 
 ## Evidence and notebook organization
 
-Notebooks 01–10 establish the training, domain-shift, adaptation and error-analysis progression. [11](../notebooks/11_external_evaluation.ipynb) records canonical external evaluation; [12](../notebooks/12_external_error_analysis.ipynb) analyzes those errors; [13](../notebooks/13_healthy_field_evaluation.ipynb) retains Healthy-only and parent/crop evaluation; [14](../notebooks/14_lesion_resolution_study.ipynb) provides the focused sensitivity investigation.
+Notebooks 01–10 establish the training, domain-shift, adaptation and error-analysis progression. [11](../notebooks/11_external_evaluation.ipynb) records canonical external evaluation; [12](../notebooks/12_external_error_analysis.ipynb) analyzes those errors; [13](../notebooks/13_healthy_field_evaluation.ipynb) retains Healthy-only and parent/crop evaluation; [14](../notebooks/14_lesion_resolution_study.ipynb) provides the focused sensitivity investigation. [15](../notebooks/15_controlled_field_mixed_finetuning.ipynb) reports the completed controlled ResNet18 experiment; its original Colab execution is archived with a byte-level provenance hash.
 
 Primary evidence: [Notebook 09 summary](../outputs/final_comparison_development/final_comparison_summary.csv), [external evaluation outputs](../outputs/external_evaluation/tomato_field_eval_v1/20261125_163347_4ca8183f/), [Healthy primary run](../outputs/healthy_field_evaluation/tomato_field_eval_v2/20261126_103724_5c4da7f2/), [Healthy paired run](../outputs/healthy_field_evaluation/tomato_field_eval_v2/paired_20261126_105328_eddcf985/), and [crop-sensitivity outputs](../outputs/research_integration/20261126_reconciliation/inference/). Local data, weights and ignored outputs are needed to rerun the notebooks; they are not a self-contained public distribution.

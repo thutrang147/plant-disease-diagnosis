@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "architecture": "resnet18",
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "field_split": "field_adapt_train",
+  "field_rows": 370,
+  "lab_rows_per_epoch": 370,
+  "field_batch_size": 16,
+  "lambda_lab": 1.0,
+  "head_epochs": 2,
+  "last_block_epochs": 6,
+  "head_lr": 0.0001,
+  "last_block_lr": 1e-05,
+  "weight_decay": 0.0001,
+  "optimizer": "AdamW; reset at head-to-last-block transition",
+  "schedule": "constant learning rates within each of the two fixed phases",
+  "precision": "float32; no autocast or gradient scaling",
+  "batchnorm": "frozen running statistics in both conditions",
+  "field_policy": "Each row once per epoch; identical order and augmented tensors for both conditions",
+  "lab_policy": "370 distinct Lab Train rows per epoch; reuse across epochs allowed",
+  "selection": "Common epoch maximizing mean five-class Field Dev macro-F1 of the pair; earliest tie; epoch 0 eligible",
+  "early_stopping": false,
+  "phase_rewind": false,
+  "checkpoint_frequency": "atomic matched-pair checkpoint after every complete epoch; uncommitted epoch replayed on resume",
+  "evaluation": "Only after all declared seeds finish and checkpoint hashes are sealed",
+  "split_authorization": "Verified 370-image adaptation subset; original 476 includes Dev/quarantine",
+  "initial_sha256": "65d53766258f26cb505cce4c319c3f783cb0f3c6ef4608680906919731f2782d",
+  "asset_manifest_sha256": "6e6c902cfbc25bd5107657ce3c3ce450cfbe9f26c55053a336f9532609167d4c",
+  "split_sha256": {
+    "field_adapt_train": "c191c4b929f837bdb058df76c705cac0f49644e1354aeb251c08921f1e27c28b",
+    "field_dev": "2c61790f90214b3a4bbeb5e7f3e6228e6f2c013cab3cfe0b320a28a6aae960e9",
+    "field_test": "4d0e7af214603395531a1abcaa037ba09dcb9a8462623187dea7e2a25d841f20",
+    "lab_train": "bd52434ea2021aa961adec968961fb3510d7f70570d3170d8595a1a396e179b1"
+  },
+  "code_sha256": "c6374655260d12c008a18b53f81d340bfb50c8b318452c6602263cb53fa4551a"
+}

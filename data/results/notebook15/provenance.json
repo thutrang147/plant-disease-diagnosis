@@ -1,0 +1,89 @@
+{
+  "experiment_id": "controlled_resnet18_s42_43_44_v1",
+  "architecture": "resnet18",
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "original_notebook": "notebooks/archive/15_controlled_field_mixed_colab_executed.ipynb",
+  "original_notebook_sha256": "2f39bbcbf9d639edbc7c8508f60751b7e708b7ad9fe496507c6b117a0f4432b5",
+  "training_source_commit": "0066ddb3a93996252a8c80591a4ac49ac6324034",
+  "training_module_sha256": "c6374655260d12c008a18b53f81d340bfb50c8b318452c6602263cb53fa4551a",
+  "baseline_sha256": "65d53766258f26cb505cce4c319c3f783cb0f3c6ef4608680906919731f2782d",
+  "device": "Tesla T4",
+  "torch": "2.11.0+cu128",
+  "source_cells_zero_based": {
+    "runtime": 3,
+    "git_commit": 6,
+    "partitions_and_baseline": 8,
+    "planned_budget": 10,
+    "training_completion_and_selection": 16,
+    "dev_learning_curves": 18,
+    "field_test_summary": 20,
+    "per_class": 23,
+    "confusion_matrices": 24,
+    "early_blight_destinations": 25
+  },
+  "count_provenance": "Integer confusion-matrix annotations transcribed from original cell 24 image/png; not original prediction CSV exports. Checked against all six summary rows and all 30 per-class rows saved as HTML in original cells 20 and 23.",
+  "local_artifact_scope": "Original Colab Drive run imported locally, including all 53 files, prediction CSVs, full-precision histories, batch/exposure audits, completion/selection records, six selected checkpoints and three resume checkpoints. Read-only audit passed; no training or inference performed.",
+  "source_difference_from_git_head": "Only original cell 5 source changed: GIT_REF is experiment/controlled-field-mixed instead of main. Executed outputs were added. All other cell sources match the pre-finalization Git version.",
+  "confusion_counts_sha256": "d9ec88d5652036e87c8acc9d0aaafb97080c9c2cac5a4d3d123a7476cbdda719",
+  "comparison_git_commit": "0066ddb3a93996252a8c80591a4ac49ac6324034",
+  "prediction_exports": [
+    {
+      "seed": 42,
+      "condition": "field_only",
+      "path": "data/results/notebook15/prediction_exports/seed_42_field_only_field_test.csv",
+      "sha256": "8ebe998780fced24efb68a63a162c79860554471a8df14af836beb5a14ee6f97",
+      "source_path": "outputs/controlled_field_mixed/controlled_resnet18_s42_43_44_v1/seed_42/predictions_field_only_field_test.csv"
+    },
+    {
+      "seed": 42,
+      "condition": "mixed",
+      "path": "data/results/notebook15/prediction_exports/seed_42_mixed_field_test.csv",
+      "sha256": "4785c71bf94c277a0ae41e33f1d900c1b283f36263ef948cb7009c0302f239fb",
+      "source_path": "outputs/controlled_field_mixed/controlled_resnet18_s42_43_44_v1/seed_42/predictions_mixed_field_test.csv"
+    },
+    {
+      "seed": 43,
+      "condition": "field_only",
+      "path": "data/results/notebook15/prediction_exports/seed_43_field_only_field_test.csv",
+      "sha256": "67d610d3f67a45e386c449f319fe2a0118fa58047d11f7794354f6d50ce1fe26",
+      "source_path": "outputs/controlled_field_mixed/controlled_resnet18_s42_43_44_v1/seed_43/predictions_field_only_field_test.csv"
+    },
+    {
+      "seed": 43,
+      "condition": "mixed",
+      "path": "data/results/notebook15/prediction_exports/seed_43_mixed_field_test.csv",
+      "sha256": "bc35fb53c5f571e56da3e71b9e257d6d2f2e2e353beea3830832631e5d429ce1",
+      "source_path": "outputs/controlled_field_mixed/controlled_resnet18_s42_43_44_v1/seed_43/predictions_mixed_field_test.csv"
+    },
+    {
+      "seed": 44,
+      "condition": "field_only",
+      "path": "data/results/notebook15/prediction_exports/seed_44_field_only_field_test.csv",
+      "sha256": "7b047169db53be9b5714bd79610bdb1ee3b9de89747801d8728ca27b28ef1eb7",
+      "source_path": "outputs/controlled_field_mixed/controlled_resnet18_s42_43_44_v1/seed_44/predictions_field_only_field_test.csv"
+    },
+    {
+      "seed": 44,
+      "condition": "mixed",
+      "path": "data/results/notebook15/prediction_exports/seed_44_mixed_field_test.csv",
+      "sha256": "b32848dd2b7962bf99a0a23f0085e1daff671988e8925655ea9be6f9d3981d9f",
+      "source_path": "outputs/controlled_field_mixed/controlled_resnet18_s42_43_44_v1/seed_44/predictions_mixed_field_test.csv"
+    }
+  ],
+  "artifact_audit": "data/results/notebook15/imported_artifact_audit.json",
+  "report_metric_source": "Original image-level prediction CSV exports; integer confusion counts transcribed earlier remain a cross-check against the original executed notebook.",
+  "preserved_record_sha256": {
+    "original_config.json": "ecc23ad4be51d84b82067335955881a732fae86685484b20a85d4f07cacff22c",
+    "original_environment.json": "0e924498658be41e5685ce60da52ff7803cbde47b6d9c398f3bb39750a7a5a61",
+    "original_training_validation.json": "f32519549c194621a82716b7457936d34d27b0b8f23b670af497a36f31b0ac60",
+    "original_evaluation_seal.json": "36d9ee29db44c302ff684656def11ae760b518a95d53403099e65f52cb428354",
+    "original_evaluation_validation.json": "480123ab5bbffe126c38811326b823feebedcf7b3064578f677877604261289e",
+    "original_field_test_summary.csv": "a2e6f38b24557ce6d604a8b8442ea7927f514b8a29030474068bac9e8d9f87b8",
+    "original_field_test_per_class.csv": "e2999e57d1314e25bbe8c48b4cc36695db2f64a7b793be8ab14cba1984206792"
+  },
+  "artifact_audit_sha256": "b607d0ceb2a9e5c46ccd9cf96b08199b914bcf272a8ac88ffd132934e3ea36a3"
+}
