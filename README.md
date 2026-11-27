@@ -130,7 +130,7 @@ Five-class macro-F1 of the four fixed checkpoints. Field Dev selected the two ad
 | ResNet18 Geometric + Mixed | 0.9140 | 0.4459 | 0.3587 (19/47) | 0.4882 (33/62) |
 | ViT-Small Mixed | 0.9886 | 0.3872 | 0.5103 (25/47) | 0.4808 (32/62) |
 
-Laboratory accuracy does not transfer: on PlantDoc the lab-trained baselines fall from 0.97–0.99 to 0.24–0.36 macro-F1, and the adapted models reach at most 0.51. No model is best on every field partition. ResNet18 Geometric + Mixed leads on Field Dev, which selected it, but is below the ViT-Small Lab baseline on Field Test. None of the eight paired comparisons between these models on Field Test and External v1 is significant after Holm adjustment over the ten-test family, which also includes the two disease-stratum tests (smallest adjusted p = 0.24).
+Laboratory accuracy does not transfer: on PlantDoc the lab-trained baselines fall from 0.97–0.99 to 0.24–0.36 macro-F1, and the adapted models reach at most 0.51. No model is best on every field partition. ResNet18 Geometric + Mixed leads on Field Dev, which selected it, but is below the ViT-Small Lab baseline on Field Test. A pHash audit of the Lab splits finds only 3 of 1,341 Validation and 2 of 1,692 Test images within distance 4 of a Lab Train image; removing them changes no model's Lab Test macro-F1 by more than 0.0001 ([`lab_split_duplicates/`](data/results/lab_split_duplicates/)). pHash does not detect different photographs of the same leaf, so this rules out near-copies, not same-leaf leakage. None of the eight paired comparisons between these models on Field Test and External v1 is significant after Holm adjustment over the ten-test family, which also includes the two disease-stratum tests (smallest adjusted p = 0.24).
 
 **Frozen foundation-model reference (exploratory, not pre-registered).** [`scripts/evaluate_frozen_foundation_probe.py`](scripts/evaluate_frozen_foundation_probe.py) trains only a logistic-regression head on a frozen DINOv2 backbone, using the same manifests.
 
@@ -192,6 +192,10 @@ External v1 combines two sources that coincide with class: **16 self-collected H
 - Accuracy differences are small and their intervals exclude gains above about 5 pp: ResNet −0.2 pp (95% CI −5.4 to +4.9; McNemar p = 1.0), ViT +1.4 pp (−2.1 to +4.9; p = 0.49). The same holds with Healthy predictions excluded (disease-restricted argmax), for images ≥ 224 px, and on PlantSeg's own test split ([`comparisons.csv`](data/results/external_v3_plantseg/comparisons.csv)).
 - Disease macro-F1, the pre-registered secondary metric, does improve: ResNet +0.086 (95% CI 0.039 to 0.133), ViT +0.066 (0.029 to 0.102). Balanced accuracy rises for ResNet (+0.050, 0.005 to 0.095) but not detectably for ViT (+0.016, −0.019 to +0.051). These intervals were added after the run ([`external_v3_secondary_metrics/`](data/results/external_v3_secondary_metrics/)).
 - What adaptation changes is the **error profile**. The ResNet baseline assigns Early Blight to 300 of 486 images, the same 62% as on External v1 (39/62). Its Bacterial Spot recall is 0.00. Adapted models spread their predictions, which raises disease macro-F1 (0.333 → 0.419; 0.375 → 0.441) without raising accuracy.
+| | |
+| --- | --- |
+| ![External v3 confusion matrices](data/results/external_v3_error_analysis/confusion_matrices.png) | ![External v3 accuracy by lesion size](data/results/external_v3_error_analysis/accuracy_by_lesion_size.png) |
+
 - Adaptation also changes **calibration**. On field images the Lab baselines are confidently wrong: ResNet18 mean confidence is 0.90 at 0.43 accuracy (ECE 0.475), and ViT-Small 0.81 at 0.43 (ECE 0.384). The adapted models are far less over-confident (ECE 0.16–0.30). This is a practical benefit that accuracy alone hides. Accuracy by lesion size and confusion matrices are in [`data/results/external_v3_error_analysis/`](data/results/external_v3_error_analysis/).
 
 **Lesion reliance, measured with PlantSeg masks** ([`scripts/evaluate_lesion_reliance.py`](scripts/evaluate_lesion_reliance.py), exploratory). Notebook 10's Grad-CAM and attention views are qualitative. The expert lesion masks allow two measurements on the same 486 images:
@@ -219,7 +223,7 @@ External v1 combines two sources that coincide with class: **16 self-collected H
 
 ### 4. Controlled Field-only vs. Mixed Fine-tuning (RQ4)
 
-Notebook 15 holds initialization (ResNet18 Lab baseline), Field exposure (all 370 images per epoch, identical augmented tensors), optimizer updates (192) and a shared checkpoint-selection epoch fixed. Mixed adds an equal number of Lab images per step. Seeds 42, 43 and 44 were declared before training, and checkpoints were hash-sealed before the Field Test was opened.
+Notebook 15 compares Field-only (FO) and Mixed fine-tuning. It holds initialization (ResNet18 Lab baseline), Field exposure (all 370 images per epoch, identical augmented tensors), optimizer updates (192) and a shared checkpoint-selection epoch fixed. Mixed adds an equal number of Lab images per step. Seeds 42, 43 and 44 were declared before training, and checkpoints were hash-sealed before the Field Test was opened.
 
 | Seed | Selected epoch | Field Dev macro-F1, FO / Mixed | Field Test macro-F1, FO / Mixed | Test images only FO / only Mixed correct |
 | --- | ---: | ---: | ---: | ---: |
