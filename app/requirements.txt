@@ -1,2 +1,3 @@
 -r ../requirements.txt
-streamlit
+# 1.49 is the first release with width="stretch" for st.image and st.dataframe.
+streamlit>=1.49
