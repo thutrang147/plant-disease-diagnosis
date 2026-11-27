@@ -1,6 +1,6 @@
 # Tổng hợp cải thiện — plant-disease-diagnosis
 
-> **Tiến độ: ⏳ ĐANG CẬP NHẬT** · cập nhật lần cuối 2026-11-27 16:20 UTC.
+> **Tiến độ: ⏳ ĐANG CẬP NHẬT** · cập nhật lần cuối 2026-11-27 19:30 UTC.
 > Dòng này sẽ đổi thành **✅ DONE** khi tất cả hạng mục của đợt 2 hoàn tất.
 
 File này **chỉ để đọc và ra quyết định**. Nó liệt kê từng vấn đề của repo, mức nghiêm trọng, effort, và đã được sửa ở đợt nào. Nhóm đọc file này, chọn phương án, rồi merge PR tương ứng. Nhánh `docs/improvement-summary-20261127` chỉ chứa file này và không thay đổi code.
@@ -36,22 +36,22 @@ File này **chỉ để đọc và ra quyết định**. Nó liệt kê từng v
 | 4 | Không có field test độc lập được khoá trước; Field Test 47 ảnh đã bị dùng lại (CI khoảng ±14 pp) | 🔴 | P0 | L → S–M | C3 | ⬜ Chỉ ghi thành limitation | ✅ **External v3**: 486 ảnh PlantSeg, lọc trùng với 20.738 ảnh tham chiếu, protocol commit *trước* khi chạy (CI khoảng ±4.4 pp) | 👤 Chưa có ảnh Healthy để đo specificity; muốn có cần tự thu ảnh (L) |
 | 5 | Nhãn nhiễu: Field Test row 2524 và cặp Bacterial Spot ↔ Septoria | 🟠 | P0 | S | C3 C4 | ✅ Ghi trong Limitations | ✅ 13/64 ảnh trùng giữa hai dataset có nhãn khác nhau (6 ca BS↔Septoria; PlantSeg gán row 2524 là Septoria); đã có sẵn danh sách để audit | 👤 Người có chuyên môn audit 13 ảnh trong `data/external_v3_plantseg/label_audit_candidates.csv` |
 | 6 | Clone repo về không chạy được gì vì checkpoint chỉ có trên Drive | 🟠 | P0 | S | C2 C5 | ⬜ | ✅ `scripts/download_checkpoints.py`: 16 checkpoint, kiểm SHA-256; tải 10 checkpoint core mất khoảng 30 giây | — |
-| 7 | Không có demo chạy được (app cũ chỉ có ô upload, không có inference) | 🟠 | P0 | S–M | C5 | ⬜ Chuyển scaffold vào `archive/` | ⏳ Demo Streamlit: dự đoán, Grad-CAM, so sánh các model | — |
+| 7 | Không có demo chạy được (app cũ chỉ có ô upload, không có inference) | 🟠 | P0 | S–M | C5 | ⬜ Chuyển scaffold vào `archive/` | ✅ Demo Streamlit (`app/streamlit_app.py`): dự đoán, Grad-CAM, so sánh các model; đã test bằng Chromium headless | — |
 | 8 | Báo cáo hoặc slide nằm ngoài repo (LaTeX) chưa có số liệu mới | 🟠 | P0 | M | C5 | ⬜ | ⬜ | 👤 Nhóm cập nhật, vì file không nằm trong repo |
 | 9 | Kết luận dựa trên so sánh không công bằng (strawman); báo cáo chọn lọc | 🟠 | P1 | S | C3 C4 | ✅ Nêu cặp A1 vs R1; Holm cho cả nhóm kiểm định; báo cả mức tăng lớn nhất lẫn mức giảm lớn nhất | — | — |
-| 10 | So sánh CNN và ViT bị confound: ResNet train khoảng 75% tham số, ViT chỉ khoảng 8% | 🟠 | P1 | M | C3 | ✅ Ghi limitation; thêm bảng recipe | ⏳ LP-FT khám phá: hai kiến trúc dùng chung recipe, so last-block với toàn bộ tham số | 👤 Bản chính thức cần GPU |
+| 10 | So sánh CNN và ViT bị confound: ResNet train khoảng 75% tham số, ViT chỉ khoảng 8% | 🟠 | P1 | M | C3 | ✅ Ghi limitation; thêm bảng recipe | ✅ LP-FT khám phá (3 seed): khi train 100% tham số, ViT v3 0.441 → 0.484 và giữ Lab 0.984; ResNet 0.418 → 0.403. Recipe cũ làm thiệt ViT | 👤 Bản chính thức cần GPU |
 | 11 | Ngân sách train thấp: các run chọn epoch cuối trong khi Dev vẫn đang tăng | 🟡 | P1 | M | C3 | ✅ Ghi limitation | ⏳ Ablation 24 epoch | — |
-| 12 | Lab split có ảnh không được nhóm theo lá, nên có thể có ảnh gần trùng giữa train và test, làm Lab accuracy bị phồng | 🟡 | P1 | S–M | C3 | ⬜ | ⏳ Audit pHash, báo Lab Test trên phần sạch | — |
+| 12 | Lab split có ảnh không được nhóm theo lá, nên có thể có ảnh gần trùng giữa train và test, làm Lab accuracy bị phồng | 🟡 | P1 | S–M | C3 | ⬜ | ✅ Chỉ 3/1.341 ảnh val và 2/1.692 ảnh test gần trùng train, không ảnh nào khác nhãn; Lab Test trên phần sạch không đổi (sai khác dưới 0.0001) | — |
 | 13 | Giải thích cơ chế (Grad-CAM) chỉ định tính, không có mask | 🟡 | P1 | M | C1 C4 | ⬜ | ✅ Dùng mask chuyên gia: xoá tổn thương làm mất 38–52% dự đoán đúng; pointing 0.58–0.66 so với mức ngẫu nhiên 0.46 | Ảnh inpaint là OOD |
 | 14 | Revision dataset và môi trường chưa pin | 🟡 | P1 | S | C5 | ⬜ | ✅ Pin PlantVillage `f808f27`; thêm `requirements-lock.txt` | — |
 | 15 | Không có lệnh tái lập kết quả | 🟡 | P1 | S | C5 | ⬜ | ✅ `scripts/reproduce_round2.sh` + script so sánh (⏳ đang chạy kiểm chứng toàn bộ) | — |
-| 16 | Báo cáo chưa giải thích vì sao chọn từng kỹ thuật CV | 🟡 | P1 | S–M | C1 | ⬜ | ⏳ `docs/technical_background.md` | — |
-| 17 | README dài 300 dòng, người chấm khó tìm bằng chứng | 🟡 | P1 | S | C5 | ⬜ | ⏳ Bảng "rubric → bằng chứng" ở đầu README | — |
+| 16 | Báo cáo chưa giải thích vì sao chọn từng kỹ thuật CV | 🟡 | P1 | S–M | C1 | ⬜ | ✅ `docs/technical_background.md`: mỗi kỹ thuật gắn với một quyết định của project và file bằng chứng | — |
+| 17 | README dài 300 dòng, người chấm khó tìm bằng chứng | 🟡 | P1 | S | C5 | ⬜ | ✅ Thêm "Quick start" và bảng "Where to find the evidence" theo tiêu chí ở đầu README; REPO_REVIEW §h.2 | — |
 | 18 | License và quyền dữ liệu | 🟠 | P1 | S | C5 | ✅ `LICENSE` (code), `DATA_NOTICE.md`, `CITATION.cff` | — | 👤 Quyết định có xử lý lịch sử git (ảnh có watermark) hay không |
 | 19 | Docs lẫn code scaffold không dùng | ⚪ | P1 | S | C2 | ✅ Đưa scaffold và docs cũ vào `archive/` | — | 👤 Đổi tên file NB14 nếu muốn |
 | 20 | Chưa định vị so với nghiên cứu 2025–2026 | ⚪ | P2 | S | C1 | ⬜ | ✅ Thêm mục "Related work and positioning" | Rubric không chấm khả năng publication, nên giữ mục này ngắn |
 | 21 | Thiếu baseline foundation model | ⚪ | P2 | S | C1 C3 | ⬜ | ✅ DINOv2-B đóng băng + linear probe: Field Test 0.665, v3 0.469 | — |
-| 22 | Phân tích lỗi trên v3 theo kích thước tổn thương; calibration | ⚪ | P2 | S | C4 | ⬜ | ⏳ | — |
+| 22 | Phân tích lỗi trên v3 theo kích thước tổn thương; calibration | ⚪ | P2 | S | C4 | ⬜ | ✅ Model Lab tự tin 0.90 trong khi accuracy chỉ 0.43 (ECE 0.475); model đã adapt có ECE 0.16–0.30; thêm accuracy theo kích thước tổn thương và ma trận nhầm lẫn | — |
 | 23 | NB02–14 chỉ chạy 1 seed | 🟡 | P2 | L | C3 | ⬜ | ⬜ | 👤 Cần GPU |
 | 24 | Chưa có bản ViT của thí nghiệm có kiểm soát NB15 | 🟡 | P2 | M | C3 | ⬜ | ⬜ (một phần đã có qua LP-FT Field-only) | 👤 Cần GPU |
 | 25 | Chưa commit prediction CSV canonical của NB11, NB13, NB14 | ⚪ | P2 | S | C5 | ⬜ | ⬜ | 👤 Cần file local của Trang |
