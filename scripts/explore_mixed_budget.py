@@ -19,9 +19,19 @@ flagged as not reproducing and must not be used.
 
 Primary outcomes: Field Dev (per epoch) and Lab Test retention at the selected
 epoch. Field Test and External v3 are reported once, exploratory.
+
+Protocol amendment (committed before running seeds 43-44): the script also runs
+the Field-only arm (``--condition field_only``: same loop without the Lab loss)
+and seeds 43 and 44. Each seed and arm has the same epoch-8 sanity check
+against its sealed Notebook 15 Lab Test macro-F1; an arm that fails is reported
+and excluded, never tuned. Field-only seed 42 is re-run here as a consistency
+check against ``data/results/training_budget``. Endpoints are unchanged;
+External v3 is a pre-declared secondary endpoint on an already reused set.
+
 Usage from the repository root::
 
     python scripts/explore_mixed_budget.py --output data/results/mixed_budget
+    python scripts/explore_mixed_budget.py --condition field_only --seed 43 --output data/results/mixed_budget_amendment/field_only_s43
 """
 
 from __future__ import annotations
@@ -54,6 +64,10 @@ spec.loader.exec_module(lpft)
 SEED, HEAD_EPOCHS, SECOND_EPOCHS, BATCH, LAMBDA_LAB = 42, 2, 22, 16, 1.0
 NB15_MIXED_S42_LAB_TEST = 0.9552975465455024
 SANITY_TOLERANCE = 0.01
+# Sealed Notebook 15 Lab Test macro-F1 (data/results/notebook15_lab_retention/lab_retention_by_checkpoint.csv).
+NB15_LAB_TEST = {("mixed", 42): 0.9552975465455024, ("mixed", 43): 0.9449250178210471, ("mixed", 44): 0.9603422930100965,
+                 ("field_only", 42): 0.8116476460444467, ("field_only", 43): 0.8092055163696659,
+                 ("field_only", 44): 0.8199427434570354}
 
 
 def augmented(images, ids, idx, transform, epoch, tag):
@@ -71,7 +85,13 @@ def main() -> None:
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--models-dir", type=Path, default=ROOT / "models")
     parser.add_argument("--threads", type=int, default=4)
+    parser.add_argument("--seed", type=int, default=42, choices=[42, 43, 44])
+    parser.add_argument("--condition", default="mixed", choices=["mixed", "field_only"])
     args = parser.parse_args()
+    global SEED
+    SEED = args.seed
+    lab_weight = LAMBDA_LAB if args.condition == "mixed" else 0.0
+    expected = NB15_LAB_TEST[(args.condition, SEED)]
     output = args.output if args.output.is_absolute() else ROOT / args.output
     if output.exists():
         raise FileExistsError(f"Refusing to overwrite existing destination: {output}")
@@ -122,10 +142,11 @@ def main() -> None:
             l_order = np.random.default_rng(derived_seed(SEED, epoch, "lab_order")).choice(len(lab_y), len(field_y), replace=False)
             for i in range(0, len(f_order), BATCH):
                 fi, li = f_order[i:i + BATCH], l_order[i:i + BATCH]
-                loss = (nn.functional.cross_entropy(model(augmented(field_imgs, field_ids, fi, steps, epoch, "field")),
-                                                    torch.as_tensor(field_y[fi]))
-                        + LAMBDA_LAB * nn.functional.cross_entropy(model(augmented(lab_imgs, lab_ids, li, steps, epoch, "lab")),
-                                                                   torch.as_tensor(lab_y[li])))
+                loss = nn.functional.cross_entropy(model(augmented(field_imgs, field_ids, fi, steps, epoch, "field")),
+                                                   torch.as_tensor(field_y[fi]))
+                if lab_weight:
+                    loss = loss + lab_weight * nn.functional.cross_entropy(
+                        model(augmented(lab_imgs, lab_ids, li, steps, epoch, "lab")), torch.as_tensor(lab_y[li]))
                 optimizer.zero_grad(set_to_none=True)
                 loss.backward()
                 optimizer.step()
@@ -133,8 +154,8 @@ def main() -> None:
             history.append({"epoch": epoch, "field_dev_macro_f1": dev})
             if epoch == 8:
                 lab8 = score("lab_test")["macro_f1"]
-                sanity = {"epoch8_lab_test_macro_f1": lab8, "nb15_mixed_s42_lab_test_macro_f1": NB15_MIXED_S42_LAB_TEST,
-                          "within_tolerance": abs(lab8 - NB15_MIXED_S42_LAB_TEST) <= SANITY_TOLERANCE}
+                sanity = {"epoch8_lab_test_macro_f1": lab8, "nb15_sealed_lab_test_macro_f1": expected,
+                          "within_tolerance": abs(lab8 - expected) <= SANITY_TOLERANCE}
                 print("sanity", sanity, flush=True)
             if dev > best[0]:
                 best = (dev, epoch, copy.deepcopy(model.state_dict()))
@@ -146,7 +167,7 @@ def main() -> None:
     pd.DataFrame(history).to_csv(output / "field_dev_history.csv", index=False)
     pd.DataFrame(results).to_csv(output / "selected_results.csv", index=False)
     (output / "protocol.json").write_text(json.dumps({
-        "arm": "Mixed (Lab rehearsal), ResNet18 last block", "seed": SEED, "head_epochs": HEAD_EPOCHS,
+        "arm": f"{args.condition}, ResNet18 last block", "condition": args.condition, "seed": SEED, "head_epochs": HEAD_EPOCHS,
         "second_epochs": SECOND_EPOCHS, "batch_field": BATCH, "batch_lab": BATCH, "lambda_lab": LAMBDA_LAB,
         "selection": f"epoch 0-{HEAD_EPOCHS + SECOND_EPOCHS} maximizing Field Dev macro-F1, earliest tie",
         "sanity_check": sanity, "counterpart": "data/results/training_budget (resnet18, last_block, seed 42)",
