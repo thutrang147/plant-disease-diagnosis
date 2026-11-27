@@ -1,21 +1,23 @@
 """Reproducible statistical uncertainty, calibration, and artifact extraction for saved evaluations.
 
 Run locally from the project root (no GPU or external Drive mount required):
-    python -m src.statistical_analysis
+    python -m src.statistical_analysis --output outputs/statistical_reproduction
 
-This module performs three non-destructive tasks using committed CSVs and saved
+This module performs three tasks using committed CSVs and saved
 notebook outputs (09_final_model_comparison.ipynb and 10_error_analysis.ipynb):
-1. Reconstructs the local summary tables and figures for `outputs/final_comparison_development`
-   and `outputs/error_analysis_development` directly from the saved notebook outputs.
+1. Exports historical rounded table transcriptions and saved notebook figures
+   under the new output directory; these are not original prediction exports.
 2. Computes exact Wilson 95% confidence intervals, 10,000-iteration bootstrap confidence
    intervals, and exact two-sided McNemar test p-values for model comparisons.
 3. Computes Expected Calibration Error (ECE) and high-confidence error metrics (>= 0.90)
-   across all saved prediction manifests, plus soft-voting/confidence-based ensemble
-   baselines where per-sample predictions are available.
+   across the available baseline prediction manifests and saved adapted counts.
+
+The CLI refuses an existing output parent and never replaces source evidence.
 """
 
 from __future__ import annotations
 
+import argparse
 import base64
 import json
 import math
@@ -103,10 +105,15 @@ def mcnemar_exact(b_only_a: int, c_only_b: int) -> float:
     return float(binomtest(min(b_only_a, c_only_b), n=discordant, p=0.5, alternative="two-sided").pvalue)
 
 
-def extract_notebook_artifacts() -> None:
-    """Populate local `outputs/final_comparison_development` and `outputs/error_analysis_development`."""
-    final_dir = PROJECT_ROOT / "outputs" / "final_comparison_development"
-    error_dir = PROJECT_ROOT / "outputs" / "error_analysis_development"
+def extract_notebook_artifacts(output_root: Path) -> None:
+    """Export historical transcriptions and figures to a separate destination.
+
+    Numeric literals below transcribe rounded notebook displays; they are not
+    original full-precision prediction exports. Never use them to replace those
+    exports or the committed historical evidence.
+    """
+    final_dir = output_root / "final_comparison_development"
+    error_dir = output_root / "error_analysis_development"
     final_dir.mkdir(parents=True, exist_ok=True)
     error_dir.mkdir(parents=True, exist_ok=True)
 
@@ -228,9 +235,9 @@ def extract_notebook_artifacts() -> None:
             cropped.save(error_dir / "gradcam_vit_attention_4cases.png")
 
 
-def run_statistical_analysis() -> None:
+def run_statistical_analysis(output_root: Path) -> None:
     """Compute confidence intervals, McNemar tests, and calibration metrics."""
-    stat_dir = PROJECT_ROOT / "outputs" / "statistical_analysis"
+    stat_dir = output_root / "statistical_analysis"
     stat_dir.mkdir(parents=True, exist_ok=True)
     labels = list(range(5))
 
@@ -515,9 +522,15 @@ def run_statistical_analysis() -> None:
 
 
 def main() -> None:
-    extract_notebook_artifacts()
-    run_statistical_analysis()
-    print("Statistical analysis and notebook artifact extraction completed successfully.")
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--output", type=Path,
+                        default=PROJECT_ROOT / "outputs" / "statistical_reproduction")
+    args = parser.parse_args()
+    # A fresh parent prevents historical CSVs/figures from being overwritten.
+    args.output.mkdir(parents=True, exist_ok=False)
+    extract_notebook_artifacts(args.output)
+    run_statistical_analysis(args.output)
+    print("Statistical analysis and historical transcription export completed:", args.output)
 
 
 if __name__ == "__main__":

@@ -10,3 +10,4 @@ Pillow
 scipy
 ImageHash
 ipykernel
+nbformat

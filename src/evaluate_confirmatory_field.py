@@ -1,17 +1,17 @@
-"""One-shot confirmatory evaluation for locked Field Test or self-collected real-world leaf images.
+"""Optional evaluation utility for a class-folder collection of tomato images.
 
 Run locally from the project root after model selection is completely frozen:
-    python -m src.evaluate_confirmatory_field --mode self_collected --images-dir data/self_collected_field
+    python -m src.evaluate_confirmatory_field --images-dir data/self_collected_field
 
-Supported modes:
-1. `self_collected`: Evaluates a directory of real-world tomato leaf photographs organized
-   by the five canonical class folders (`Healthy`, `Early Blight`, `Late Blight`,
-   `Bacterial Spot`, `Septoria Leaf Spot`). Automatically runs an exact SHA-256 and
-   8x8 DCT pHash near-duplicate audit (Hamming distance <= 4) against existing splits
-   before running inference, and reports Accuracy, Macro-F1, Wilson 95% CIs, ECE,
-   and confusion matrices.
-2. `plantdoc_field_test`: Runs a single confirmatory pass on `data/splits/field_test.csv`
-   once all development and checkpoint decisions are locked.
+Photographs are organized by the five canonical class folders (`Healthy`,
+`Early Blight`, `Late Blight`, `Bacterial Spot`, `Septoria Leaf Spot`). The utility
+runs an exact RGB-pixel SHA-256 and 8x8 DCT pHash screen (distance <= 4) before
+inference, and reports accuracy, macro-F1, Wilson 95% CIs, ECE and confusion
+matrices.
+The duplicate screen covers stored Adapt Train and Field Dev fingerprints only;
+it cannot establish independence from Field Test, pretraining data or related
+photographs. Previously inspected collections remain exploratory. Notebook 11
+is the canonical external evaluation; this utility does not replace its results.
 """
 
 from __future__ import annotations
@@ -24,9 +24,10 @@ from pathlib import Path
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+import imagehash
 import numpy as np
 import pandas as pd
-from PIL import Image
+from PIL import Image, ImageOps
 import torch
 from sklearn.metrics import (
     ConfusionMatrixDisplay,
@@ -40,7 +41,7 @@ from torch.utils.data import DataLoader, Dataset
 from torchvision import transforms
 from torchvision.models import resnet18
 
-from src.prepare_field_dev_verified import compute_phash_hex, hamming_distance_hex
+from src.prepare_field_dev_verified import exact_hash
 from src.statistical_analysis import compute_ece, wilson_ci
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -59,7 +60,7 @@ class FolderFieldDataset(Dataset):
     def __getitem__(self, index: int):
         row = self.records.iloc[index]
         with Image.open(row["filepath"]) as img:
-            image = img.convert("RGB")
+            image = ImageOps.exif_transpose(img).convert("RGB")
         if self.transform is not None:
             image = self.transform(image)
         return image, int(row["label_id"])
@@ -75,13 +76,14 @@ def scan_and_audit_self_collected(
 
     for split_name in ("field_adapt_train", "field_dev"):
         csv_path = splits_dir / f"{split_name}.csv"
-        if csv_path.is_file():
-            df = pd.read_csv(csv_path)
-            if "exact_hash" in df.columns:
-                existing_hashes.update(df["exact_hash"].dropna().astype(str).tolist())
-            if "phash" in df.columns:
-                for _, r in df.iterrows():
-                    existing_phashes.append((split_name, int(r["row_id"]), str(r["phash"])))
+        df = pd.read_csv(csv_path)  # Fail explicitly if audit prerequisites are absent.
+        if not {"exact_hash", "phash", "row_id"} <= set(df):
+            raise ValueError(f"Missing verified image fingerprints: {csv_path}")
+        if df[["exact_hash", "phash", "row_id"]].isna().any().any():
+            raise ValueError(f"Missing fingerprint values: {csv_path}")
+        existing_hashes.update(df["exact_hash"].astype(str))
+        for _, r in df.iterrows():
+            existing_phashes.append((split_name, int(r["row_id"]), str(r["phash"])))
 
     rows = []
     near_dup_flags = []
@@ -98,13 +100,15 @@ def scan_and_audit_self_collected(
             sha256_hex = hashlib.sha256(raw_bytes).hexdigest()
             with Image.open(fpath) as im:
                 rgb = im.convert("RGB")
-                phash_hex = compute_phash_hex(rgb)
+                phash_hex = str(imagehash.phash(rgb))
+                pixel_hash = exact_hash(rgb)
 
-            exact_match = sha256_hex in existing_hashes
+            # Stored split hashes describe RGB dimensions + pixels, not file bytes.
+            exact_match = pixel_hash in existing_hashes
             min_dist = 64
             closest_ref = None
             for sp_name, r_id, ref_phash in existing_phashes:
-                d = hamming_distance_hex(phash_hex, ref_phash)
+                d = (int(phash_hex, 16) ^ int(ref_phash, 16)).bit_count()
                 if d < min_dist:
                     min_dist = d
                     closest_ref = f"{sp_name}:{r_id}"
@@ -126,7 +130,8 @@ def scan_and_audit_self_collected(
                     "filename": fpath.name,
                     "class_name": class_name,
                     "label_id": int(label_id),
-                    "exact_hash": sha256_hex,
+                    "file_sha256": sha256_hex,
+                    "exact_hash": pixel_hash,
                     "phash": phash_hex,
                     "min_phash_dist_to_plantdoc": min_dist,
                     "contaminated": is_near_dup,
@@ -136,6 +141,9 @@ def scan_and_audit_self_collected(
     manifest = pd.DataFrame(rows)
     audit = {
         "images_dir": str(images_dir),
+        "scope": "Stored Field Adapt Train and Field Dev fingerprints; raw RGB before EXIF transposition",
+        "inference_decode": "EXIF transpose then RGB, consistent with Notebook 11",
+        "independence_established": False,
         "total_scanned": len(manifest),
         "phash_threshold": phash_threshold,
         "contaminated_count": len(near_dup_flags),
@@ -154,6 +162,10 @@ def evaluate_resnet_checkpoint(
 ) -> dict:
     """Evaluate a saved ResNet18 checkpoint on a clean self-collected manifest."""
     ckpt = torch.load(checkpoint_path, map_location="cpu", weights_only=True)
+    if ckpt.get("architecture") != "resnet18" or ckpt.get("class_names") != class_names:
+        raise ValueError("Checkpoint architecture or class order differs from the evaluation protocol")
+    if manifest.empty:
+        raise ValueError("Cannot evaluate an empty manifest")
     model = resnet18(weights=None)
     model.fc = nn.Linear(model.fc.in_features, len(class_names))
     model.load_state_dict(ckpt["model_state_dict"], strict=True)
@@ -255,7 +267,7 @@ def main() -> None:
         return
 
     manifest, audit = scan_and_audit_self_collected(args.images_dir, splits_dir)
-    args.output_dir.mkdir(parents=True, exist_ok=True)
+    args.output_dir.mkdir(parents=True, exist_ok=False)
     (args.output_dir / "audit_protocol.json").write_text(json.dumps(audit, indent=2), encoding="utf-8")
     manifest.to_csv(args.output_dir / "self_collected_manifest.csv", index=False)
 
@@ -266,13 +278,15 @@ def main() -> None:
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     summaries = []
-    for ckpt_name in ("resnet18_lab_best.pt", "resnet18_aug_geometric_best.pt", "resnet18_mixed_best.pt"):
+    for ckpt_name in ("resnet18_lab_best.pt", "resnet18_aug_geometric_best.pt", "resnet18_geometric_mixed_best.pt"):
         ckpt_path = PROJECT_ROOT / "models" / ckpt_name
         if ckpt_path.is_file():
             res = evaluate_resnet_checkpoint(
                 ckpt_path, clean_manifest, class_names, args.output_dir / ckpt_path.stem, device
             )
             summaries.append(res)
+        else:
+            print(f"Checkpoint unavailable; not evaluated: {ckpt_path}")
     if summaries:
         pd.DataFrame(summaries).to_csv(args.output_dir / "summary.csv", index=False)
         print(pd.DataFrame(summaries).to_string(index=False))

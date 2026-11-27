@@ -1,164 +1,125 @@
-# Tomato Disease Classification: CNN and Vision Transformer under Domain Shift
+# Tomato Disease Classification under Laboratory-to-Field Domain Shift
 
-## Abstract
+This research compares ImageNet-pretrained ResNet18 and ViT-Small on five tomato leaf categories. High laboratory accuracy can conceal poor transfer to heterogeneous photographs. The project examines this domain shift, supervised adaptation, laboratory rehearsal during fine-tuning, external errors, and sensitivity to image framing.
 
-This study compares ImageNet-pretrained ResNet18 and ViT-Small for five-class tomato disease classification, with PlantVillage as the laboratory source domain and PlantDoc as the field target domain. Completed experiments cover laboratory baselines, lab-to-field evaluation, photometric and geometric augmentation, supervised field adaptation with duplicate-aware splits, mixed-domain fine-tuning, and exploratory error analysis. Both laboratory baselines lose substantial macro-F1 on PlantDoc. Mixed-domain ResNet18 initialized from the geometric-augmentation checkpoint achieves the highest Field Dev macro-F1 among the four models in the final comparison (0.4459), while mixed-domain ViT-Small retains higher Lab Test macro-F1 (0.9886 versus 0.9140). Field Dev was used for checkpoint selection; these field results are developmental rather than independent confirmation.
+The completed study contains 15 canonical notebooks. Start with [09: fixed-model comparison](notebooks/09_final_model_comparison.ipynb), [11: canonical external evaluation](notebooks/11_external_evaluation.ipynb), and [15: controlled fine-tuning](notebooks/15_controlled_field_mixed_finetuning.ipynb). The [research summary](docs/research_results_summary.md) provides detailed results and scientific limitations; the [final audit](docs/submission_audit.md) records validation and submission constraints.
 
-## Research Questions
+## Objectives and methodology
 
-1. How do the two pretrained model configurations compare on laboratory images and under PlantVillage-to-PlantDoc domain shift?
-2. How do photometric and geometric training augmentation affect ResNet18 performance?
-3. How do field-only and mixed-domain fine-tuning change Field Dev performance and source-domain retention?
-4. Which classes and images remain difficult, and what can Grad-CAM and ViT attention reveal for qualitative review?
-5. How does Healthy recognition change between original photographs and human-reviewed leaf crops?
-6. How sensitive are the fixed models to automatic center cropping and multi-crop image coverage?
+The study asks how laboratory models transfer to PlantDoc; whether augmentation and supervised adaptation improve target-domain performance; how mixed-domain training affects source retention; and how errors change across classes, acquisition sources and crop policies. A final controlled comparison tests laboratory rehearsal with matched Field exposure and optimizer updates.
 
-## Datasets and Evaluation Protocol
+ResNet18 uses torchvision `IMAGENET1K_V1`; ViT-Small uses timm `vit_small_patch16_224.augreg_in1k`. Both receive 224×224 inputs with their own recorded transforms. The laboratory baselines use seed 42, three head epochs and five full-model epochs, selecting by Lab Validation macro-F1. Different pretraining, transforms, capacities and optimization settings prevent attribution to architecture alone.
 
-Images are loaded from the Hugging Face mirrors [PlantVillage](https://huggingface.co/datasets/geraldmc/plantvillage-full) and [PlantDoc](https://huggingface.co/datasets/geraldmc/plantdoc-full). PlantDoc uses revision `v0.1.0`; PlantVillage is unpinned. The label order is fixed in [`label_map.json`](data/splits/label_map.json): Healthy (0), Early Blight (1), Late Blight (2), Bacterial Spot (3), and Septoria Leaf Spot (4). CSV manifests store source row indices rather than image pixels.
+Historical field-only adaptation trains the head and final block, selecting on Field Dev. Historical mixed runs sample 185 Field and 185 Lab images per epoch, versus 370 Field images for field-only adaptation. These runs have unequal Field exposure and independent selection/stopping; their differences are descriptive. Notebook 15 separately controls initialization, Field exposure, updates and shared-epoch selection across seeds 42, 43 and 44. Mixed still receives additional Lab data and compute.
+
+## Datasets and partitions
+
+Source images come from the Hugging Face mirrors [PlantVillage](https://huggingface.co/datasets/geraldmc/plantvillage-full) and [PlantDoc](https://huggingface.co/datasets/geraldmc/plantdoc-full). PlantDoc requests `v0.1.0`; PlantVillage is unpinned. [CSV manifests](data/splits/) retain original source row indices, with the canonical order **Healthy=0, Early Blight=1, Late Blight=2, Bacterial Spot=3, Septoria Leaf Spot=4**.
 
 | Partition | Images | Role |
 | --- | ---: | --- |
-| Lab Train | 5,365 | PlantVillage training; also sampled during mixed-domain fine-tuning |
-| Lab Validation | 1,341 | Laboratory checkpoint selection; source-retention monitoring during adaptation |
-| Lab Test | 1,692 | Fixed laboratory evaluation partition |
-| Field Adapt Train | 370 | Labeled PlantDoc training for adaptation |
-| Field Dev | 92 | Target-domain checkpoint selection and exploratory analysis |
-| Quarantined field training rows | 14 | Excluded from adaptation and Field Dev |
-| Original Field Test | 47 | Previously inspected fixed evaluation; not a fresh independent final test |
+| Lab Train / Validation / Test | 5,365 / 1,341 / 1,692 | Training / checkpoint selection / fixed laboratory evaluation |
+| Field Adapt Train / Field Dev | 370 / 92 | Supervised adaptation / target checkpoint selection |
+| Quarantined PlantDoc training rows | 14 | Excluded for near-test overlap or conflicting labels |
+| Original Field Test | 47 | Previously inspected historical evaluation, not fresh confirmation |
 | External v1 | 62 | 16 self-collected Healthy and 46 online disease images |
-| Healthy v2 primary analysis | 57 | 8 original photographs, 7 historical crops and 42 newly approved crops |
-| Healthy paired analysis | 23 parents / 49 crops | Exploratory comparison across 21 recorded scene groups |
+| Healthy v2 primary analysis | 57 | 8 originals, 7 historical crops and 42 newly approved crops |
+| Healthy paired extension | 23 parents / 49 crops | 21 recorded scene groups; exploratory matched-parent analysis |
 
-Lab Validation is formed from original PlantVillage training data with leaf-group-aware splitting; images without reliable leaf IDs are treated as singleton groups. The verified PlantDoc protocol groups pHash connected components at Hamming distance ≤ 4 across the original training/test partitions. Of 476 original training rows, four near Field Test and ten in conflicting-label groups are quarantined, leaving 370/92 adaptation/development images. See the saved [protocol](data/splits/field_dev_protocol.json) and [artifact provenance](docs/workflow.md).
+Original test membership is preserved. Lab Validation uses leaf-group-aware splitting of original laboratory training images; unknown leaf IDs are singleton groups. The [verified PlantDoc protocol](data/splits/field_dev_protocol.json) groups pHash connected components at distance ≤4 across the 476/47 original partitions. Four training rows near Field Test and ten in conflicting-label groups are quarantined. Field Dev class supports are 11, 16, 20, 18 and 27; Field Test supports are 8, 9, 10, 9 and 11.
 
-Field Dev class counts are 11 Healthy, 16 Early Blight, 20 Late Blight, 18 Bacterial Spot, and 27 Septoria Leaf Spot. Accuracy, macro-F1 over all five classes, and per-class metrics are reported. Field Test image fingerprints are used in contamination audits, but notebooks 06–10 do not perform Field Test model inference. All reported development comparisons use the same verified 92-image split.
+Accuracy, five-class macro-F1 and class-level metrics are reported separately. Field Dev participates in selection. Healthy-only recognition is recall, not five-class discrimination. Crops and their parents are correlated observations; scene IDs do not establish independent physical plants.
 
-## Models and Experimental Design
+## Notebook organization
 
-ResNet18 uses torchvision `IMAGENET1K_V1` weights; ViT-Small uses timm `vit_small_patch16_224.augreg_in1k`. Both use 224 × 224 inputs and seed 42. Baselines train the head for three epochs and the full model for five, selecting by Lab Validation macro-F1 without stochastic augmentation. Model-specific transforms, batch sizes, learning rates, pretraining recipes, and parameter counts differ (11,179,077 versus 21,667,589); the comparison does not isolate architecture alone.
-
-Augmentation experiments modify ResNet18 training transforms while retaining its optimizer and epoch schedule. Field-only adaptation starts from the laboratory checkpoints, trains the head for two epochs and the final block for up to six, and selects by Field Dev macro-F1. Mixed-domain experiments start from the same laboratory checkpoints and sample 185 field plus 185 laboratory images per epoch, with balanced batches. This approximates the field-only optimizer-step budget but halves field-image exposure per epoch; it is not a measured compute match. Lab Validation monitors source retention and does not select adaptation checkpoints.
-
-| Notebook | Experiment record |
+| Notebook | Purpose |
 | --- | --- |
-| [01](notebooks/01_data_exploration.ipynb) | Dataset composition, label harmonization, image examples, leaf-group coverage |
+| [01](notebooks/01_data_exploration.ipynb) | Dataset composition, harmonized labels, examples and leaf-group coverage |
 | [02](notebooks/02_train_cnn.ipynb) | ResNet18 laboratory baseline |
 | [03](notebooks/03_train_vit.ipynb) | ViT-Small laboratory baseline |
-| [04](notebooks/04_domain_gap.ipynb) | Saved baseline Lab Test / original Field Test comparison |
-| [05](notebooks/05_augmentation_experiments.ipynb) | ResNet18 photometric/geometric augmentation; saved training run is geometric |
+| [04](notebooks/04_domain_gap.ipynb) | Baseline Lab Test and historical Field Test from saved predictions |
+| [05](notebooks/05_augmentation_experiments.ipynb) | Photometric/geometric ResNet18 augmentation; saved training run is geometric |
 | [06](notebooks/06_field_adaptation_verified.ipynb) | Verified ResNet18 field-only adaptation |
 | [07](notebooks/07_vit_field_adaptation.ipynb) | Verified ViT-Small field-only adaptation |
-| [08](notebooks/08_mixed_domain_finetuning.ipynb) | Three mixed-domain runs and field-only controls |
-| [09](notebooks/09_final_model_comparison.ipynb) | Four fixed checkpoints on Lab Test and Field Dev |
-| [10](notebooks/10_error_analysis.ipynb) | Paired errors, Grad-CAM, and last-block ViT attention |
-| [11](notebooks/11_external_evaluation.ipynb) | Canonical external v1 evaluation (62 images; EXIF corrected) |
-| [12](notebooks/12_external_error_analysis.ipynb) | External class, confidence and failure analysis |
-| [13](notebooks/13_healthy_field_evaluation.ipynb) | Healthy-only evaluation and paired parent-versus-crop analysis |
-| [14](notebooks/14_lesion_resolution_study.ipynb) | Exploratory fixed-center and five-crop sensitivity |
-| [15](notebooks/15_controlled_field_mixed_finetuning.ipynb) | Completed three-seed ResNet18 Field-only versus Mixed comparison with matched Field exposure and updates |
+| [08](notebooks/08_mixed_domain_finetuning.ipynb) | Historical mixed-domain runs and field-only controls |
+| [09](notebooks/09_final_model_comparison.ipynb) | Four fixed models on Lab Test and Field Dev |
+| [10](notebooks/10_error_analysis.ipynb) | Paired Field Dev errors, Grad-CAM and ViT attention |
+| [11](notebooks/11_external_evaluation.ipynb) | Canonical external v1 evaluation with EXIF correction |
+| [12](notebooks/12_external_error_analysis.ipynb) | External class, source and error trade-offs |
+| [13](notebooks/13_healthy_field_evaluation.ipynb) | Healthy recognition and exploratory original–crop pairs |
+| [14](notebooks/14_lesion_resolution_study.ipynb) | Exploratory center-crop and five-crop sensitivity |
+| [15](notebooks/15_controlled_field_mixed_finetuning.ipynb) | Completed three-seed controlled ResNet18 comparison |
 
-## Main Results
+`notebooks/archive/` contains superseded protocols and the unchanged original Notebook 15 Colab execution. Archives are provenance records, not an alternative canonical sequence. Historical failures and decoding differences are identified explicitly.
 
-The main comparison evaluates four fixed checkpoints on Lab Test (1,692 images) and verified Field Dev (92 images), as recorded in [notebook 09](notebooks/09_final_model_comparison.ipynb) and [`outputs/final_comparison_development/`](outputs/final_comparison_development/). Values are rounded to four decimals, with 95% Wilson accuracy confidence intervals from [`outputs/statistical_analysis/accuracy_confidence_intervals.csv`](outputs/statistical_analysis/accuracy_confidence_intervals.csv). Field Dev selected the mixed checkpoints, so its scores describe development performance.
+## Key findings
 
-| Model | Lab Test accuracy (95% CI) | Lab Test macro-F1 | Field Dev correct / 92 | Field Dev accuracy (95% CI) | Field Dev macro-F1 |
-| --- | ---: | ---: | ---: | ---: | ---: |
-| ResNet18 laboratory baseline | 0.9793 [0.9714, 0.9851] | 0.9744 | 30 | 0.3261 [0.2389, 0.4272] | 0.2355 |
-| ViT-Small laboratory baseline | 0.9947 [0.9899, 0.9972] | 0.9938 | 37 | 0.4022 [0.3078, 0.5043] | 0.2677 |
-| ResNet18 geometric + mixed | 0.9297 [0.9165, 0.9409] | 0.9140 | 43 | 0.4674 [0.3688, 0.5686] | 0.4459 |
-| ViT-Small mixed | 0.9900 [0.9840, 0.9937] | 0.9886 | 37 | 0.4022 [0.3078, 0.5043] | 0.3872 |
+The historical four-model results use Notebook 09 for Lab Test/Field Dev and Notebook 11 for external v1. Values below are accuracy / macro-F1.
 
-On Lab Test, ViT-Small's accuracy lead over ResNet18 is statistically significant (exact two-sided McNemar $p = 2.4 \times 10^{-5}$; 32 versus 6 discordant predictions; [`paired_mcnemar_tests.csv`](outputs/statistical_analysis/paired_mcnemar_tests.csv)). Mixed-domain ResNet18 has the highest observed Field Dev macro-F1 of these four models, while mixed-domain ViT retains higher Lab Test performance. Mixed-domain ViT increases macro-F1 without changing its number of correct Field Dev predictions (raising Healthy recall from 0.0000 to 0.5455 and Bacterial Spot recall from 0.0000 to 0.1667 in both adapted models), reflecting a redistribution of class-level errors. The ResNet18 contrast combines geometric initialization and mixed-domain fine-tuning; the full change cannot be attributed to mixing alone.
+| Fixed checkpoint | Lab Test (1,692) | Field Dev (92) | External v1 (62) |
+| --- | ---: | ---: | ---: |
+| ResNet18 Lab baseline | 0.9793 / 0.9744 | 0.3261 / 0.2355 | 0.3065 / 0.2406 |
+| ViT-Small Lab baseline | 0.9947 / 0.9938 | 0.4022 / 0.2677 | 0.4355 / 0.4157 |
+| ResNet18 Geometric + Mixed | 0.9297 / 0.9140 | 0.4674 / 0.4459 | 0.5323 / 0.4882 |
+| ViT-Small Mixed | 0.9900 / 0.9886 | 0.4022 / 0.3872 | 0.5161 / 0.4808 |
 
-Supporting laboratory results in [02](notebooks/02_train_cnn.ipynb) and [03](notebooks/03_train_vit.ipynb) report Lab Validation accuracy/macro-F1 of 0.9896/0.9879 for ResNet18 and 0.9970/0.9966 for ViT-Small on 1,341 images. These are checkpoint-selection scores, separate from Lab Test.
+Laboratory performance transfers poorly to PlantDoc. Historical mixing retains more Lab Validation performance than corresponding field-only runs, but does not uniformly improve Field Dev macro-F1. The ResNet18 baseline-to-final-Mixed contrast also includes geometric initialization.
 
-On the current verified Field Dev, frozen ResNet18 macro-F1 is 0.2355 (30/92 correct) without augmentation, 0.2444 (31/92) with photometric augmentation, and 0.2497 (32/92, exact McNemar $p = 0.7539$ versus baseline) with geometric augmentation ([saved evaluation](outputs/field_dev_comparison_verified/summary.csv)). Their Lab Validation macro-F1 values are 0.9879, 0.9841, and 0.9753, respectively.
+Aggregate external gains hide class losses: ResNet18 Healthy recognition rises from 0/16 to 12/16, while Early Blight falls from 11/13 to 1/13. External v1 is source/class confounded and too small for broad architectural claims. EXIF orientation must precede RGB conversion; raw-RGB historical results are kept separate in the [reconciliation record](docs/experiment_reconciliation.md).
 
-Field-only versus mixed-domain adaptation, from [06](notebooks/06_field_adaptation_verified.ipynb)–[08](notebooks/08_mixed_domain_finetuning.ipynb):
+Notebook 13 recognizes 0/57, 15/57, 44/57 and 43/57 Healthy images for ResNet Lab, ViT Lab, ResNet Mixed and ViT Mixed. The paired extension uses 23 source photographs and 49 associated crops. Both Mixed models recognize 37/49 crops, but equal-parent crop recall differs: 0.7558 for ResNet and 0.8275 for ViT. Crop counts are not independent plant trials.
 
-| Laboratory initialization | Field-only Field Dev macro-F1 | Mixed Field Dev macro-F1 | Field-only Lab Validation macro-F1 | Mixed Lab Validation macro-F1 |
-| --- | ---: | ---: | ---: | ---: |
-| ResNet18 baseline | 0.4119 | 0.3523 | 0.8185 | 0.9556 |
-| ResNet18 geometric | 0.4347 | 0.4459 | 0.7668 | 0.9223 |
-| ViT-Small baseline | 0.3838 | 0.3872 | 0.9892 | 0.9901 |
+Notebook 14 finds model- and sample-specific sensitivity to framing. ViT Mixed five-crop external inference reaches 38/62 correct and macro-F1 0.5840. It averages five **224×224** views from a square 448 canvas, changing scale, coverage, aspect ratio and aggregation. This exploratory reuse of external outcomes does not isolate resolution or select a deployment policy.
 
-Mixing retains more laboratory performance than field-only adaptation in all three saved comparisons, but does not uniformly increase Field Dev macro-F1. The small ViT difference is descriptive and has no repeated-run uncertainty estimate.
+### Controlled Field-only versus Mixed fine-tuning
 
-The historical [baseline Field Test evaluation](notebooks/04_domain_gap.ipynb) used 47 images: ResNet18 accuracy/macro-F1 was 0.3617/0.2802 (17/47 correct), and ViT-Small was 0.4468/0.3617 (21/47 correct). The corresponding Lab Test minus Field Test macro-F1 gaps were 0.6942 and 0.6321. These baseline observations document domain shift. The fixed-checkpoint Field Test evaluation gives 19/47 correct (accuracy/macro-F1 0.4043/0.3587) for ResNet Mixed and 25/47 (0.5319/0.5103) for ViT Mixed. The previously inspected split does not independently confirm later choices.
+Both conditions complete 2,960 Field presentations and 192 optimizer updates per seed; Mixed adds 2,960 Lab presentations. Shared Field Dev selection chooses epochs 8, 7 and 8. Seed 43's evaluated pair therefore has 2,590 Field presentations and 168 updates, despite completing the full budget.
 
-## Controlled Field-only versus Mixed-domain Fine-tuning
-
-[Notebook 15](notebooks/15_controlled_field_mixed_finetuning.ipynb) controls the historical differences in initialization, Field exposure and optimizer updates. Both ResNet18 conditions use the same Lab baseline, 370 Field images per epoch and a fixed eight-epoch schedule, with 2,960 Field presentations and 192 updates per seed. Mixed adds 2,960 Lab presentations at a fixed Lab-loss weight of 1.0. Checkpoint selection uses a common Field Dev epoch within each pair; selected epochs are 8, 7 and 8 for seeds 42, 43 and 44. Seed 43's evaluated pair therefore has 2,590 Field presentations and 168 updates per condition, despite completing the full training budget.
-
-| Condition | Field Test accuracy, mean ± SD | Field Test macro-F1, mean ± SD |
+| Condition | Field Test accuracy, mean ± sample SD | Macro-F1, mean ± sample SD |
 | --- | ---: | ---: |
 | Field-only | 0.4610 ± 0.0123 | 0.4300 ± 0.0075 |
 | Mixed | 0.4468 ± 0.0213 | 0.4072 ± 0.0296 |
 
-Field-only leads macro-F1 in two seeds; Mixed leads slightly in one. The mean paired Mixed change is −0.0228 macro-F1 and −1.42 accuracy percentage points. Mixed raises mean Early Blight recall (0.1852 → 0.2593), lowers Healthy recall (0.3750 → 0.2917) and does not improve Bacterial Spot (0.1481 → 0.1111). This fixed ResNet18 recipe provides no consistent Mixed advantage, without establishing universal inferiority or statistical significance.
+Mixed does not consistently outperform Field-only under this controlled ResNet18 recipe: Field-only leads macro-F1 in two seeds and Mixed slightly in one. This does not establish universal Mixed inferiority or statistical superiority. All seeds reuse the same historically inspected 47 test images; sample SD describes seed variation. Original predictions, selected checkpoint hashes and exposure records were checked against the imported Colab artifacts. [Portable exports and provenance](data/results/notebook15/) support the report without distributing weights; see the [Colab/report guide](docs/notebook15_colab_guide.md).
 
-The three seeds share the same historically inspected 47-image Field Test; SD is sample variation across seeds, not independent test-set uncertainty. Additional Lab data/compute, coupled selection and the fixed recipe limit generalization. [The research summary](docs/research_results_summary.md#controlled-field-only-versus-mixed-domain-fine-tuning) separates this evidence from the historical results above. The [original Colab notebook](notebooks/archive/15_controlled_field_mixed_colab_executed.ipynb) preserves execution evidence. The full Drive run has been imported and audited: original prediction CSVs reproduce all metrics, full-precision histories reproduce selection, batch audits confirm matched exposure/updates, and six selected checkpoint hashes match the evaluation seal. [Compact original prediction exports and provenance](data/results/notebook15/) support the report without distributing model weights. The main notebook reruns only analysis and plotting; see the [guide](docs/notebook15_colab_guide.md) for provenance and artifact access.
+## Repository and reproducibility
 
-## External, Healthy and Crop-Sensitivity Results
+```text
+notebooks/          Canonical 01–15 notebooks and historical archive
+src/                Manifest loader, evaluation, split preparation and analysis
+scripts/            Lightweight repository/artifact audits and Colab packaging
+tests/             Automated protocol, evidence and correctness checks
+data/splits/       Versioned manifests, mappings, quarantine and split history
+data/results/      Portable Notebook 15 predictions and provenance
+outputs/            Selected tracked historical evidence; other runs ignored
+models/             Local checkpoints, excluded from Git
+docs/              Research summary, artifact access, reconciliation and final audit
+```
 
-The executed local Notebooks 01–14 and their verified outputs define one experimental pipeline. The [research results summary](docs/research_results_summary.md) presents the complete result tables, evaluation units and conclusions.
+From the repository root:
 
-External v1 uses EXIF orientation before RGB conversion and the fixed model-specific standard transforms from Notebook 11. Accuracy / macro-F1 on its 62 images is ResNet Lab **0.3065 / 0.2406**, ViT Lab **0.4355 / 0.4157**, ResNet Mixed **0.5323 / 0.4882**, and ViT Mixed **0.5161 / 0.4808**. The set combines 16 self-collected Healthy images with 46 online disease images; source and class are confounded. ResNet Mixed improves Healthy recognition from 0/16 to 12/16 but reduces Early Blight recognition from 11/13 to 1/13 relative to its baseline.
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+python -m unittest discover -s tests -v
+python scripts/audit_repository.py
+```
 
-Notebook 13 reports 57 Healthy primary samples: ResNet Lab recognizes **0/57**, ViT Lab **15/57**, ResNet Mixed **44/57**, and ViT Mixed **43/57**. Its paired analysis compares 23 parent photographs and 49 crops across 21 recorded scene groups. Mixed ResNet and Mixed ViT each recognize 37/49 crops, with parent-macro crop recall of 0.7558 and 0.8275, respectively. Crops are correlated observations, and scene groups do not count independent physical plants.
+These checks require no training, inference or dataset download. Notebook 04 recalculates baseline comparisons from committed predictions; Notebook 15 recalculates the controlled report from committed exports. Their normal execution writes derived figures, so use a temporary checkout to preserve existing outputs. `python -m src.statistical_analysis --output /tmp/plant-statistical-review` exports historical transcriptions and statistics into a **new** directory and refuses existing destinations.
 
-Notebook 14 compares fixed spatial inference strategies. ViT Mixed recognizes 5/18 Bacterial Spot images under the 0.50 center crop on Field Dev and 6/9 under five-crop external inference (38/62 overall; macro-F1 0.5840). The latter resizes to a square 448×448 canvas and averages softmax probabilities from five **224×224** model inputs. It changes scale, aspect ratio, coverage and aggregation together. These comparisons followed inspection of external outcomes and are exploratory; they do not isolate a higher-input-resolution benefit.
+Viewing saved outputs requires no GPU. Training Notebooks 02–03 and 05–08 require their documented Colab CUDA/Drive setup. Notebook 09 performs inference; Notebook 10 requires its original four Field Dev prediction exports and checkpoints, which are not distributed. Notebooks 11–14 require private external manifests, saved local runs and, for image processing/inference cells, images and weights. Notebook 13 includes inference on 22 additional parents; do not execute it merely to restyle figures. Notebook 14 uses cached predictions but its gallery also loads a checkpoint and source images. Full Notebook 15 artifact verification additionally needs the imported Drive run and asset bundle; `python scripts/audit_notebook15_results.py` performs that read-only verification without training or inference.
 
-The [saved crop-sensitivity outputs](outputs/research_integration/20261126_reconciliation/inference/) and linked local qualitative gallery support Notebook 14. Third-party photographs retain source attribution, require appropriate usage rights and remain excluded from public Git tracking.
+Evaluation v2 remains a self-contained local package. Its [builder](data/external_evaluation/tomato_field_eval_v2/build_dataset.py), [validator](data/external_evaluation/tomato_field_eval_v2/validate_dataset.py), [class mapping](data/external_evaluation/tomato_field_eval_v2/class_mapping.json) and [dataset README](data/external_evaluation/tomato_field_eval_v2/README.md) may be versioned. The full annotated manifest, image/parent trees, provenance workbooks and original `validation.json` stay local and ignored. With the authorized package restored, run `PYTHONDONTWRITEBYTECODE=1 python data/external_evaluation/tomato_field_eval_v2/validate_dataset.py data/external_evaluation/tomato_field_eval_v2`; it validates without rebuilding or changing the dataset.
 
-## Error Analysis and Overconfidence Metrics
+[Workflow and artifact provenance](docs/workflow.md) documents exact filenames and access dependencies. Requirements are not a complete historical environment lock. Preserve existing manifests rather than regenerating row-index splits against refreshed datasets. `src/train.py`, `src/models.py`, `configs/config.yaml` and `app/` are explicitly labelled starter scaffolds; the recorded research runs use notebook implementations, not that training entry point or its ViT-B/16 factory.
 
-On Field Dev, the two mixed-domain models are both correct on 24 images (26.1%) and both wrong on 36 (39.1%, including 13 of 18 Bacterial Spot images); ResNet18 alone is correct on 19 and ViT alone on 13 (32 discordant images, 34.8%; exact two-sided McNemar $p = 0.3771$). Each recognizes only 3 of 18 Bacterial Spot images.
+## Limitations and distribution
 
-Statistical calibration and confidence metrics ([`calibration_and_confidence_metrics.csv`](outputs/statistical_analysis/calibration_and_confidence_metrics.csv)) show that while the ResNet18 laboratory baseline is well-calibrated on Lab Test (10-bin ECE = 0.0098), its zero-shot Field Dev predictions are severely overconfident (ECE = 0.5660; mean confidence on incorrect predictions = 0.8816), with 39 of 62 mistakes (62.9% of errors) made at softmax confidence ≥ 0.90. After mixed-domain fine-tuning, high-confidence errors (softmax confidence ≥ 0.90) drop to 3 of 49 mistakes (6.1%) for ResNet18 geometric + mixed and 9 of 55 mistakes (16.4%) for ViT-Small mixed. Softmax scores for the mixed models record top-1 confidence rather than full class probability vectors, so high-confidence error share does not by itself measure overall calibration.
+The small, imbalanced and previously inspected evaluation samples, incomplete grouping, unpinned source metadata, annotation uncertainty and potential pretraining overlap constrain generalization. Historical recipes are single-seed; the three controlled seeds share one test set. Grad-CAM and attention are qualitative diagnostics, with no completed blinded lesion adjudication or causal localization claim. No deployment study was performed.
 
-[Notebook 10](notebooks/10_error_analysis.ipynb) visualizes eight deterministically selected cases ([`cnn_gradcam_vs_vit_attention.png`](outputs/error_analysis_development/cnn_gradcam_vs_vit_attention.png) and the 4-case grid [`gradcam_vit_attention_4cases.png`](outputs/error_analysis_development/gradcam_vit_attention_4cases.png)) using predicted-class ResNet18 Grad-CAM and mean-head CLS-to-patch attention from the final ViT block. These are different visualization mechanisms and do not establish causal reliance on lesions. Human adjudication remains incomplete, and these qualitative examples do not establish a mechanism.
+The branch is technically ready for manual fast-forward integration; this does not establish public redistribution rights. Private photographs, external annotation packages, checkpoints and environments are excluded from the proposed commit. No standalone raw/external photograph files are currently tracked. Tracked laboratory/PlantDoc galleries still contain third-party dataset imagery and retain the underlying rights obligations. An earlier upstream commit also contains the 62 external photographs, including self-collected images, in Git history. Current ignore rules do not erase those copies: repository-owner privacy/licensing review remains necessary before wider redistribution. Share source and saved evidence with the supervisor using the documented access restrictions; do not attach the entire local working directory.
 
-## Reproducibility and Ongoing Work
+## Research references
 
-For the recorded findings, start with [09: final comparison](notebooks/09_final_model_comparison.ipynb) and [10: error analysis](notebooks/10_error_analysis.ipynb); the notebook index above links the preceding experiments. Committed CSV and figure artifacts are available in [`outputs/comparison/`](outputs/comparison/), [`outputs/field_dev_comparison_verified/`](outputs/field_dev_comparison_verified/), [`outputs/final_comparison_development/`](outputs/final_comparison_development/), [`outputs/error_analysis_development/`](outputs/error_analysis_development/), and [`outputs/statistical_analysis/`](outputs/statistical_analysis/).
-
-- [`src/statistical_analysis.py`](src/statistical_analysis.py) reproduces all 95% Wilson/bootstrap confidence intervals, exact McNemar tests, ECE / high-confidence error summaries, and the 4-case qualitative figure directly from saved outputs.
-- [`src/evaluate_confirmatory_field.py`](src/evaluate_confirmatory_field.py) provides evaluation and duplicate-screening utilities.
-- [`src/evaluate_resolution_sensitivity.py`](src/evaluate_resolution_sensitivity.py) reproduces the four frozen-checkpoint crop/coverage strategies with view geometry and probability provenance.
-
-Model weight files (`.pth`) are not distributed in Git due to size. This local checkout also contains the frozen mixed-domain `.pt` weights used in Notebooks 11–14, excluded from Git. Historical Drive artifact locations remain documented; newly generated evaluation outputs stay local under ignored `outputs/`. Exact filenames, artifact locations, local setup, and execution behavior are documented in [workflow and artifact provenance](docs/workflow.md#local-setup-and-saved-evidence).
-
-Existing manifests, label mappings, protocols, and audits define the reported samples and should be reused. Notebook 04 can recompute baseline comparisons from committed predictions without checkpoints or image downloads, but writes comparison artifacts when executed. Dependencies are not locked to a complete historical environment.
-
-The active pipeline is implemented in the notebooks, `src/dataset.py`, the evaluation and statistical scripts, and the verified split preparation script. `src/models.py` is a starter factory whose ViT-B/16 is not the research ViT-Small; `src/train.py` raises `NotImplementedError`, and `configs/config.yaml` does not configure the reported runs. The optional Streamlit app uploads images without prediction. These scaffolds are retained; their disposition is recorded in the [documentation audit](docs/documentation_audit.md).
-
-## Limitations and Ongoing Tasks
-
-- Field Dev is small ($n=92$), imbalanced, and used for checkpoint selection. External and Healthy crop studies are now recorded in Notebooks 11–14; a new prospective grouped evaluation remains necessary for independent confirmation. The crop/coverage study does not isolate lesion resolution.
-- pHash grouping screens near-duplicates at a fixed threshold ($d_{\text{pHash}} \le 4$) and does not guarantee complete duplicate detection. Candidate pairs and conflicting-label groups require visual adjudication.
-- PlantDoc includes heterogeneous image sources and potentially ambiguous labels. Dataset composition differs beyond acquisition conditions, so metric gaps cannot be assigned solely to background or lighting.
-- Historical results use one seed and different architecture-specific training configurations. Notebook 15 adds three seeds for one controlled ResNet18 recipe, sharing a small Field Test. No general CNN-versus-transformer superiority, statistical improvement across runs, or deployment readiness is established.
-- Immutable dataset revisions are not fully resolved, dependency versions are not completely locked, and checkpoint files are excluded from Git. Reproduction requires the recorded local data and weights.
-- Completing human adjudication of the qualitative error examples is **[Ongoing]**; quantization and mobile deployment remain optional future extensions.
-
-## References
-
-### Dataset and Software Resources
-- PlantVillage mirror: `geraldmc/plantvillage-full`, linked in the dataset section; default revision.
-- PlantDoc mirror: `geraldmc/plantdoc-full`, linked in the dataset section; requested revision `v0.1.0`.
-- ResNet18 implementation and weights: `torchvision.models.resnet18`, `ResNet18_Weights.IMAGENET1K_V1`.
-- ViT-Small implementation and weights: timm `vit_small_patch16_224.augreg_in1k`; saved ViT runs record timm `1.0.26`.
-- Local evidence: [Notebook 15 preserved results](data/results/notebook15/), [`outputs/field_dev_comparison_verified/`](outputs/field_dev_comparison_verified/), [`outputs/comparison/`](outputs/comparison/), [`outputs/final_comparison_development/`](outputs/final_comparison_development/), [`outputs/error_analysis_development/`](outputs/error_analysis_development/), [`outputs/statistical_analysis/`](outputs/statistical_analysis/), and saved outputs in Notebooks 01–14.
-
-### Scholarly Bibliography
-1. D. P. Hughes and M. Salathé, "An open access repository of images on plant health to enable the development of mobile disease diagnostics," *arXiv preprint arXiv:1511.08060*, 2015.
-2. S. P. Mohanty, D. P. Hughes, and M. Salathé, "Using deep learning for image-based plant disease detection," *Frontiers in Plant Science*, vol. 7, p. 1419, 2016.
-3. K. P. Ferentinos, "Deep learning models for plant disease detection and diagnosis," *Computers and Electronics in Agriculture*, vol. 145, pp. 311–318, 2018.
-4. J. G. A. Barbedo, "Factors influencing the use of deep learning for plant disease recognition," *Biosystems Engineering*, vol. 172, pp. 84–91, 2018.
-5. D. Singh, N. Jain, P. Jain, P. Kayal, S. Kumawat, and N. Batra, "PlantDoc: A dataset for visual plant disease detection," in *Proc. ACM India Joint Int. Conf. Data Science and Management of Data (CODS-COMAD)*, 2020, pp. 249–253.
-6. K. He, X. Zhang, S. Ren, and J. Sun, "Deep residual learning for image recognition," in *Proc. IEEE Conf. Computer Vision and Pattern Recognition (CVPR)*, 2016, pp. 770–778.
-7. A. Dosovitskiy *et al.*, "An image is worth 16x16 words: Transformers for image recognition at scale," in *Proc. Int. Conf. Learning Representations (ICLR)*, 2021.
-8. A. Steiner, A. Kolesnikov, X.~Zhai, R. Wightman, J. Uszkoreit, and L. Beyer, "How to train your ViT? Data, augmentation, and regularization in Vision Transformers," *Transactions on Machine Learning Research (TMLR)*, 2022.
-9. R. R. Selvaraju, M. Cogswell, A. Das, R. Vedantam, D. Parikh, and D. Batra, "Grad-CAM: Visual explanations from deep networks via gradient-based localization," in *Proc. IEEE Int. Conf. Computer Vision (ICCV)*, 2017, pp. 618–626.
+The study builds on Hughes and Salathé (2015), *An open access repository of images on plant health*; Singh et al. (2020), *PlantDoc: A dataset for visual plant disease detection*; He et al. (2016), *Deep residual learning for image recognition*; Dosovitskiy et al. (2021), *An image is worth 16x16 words*; Steiner et al. (2022), *How to train your ViT?*; and Selvaraju et al. (2017), *Grad-CAM*. Model and dataset identifiers above specify the implementations actually used.

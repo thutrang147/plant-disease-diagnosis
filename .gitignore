@@ -19,6 +19,14 @@ __pycache__/
 .pytest_cache/
 .cache/
 
+# Local credentials; example environment templates may be versioned.
+.env
+.env.*
+!.env.example
+.aws/
+.ssh/
+.netrc
+
 # New generated results stay local; existing tracked evidence remains tracked.
 outputs/
 
@@ -32,5 +40,14 @@ outputs/
 # Also exclude evaluation photos inside accidentally nested upstream packages.
 /data/external_evaluation/**/images/
 
-# Private evaluation packages include annotations, provenance workbooks and images.
-/data/external_evaluation/
+# Evaluation packages are private by default, including full annotated manifests,
+# source photographs, review workbooks and build-time validation snapshots.
+/data/external_evaluation/*
+
+# Keep v2 self-contained while exposing only reviewed reusable code/documentation.
+!/data/external_evaluation/tomato_field_eval_v2/
+/data/external_evaluation/tomato_field_eval_v2/*
+!/data/external_evaluation/tomato_field_eval_v2/build_dataset.py
+!/data/external_evaluation/tomato_field_eval_v2/validate_dataset.py
+!/data/external_evaluation/tomato_field_eval_v2/class_mapping.json
+!/data/external_evaluation/tomato_field_eval_v2/README.md

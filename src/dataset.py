@@ -7,6 +7,7 @@ The caller supplies the pretrained model's transform for research evaluation.
 
 from pathlib import Path
 
+import numpy as np
 import pandas as pd
 from datasets import load_dataset
 from PIL import Image
@@ -51,8 +52,17 @@ class PlantDiseaseDataset(Dataset):
             raise ValueError(f"Empty manifest: {self.manifest_path}")
         if self.metadata[["source", "row_id", "original_class", "label_id"]].isna().any().any():
             raise ValueError("Required manifest fields contain missing values")
+        for column in ("row_id", "label_id"):
+            values = pd.to_numeric(self.metadata[column], errors="coerce")
+            if not (np.isfinite(values) & values.ge(0) & values.eq(np.floor(values))).all():
+                raise ValueError(f"{column} must contain finite, non-negative integers")
+            self.metadata[column] = values.astype("int64")
         if not self.metadata["label_id"].between(0, 4).all():
             raise ValueError("Expected label IDs between 0 and 4")
+        class_names = ["Healthy", "Early Blight", "Late Blight", "Bacterial Spot", "Septoria Leaf Spot"]
+        expected = self.metadata["label_id"].map(dict(enumerate(class_names)))
+        if not self.metadata["class_name"].eq(expected).all():
+            raise ValueError("class_name and label_id differ from the canonical five-class mapping")
         if self.metadata.duplicated(subset=["source", "row_id"]).any():
             raise ValueError("Duplicate source + row_id in manifest")
 

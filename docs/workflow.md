@@ -30,11 +30,13 @@ requirements are listed below; none of the checkpoints is tracked in Git.
 
 Run commands from the repository root so `src` imports resolve. Preparation scripts are retained for provenance and deliberate future dataset construction. They are **not** prerequisites when the committed manifests already exist. In particular, `src/data_prep.py` writes original splits and label mappings, and the verified preparation script can replace derived splits with backups when explicitly requested. Neither was run during cleanup.
 
+The [final submission audit](submission_audit.md) supersedes dated cleanup observations below.
+
 The current verified pair is `src/prepare_field_dev_verified.py` and `src/evaluate_field_dev_verified.py`. The latter validates manifests and loads frozen ResNet18 checkpoints through `load_model`. Baseline model loading also lives in `src/evaluate.py` (ResNet18) and `src/evaluate_vit.py` (timm `vit_small_patch16_224.augreg_in1k`). Field-adapted and mixed-domain loading is implemented in notebooks 06–08. No model factory was substituted or consolidated.
 
 Experiment parameters remain in notebook configuration cells. `configs/config.yaml`, `src/train.py`, and `src/models.py` are starter scaffolds, not an alternative reproduction pipeline. Moving notebook parameters into YAML would change the working code and is outside this cleanup.
 
-The current sequence contains ten main notebooks (01–10). Notebook 09 evaluates
+The current sequence contains fifteen main notebooks (01–15). Notebooks 11–14 add canonical external evaluation, error analysis, Healthy parent/crop analysis and exploratory spatial sensitivity. Notebook 15 reports the completed controlled three-seed ResNet18 comparison from portable prediction exports; its original Colab execution remains archived. Notebook 09 evaluates
 four fixed models on Lab Test and verified Field Dev; notebook 10 reads its
 predictions for error analysis and loads the two mixed models for visualization.
 Neither performs training. See the [research overview](../README.md) for results
@@ -118,7 +120,7 @@ recorded in the notebook. The code checks model/split metadata and selected-case
 predictions but does not verify both mixed checkpoint hashes against notebook
 09's exported record; exact cross-notebook identity depends on preserved files.
 
-Histories, predictions, summaries, plots, and experiment metadata are written alongside the Drive experiments. Preserve them there. This checkout contains only four local checkpoints in ignored `models/`:
+Histories, predictions, summaries, plots, and experiment metadata are written alongside the Drive experiments. Preserve them there. This checkout contains six local checkpoints in ignored `models/`:
 
 | Local filename | Corresponding Drive checkpoint |
 | --- | --- |
@@ -126,8 +128,10 @@ Histories, predictions, summaries, plots, and experiment metadata are written al
 | `vit_small_lab_best.pt` | `vit_small_baseline/vit_small_lab_best.pt` |
 | `resnet18_aug_photometric_best.pt` | `resnet18_aug_photometric/resnet18_best.pt` |
 | `resnet18_aug_geometric_best.pt` | `resnet18_aug_geometric/resnet18_best.pt` |
+| `resnet18_geometric_mixed_best.pt` | `mixed_domain_verified/R2_resnet_geometric/mixed_domain_best.pt` |
+| `vit_small_mixed_best.pt` | `mixed_domain_verified/V1_vit_small/mixed_domain_best.pt` |
 
-The augmentation filenames differ locally from Drive; do not rename Drive source paths inside notebooks. Adaptation/mixed-domain histories and checkpoints are not present locally, so the checkout alone cannot regenerate all extension analyses.
+The augmentation filenames differ locally from Drive; do not rename Drive source paths inside notebooks. Historical field-only histories/checkpoints and the full Notebook 09 prediction exports remain external. The two historical Mixed weights are present locally. Notebook 15's full controlled run and Colab assets have been imported under ignored `outputs/controlled_field_mixed/`; the [guide](notebook15_colab_guide.md) distinguishes these from the compact committed exports. A fresh clone does not include ignored local artifacts.
 
 ## Re-evaluation without training
 
@@ -173,3 +177,33 @@ and later setup cells explicitly install that version. These partial records
 do not constitute a complete environment lock. The documentation revision on
 2026-11-09 used saved notebook outputs and local CSV evidence; it did not reload
 external Drive artifacts, execute notebooks, or reproduce training/inference.
+
+
+## Evaluation package organization and distribution
+
+Evaluation v2 remains at `data/external_evaluation/tomato_field_eval_v2/`. Keep its
+builder and validator adjacent: the builder imports the validator and copies both
+into a newly built package. Notebook 13 calls the validator at that existing path.
+`validation.json` is the preserved build-time evidence, rather than a disposable
+latest-run log; moving it would also break the package hash inventory. No package
+paths or sample membership were changed by the final cleanup.
+
+The repository allowlists only `README.md`, `build_dataset.py`, `validate_dataset.py`
+and `class_mapping.json` from this private package. The full manifest contains
+original annotation/reviewer metadata and stays intentionally ignored with all
+images, parents, input workbooks and provenance. Public split manifests under
+`data/splits/` and portable results under `data/results/` remain versioned. No
+reproducibility script needs to be force-added or moved into another directory.
+
+Validate the authorized local package from the repository root without creating
+bytecode or replacing its build-time report:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python data/external_evaluation/tomato_field_eval_v2/validate_dataset.py data/external_evaluation/tomato_field_eval_v2
+```
+
+Readiness has three separate scopes: the branch can be integrated technically;
+no unintended external photographs/private packages are added by the proposed
+commit; historical photographs and existing dataset galleries still require
+rights/access review for redistribution. The [final audit and cleanup record](submission_audit.md#cleanup-and-integration-handoff)
+contains the exact status, retained files and manual Git commands.

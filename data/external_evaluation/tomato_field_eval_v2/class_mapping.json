@@ -1,0 +1,7 @@
+{
+  "Healthy": 0,
+  "Early Blight": 1,
+  "Late Blight": 2,
+  "Bacterial Spot": 3,
+  "Septoria Leaf Spot": 4
+}
