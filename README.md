@@ -6,7 +6,7 @@ This study investigates the generalization of deep learning models for five-clas
 
 The research examines data augmentation, supervised field adaptation, mixed-domain fine-tuning, external evaluation, class-specific errors, and image framing sensitivity. A final controlled experiment investigates whether laboratory rehearsal improves field performance when Field exposure and optimizer updates are matched.
 
-Laboratory-trained models lose most of their accuracy on field photographs. Supervised field adaptation mainly teaches the models to recognise healthy field leaves, while disease discrimination on independent online images does not improve. Under matched training exposure, adding laboratory images (Mixed fine-tuning) does not change field performance; its documented benefit is retention of laboratory accuracy.
+Laboratory-trained models lose most of their accuracy on field photographs. Supervised field adaptation mainly teaches the models to recognise healthy field leaves; on independent online disease images, accuracy shows no detectable gain (ResNet 19 → 21, ViT 22 → 19 of 46). Under matched training exposure, adding laboratory images (Mixed fine-tuning) produced no detectable difference in field performance, although a difference of a few points cannot be excluded; its demonstrated benefit is retention of laboratory accuracy.
 
 ## Research Questions
 
@@ -92,7 +92,7 @@ Five-class macro-F1 of the four fixed checkpoints. Field Dev selected the two ad
 | ResNet18 Geometric + Mixed | 0.9140 | 0.4459 | 0.3587 (19/47) | 0.4882 (33/62) |
 | ViT-Small Mixed | 0.9886 | 0.3872 | 0.5103 (25/47) | 0.4808 (32/62) |
 
-Laboratory accuracy does not transfer: on PlantDoc the lab-trained baselines fall from 0.97–0.99 to 0.24–0.36 macro-F1, and the adapted models reach at most 0.51. No model is best on every field partition. ResNet18 Geometric + Mixed leads on Field Dev, which selected it, but is below the ViT-Small Lab baseline on Field Test. None of the eight paired comparisons between these models on Field Test and External v1 remains significant after Holm adjustment (smallest adjusted p = 0.24).
+Laboratory accuracy does not transfer: on PlantDoc the lab-trained baselines fall from 0.97–0.99 to 0.24–0.36 macro-F1, and the adapted models reach at most 0.51. No model is best on every field partition. ResNet18 Geometric + Mixed leads on Field Dev, which selected it, but is below the ViT-Small Lab baseline on Field Test. None of the eight paired comparisons between these models on Field Test and External v1 is significant after Holm adjustment over the ten-test family, which also includes the two disease-stratum tests (smallest adjusted p = 0.24).
 
 ### 2. Adaptation and Class-Specific Errors (RQ2)
 
@@ -107,7 +107,7 @@ External v1 combines two sources that coincide with class: **16 self-collected H
 
 - Adaptation mainly fixes the baselines' failure to predict **Healthy** for field leaves. On online disease images, it gives no detectable gain: ResNet 19 → 21 (McNemar p = 0.83), ViT 22 → 19 (p = 0.58). The pooled ResNet improvement (19 → 33 of 62, unadjusted p = 0.024) is driven by the Healthy stratum and is not significant after Holm adjustment.
 - Adaptation also shifts the ResNet decision threshold towards Healthy in general. On Lab Test, the adapted ResNet labels 63 diseased images as Healthy, against 2 for the baseline.
-- **Early Blight is a failure for every model, in different ways.** The ResNet baseline's 11/13 Early Blight recall comes from predicting Early Blight for 39 of 62 external images (precision 0.28) and for 55 of 92 Field Dev images. The adapted ResNet almost never predicts it (1/13).
+- **Early Blight is a failure for every model, in different ways.** The ResNet baseline's 11/13 Early Blight recall comes from predicting Early Blight for 39 of 62 external images in the canonical Notebook 11 run (precision 0.28; 43 of 62, precision 0.26, in the tracked upstream-loader predictions summarised in `external_v1_prediction_distribution.csv`) and for 55 of 92 Field Dev images. The adapted ResNet almost never predicts it (1/13).
 - Bacterial Spot is confused with Septoria Leaf Spot across all models and partitions.
 
 Notebook 10 adds Grad-CAM (ResNet) and last-block attention (ViT) views of Field Dev errors. These are qualitative only: there are no lesion annotations, several PlantDoc images carry stock-photo watermarks, and the ViT maps concentrate on scattered background tokens.
@@ -141,14 +141,14 @@ Mean Field Test macro-F1 is 0.4300 ± 0.0075 for Field-only and 0.4072 ± 0.0296
 
 Mean Lab Test macro-F1 is 0.8136 ± 0.0056 for Field-only and 0.9535 ± 0.0079 for Mixed (seed-mean difference +0.140). On Lab Validation it is 0.8438 ± 0.0096 vs 0.9740 ± 0.0038 (+0.130). Relative to the shared initialization, Field-only loses 0.161 Lab Test macro-F1 and Mixed loses 0.021. The difference has the same sign and similar size in every seed, and is more than ten times the seed-to-seed SD. The three seeds are evaluated on the same images, so they show training-run stability, not independent samples of laboratory data. Lab Validation also selected the baseline checkpoint, so its baseline value is optimistic, and Lab Test is the cleaner comparison. Images come from `geraldmc/plantvillage-full` at revision `f808f27` (the default branch at evaluation time). Per-checkpoint results, summaries and the protocol record are in [`data/results/notebook15_lab_retention/`](data/results/notebook15_lab_retention/).
 
-**Conclusion:** under matched exposure, laboratory rehearsal produces **no detectable change in field performance** for this ResNet18 recipe, but it **largely prevents the loss of laboratory performance** (Lab Test macro-F1 −0.021 with Mixed vs −0.161 with Field-only). Both findings agree with the matched-initialization historical pair (Notebook 06 A1 vs Notebook 08 R1). There, Mixed did not improve Field Dev but retained Lab Validation much better (0.8185 → 0.9556). Notebook 15 now reproduces that retention effect with initialization, Field exposure and optimizer updates controlled. The earlier apparent Mixed advantage on field data came from comparing a geometric-augmentation initialization and selecting the best of six configurations on the same 92 Dev images.
+**Conclusion:** under matched exposure, laboratory rehearsal produces **no detectable difference in field performance** for this ResNet18 recipe (Field Test macro-F1 −0.023, 95% CI [−0.086, +0.024]; this does not establish equivalence, and a difference of a few points in either direction cannot be excluded), but it **largely prevents the loss of laboratory performance** (Lab Test macro-F1 −0.021 with Mixed vs −0.161 with Field-only). Both findings agree with the matched-initialization historical pair (Notebook 06 A1 vs Notebook 08 R1). There, Mixed did not improve Field Dev but retained Lab Validation much better (0.8185 → 0.9556). Notebook 15 now reproduces that retention effect with initialization, Field exposure and optimizer updates controlled. The earlier apparent Mixed advantage on field data came from comparing a geometric-augmentation initialization and selecting the best of six configurations on the same 92 Dev images.
 
 ## Discussion and Research Contributions
 
 1. **Laboratory accuracy does not transfer.** The lab-trained baselines score 0.97–0.99 macro-F1 in the lab and 0.24–0.36 on PlantDoc. PlantVillage has documented capture bias (Noyan, 2022), which is a plausible contributor, though this study does not isolate it.
 2. **Supervised field adaptation fixes the coarsest error, not disease discrimination.** Adapted models learn to call field leaves Healthy. On online disease images they are no better than the lab baselines, and Early Blight / Bacterial Spot remain unsolved. Aggregate gains must be read by stratum and class.
 3. **Predictions are sensitive to framing**, both under human-reviewed crops and under automatic inference views. The direction depends on model and dataset.
-4. **Lab rehearsal is a retention method, not a field-performance method.** With exposure matched, Mixed and Field-only fine-tuning are indistinguishable on field data.
+4. **Lab rehearsal's demonstrated benefit is retention.** With exposure matched, no field-performance difference between Mixed and Field-only fine-tuning was detected; equivalence was not tested.
 5. **Evaluation hygiene.** Duplicate-aware splits, hash-sealed checkpoints before test access, byte-level provenance of every reported prediction, and an explicit separation of development, historical-test and external evidence.
 
 Further interpretation: [Results Summary](docs/research_results_summary.md) · settings for every run: [Methods](docs/methods.md).
@@ -186,6 +186,8 @@ See [Workflow and Artifact Provenance](docs/workflow.md) for setup and reproduct
 - **Label noise.** PlantDoc contains conflicting duplicates. One Field Test image (row 2524, Bacterial Spot) duplicates a training image labelled Septoria and is predicted Septoria in every controlled run.
 - **Confounded architecture comparison.** Pretraining, preprocessing, batch size, precision and the share of trainable parameters during adaptation (ResNet 75%, ViT 8%) all differ.
 - **Low training budget.** Adaptation runs selected their final or near-final epoch while Field Dev was still rising.
+- **Web-sourced "field" images.** PlantDoc photographs were collected from the web; several carry stock-photo watermarks. Field results describe web photographs, not images captured in the field by the project.
+- **Metric choice and non-significance.** Accuracy depends on class priors: a model biased towards the largest class can match another model's accuracy with worse class balance, so accuracy and macro-F1 are reported together. No equivalence margin was pre-specified, so a non-significant difference is not evidence of equivalence.
 - **Single seed** for Notebooks 02–14. Notebook 15 has three seeds on one ResNet18 recipe, all evaluated on the same 47 images.
 - **Qualitative explanations only.** There are no lesion annotations, and the cropping experiments do not isolate resolution.
 - **Distribution.** Checkpoints, private evaluation images and some local outputs are not in the repository; see [Data Notice](DATA_NOTICE.md).
