@@ -1,0 +1,11 @@
+model,correct_lesion_only,correct_lesion_removed,correct_original,predicted_healthy_lesion_only,predicted_healthy_lesion_removed,predicted_healthy_original,lost_when_lesion_removed
+nb15_field_only_s42,0.2778,0.251,0.4115,0.1687,0.0535,0.0144,0.2016
+nb15_field_only_s43,0.2634,0.2593,0.4198,0.1605,0.0535,0.0185,0.2078
+nb15_field_only_s44,0.2757,0.2613,0.4198,0.1728,0.0556,0.0165,0.2058
+nb15_mixed_s42,0.3292,0.2654,0.4403,0.1193,0.0473,0.0165,0.214
+nb15_mixed_s43,0.3354,0.2757,0.4259,0.107,0.0473,0.0185,0.1975
+nb15_mixed_s44,0.3416,0.2675,0.4362,0.107,0.0494,0.0185,0.214
+resnet18_geometric_mixed,0.3786,0.2675,0.4239,0.0021,0.0761,0.0473,0.2099
+resnet18_lab,0.3786,0.2984,0.4259,0.0,0.0,0.0,0.1667
+vit_small_lab,0.3889,0.3045,0.43,0.0535,0.0309,0.0021,0.1646
+vit_small_mixed,0.3539,0.2551,0.4444,0.1543,0.1831,0.0453,0.2305

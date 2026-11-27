@@ -1,0 +1,16 @@
+{
+  "dilate_px": 5,
+  "pointing_tolerance_px": 15,
+  "inpainting": "cv2.INPAINT_TELEA radius 5",
+  "lesion_only_fill_rgb": [
+    124,
+    116,
+    104
+  ],
+  "cam_layer": "resnet18.layer4, target = true class",
+  "images": 486,
+  "status": "exploratory",
+  "opencv": "5.1.0",
+  "torch": "2.15.0+cu132",
+  "timm": "1.0.31"
+}
