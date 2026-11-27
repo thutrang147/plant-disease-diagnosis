@@ -10,7 +10,7 @@ Quy ước: **[VERIFIED]** = đã kiểm tra trực tiếp trong file (có đư�
 
 1. **Verdict tổng thể: mức "PASS WITH MAJOR REVISIONS" về mặt khoa học.** Kỹ thuật kiểm soát provenance (hash, seal, audit) tốt hơn hẳn mức thường gặp ở đồ án đại học. Nhưng **câu chuyện chính trong README đang nói quá so với bằng chứng ở hai chỗ quan trọng**.
 2. **Mức tăng External v1 (30.65% → 53.23%, McNemar p=0.024) gần như hoàn toàn đến từ 16 ảnh Healthy tự chụp.** Trên 46 ảnh bệnh, ResNet Lab → Mixed chỉ đi từ 19/46 lên 21/46, còn ViT Lab → Mixed *giảm* từ 22/46 xuống 19/46 (Notebook 12) [VERIFIED]. Ngoài ra, con số "Early Blight 11/13" của baseline là kết quả của một model **gán nhãn Early Blight cho ~43/62 ảnh** [VERIFIED, file upstream raw-RGB].
-3. **Không thể kết luận "Field-only > Mixed" ở RQ4.** Trên Field Test lệch nhau ròng chỉ 2 ảnh, bootstrap 95% CI của Δmacro-F1 là [−0.086, +0.023]. Trên Field Dev, tại đúng epoch đã chọn, Mixed ≥ Field-only ở cả 3 seed. Lab-retention, chiều đo mà Mixed thực sự có lợi trong lịch sử, lại không được đo [VERIFIED].
+3. **Không thể kết luận "Field-only > Mixed" ở RQ4.** Trên Field Test lệch nhau ròng chỉ 2 ảnh, bootstrap 95% CI của Δmacro-F1 là [−0.086, +0.024]. Trên Field Dev, tại đúng epoch đã chọn, Mixed ≥ Field-only ở cả 3 seed. Lab-retention, chiều đo mà Mixed thực sự có lợi trong lịch sử, lại không được đo [VERIFIED].
 4. **Có nhiều confound chưa được nêu đủ.** Ví dụ ResNet fine-tune `layer4` (~75% tham số) trong khi ViT chỉ fine-tune block cuối (~8%). Tất cả các run đều chọn checkpoint ở **epoch cuối cùng** trong khi Dev vẫn đang tăng. Một ảnh trong Field Test (row 2524) là bản trùng pHash=0 với một ảnh train mang nhãn khác [VERIFIED].
 5. **Cách sửa phần lớn là S/M effort, không cần train lại.** Gồm: viết lại khung kết luận, báo cáo theo strata, thêm CI/Holm, chạy inference Lab Val/Test cho 6 checkpoint NB15, commit các prediction CSV canonical, thêm LICENSE và dọn docs. Chỉ việc thu thập một locked field test mới là L.
 
@@ -36,7 +36,7 @@ Quy ước: **[VERIFIED]** = đã kiểm tra trực tiếp trong file (có đư�
 ### #3 — RQ4: kết luận "Field-only cao hơn" không được dữ liệu hỗ trợ, và chiều đo quan trọng nhất bị bỏ
 - **Flaw:**
   - (a) Paired discordance từng seed trên Field Test (Field-only-only / Mixed-only correct): seed 42 = 3/2, seed 43 = 1/0, seed 44 = 1/1. Chênh lệch ròng là 2 ảnh trên 141 cặp outcome.
-  - (b) Tôi tự tính paired bootstrap trên 47 ảnh, lấy trung bình 3 seed: Δmacro-F1 (Mixed−FO) = −0.021, **95% CI [−0.086, +0.023]**; Δacc 95% CI [−0.071, +0.028].
+  - (b) Tôi tự tính paired bootstrap trên 47 ảnh, lấy trung bình 3 seed: Δmacro-F1 (Mixed−FO) = −0.023, **95% CI [−0.086, +0.024]**; Δacc −0.014, 95% CI [−0.064, +0.028] (giá trị chuẩn trong `data/results/supplementary_statistics/notebook15_paired_bootstrap.csv`, 10.000 lần resample).
   - (c) **Field Dev tại epoch đã chọn** (log NB15 archived): seed 42 FO 0.4388 / Mx 0.4390; seed 43 (ep7) 0.4361 / 0.4478; seed 44 0.4147 / 0.4327. Mixed ≥ FO ở cả 3 seed, tức là ngược chiều với Test.
   - (d) Lab retention không được đo. Trong lịch sử, đây lại là lợi ích rõ nhất của Mixed (A1 Lab Val 0.8185 vs R1 0.9556).
 - **Quan sát thêm (ảnh confusion 6 panel, NB15 cell 21):** sáu ma trận gần như giống hệt nhau. Bacterial Spot→Septoria 7–8/9 ở mọi run; Healthy row chỉ 2–3/8 đúng. Khác biệt giữa hai điều kiện nhỏ hơn nhiều so với lỗi chung mà cả hai cùng mắc, tức yếu tố quyết định là khởi tạo từ Lab baseline, không phải cách fine-tune [VERIFIED quan sát].
@@ -226,7 +226,7 @@ Tôi đã đối chiếu và thấy khớp: Lab Test, Field Dev (NB09 ↔ `final
 2. **"Baseline nhận 11/13 Early Blight tốt hơn adapted model. Sao lại nói adaptation tốt?"**
    *Trả lời:* "Baseline dự đoán Early Blight cho khoảng 2/3 số ảnh, precision ~0.26. Đó là bias chứ không phải năng lực. Model adapted thì gần như không dự đoán Early Blight. Cả hai thất bại với Early Blight theo hai kiểu khác nhau, và chúng tôi báo cáo điều này như một failure mode mở."
 3. **"Field-only hơn Mixed 0.023 macro-F1 trên 47 ảnh. Có significant không?"**
-   *Trả lời:* "Không. Chênh lệch ròng là 2 ảnh, bootstrap CI [−0.086, +0.023], và trên Field Dev chiều còn ngược lại. Kết luận của chúng tôi là không có bằng chứng Mixed cải thiện field performance khi đã control exposure; chúng tôi không kết luận Field-only tốt hơn."
+   *Trả lời:* "Không. Chênh lệch ròng là 2 ảnh, bootstrap CI [−0.086, +0.024], và trên Field Dev chiều còn ngược lại. Kết luận của chúng tôi là không có bằng chứng Mixed cải thiện field performance khi đã control exposure; chúng tôi không kết luận Field-only tốt hơn."
 4. **"Test set 47 ảnh đã xem từ notebook 04. Có leakage vào quyết định không?"**
    *Trả lời:* "Có xem từ trước, nên chúng tôi gọi đó là historical test. Mọi selection dùng Field Dev, và NB15 seal hash checkpoint trước khi mở test. Claim generalization cần một locked test mới; đây là limitation chính."
 5. **"ViT giữ Lab tốt hơn ResNet có phải nhờ kiến trúc?"**
