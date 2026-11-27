@@ -1,5 +1,7 @@
 # Tomato Disease Classification: CNN and Vision Transformer under Domain Shift
 
+> **Review round 1.** Round 2 ([PR #7](https://github.com/thutrang147/plant-disease-diagnosis/pull/7)) contains every change in this branch, including the corrections in commit `c90d5f3`, and adds a pre-registered independent test (External v3, 486 images), reproducibility tooling, a working demo and further corrections from a five-reviewer panel. The two PRs are alternatives: merge one of them. See the [improvement summary](https://github.com/thutrang147/plant-disease-diagnosis/pull/5).
+
 ## Abstract
 
 This study investigates the generalization of deep learning models for five-class tomato leaf disease classification under laboratory-to-field domain shift. We compare ImageNet-pretrained **ResNet18** and **ViT-Small** using PlantVillage as the laboratory source domain and PlantDoc as the target domain.

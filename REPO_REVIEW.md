@@ -1,5 +1,7 @@
 # REPO_REVIEW — Đánh giá toàn diện repository `plant-disease-diagnosis`
 
+> **Review round 1.** Round 2 ([PR #7](https://github.com/thutrang147/plant-disease-diagnosis/pull/7)) contains every change in this branch, including the corrections in commit `c90d5f3`, and adds a pre-registered independent test (External v3, 486 images), reproducibility tooling, a working demo and further corrections from a five-reviewer panel. The two PRs are alternatives: merge one of them. See the [improvement summary](https://github.com/thutrang147/plant-disease-diagnosis/pull/5).
+
 Ngày review: 2026-11-27 · Nhánh được review: `main` @ `da5e1ba` · Phạm vi: read-only (không train, không inference, không sửa code/notebook/data).
 
 Quy ước: **[VERIFIED]** = đã kiểm tra trực tiếp trong file (có đường dẫn / cell / số liệu tự tính lại). **[INFERENCE]** = suy luận / ý kiến chuyên môn, cần chủ repo xác nhận.
