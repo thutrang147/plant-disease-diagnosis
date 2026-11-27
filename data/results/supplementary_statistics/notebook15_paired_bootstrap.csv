@@ -1,0 +1,5 @@
+test_subset,metric,mixed_minus_field_only_seed_mean,bootstrap_95ci_low,bootstrap_95ci_high,share_bootstrap_above_zero,n_bootstrap,unit
+all_47,macro_f1,-0.0228,-0.0859,0.0237,0.2141,10000,image-level paired resampling; seed-mean difference
+all_47,accuracy,-0.0142,-0.0638,0.0284,0.2551,10000,image-level paired resampling; seed-mean difference
+excluding_row_2524,macro_f1,-0.0226,-0.0837,0.0259,0.2203,10000,image-level paired resampling; seed-mean difference
+excluding_row_2524,accuracy,-0.0145,-0.0725,0.029,0.2522,10000,image-level paired resampling; seed-mean difference
