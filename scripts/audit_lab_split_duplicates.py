@@ -106,7 +106,8 @@ def main() -> None:
     y = test.label_id.to_numpy()
     entries = {e["key"]: e for e in registry()}
     vit_config = None
-    rows = []
+    rows, cache = [], {}
+    images = [datasets["lab_test"][i][0].convert("RGB") for i in range(len(y))]  # 256x256 PlantVillage, small
     for key in MODELS:
         path = ROOT / entries[key]["local_path"]
         if sha256(path) != entries[key]["sha256"]:
@@ -114,16 +115,12 @@ def main() -> None:
         model, transform, meta = load_checkpoint(path, vit_config)
         if key == "vit_small_lab":
             vit_config = meta.get("preprocessing_config")
-        x_loader = (transform(datasets["lab_test"][i][0].convert("RGB")) for i in range(len(y)))
-        preds, batch = [], []
+        kind = meta["architecture"]  # one cached tensor stack per preprocessing pipeline
+        if kind not in cache:
+            cache[kind] = torch.stack([transform(img) for img in images])
+        x = cache[kind]
         with torch.inference_mode():
-            for tensor in x_loader:
-                batch.append(tensor)
-                if len(batch) == 64:
-                    preds.append(model(torch.stack(batch)).argmax(1).numpy()); batch = []
-            if batch:
-                preds.append(model(torch.stack(batch)).argmax(1).numpy())
-        p = np.concatenate(preds)
+            p = torch.cat([model(x[i:i + 64]) for i in range(0, len(x), 64)]).argmax(1).numpy()
         for subset, mask in (("all", np.ones_like(clean)), ("clean", clean), ("flagged", ~clean)):
             if mask.sum():
                 rows.append({"model": key, "subset": subset, "n": int(mask.sum()),
