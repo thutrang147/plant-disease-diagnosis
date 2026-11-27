@@ -1,0 +1,36 @@
+{
+  "name": "External v3 (PlantSeg tomato disease, duplicate-screened)",
+  "status": "Locked and committed before any model was evaluated on this set.",
+  "locked_on": "2026-11-27",
+  "manifest": "data/external_v3_plantseg/manifest.csv, rows with status == included",
+  "image_decode": "PlantSeg parquet image bytes -> PIL -> EXIF transpose -> RGB (as Notebook 11)",
+  "label_set": "Early Blight, Late Blight, Bacterial Spot, Septoria Leaf Spot (canonical IDs 1-4). Healthy is absent; models keep their five-way heads.",
+  "models": {
+    "resnet18_lab": {"checkpoint_sha256": "65d53766258f26cb505cce4c319c3f783cb0f3c6ef4608680906919731f2782d", "preprocessing": "torchvision ResNet18_Weights.IMAGENET1K_V1.transforms()"},
+    "vit_small_lab": {"checkpoint_sha256": "42c26a8aa70311d9504d55dda422f20e2ea5f0a5878f5922b9f855c052a18c2e", "preprocessing": "timm create_transform(preprocessing_config of vit_small_lab, is_training=False)"},
+    "resnet18_geometric_mixed": {"checkpoint_sha256": "20bf844b4bc931f4b891b1ffc6c1c59cf178d1b7cf946667ad96e865b03868c7", "preprocessing": "torchvision ResNet18_Weights.IMAGENET1K_V1.transforms()"},
+    "vit_small_mixed": {"checkpoint_sha256": "4a064e328502737dee736bc88b76952f21d0d4163ac6ad251ba41e7703f4f986", "preprocessing": "timm create_transform(preprocessing_config of vit_small_lab, is_training=False)"},
+    "nb15_<condition>_s<seed>": {"checkpoint_sha256": "data/results/notebook15/original_evaluation_seal.json", "preprocessing": "torchvision ResNet18_Weights.IMAGENET1K_V1.transforms()"}
+  },
+  "primary_metric": "Five-way accuracy over all included images (a Healthy prediction counts as an error).",
+  "secondary_metrics": [
+    "Macro-F1 over the four present disease labels, computed from five-way predictions",
+    "Disease-restricted accuracy: argmax over the four disease logits only (isolates disease discrimination from the Healthy bias)",
+    "Healthy prediction rate: share of diseased images predicted Healthy",
+    "Per-class recall; Wilson 95% intervals for accuracies"
+  ],
+  "primary_comparisons": [
+    {"id": "P1", "a": "resnet18_lab", "b": "resnet18_geometric_mixed", "test": "exact McNemar on five-way correctness"},
+    {"id": "P2", "a": "vit_small_lab", "b": "vit_small_mixed", "test": "exact McNemar on five-way correctness"},
+    {"id": "P3", "a": "nb15_field_only (seeds 42, 43, 44)", "b": "nb15_mixed (same seeds)", "test": "two-sided sign-flip permutation test on per-image mean correctness across the three seeds, 10,000 permutations, seed 0"}
+  ],
+  "multiplicity": "Holm adjustment across P1-P3",
+  "intervals": "Paired image-level bootstrap 95% percentile interval for each primary accuracy difference (b - a), 10,000 resamples, seed 0",
+  "sensitivity_analyses": [
+    "Exclude images whose shorter side is below 224 pixels",
+    "PlantSeg original test split only",
+    "Disease-restricted accuracy for P1-P3 (same tests)"
+  ],
+  "one_shot": "The evaluation writes to a new directory and refuses to overwrite. Any re-run must be reported with its reason.",
+  "scope": "PlantSeg images are web-collected with expert-reviewed masks. Results describe this screened public set; they are not a deployment estimate and do not cover Healthy specificity."
+}
