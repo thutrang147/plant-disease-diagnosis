@@ -109,6 +109,20 @@ Five-class macro-F1 of the four fixed checkpoints. Field Dev selected the two ad
 
 Laboratory accuracy does not transfer: on PlantDoc the lab-trained baselines fall from 0.97–0.99 to 0.24–0.36 macro-F1, and the adapted models reach at most 0.51. No model is best on every field partition. ResNet18 Geometric + Mixed leads on Field Dev, which selected it, but is below the ViT-Small Lab baseline on Field Test. None of the eight paired comparisons between these models on Field Test and External v1 remains significant after Holm adjustment (smallest adjusted p = 0.24).
 
+**Frozen foundation-model reference (exploratory, not pre-registered).** [`scripts/evaluate_frozen_foundation_probe.py`](scripts/evaluate_frozen_foundation_probe.py) trains only a logistic-regression head on a frozen DINOv2 backbone, using the same manifests.
+
+| DINOv2 ViT-B/14, frozen (macro-F1) | Lab Test | Field Dev | Field Test | External v3 accuracy / disease macro-F1 |
+| --- | ---: | ---: | ---: | ---: |
+| Lab-only probe (C chosen on Lab Val) | 0.976 | 0.399 | 0.336 (20/47) | 0.473 / 0.366 |
+| Lab + Field probe (C chosen on Field Dev) | 0.961 | 0.622 | 0.665 (31/47) | 0.469 / 0.456 |
+| Best adapted project model in each column | 0.989 | 0.446 | 0.510 (25/47) | 0.444 / 0.441 |
+
+Without any backbone fine-tuning, the Lab + Field probe exceeds every adapted project model on both PlantDoc partitions. On the independent External v3, however, the margin shrinks to about 2–3 pp of accuracy, inside the ±4.4 pp intervals. Two points follow:
+- the pretrained representation matters more here than the adaptation recipes compared in RQ2 and RQ4;
+- gains measured inside PlantDoc overstate gains on other field data.
+
+This is why a separate external set is needed. ViT-S/14 results are in [`data/results/frozen_foundation_probe/`](data/results/frozen_foundation_probe/).
+
 ### 2. Adaptation and Class-Specific Errors (RQ2)
 
 External v1 combines two sources that coincide with class: **16 self-collected Healthy** photographs and **46 online disease** images. Pooled accuracy therefore mixes "recognises healthy field leaves" with "discriminates diseases", so the two strata are reported separately.
