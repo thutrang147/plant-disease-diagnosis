@@ -60,9 +60,12 @@ Things to keep in mind when comparing these runs:
 - Paired comparisons use exact McNemar tests with **Holm adjustment** across the reported family
   (`mcnemar_holm.csv`). Notebook 15 uses an image-level paired bootstrap of the seed-mean difference
   (`notebook15_paired_bootstrap.csv`).
-- Softmax confidence is reported as-is. It is not calibrated, and ECE on 47–62 images is unstable.
-- Grad-CAM (ResNet) and last-block CLS attention (ViT) are qualitative only. No lesion annotations
-  exist, and the ViT attention maps concentrate on scattered background tokens.
+- Softmax confidence is reported as-is. It is not calibrated; ECE on 47–62 images is unstable, so calibration
+  is reported on External v3 (486 images; `data/results/external_v3_error_analysis/calibration.csv`).
+- Grad-CAM (ResNet) and last-block CLS attention (ViT) in Notebook 10 are qualitative. PlantDoc has no lesion
+  annotations; ResNet18 Grad-CAM is quantified against PlantSeg lesion masks on External v3
+  (`data/results/lesion_reliance/`). Raw CLS attention is not a faithful attribution method, so no claim is made
+  about where the ViT looks.
 
 Regenerate the supplementary statistics (no models required):
 

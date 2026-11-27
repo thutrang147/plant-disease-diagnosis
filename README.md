@@ -11,19 +11,21 @@ Laboratory-trained models lose most of their accuracy on field photographs. Supe
 ## Quick start
 
 ```bash
-pip install -r requirements.txt            # or requirements-lock.txt for the exact versions used
+pip install -r requirements.txt            # requirements-lock.txt pins the exact versions (Linux x86_64; pulls CUDA wheels)
 python scripts/download_checkpoints.py     # 10 core checkpoints from Drive, SHA-256 verified (~30 s)
 pip install -r app/requirements.txt && streamlit run app/streamlit_app.py   # interactive demo
 bash scripts/reproduce_round2.sh           # re-run the round-2 analyses and diff against committed results
 ```
+
+First use downloads about 4 GB (PlantVillage, PlantDoc, PlantSeg and checkpoints). The demo's "example" mode loads the test sets from Hugging Face, so run it once before a live demonstration. Training the historical notebooks requires Colab GPU runtimes and is not part of this path.
 
 ## Where to find the evidence
 
 | What to assess | Where it is |
 | --- | --- |
 | Computer-vision methods and why they were chosen | [Technical background](docs/technical_background.md) · [Methods at a glance](docs/methods.md) |
-| Implementation and completeness | 15 notebooks; `src/` modules; round-2 scripts in [`scripts/`](scripts/); [demo app](app/streamlit_app.py); 34 automated tests |
-| Experimental design, controls, correctness | Matched-exposure, hash-sealed Notebook 15 ([RQ4](#4-controlled-field-only-vs-mixed-fine-tuning-rq4)); pre-registered External v3 ([protocol](data/external_v3_plantseg/protocol.json), committed before the run); duplicate screens of Field and Lab splits; LP-FT check of the architecture confound |
+| Implementation and completeness | 15 notebooks; `src/` modules; round-2 scripts in [`scripts/`](scripts/); [demo app](app/streamlit_app.py); 35 automated tests |
+| Experimental design, controls, correctness | Matched-exposure, hash-sealed Notebook 15 ([RQ4](#4-controlled-field-only-vs-mixed-fine-tuning-rq4)); pre-registered External v3 ([protocol](data/external_v3_plantseg/protocol.json), committed before the run); duplicate screens of Field and Lab splits; LP-FT and 24-epoch budget checks of the architecture confound; Lab split duplicate audit |
 | Results analysis and limitations | [Main Results](#main-results) by stratum, class, calibration and lesion size; [Limitations](#limitations); [label-audit list](data/external_v3_plantseg/label_audit_candidates.csv) |
 | Report, demo, reproducibility | This README; [Results Summary](docs/research_results_summary.md); [checkpoint registry](data/checkpoints.json) with SHA-256; pinned dataset revisions; [`requirements-lock.txt`](requirements-lock.txt); [`reproduce_round2.sh`](scripts/reproduce_round2.sh) |
 | What changed in review round 2 and why | [REPO_REVIEW.md §h](REPO_REVIEW.md#h-đợt-2--vì-sao-cải-thiện-so-với-đợt-1) |
@@ -82,7 +84,7 @@ Because Healthy and disease images have different acquisition sources, v2 is not
 
 **External v3** is built from [PlantSeg](https://arxiv.org/abs/2409.04038) (Wei et al.), an in-the-wild disease-segmentation dataset with expert-reviewed lesion masks. Four of its tomato categories map onto the label set; Healthy is not represented, so v3 measures **disease discrimination only**. No model in this repository was trained or selected on PlantSeg.
 
-Both PlantSeg and PlantDoc were collected from the web, so all 589 candidates were screened ([`scripts/build_external_v3_plantseg.py`](scripts/build_external_v3_plantseg.py)) against **all** PlantDoc rows and all PlantVillage tomato rows (20,738 references). Exact or pHash ≤ 10 matches were excluded (94 images, 74 of them rows used by this repository, including 3 Field Test and 7 Field Dev images). Within-PlantSeg near-duplicates were then collapsed (9 more).
+Both PlantSeg and PlantDoc were collected from the web, so all 589 candidates were screened ([`scripts/build_external_v3_plantseg.py`](scripts/build_external_v3_plantseg.py)) against **all** PlantDoc rows and all PlantVillage tomato rows (20,738 references). Exact or pHash ≤ 10 matches were excluded (94 images: 77 at pHash ≤ 4 and 17 borderline at 5–10; 74 of them match rows used by this repository, including 4 Field Test rows — 2492, 2503, 2524, 2532 — and 6 Field Dev rows). The screen compares whole images, so crops, flips or re-posted variants can still pass; it is a lower bound on overlap. Within-PlantSeg near-duplicates were then collapsed (9 more).
 
 | | Early Blight | Late Blight | Bacterial Spot | Septoria Leaf Spot | Total |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -135,15 +137,18 @@ Laboratory accuracy does not transfer: on PlantDoc the lab-trained baselines fal
 | --- | ---: | ---: | ---: | ---: |
 | Lab-only probe (C chosen on Lab Val) | 0.976 | 0.399 | 0.336 (20/47) | 0.473 / 0.366 |
 | Lab + Field probe (C chosen on Field Dev) | 0.961 | 0.622 | 0.665 (31/47) | 0.469 / 0.456 |
-| Best adapted project model in each column | 0.989 | 0.446 | 0.510 (25/47) | 0.444 / 0.441 |
+| DINOv2 ViT-S/14 (same size as ViT-Small), Lab + Field probe | 0.935 | 0.570 | 0.538 (25/47) | 0.436 / 0.432 |
+| Best fixed project checkpoint in each column (Notebooks 08–09) | 0.989 | 0.446 | 0.510 (25/47) | 0.444 / 0.441 |
+| Fully fine-tuned project models, exploratory (below) | 0.863–0.984 | 0.516–0.555 | 0.562–0.564 | 0.484–0.498 / 0.469–0.487 |
 
-Without any backbone fine-tuning, the Lab + Field probe exceeds every adapted project model on both PlantDoc partitions. On the independent External v3, however, the margin shrinks to about 2–3 pp of accuracy, inside the ±4.4 pp intervals. Two points follow:
-- the pretrained representation matters more here than the adaptation recipes compared in RQ2 and RQ4;
-- gains measured inside PlantDoc overstate gains on other field data.
+The frozen DINOv2-B probe exceeds the fixed project checkpoints on both PlantDoc partitions. That advantage does not carry over cleanly:
+- On External v3 the margin is 2–3 pp of accuracy, and fully fine-tuned ResNet18 and ViT-Small reach the same or higher (0.484–0.498).
+- The same-size DINOv2-S/14 probe does not beat them.
+- The comparison mixes representation, model capacity (86M vs 22M parameters), pretraining data (web-scale LVD-142M, which may contain similar images) and input size (224 instead of DINOv2's native 518).
 
-This is why a separate external set is needed. ViT-S/14 results are in [`data/results/frozen_foundation_probe/`](data/results/frozen_foundation_probe/).
+What it does show is that gains measured inside PlantDoc overstate gains on other field data, which is why a separate external set is needed. Results: [`data/results/frozen_foundation_probe/`](data/results/frozen_foundation_probe/).
 
-**Architecture comparison under one recipe (exploratory, 3 seeds, CPU).** The historical adaptation updated 75.1% of ResNet18 parameters (`layer4` + head) but only 8.2% of ViT-Small (last block + head). [`scripts/explore_lpft_architecture.py`](scripts/explore_lpft_architecture.py) re-adapts both Lab baselines with the same Field-only recipe and batch size, comparing that last-block setting with LP-FT (head first, then all parameters).
+**Architecture comparison under one recipe (exploratory, 3 seeds, CPU).** The historical adaptation updated 75.1% of ResNet18 parameters (`layer4` + head) but only 8.2% of ViT-Small (last block + head). [`scripts/explore_lpft_architecture.py`](scripts/explore_lpft_architecture.py) re-adapts both Lab baselines with the same Field-only recipe and batch size. It compares that last-block setting with a two-stage schedule: the head for 2 epochs, then all parameters. The Lab heads were already trained, so the first stage changes little, and this is mainly a test of fine-tuning depth rather than of LP-FT's feature-distortion argument; the label "LP-FT" is kept for brevity. [`scripts/explore_training_budget.py`](scripts/explore_training_budget.py) repeats it with 24 instead of 8 epochs (seed 42).
 
 | Seed mean (macro-F1) | Lab Test | Field Dev | Field Test | External v3 accuracy / F1 |
 | --- | ---: | ---: | ---: | ---: |
@@ -151,8 +156,12 @@ This is why a separate external set is needed. ViT-S/14 results are in [`data/re
 | ResNet18, LP-FT (100%) | 0.786 | 0.460 | 0.461 | 0.403 / 0.389 |
 | ViT-Small, last block (8%) | 0.989 | 0.399 | 0.521 | 0.441 / 0.433 |
 | ViT-Small, LP-FT (100%) | 0.984 | 0.516 | 0.564 | 0.484 / 0.469 |
+| *24 epochs, seed 42:* ResNet18, last block | 0.864 | 0.531 | 0.507 | 0.471 / 0.457 |
+| *24 epochs, seed 42:* ResNet18, LP-FT | 0.863 | 0.555 | 0.562 | 0.498 / 0.487 |
+| *24 epochs, seed 42:* ViT-Small, last block | 0.990 | 0.470 | 0.579 | 0.461 / 0.454 |
+| *24 epochs, seed 42:* ViT-Small, LP-FT | 0.972 | 0.517 | 0.584 | 0.475 / 0.464 |
 
-With all parameters trainable, ViT-Small gains about 4 pp on External v3 and keeps its laboratory performance, while ResNet18 forgets more. The historical recipe therefore handicapped ViT, and the CNN-versus-ViT comparison in the earlier sections is recipe-dependent. The ResNet18 last-block row reproduces the sealed Notebook 15 Field-only results (Lab Test 0.815 vs 0.814), which supports the CPU pipeline.
+At the historical 8-epoch budget, full fine-tuning helps ViT-Small (+4 pp on External v3) more than ResNet18. Field Dev, however, keeps rising for ResNet18 until epoch 23, while ViT-Small plateaus around epoch 12–18. With 24 epochs ResNet18 catches up, and with full fine-tuning it reaches the highest External v3 accuracy of any project model (0.498, one seed). The CNN-versus-ViT comparison therefore depends on both the fine-tuning recipe and the training budget, and the historical 8-epoch runs (including Notebook 15) compared models before they converged. With one seed for the 24-epoch runs and about ±4.4 pp single-model intervals, none of these architecture differences is established. The ResNet18 last-block 8-epoch row reproduces the sealed Notebook 15 Field-only results (Lab Test 0.815 vs 0.814), which supports the CPU pipeline.
 
 ### 2. Adaptation and Class-Specific Errors (RQ2)
 
@@ -191,8 +200,11 @@ External v1 combines two sources that coincide with class: **16 self-collected H
 | Lesion-free images predicted Healthy | 0–3% | 5–8% (ViT Mixed 18%) |
 | Grad-CAM pointing accuracy, ResNet18 (chance 0.46) | 0.65 | 0.58–0.66 |
 | Grad-CAM mass inside lesions / lesion area share (median) | 1.23 | 1.20–1.27 |
+| Accuracy with only the lesions kept (rest set to mean colour) | 0.38–0.39 | 0.26–0.38 |
 
-Removing the lesions removes 38–52% of the correct predictions, so the models do use lesion pixels. Localization is weak, however: CAM mass falls on lesions only about 1.25 times as often as their area would predict, and adaptation does not improve it. Images with their lesions removed are rarely called Healthy. The Healthy class the adapted models learned is therefore not "no visible lesion". This fits the stratum result above, though it does not identify the cue. Inpainting and masking create out-of-distribution images, so these are reliance measurements, not clean causal effects.
+- **Correct predictions drop with either edit.** Inpainting the lesions removes 38–52% of the correct predictions. But keeping *only* the lesions also lowers accuracy, so part of the drop reflects editing the image rather than losing the lesion.
+- **Lesion localization is weak.** CAM mass on lesions is about 1.25 times the lesions' area share (a mass ratio, not a frequency), and adaptation does not improve it. The tolerance region averages 46% of the frame, so the pointing game discriminates weakly. Grad-CAM was computed for ResNet18 only.
+- **The Healthy class is not "no lesion".** Images with their lesions removed are rarely called Healthy. This is consistent with the stratum result above, but the 5-px dilation can leave chlorotic halos, so it is suggestive only.
 
 ### 3. Image Framing and Cropping Sensitivity (RQ3)
 
@@ -294,14 +306,20 @@ See [Workflow and Artifact Provenance](docs/workflow.md) for setup and reproduct
 
 ## Limitations
 
-- **The independent test covers diseases only.** External v3 (486 images) is locked, pre-registered and duplicate-screened, but it is web-collected, has no Healthy images (so no Healthy specificity), and relies on PlantSeg labels. Its Wilson intervals are still about ±4.4 pp, so differences of 2–3 pp cannot be resolved. The 47-image Field Test was inspected early and reused, Field Dev selected checkpoints, and External v1 confounds source with class.
-- **Label noise.** PlantDoc contains conflicting duplicates. One Field Test image (row 2524, Bacterial Spot) duplicates a training image labelled Septoria, is predicted Septoria in every controlled run, and is labelled Septoria by PlantSeg. 13 of 64 images shared with PlantSeg have conflicting labels and await expert audit ([`label_audit_candidates.csv`](data/external_v3_plantseg/label_audit_candidates.csv)).
-- **Confounded architecture comparison.** Pretraining, preprocessing, batch size, precision and the share of trainable parameters during adaptation (ResNet 75%, ViT 8%) all differ. An exploratory LP-FT run with both models fully trainable favours ViT-Small, so CNN-versus-ViT conclusions depend on the adaptation recipe. That run is CPU-only, Field-only and not sealed.
-- **Low training budget.** Adaptation runs selected their final or near-final epoch while Field Dev was still rising.
+- **The independent test covers diseases only.** External v3 (486 images) is locked, pre-registered and duplicate-screened, but it has several limits:
+  - It is web-collected, has no Healthy images (so no Healthy specificity) and relies on unaudited PlantSeg labels.
+  - Its whole-image hash screen cannot rule out cropped or re-posted variants.
+  - Single-model Wilson intervals are about ±4.4 pp; paired comparisons are tighter (P3's interval spans about 3.6 pp), but an effect of 2–3 pp is still within the noise.
+  - Only P1–P3 were confirmatory. External v3 was then reused for exploratory analyses (DINOv2, LP-FT, budget, interpolation, lesion and calibration analyses) without multiplicity control.
+
+  The 47-image Field Test was inspected early and reused, Field Dev selected checkpoints, and External v1 confounds source with class.
+- **Label noise.** PlantDoc contains conflicting duplicates. One Field Test image (row 2524, Bacterial Spot) duplicates a training image labelled Septoria, is predicted Septoria in every controlled run, and is labelled Septoria by PlantSeg. Field Test row 2532 (Late Blight) is labelled Early Blight by PlantSeg, so two of the 47 Field Test labels are disputed — as many images as RQ4's net Field Test difference. 13 of 64 images shared with PlantSeg have conflicting labels and await expert audit ([`label_audit_candidates.csv`](data/external_v3_plantseg/label_audit_candidates.csv)).
+- **Confounded architecture comparison.** Pretraining, preprocessing, batch size, precision and the share of trainable parameters during adaptation (ResNet 75%, ViT 8%) all differ. Exploratory CPU runs show the ranking changes with fine-tuning depth and training budget; they are Field-only, unsealed and partly single-seed.
+- **Low training budget.** The historical runs (including Notebook 15) selected their final or near-final epoch. A 24-epoch ablation confirms that ResNet18 Field Dev keeps rising until about epoch 23, so the 8-epoch comparisons describe under-trained models.
 - **Web-sourced "field" images.** PlantDoc photographs were collected from the web; several carry stock-photo watermarks. Field results describe web photographs, not images captured in the field by the project.
 - **Metric choice and non-significance.** Accuracy depends on class priors: a model biased towards the largest class can match another model's accuracy with worse class balance, so accuracy and macro-F1 are reported together. No equivalence margin was pre-specified, so a non-significant difference is not evidence of equivalence.
 - **Single seed** for Notebooks 02–14. Notebook 15 has three seeds on one ResNet18 recipe, all evaluated on the same 47 images.
-- **Explanations are partly quantified.** PlantSeg masks quantify lesion reliance on External v3, but inpainting creates out-of-distribution images, there are still no lesion annotations for PlantDoc, and the cropping experiments do not isolate resolution.
+- **Explanations are partly quantified.** PlantSeg masks quantify lesion reliance on External v3, but image edits create out-of-distribution inputs (both lesion removal and lesion-only views lower accuracy), Grad-CAM covers ResNet18 only, there are no lesion annotations for PlantDoc, and the cropping experiments do not isolate resolution.
 - **Distribution.** Checkpoints, private evaluation images and some local outputs are not in the repository; see [Data Notice](DATA_NOTICE.md).
 
 ## References and Documentation
