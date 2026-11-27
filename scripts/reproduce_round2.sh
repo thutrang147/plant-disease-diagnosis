@@ -33,6 +33,7 @@ run external_v3_error_analysis 1e-4 analyze_external_v3_errors.py
 run weight_interpolation 1e-4 evaluate_weight_interpolation.py
 run lesion_reliance 1e-4 evaluate_lesion_reliance.py
 run occlusion_control 1e-4 evaluate_occlusion_control.py
+run occlusion_subset 1e-4 analyze_occlusion_subset.py
 run lab_split_duplicates 1e-4 audit_lab_split_duplicates.py
 if [[ $ALL == 1 ]]; then
   run frozen_foundation_probe 1e-3 evaluate_frozen_foundation_probe.py --backbones dinov2_vits14 dinov2_vitb14

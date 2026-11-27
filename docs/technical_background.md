@@ -103,7 +103,8 @@ images are out-of-distribution, so this measures reliance rather than isolated c
 *Evidence:* `scripts/evaluate_lesion_reliance.py` and `scripts/evaluate_occlusion_control.py`. Inpainting the
 lesions lowers accuracy by 0.12–0.15 more than inpainting a same-area random region (intervals exclude zero), so
 the models use lesion pixels. Pointing accuracy (0.58–0.66) is above the area-based chance level (0.46) but below a
-centre-point baseline (0.74): a good pointing score needs a positional baseline, and Grad-CAM fails it here.
+centre-point baseline (0.74): a pointing score needs a positional baseline, and Grad-CAM localizes lesions no better
+than that prior here (a likely but untested explanation is that web photos centre the lesion).
 
 ## 7. Weight-space interpolation
 
