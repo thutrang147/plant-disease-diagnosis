@@ -1,0 +1,4 @@
+metric,seed_42,seed_43,seed_44,mean,seed_level_t_test_p
+accuracy,0.02881,0.00617,0.01646,0.01715,0.11996
+disease_macro_f1,0.03059,-0.0018,0.01364,0.01414,0.26957
+balanced_accuracy,0.02313,-0.00144,0.00782,0.00983,0.30339

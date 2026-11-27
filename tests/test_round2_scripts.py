@@ -115,6 +115,23 @@ class ReproducibilityTest(unittest.TestCase):
             frame.assign(correct=[1, 3]).to_csv(Path(b) / "m.csv", index=False)
             self.assertEqual(len(compare.compare(Path(a), Path(b), atol=1e-4)), 1)
 
+    def test_reproduce_script_runs_without_pytest(self):
+        # B1: requirements.txt has no pytest, so the reproduce script must use unittest.
+        script = (ROOT / "scripts/reproduce_round2.sh").read_text()
+        self.assertIn("python -m unittest discover -s tests", script)
+        self.assertNotIn("pytest", script)
+        self.assertNotIn("pytest", (ROOT / "requirements.txt").read_text())
+
+    def test_compare_reproduction_rejects_empty_committed_dir(self):
+        compare = load_script("compare_reproduction")
+        import tempfile
+        with tempfile.TemporaryDirectory() as a, tempfile.TemporaryDirectory() as b:
+            self.assertEqual(len(compare.compare(Path(a), Path(b), atol=1e-4)), 1)
+            # Two-row headers (pandas multi-index summaries) are compared cell by cell.
+            Path(a, "s.csv").write_text(",accuracy,accuracy\n,mean,std\nx,0.5,0.01\n")
+            Path(b, "s.csv").write_text(",accuracy,accuracy\n,mean,std\nx,0.50001,0.01\n")
+            self.assertEqual(compare.compare(Path(a), Path(b), atol=1e-4), [])
+
 
 if __name__ == "__main__":
     unittest.main()
