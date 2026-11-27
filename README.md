@@ -1,5 +1,7 @@
 # Tomato Disease Classification: CNN and Vision Transformer under Domain Shift
 
+[![CI](https://github.com/thutrang147/plant-disease-diagnosis/actions/workflows/ci.yml/badge.svg)](https://github.com/thutrang147/plant-disease-diagnosis/actions/workflows/ci.yml)
+
 ## Abstract
 
 This study investigates the generalization of deep learning models for five-class tomato leaf disease classification under laboratory-to-field domain shift. We compare ImageNet-pretrained **ResNet18** and **ViT-Small** using PlantVillage as the laboratory source domain and PlantDoc as the target domain.
@@ -181,11 +183,34 @@ python -m unittest discover -s tests -v
 python scripts/audit_repository.py
 ```
 
-These checks use saved research evidence and do not require model retraining.
+These checks use saved research evidence and do not require model retraining. The same checks run in GitHub Actions on every pull request and push to `main` ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)).
 
 The repository contains 15 canonical notebooks, evaluation modules, dataset manifests, selected prediction exports, and supporting documentation. Full experiment reproduction additionally requires the original images, model checkpoints, and recorded execution environments, some of which are not publicly distributed.
 
 See [Workflow and Artifact Provenance](docs/workflow.md) for setup and reproduction details.
+
+## Demo App and Single-Image Inference
+
+The frozen research checkpoints can classify individual photographs through a Streamlit demo or the command line. Checkpoints are not tracked in Git: copy the `.pt` files from the project's Google Drive results (see [Checkpoints and persistent Colab results](docs/workflow.md#checkpoints-and-persistent-colab-results)) into `models/` using these local filenames:
+
+| Local file                         | Model                                                            |
+| ---------------------------------- | ---------------------------------------------------------------- |
+| `resnet18_geometric_mixed_best.pt` | ResNet18 Geometric + Mixed (highest reported Field Dev macro-F1) |
+| `vit_small_mixed_best.pt`          | ViT-Small Mixed                                                  |
+| `resnet18_lab_best.pt`             | ResNet18 Baseline                                                |
+| `vit_small_lab_best.pt`            | ViT-Small Baseline                                               |
+
+```bash
+pip install -r app/requirements.txt
+streamlit run app/streamlit_app.py
+```
+
+```bash
+python -m src.inference --checkpoint models/resnet18_geometric_mixed_best.pt path/to/leaf.jpg
+python -m src.inference --checkpoint models/vit_small_mixed_best.pt --strategy five_crop --json path/to/folder/
+```
+
+[`src/inference.py`](src/inference.py) validates class order and architecture, loads weights strictly, applies EXIF orientation as in Notebook 11 and uses the evaluation preprocessing of each architecture. `five_crop` reuses the Notebook 14 views and is exploratory. Reported probabilities are uncalibrated softmax outputs. On field images these models reach a reported macro-F1 of 0.24–0.49 with standard inference, so predictions are research outputs, not crop-management advice. Set `PLANT_MODELS_DIR` to read checkpoints from another folder.
 
 ## Limitations
 

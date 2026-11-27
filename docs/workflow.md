@@ -36,6 +36,10 @@ The current verified pair is `src/prepare_field_dev_verified.py` and `src/evalua
 
 Experiment parameters remain in notebook configuration cells. `configs/config.yaml`, `src/train.py`, and `src/models.py` are starter scaffolds, not an alternative reproduction pipeline. Moving notebook parameters into YAML would change the working code and is outside this cleanup.
 
+Single-image inference lives in `src/inference.py` and is used by `app/streamlit_app.py`. It loads the same checkpoint dictionaries as the evaluators, with strict class-order, architecture and pretraining checks. ResNet18 uses `ResNet18_Weights.IMAGENET1K_V1.transforms()`; ViT-Small uses the checkpoint's `preprocessing_config` or, for mixed checkpoints that do not store it, the source configuration asserted in Notebook 12. Five-crop views come from `src/evaluate_resolution_sensitivity.prepare_views`. Neither file trains, selects checkpoints or writes results, and neither replaces the notebook evaluation protocols. `tests/test_inference.py` and `tests/test_streamlit_app.py` use randomly initialized checkpoints, so they verify loading, preprocessing and aggregation but not the research predictions.
+
+Continuous integration (`.github/workflows/ci.yml`) installs CPU PyTorch and runs the unit tests and `scripts/audit_repository.py` with Hugging Face offline flags on pull requests and pushes to `main`.
+
 The current sequence contains fifteen main notebooks (01–15). Notebooks 11–14 add canonical external evaluation, error analysis, Healthy parent/crop analysis and exploratory spatial sensitivity. Notebook 15 reports the completed controlled three-seed ResNet18 comparison from portable prediction exports; its original Colab execution remains archived. Notebook 09 evaluates
 four fixed models on Lab Test and verified Field Dev; notebook 10 reads its
 predictions for error analysis and loads the two mixed models for visualization.
