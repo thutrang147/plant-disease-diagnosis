@@ -191,7 +191,9 @@ See [Workflow and Artifact Provenance](docs/workflow.md) for setup and reproduct
 
 ## Demo App and Single-Image Inference
 
-The frozen research checkpoints can classify individual photographs through a Streamlit demo or the command line. Checkpoints are not tracked in Git: copy the `.pt` files from the project's Google Drive results (see [Checkpoints and persistent Colab results](docs/workflow.md#checkpoints-and-persistent-colab-results)) into `models/` using these local filenames:
+The Streamlit demo has two tabs. **Diagnose a leaf** runs every available checkpoint on one photo (example, upload or webcam) and shows each model's determination side by side, so the lab-only and field-adapted checkpoints can be compared live, optionally with their explanation maps. **Research findings** charts the domain gap, the class trade-offs and the controlled comparison from committed evidence and works without checkpoints.
+
+Checkpoints are not tracked in Git: copy the `.pt` files from the project's Google Drive results (see [Checkpoints and persistent Colab results](docs/workflow.md#checkpoints-and-persistent-colab-results)) into `models/` using these local filenames:
 
 | Local file                         | Model                                                            |
 | ---------------------------------- | ---------------------------------------------------------------- |
@@ -205,12 +207,14 @@ pip install -r app/requirements.txt
 streamlit run app/streamlit_app.py
 ```
 
+Run it from the repository root so the theme in `.streamlit/config.toml` applies (its fonts load from Google Fonts and fall back to system fonts offline). For a presentation, put a few photos in `app/examples/`; they appear as one-click examples. That folder is ignored by Git so private or third-party photos are not committed.
+
 ```bash
 python -m src.inference --checkpoint models/resnet18_geometric_mixed_best.pt path/to/leaf.jpg
 python -m src.inference --checkpoint models/vit_small_mixed_best.pt --strategy five_crop --json path/to/folder/
 ```
 
-[`src/inference.py`](src/inference.py) validates class order and architecture, loads weights strictly, applies EXIF orientation as in Notebook 11 and uses the evaluation preprocessing of each architecture. `five_crop` reuses the Notebook 14 views and is exploratory. Reported probabilities are uncalibrated softmax outputs. On field images these models reach a reported macro-F1 of 0.24–0.49 with standard inference, so predictions are research outputs, not crop-management advice. Set `PLANT_MODELS_DIR` to read checkpoints from another folder. The app can also overlay Notebook 10's ResNet18 Grad-CAM or ViT-Small last-block attention on the standard view; like the notebook figures, these maps are qualitative and do not show reliance on a lesion.
+[`src/inference.py`](src/inference.py) validates class order and architecture, loads weights strictly, applies EXIF orientation as in Notebook 11 and uses the evaluation preprocessing of each architecture. `five_crop` reuses the Notebook 14 views and is exploratory. Reported probabilities are uncalibrated softmax outputs. On field images these models reach a reported macro-F1 of 0.24–0.49 with standard inference, so predictions are research outputs, not crop-management advice. Set `PLANT_MODELS_DIR` or `PLANT_EXAMPLES_DIR` to use other folders. The app can also overlay Notebook 10's ResNet18 Grad-CAM or ViT-Small last-block attention on the standard view; like the notebook figures, these maps are qualitative and do not show reliance on a lesion.
 
 ## Limitations
 
