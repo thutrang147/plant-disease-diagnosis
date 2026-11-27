@@ -1,0 +1,7 @@
+{
+  "fingerprints": "raw-RGB SHA-256; imagehash.phash",
+  "threshold": 4,
+  "reference": "lab_train",
+  "plantvillage_revision": "pinned in src/dataset.py",
+  "torch": "2.15.0+cu132"
+}

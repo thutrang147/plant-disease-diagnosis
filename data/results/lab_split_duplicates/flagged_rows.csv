@@ -1,0 +1,6 @@
+row_id,class_name,leaf_grouped,min_train_distance,nearest_train_row,nearest_train_class,exact_in_train,partition
+36350,Bacterial Spot,True,4,37016,Bacterial Spot,False,lab_val
+40967,Late Blight,False,0,39918,Late Blight,True,lab_val
+53251,Healthy,False,4,52995,Healthy,False,lab_val
+39491,Late Blight,False,0,39624,Late Blight,True,lab_test
+53980,Healthy,False,4,54044,Healthy,False,lab_test
