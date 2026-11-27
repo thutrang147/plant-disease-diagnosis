@@ -51,3 +51,6 @@ outputs/
 !/data/external_evaluation/tomato_field_eval_v2/validate_dataset.py
 !/data/external_evaluation/tomato_field_eval_v2/class_mapping.json
 !/data/external_evaluation/tomato_field_eval_v2/README.md
+
+# Local demo photos for the app (may include third-party or private images).
+/app/examples/

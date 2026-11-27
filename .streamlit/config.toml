@@ -1,0 +1,28 @@
+# Theme for app/streamlit_app.py. Run `streamlit run app/streamlit_app.py` from the
+# repository root so this file applies. Fonts load from Google Fonts and fall back
+# to system faces offline.
+
+[client]
+toolbarMode = "minimal"
+
+[theme]
+headingFont = "Bricolage Grotesque:https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&display=swap, system-ui, sans-serif"
+codeFont = "IBM Plex Mono:https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap, ui-monospace, monospace"
+headingFontWeights = [750, 700, 650, 600, 600, 600]
+baseRadius = "6px"
+
+# Chart slots: 1 = ResNet18, 2 = ViT-Small (checked with the dataviz palette validator
+# on each background). Keep in sync with ARCH_COLORS in app/components.py.
+[theme.light]
+primaryColor = "#2D6A45"
+backgroundColor = "#F3F5F0"
+secondaryBackgroundColor = "#E4E9E1"
+textColor = "#18241D"
+chartCategoricalColors = ["#257de0", "#f47230"]
+
+[theme.dark]
+primaryColor = "#6FBF8A"
+backgroundColor = "#121A15"
+secondaryBackgroundColor = "#1D2820"
+textColor = "#E6ECE5"
+chartCategoricalColors = ["#338ced", "#e76624"]

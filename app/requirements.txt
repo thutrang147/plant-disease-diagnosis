@@ -1,3 +1,4 @@
 -r ../requirements.txt
-# 1.49 is the first release with width="stretch" for st.image and st.dataframe.
-streamlit>=1.49
+# 1.51 is the first release with [theme.light]/[theme.dark] (used by .streamlit/config.toml);
+# width="stretch" on st.image and st.dataframe needs 1.49.
+streamlit>=1.51
