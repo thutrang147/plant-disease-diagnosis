@@ -1,0 +1,11 @@
+model,accuracy,mean_confidence,overconfidence,ece_10_bins
+nb15_field_only_s42,0.4115,0.5957,0.1842,0.1886
+nb15_field_only_s43,0.4198,0.5815,0.1618,0.1618
+nb15_field_only_s44,0.4198,0.5892,0.1695,0.1695
+nb15_mixed_s42,0.4403,0.6244,0.1841,0.1863
+nb15_mixed_s43,0.4259,0.6227,0.1968,0.1968
+nb15_mixed_s44,0.4362,0.636,0.1997,0.1997
+resnet18_geometric_mixed,0.4239,0.6059,0.182,0.182
+resnet18_lab,0.4259,0.9012,0.4753,0.4753
+vit_small_lab,0.43,0.8139,0.3838,0.3838
+vit_small_mixed,0.4444,0.7393,0.2948,0.2948
