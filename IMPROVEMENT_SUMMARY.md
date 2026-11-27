@@ -9,8 +9,8 @@ File này **chỉ để đọc và ra quyết định**. Nó liệt kê từng v
 
 | Phương án | Nhánh | PR | Gồm những gì |
 | --- | --- | --- | --- |
-| **Đợt 1** | [`review/repo-review-20261127`](https://github.com/thutrang147/plant-disease-diagnosis/tree/review/repo-review-20261127) | *(đang mở PR)* | Review toàn diện; sửa cách trình bày kết quả (strata, CI, Holm); đo Lab retention; LICENSE; dọn docs |
-| **Đợt 2** | [`review/repo-review-round2-20261127`](https://github.com/thutrang147/plant-disease-diagnosis/tree/review/repo-review-round2-20261127) | *(đang mở PR)* | **Toàn bộ đợt 1**, cộng thêm bằng chứng mới (External v3, đo phụ thuộc vùng tổn thương, nội suy trọng số, DINOv2), tải checkpoint, tái lập, demo |
+| **Đợt 1** | [`review/repo-review-20261127`](https://github.com/thutrang147/plant-disease-diagnosis/tree/review/repo-review-20261127) | [#6](https://github.com/thutrang147/plant-disease-diagnosis/pull/6) | Review toàn diện; sửa cách trình bày kết quả (strata, CI, Holm); đo Lab retention; LICENSE; dọn docs |
+| **Đợt 2** | [`review/repo-review-round2-20261127`](https://github.com/thutrang147/plant-disease-diagnosis/tree/review/repo-review-round2-20261127) | [#7](https://github.com/thutrang147/plant-disease-diagnosis/pull/7) (⏳ đang hoàn thiện) | **Toàn bộ đợt 1**, cộng thêm bằng chứng mới (External v3, đo phụ thuộc vùng tổn thương, nội suy trọng số, DINOv2), tải checkpoint, tái lập, demo |
 
 - Đợt 2 đã chứa đợt 1, nên **chỉ merge một trong hai PR**.
 - Xem riêng phần thay đổi của từng đợt: [diff đợt 1](https://github.com/thutrang147/plant-disease-diagnosis/compare/main...review/repo-review-20261127) · [diff riêng đợt 2](https://github.com/thutrang147/plant-disease-diagnosis/compare/review/repo-review-20261127...review/repo-review-round2-20261127).
