@@ -21,6 +21,7 @@ Quy ước: **[VERIFIED]** = đã kiểm tra trực tiếp trong file (có đư�
 ### #1 — External v1: mức tăng do strata Healthy bị confound với nguồn ảnh, không phải do phân biệt bệnh tốt hơn
 - **Flaw:** README §2 và `docs/research_results_summary.md` đặt 53.23% vs 30.65% accuracy và p=0.0243 làm bằng chứng chính cho RQ2. Notebook 12 lại cho thấy toàn bộ mức tăng nằm ở 16 ảnh Healthy tự chụp. Trên 46 ảnh bệnh online: CNN Lab 19/46, CNN Mixed 21/46, ViT Lab 22/46, ViT Mixed 19/46.
 - **Cơ chế:** Healthy ↔ self-collected và disease ↔ online là confound hoàn toàn. Cách giải thích hợp lý nhất là "model adapted học được rằng lá xanh chụp ngoài trời → Healthy". Đó không phải là nhận dạng bệnh tốt hơn. Trong bảng McNemar 24 vs 10, có 12 discordant đến từ Healthy (0→12/16).
+- **Bằng chứng bổ sung (ảnh nhúng NB09 cell 10, đã xem):** ResNet Geometric+Mixed trên **Lab Test** dự đoán Healthy cho 63 ảnh bệnh (28 Early Blight, 30 Late Blight, 4 BS, 1 Septoria), trong khi baseline chỉ có 2. Như vậy adaptation đã dịch ngưỡng của model sang phía "Healthy" một cách tổng quát, không chỉ trên ảnh tự chụp. Điều này khớp với giải thích ở trên [VERIFIED].
 - **Fix:** (1) Báo cáo External v1 **tách 2 strata** làm kết quả chính: Healthy recall (n=16) và 4-class disease accuracy / macro-F1 trên 46 ảnh. (2) Chạy McNemar riêng trên 46 ảnh bệnh. Dự đoán của tôi là p≈1, cần tính lại. (3) Đổi câu trong README thành: "Adaptation chủ yếu sửa lỗi baseline không bao giờ dự đoán Healthy; trên ảnh bệnh online không có cải thiện rõ ràng."
 - **Effort:** S · **Impact:** High
 - **[VERIFIED]** `notebooks/12_external_error_analysis.ipynb` (bảng `online_sources 46 · 19/46 22/46 21/46 19/46`; `self_collected 16 · 0/16 5/16 12/16 13/16`), `outputs/external_confirmatory_eval/confirmatory_paired_mcnemar_tests.csv`.
@@ -30,7 +31,7 @@ Quy ước: **[VERIFIED]** = đã kiểm tra trực tiếp trong file (có đư�
 - **Cơ chế:** Recall cao của một class "mặc định" không phải là năng lực phân biệt. Vì vậy câu "adaptation làm mất khả năng nhận Early Blight" bị phóng đại: thứ mất đi là một bias, cộng với một collapse ngược chiều ở Mixed.
 - **Fix:** Đặt **prediction-distribution (cột tổng của confusion matrix) và per-class precision** bên cạnh recall trong README, NB11 và NB12. Viết lại thành "baseline sụp về Early Blight; Mixed gần như không dự đoán Early Blight. Cả hai đều thất bại với EB theo hai cách khác nhau."
 - **Effort:** S · **Impact:** High
-- **[VERIFIED]** `outputs/external_confirmatory_eval/predictions_model1_resnet18_lab_base_external_v1.csv` (crosstab tự tính). Run canonical EXIF nằm ngoài git nên tôi không kiểm được trực tiếp. `docs/experiment_reconciliation.md` ghi chỉ 4 nhãn ResNet Lab khác nhau (đều 2↔1), nên phân bố gần như giống [INFERENCE].
+- **[VERIFIED]** `outputs/external_confirmatory_eval/predictions_model1_resnet18_lab_base_external_v1.csv` (crosstab tự tính). **Đã xác nhận trên run canonical EXIF:** confusion matrix lưu trong `notebooks/11_external_evaluation.ipynb` cell 27 (ảnh nhúng, tôi đã xem) cho thấy ResNet Lab dự đoán Early Blight **39/62** ảnh (6 Healthy, 11 EB, 6 LB, 5 BS, 11 Septoria), tức precision EB = 11/39 ≈ 0.28. Trên Field Dev, cùng model này dự đoán EB cho **55/92** ảnh (NB09 cell 10) [VERIFIED].
 
 ### #3 — RQ4: kết luận "Field-only cao hơn" không được dữ liệu hỗ trợ, và chiều đo quan trọng nhất bị bỏ
 - **Flaw:**
@@ -38,6 +39,7 @@ Quy ước: **[VERIFIED]** = đã kiểm tra trực tiếp trong file (có đư�
   - (b) Tôi tự tính paired bootstrap trên 47 ảnh, lấy trung bình 3 seed: Δmacro-F1 (Mixed−FO) = −0.021, **95% CI [−0.086, +0.023]**; Δacc 95% CI [−0.071, +0.028].
   - (c) **Field Dev tại epoch đã chọn** (log NB15 archived): seed 42 FO 0.4388 / Mx 0.4390; seed 43 (ep7) 0.4361 / 0.4478; seed 44 0.4147 / 0.4327. Mixed ≥ FO ở cả 3 seed, tức là ngược chiều với Test.
   - (d) Lab retention không được đo. Trong lịch sử, đây lại là lợi ích rõ nhất của Mixed (A1 Lab Val 0.8185 vs R1 0.9556).
+- **Quan sát thêm (ảnh confusion 6 panel, NB15 cell 21):** sáu ma trận gần như giống hệt nhau. Bacterial Spot→Septoria 7–8/9 ở mọi run; Healthy row chỉ 2–3/8 đúng. Khác biệt giữa hai điều kiện nhỏ hơn nhiều so với lỗi chung mà cả hai cùng mắc, tức yếu tố quyết định là khởi tạo từ Lab baseline, không phải cách fine-tune [VERIFIED quan sát].
 - **Cơ chế:** Hai tập đánh giá nhỏ cho hai chiều ngược nhau, nên kết luận trung thực là "không phát hiện khác biệt". Bỏ qua retention khiến RQ4 kiểm định Mixed đúng trên chiều mà nó không được kỳ vọng thắng.
 - **Fix:** (1) Đổi kết luận README §5 thành: "Dưới protocol matched, không có bằng chứng Mixed cải thiện field performance (Δ trong CI chứa 0, Dev và Test ngược chiều)." (2) **Chạy inference Lab Val + Lab Test cho 6 checkpoint NB15**. Checkpoint đã import local theo `docs/notebook15_colab_guide.md`, đây chỉ là evaluation, không train, khoảng 1–2 giờ CPU. (3) Thêm bảng Dev @ selected epoch cạnh bảng Test. (4) Báo cáo paired bootstrap CI.
 - **Effort:** S–M · **Impact:** High
@@ -92,7 +94,7 @@ Quy ước: **[VERIFIED]** = đã kiểm tra trực tiếp trong file (có đư�
 ### #10 — Pháp lý và giấy phép: không có LICENSE; 62 ảnh (46 bên thứ ba) vẫn nằm trong git history
 - **Flaw:** Repo không có `LICENSE` hay `CITATION.cff`. Commit `59e3bc4` thêm 62 ảnh External v1 (46 ảnh online có `redistribution_rights=not_established`). Ảnh đã bị gỡ khỏi tree nhưng **vẫn reachable trong history** (`git log` đếm được 63 file ảnh external được add). Các notebook 01, 05, 10 nhúng gallery PlantVillage/PlantDoc.
 - **Cơ chế:** Nộp repo public thì đồng nghĩa phân phối lại ảnh bên thứ ba. Mặc định không có LICENSE nghĩa là "all rights reserved" cho code.
-- **Fix:** (1) Thêm `LICENSE` cho code (MIT/Apache-2.0) và `DATA_NOTICE.md` ghi giấy phép từng dataset. PlantDoc là CC BY 4.0 theo repo gốc. Giấy phép PlantVillage cần kiểm chứng từ nguồn gốc; tôi chưa xác minh. (2) Với bản nộp: tạo **snapshot repo mới không có history** (hoặc `git filter-repo` có kế hoạch, sau khi đồng bộ với cộng tác viên), hoặc giữ repo private và chỉ chia sẻ với examiner. (3) Thêm `CITATION.cff` và trích dẫn đúng nguồn dataset/mirror (`geraldmc/*`).
+- **Fix:** (1) Thêm `LICENSE` cho code (MIT/Apache-2.0) và `DATA_NOTICE.md` ghi giấy phép từng dataset. PlantDoc là CC BY 4.0 theo repo gốc. Giấy phép PlantVillage **có mâu thuẫn giữa các nguồn**: phần lớn mirror (Mendeley, Meta-Album) ghi **CC0 1.0**, nhưng bản phát hành gốc kèm bài arXiv 1511.08060 và bản Zenodo được mô tả là **CC BY-SA 3.0**, kèm điều khoản rằng thuật toán train trên dữ liệu cũng theo cùng license. Container này không truy cập được arxiv.org và huggingface.co (DNS bị chặn), nên tôi chưa đọc trực tiếp được văn bản gốc. Khuyến nghị an toàn: ghi attribution theo kiểu CC BY-SA 3.0, nêu rõ mâu thuẫn, và kiểm tra trang Mendeley/arXiv trước khi phát hành checkpoint. (2) Với bản nộp: tạo **snapshot repo mới không có history** (hoặc `git filter-repo` có kế hoạch, sau khi đồng bộ với cộng tác viên), hoặc giữ repo private và chỉ chia sẻ với examiner. (3) Thêm `CITATION.cff` và trích dẫn đúng nguồn dataset/mirror (`geraldmc/*`).
 - **Effort:** S–M · **Impact:** Med–High (rủi ro pháp lý khi public)
 - **[VERIFIED]** không tìm thấy LICENSE; `git log --diff-filter=A`; `data/external_evaluation/tomato_field_eval_v2/README.md` §Attribution.
 
@@ -107,6 +109,11 @@ Quy ước: **[VERIFIED]** = đã kiểm tra trực tiếp trong file (có đư�
 - **RQ4:** thiết kế control tốt (matched init/exposure/updates/seal). Kết luận cần sửa như #3/#4.
 - **Through-line đề xuất [INFERENCE]:** "Lab accuracy không chuyển giao (RQ1). Supervised field data sửa được lỗi thô nhất (không bao giờ dự đoán Healthy) nhưng chưa sửa được phân biệt giữa các bệnh đốm lá (RQ2). Kết quả nhạy với framing (RQ3). Lab rehearsal giữ được Lab performance nhưng không tăng field performance khi đã control exposure (RQ4)." Câu chuyện này trung thực hơn và vẫn có đóng góp.
 - **Under-claiming:** công phu về provenance và audit (seal hash trước khi mở test, hash tensor từng batch) là điểm mạnh hiếm có, nhưng README không nhấn mạnh. Nên đưa vào Contributions dưới dạng "evaluation hygiene".
+
+- **Grad-CAM / ViT attention (NB10 cell 22; tôi đã xem ảnh) [VERIFIED quan sát; diễn giải là INFERENCE]:**
+  - Có 8 ca lỗi được minh hoạ. Ít nhất 4 ảnh có **watermark hoặc logo** ("shutterstock", "alamy stock photo", "Plant Pathology – East-West Seed", logo "UF"). 2 ảnh chụp trên **nền xanh dương studio**, tức không phải ảnh thực địa. "Field domain" của PlantDoc thực chất là ảnh web. Đây là một nguồn shortcut và nhiễu cần nêu trong Limitations.
+  - Với ảnh shutterstock, Grad-CAM ResNet ("Healthy") tập trung vào nền trắng/xám thay vì lá.
+  - ViT last-block CLS attention xuất hiện thành **các chấm sáng rời rạc, phần lớn nằm ở nền**. Mẫu hình này giống artefact "high-norm tokens" đã biết của ViT, nên attention map gần như không mang thông tin định vị. Fix: dùng attention rollout, hoặc Grad-CAM trên token của ViT, hoặc ghi rõ là không diễn giải được.
 
 ### 2. Thiết kế thí nghiệm và validity
 - **Splits:** Lab dùng StratifiedGroupKFold theo `leaf_id`. Tuy nhiên 1,510 (train) / 378 (val) / 465 (test) ảnh không có leaf group, mỗi ảnh được gán `unknown_row:<id>` riêng [VERIFIED `data/splits/lab_*.csv`]. Rủi ro cùng một lá nằm ở nhiều partition, nên Lab Test có thể bị thổi phồng [INFERENCE]. Fix S: chạy pHash grouping cho phần ungrouped, giống đã làm với PlantDoc.
@@ -183,7 +190,8 @@ Tôi đã đối chiếu và thấy khớp: Lab Test, Field Dev (NB09 ↔ `final
 - Xem #10.
 - Ảnh tự chụp: có metadata EXIF (GPS?) trong file gốc. Nếu từng public trong history thì cần kiểm tra EXIF GPS [INFERENCE; tôi không mở được ảnh trong clone này].
 - Human review crop Healthy không ghi tên hay ngày reviewer [VERIFIED v2 README]. Nên ghi ít nhất vai trò reviewer và ngày.
-- PlantDoc: CC BY 4.0 theo [repo gốc](https://github.com/pratikkayal/PlantDoc-Dataset), nên phải attribution. Mirror `geraldmc/plantdoc-full` cũng phải được trích dẫn.
+- PlantDoc: CC BY 4.0 theo [repo gốc](https://github.com/pratikkayal/PlantDoc-Dataset), nên phải attribution. Mirror `geraldmc/plantdoc-full` cũng phải được trích dẫn. **Tuy nhiên:** ảnh nhúng NB10 cho thấy nhiều ảnh PlantDoc mang watermark shutterstock/alamy. License CC BY 4.0 của bộ tổng hợp **không chuyển giao được** quyền với ảnh stock gốc. Việc nhúng các ảnh này vào notebook public (NB01 cell 24, NB10 cells 14/22, `outputs/error_analysis_development/*.png`) là rủi ro riêng [INFERENCE pháp lý; quan sát watermark là VERIFIED].
+- PlantVillage: license mâu thuẫn CC0 vs CC BY-SA 3.0 (xem #10).
 
 ### 9. Mức sẵn sàng nộp và bảo vệ
 - **Rủi ro cao nhất khi bảo vệ:** #1 (Healthy confound), #3 (RQ4 CI chứa 0), #5 (cherry-picking), #6 (test reuse). Cả 4 đều sửa được bằng cách viết lại, cộng một vài phân tích S trước buổi bảo vệ.
@@ -240,6 +248,8 @@ Tôi đã đối chiếu và thấy khớp: Lab Test, Field Dev (NB09 ↔ `final
 
 ## (f) File đã kiểm tra và những gì không kiểm tra được
 
+_Cập nhật vòng 2: đã xem 57 ảnh nhúng, tìm Drive, đối chiếu license._
+
 **Đã đọc trực tiếp:**
 - `README.md`; toàn bộ `docs/*.md` (7 file).
 - `data/splits/*.json` và toàn bộ CSV: header, đếm dòng, overlap group, class counts, quarantine, near-duplicate.
@@ -252,12 +262,20 @@ Tôi đã đối chiếu và thấy khớp: Lab Test, Field Dev (NB09 ↔ `final
 - **15 notebook canonical:** parse JSON, đọc markdown và text output đã lưu. Code cell đọc kỹ ở 01, 02, 06 (optimizer), 08 (optimizer), còn lại đọc lướt.
 - **Archive:** `15_controlled_field_mixed_colab_executed.ipynb` (log Dev F1 theo epoch). Ba notebook archive còn lại (06 old, 06 grouped, 11 combined) chỉ được parse, chưa review nội dung.
 
-**Không kiểm tra được:**
-- Checkpoint (`models/` không có trong clone).
-- Các output bị ignore: run canonical External v1 `20261125_163347_4ca8183f`, Healthy v2, reconciliation, NB15 imported run.
-- Manifest/ảnh private External v1/v2; Google Drive artifacts.
-- Nội dung ảnh nhúng trong notebook (không xem bằng mắt).
-- Giấy phép PlantVillage (chưa xác minh).
+**Đã xử lý sau vòng đầu (theo yêu cầu "giải quyết đi"):**
+- **Ảnh nhúng trong notebook:** đã trích **57 ảnh PNG** từ 15 notebook và xem từng ảnh qua contact sheet: confusion matrix, learning curve, gallery, Grad-CAM, NB15 6-panel. Kết quả đã bổ sung vào #1, #2, #3, §c.1 và §c.8.
+- **Giấy phép PlantVillage:** đã tìm và đối chiếu nguồn. Kết quả là có mâu thuẫn CC0 vs CC BY-SA 3.0 (xem #10). Không đọc trực tiếp được arXiv/HF vì mạng container chặn hai host này.
+- **Google Drive (connector của tài khoản đang dùng):** đã tìm. Chỉ thấy (i) thư mục `plant-disease-diagnosis` do tài khoản nhóm khác chia sẻ, bên trong chỉ có `vit_small_field_adaptation_verified/per_class_comparison.csv`; (ii) thư mục `tomato_field_eval_v1/images`. **Không có** checkpoint `.pt`, `final_comparison_development/`, `mixed_domain_verified/`, `controlled_field_mixed/`, hay manifest v1/v2.
+- **Máy cá nhân:** session này không có máy nào được gắn qua Remote Control (danh sách folder rỗng).
+
+**Vẫn không kiểm tra được, kèm lý do và cách mở khoá:**
+
+| Hạng mục | Vì sao không có | Cách để tôi kiểm được |
+|---|---|---|
+| Checkpoint (`models/*.pt`, 6 checkpoint NB15) | `.gitignore` loại `*.pt`; file chỉ nằm trên ổ local của người chạy (đường dẫn trong output: `/Volumes/Lexar E6/Code/plant-disease-diagnosis`) và Drive của tài khoản chạy Colab | Chia sẻ thư mục Drive `MyDrive/plant-disease-diagnosis/` (gồm `resnet18_baseline/`, `vit_small_baseline/`, `mixed_domain_verified/`, `controlled_field_mixed/`) với tài khoản đang kết nối; **hoặc** bật Remote Control trên máy có ổ Lexar và gắn vào session |
+| Output canonical bị ignore (`outputs/external_evaluation/…4ca8183f`, `healthy_field_evaluation/`, `research_integration/`, NB15 imported run) | `.gitignore` có dòng `outputs/`; chỉ tồn tại trên máy local | Như trên, hoặc commit bản CSV tối giản (đề xuất #9) |
+| Manifest/ảnh private External v1/v2 | Cố ý để private (ảnh bên thứ ba, metadata reviewer) | Chỉ cần nếu muốn kiểm lại nhãn; có thể chia sẻ riêng `manifest.csv` mà không kèm ảnh |
+| Văn bản license gốc trên arXiv/HF | Mạng container chặn `arxiv.org`, `huggingface.co` | Cho phép hai host này trong network settings của environment, hoặc bạn tự mở trang Mendeley/arXiv |
 
 ### Phụ lục — kết quả chạy tests/audit (fresh clone, cloud container, `HF_*_OFFLINE=1`)
 - `python -m unittest discover -s tests -v`: **Ran 15 tests, OK** (0 failed) [VERIFIED].
