@@ -4,9 +4,18 @@ This research compares ImageNet-pretrained ResNet18 and ViT-Small on five tomato
 
 The completed study contains 15 canonical notebooks. Start with [09: fixed-model comparison](notebooks/09_final_model_comparison.ipynb), [11: canonical external evaluation](notebooks/11_external_evaluation.ipynb), and [15: controlled fine-tuning](notebooks/15_controlled_field_mixed_finetuning.ipynb). The [research summary](docs/research_results_summary.md) provides detailed results and scientific limitations; the [final audit](docs/submission_audit.md) records validation and submission constraints.
 
-## Objectives and methodology
+## Research questions and experimental progression
 
-The study asks how laboratory models transfer to PlantDoc; whether augmentation and supervised adaptation improve target-domain performance; how mixed-domain training affects source retention; and how errors change across classes, acquisition sources and crop policies. A final controlled comparison tests laboratory rehearsal with matched Field exposure and optimizer updates.
+| Question | Research focus | Main evidence |
+| --- | --- | --- |
+| **RQ1 — Laboratory-to-Field Generalization** | How substantially does performance deteriorate when laboratory-trained classifiers encounter heterogeneous PlantDoc photographs? | Notebooks 01–04 and 09 |
+| **RQ2 — Domain Adaptation and Class-Specific Trade-offs** | To what extent do augmentation, supervised field adaptation and mixed-domain fine-tuning improve field performance, and which classes gain or lose? | Notebooks 05–12, including qualitative diagnostics in 10 |
+| **RQ3 — Image Framing and Cropping Sensitivity** | How do human-reviewed crops and alternative inference views affect Healthy and Bacterial Spot predictions? | Notebooks 13–14 |
+| **RQ4 — Controlled Mixed-Domain Comparison** | Does Lab rehearsal consistently improve ResNet18 field performance when initialization, Field exposure, optimizer updates and checkpoint selection are controlled? | Notebook 15 |
+
+The transfer gap in RQ1 motivates the adaptation comparisons in RQ2. Their uneven class-level results lead to RQ3's examination of framing, without assuming framing caused the errors. RQ4 returns to the historical mixing comparison and tests laboratory rehearsal under a more controlled protocol. Together, the questions distinguish observed performance changes from explanations the evidence cannot isolate.
+
+## Models and experimental design
 
 ResNet18 uses torchvision `IMAGENET1K_V1`; ViT-Small uses timm `vit_small_patch16_224.augreg_in1k`. Both receive 224×224 inputs with their own recorded transforms. The laboratory baselines use seed 42, three head epochs and five full-model epochs, selecting by Lab Validation macro-F1. Different pretraining, transforms, capacities and optimization settings prevent attribution to architecture alone.
 
@@ -28,7 +37,7 @@ Source images come from the Hugging Face mirrors [PlantVillage](https://huggingf
 
 Original test membership is preserved. Lab Validation uses leaf-group-aware splitting of original laboratory training images; unknown leaf IDs are singleton groups. The [verified PlantDoc protocol](data/splits/field_dev_protocol.json) groups pHash connected components at distance ≤4 across the 476/47 original partitions. Four training rows near Field Test and ten in conflicting-label groups are quarantined. Field Dev class supports are 11, 16, 20, 18 and 27; Field Test supports are 8, 9, 10, 9 and 11.
 
-Accuracy, five-class macro-F1 and class-level metrics are reported separately. Field Dev participates in selection. Healthy-only recognition is recall, not five-class discrimination. Crops and their parents are correlated observations; scene IDs do not establish independent physical plants.
+The [evaluation-protocol table](docs/research_results_summary.md#evaluation-protocols-and-units-of-analysis) distinguishes checkpoint-selection data, fixed evaluations and exploratory reuse. Accuracy, five-class macro-F1 and class-level metrics are reported separately. Field Dev participates in selection. Healthy-only recognition is recall, not five-class discrimination. Crops and their parents are correlated observations; scene IDs do not establish independent physical plants.
 
 ## Notebook organization
 
@@ -54,6 +63,8 @@ Accuracy, five-class macro-F1 and class-level metrics are reported separately. F
 
 ## Key findings
 
+### RQ1–RQ2: generalization and adaptation
+
 The historical four-model results use Notebook 09 for Lab Test/Field Dev and Notebook 11 for external v1. Values below are accuracy / macro-F1.
 
 | Fixed checkpoint | Lab Test (1,692) | Field Dev (92) | External v1 (62) |
@@ -67,11 +78,13 @@ Laboratory performance transfers poorly to PlantDoc. Historical mixing retains m
 
 Aggregate external gains hide class losses: ResNet18 Healthy recognition rises from 0/16 to 12/16, while Early Blight falls from 11/13 to 1/13. External v1 is source/class confounded and too small for broad architectural claims. EXIF orientation must precede RGB conversion; raw-RGB historical results are kept separate in the [reconciliation record](docs/experiment_reconciliation.md).
 
+### RQ3: framing and crop sensitivity
+
 Notebook 13 recognizes 0/57, 15/57, 44/57 and 43/57 Healthy images for ResNet Lab, ViT Lab, ResNet Mixed and ViT Mixed. The paired extension uses 23 source photographs and 49 associated crops. Both Mixed models recognize 37/49 crops, but equal-parent crop recall differs: 0.7558 for ResNet and 0.8275 for ViT. Crop counts are not independent plant trials.
 
 Notebook 14 finds model- and sample-specific sensitivity to framing. ViT Mixed five-crop external inference reaches 38/62 correct and macro-F1 0.5840. It averages five **224×224** views from a square 448 canvas, changing scale, coverage, aspect ratio and aggregation. This exploratory reuse of external outcomes does not isolate resolution or select a deployment policy.
 
-### Controlled Field-only versus Mixed fine-tuning
+### RQ4: controlled Field-only versus Mixed fine-tuning
 
 Both conditions complete 2,960 Field presentations and 192 optimizer updates per seed; Mixed adds 2,960 Lab presentations. Shared Field Dev selection chooses epochs 8, 7 and 8. Seed 43's evaluated pair therefore has 2,590 Field presentations and 168 updates, despite completing the full budget.
 
@@ -82,18 +95,22 @@ Both conditions complete 2,960 Field presentations and 192 optimizer updates per
 
 Mixed does not consistently outperform Field-only under this controlled ResNet18 recipe: Field-only leads macro-F1 in two seeds and Mixed slightly in one. This does not establish universal Mixed inferiority or statistical superiority. All seeds reuse the same historically inspected 47 test images; sample SD describes seed variation. Original predictions, selected checkpoint hashes and exposure records were checked against the imported Colab artifacts. [Portable exports and provenance](data/results/notebook15/) support the report without distributing weights; see the [Colab/report guide](docs/notebook15_colab_guide.md).
 
+## Research contributions
+
+The study provides a traceable comparison of laboratory and field performance, documents adaptation's class-specific and source-retention trade-offs, and separates crop sensitivity from an isolated resolution effect. Its controlled ResNet18 comparison shows that the historical Mixed advantage does not persist consistently under the tested matched protocol. These contributions concern the recorded samples and recipes; they do not establish general architectural superiority or deployment performance. The [overall discussion](docs/research_results_summary.md#overall-discussion) brings the findings together.
+
 ## Repository and reproducibility
 
 ```text
 notebooks/          Canonical 01–15 notebooks and historical archive
 src/                Manifest loader, evaluation, split preparation and analysis
 scripts/            Lightweight repository/artifact audits and Colab packaging
-tests/             Automated protocol, evidence and correctness checks
-data/splits/       Versioned manifests, mappings, quarantine and split history
-data/results/      Portable Notebook 15 predictions and provenance
+tests/              Automated protocol, evidence and correctness checks
+data/splits/        Versioned manifests, mappings, quarantine and split history
+data/results/       Portable Notebook 15 predictions and provenance
 outputs/            Selected tracked historical evidence; other runs ignored
 models/             Local checkpoints, excluded from Git
-docs/              Research summary, artifact access, reconciliation and final audit
+docs/               Research summary, artifact access, reconciliation and final audit
 ```
 
 From the repository root:
@@ -118,7 +135,7 @@ Evaluation v2 remains a self-contained local package. Its [builder](data/externa
 
 The small, imbalanced and previously inspected evaluation samples, incomplete grouping, unpinned source metadata, annotation uncertainty and potential pretraining overlap constrain generalization. Historical recipes are single-seed; the three controlled seeds share one test set. Grad-CAM and attention are qualitative diagnostics, with no completed blinded lesion adjudication or causal localization claim. No deployment study was performed.
 
-The branch is technically ready for manual fast-forward integration; this does not establish public redistribution rights. Private photographs, external annotation packages, checkpoints and environments are excluded from the proposed commit. No standalone raw/external photograph files are currently tracked. Tracked laboratory/PlantDoc galleries still contain third-party dataset imagery and retain the underlying rights obligations. An earlier upstream commit also contains the 62 external photographs, including self-collected images, in Git history. Current ignore rules do not erase those copies: repository-owner privacy/licensing review remains necessary before wider redistribution. Share source and saved evidence with the supervisor using the documented access restrictions; do not attach the entire local working directory.
+Private photographs, external annotation packages, checkpoints and environments are excluded from the tracked source tree. This supports controlled sharing of the source and saved evidence, but does not establish public redistribution rights. No standalone raw/external photograph files are currently tracked. Tracked laboratory/PlantDoc galleries still contain third-party dataset imagery and retain the underlying rights obligations. An earlier upstream commit also contains the 62 external photographs, including self-collected images, in Git history. Current ignore rules do not erase those copies: repository-owner privacy/licensing review remains necessary before wider redistribution. Share source and saved evidence with the supervisor using the documented access restrictions; do not attach the entire local working directory.
 
 ## Research references
 
