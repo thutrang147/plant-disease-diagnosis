@@ -52,6 +52,19 @@ class InferenceTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             load_checkpoint(bad)
 
+    def test_model_view_matches_each_transform(self):
+        import timm
+        from src.inference import model_view
+        vit = timm.data.create_transform(input_size=(3, 224, 224), interpolation="bicubic", mean=(0.5,) * 3,
+                                         std=(0.5,) * 3, crop_pct=0.9, crop_mode="center", is_training=False)
+        self.assertEqual(model_view(self.image).size, (224, 224))
+        view = model_view(self.image, vit)
+        self.assertEqual(view.size, (224, 224))
+        # Re-normalizing the recovered view reproduces the model input up to 8-bit rounding.
+        x = vit(self.image)
+        y = (torch.from_numpy(np.asarray(view)).permute(2, 0, 1).float() / 255 - 0.5) / 0.5
+        self.assertLess(float((x - y).abs().max()), 0.02)
+
 
 if __name__ == "__main__":
     unittest.main()

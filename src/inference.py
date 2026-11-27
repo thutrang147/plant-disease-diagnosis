@@ -84,14 +84,30 @@ def grad_cam(model: nn.Module, transform, image: Image.Image, target: int) -> np
     return cam / cam.max() if cam.max() > 0 else cam
 
 
-def model_view(image: Image.Image) -> Image.Image:
-    """The 224x224 region the ResNet18 transform actually sees (Resize 256, CenterCrop 224)."""
-    from torchvision.transforms import functional as TF
-    return TF.center_crop(TF.resize(image, 256), 224)
+def model_view(image: Image.Image, transform=None) -> Image.Image:
+    """The image region a model actually sees, recovered from its own eval transform.
+
+    The transform is applied and its final normalization inverted, so the geometry
+    (resize, crop percentage, interpolation) matches the model exactly. Without a
+    transform, the ResNet18 geometry (Resize 256, CenterCrop 224) is used.
+    """
+    if transform is None:
+        transform = ResNet18_Weights.IMAGENET1K_V1.transforms()
+    tensor = transform(image)
+    mean = getattr(transform, "mean", None)
+    std = getattr(transform, "std", None)
+    if mean is None:  # torchvision Compose / timm transforms: find the Normalize step
+        for step in getattr(transform, "transforms", []):
+            if hasattr(step, "mean") and hasattr(step, "std"):
+                mean, std = step.mean, step.std
+    mean = torch.as_tensor(mean if mean is not None else (0.0, 0.0, 0.0)).view(3, 1, 1)
+    std = torch.as_tensor(std if std is not None else (1.0, 1.0, 1.0)).view(3, 1, 1)
+    pixels = ((tensor * std + mean).clamp(0, 1) * 255).byte().permute(1, 2, 0).numpy()
+    return Image.fromarray(pixels)
 
 
-def overlay(image: Image.Image, cam: np.ndarray, alpha: float = 0.45) -> Image.Image:
+def overlay(image: Image.Image, cam: np.ndarray, alpha: float = 0.45, transform=None) -> Image.Image:
     import matplotlib
     heat = (matplotlib.colormaps["jet"](cam)[..., :3] * 255).astype(np.uint8)
-    base = np.asarray(model_view(image).convert("RGB"), dtype=np.float32)
+    base = np.asarray(model_view(image, transform).convert("RGB"), dtype=np.float32)
     return Image.fromarray((base * (1 - alpha) + heat * alpha).astype(np.uint8))

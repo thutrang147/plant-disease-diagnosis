@@ -12,6 +12,7 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
+import altair as alt
 import pandas as pd
 import streamlit as st
 from PIL import Image
@@ -47,6 +48,16 @@ def load(key: str):
     return load_checkpoint(path, vit_config)
 
 
+@st.cache_data
+def measured_scores() -> pd.DataFrame:
+    """Lab Test macro-F1 and External v3 accuracy per checkpoint, from committed results."""
+    lab = pd.read_csv(ROOT / "data/results/lab_split_duplicates/lab_test_clean_vs_all.csv")
+    lab = lab[lab.subset.eq("all")].set_index("model").macro_f1
+    v3 = pd.read_csv(ROOT / "data/results/external_v3_plantseg/metrics.csv").set_index("model")
+    return pd.DataFrame({"Lab Test macro-F1": lab, "External v3 accuracy": v3.accuracy,
+                         "External v3 disease macro-F1": v3.macro_f1_disease})
+
+
 @st.cache_resource(show_spinner="Loading dataset from Hugging Face (first use downloads it)…")
 def example_dataset(split: str):
     from src.dataset import PlantDiseaseDataset
@@ -62,8 +73,10 @@ st.caption("Five classes: Healthy, Early Blight, Late Blight, Bacterial Spot, Se
 
 with st.expander("Read before trusting a prediction", expanded=True):
     st.markdown(
-        "- Every model scores **0.97–0.99 macro-F1 on laboratory images** but only **41–44% accuracy** on "
-        "486 independent field images (External v3). Field predictions are wrong more often than right.\n"
+        "- On laboratory images the models score **0.81–0.99 macro-F1** (the Lab baselines 0.97–0.99; field "
+        "fine-tuning without Lab rehearsal forgets most). On **486 independent field images (External v3)** every "
+        "model scores only **41–44% accuracy**: field predictions are wrong more often than right. Measured scores "
+        "for each model are listed below.\n"
         "- Lab baselines almost never predict **Healthy** on field photos; adapted models do, but a leaf with its "
         "lesions removed is still rarely called Healthy.\n"
         "- **Bacterial Spot** is usually confused with **Septoria Leaf Spot**, and the ResNet18 Lab baseline "
@@ -109,16 +122,20 @@ with left:
         st.markdown(f"**Ground-truth label:** {truth}")
 with right:
     st.subheader(f"Prediction: {CLASS_NAMES[top]} ({probs[top]:.0%})")
-    st.bar_chart(pd.DataFrame({"probability": probs}, index=CLASS_NAMES))
+    chart = pd.DataFrame({"class": CLASS_NAMES, "probability": probs})
+    st.altair_chart(alt.Chart(chart).mark_bar().encode(
+        x=alt.X("class:N", sort=CLASS_NAMES, title=None), y=alt.Y("probability:Q", scale=alt.Scale(domain=[0, 1])),
+        tooltip=["class", alt.Tooltip("probability:Q", format=".1%")]), width="stretch")
     if meta["architecture"] == "resnet18":
         target = st.selectbox("Grad-CAM class", CLASS_NAMES, index=top)
         cam = grad_cam(model, transform, image, CLASS_NAMES.index(target))
-        st.image(overlay(image, cam), caption=f"Grad-CAM (layer4) for '{target}' on the 224×224 model view",
+        st.image(overlay(image, cam, transform=transform), caption=f"Grad-CAM (layer4) for '{target}' on the 224×224 model view",
                  width="stretch")
         st.caption("On PlantSeg lesion masks, Grad-CAM peaks fall on lesions for about 0.65 of images "
                    "against a 0.46 chance level: treat the map as a weak hint, not a lesion detector.")
     else:
-        st.image(model_view(image), caption="224×224 centre crop seen by the model", width="stretch")
+        st.image(model_view(image, transform), caption="224×224 region this model sees (its own resize and crop)",
+                 width="stretch")
         st.caption("Grad-CAM is shown for ResNet18 checkpoints only.")
 
 if compare_all and len(available) > 1:
@@ -127,7 +144,10 @@ if compare_all and len(available) > 1:
     for other, label in available.items():
         m, t, _ = load(other)
         p = predict(m, t, image)
+        scores = measured_scores().reindex([other]).iloc[0]
         rows.append({"model": label, "prediction": CLASS_NAMES[int(p.argmax())],
-                     "confidence": f"{p.max():.0%}", "P(Healthy)": f"{p[0]:.0%}"})
+                     "confidence": f"{p.max():.0%}", "P(Healthy)": f"{p[0]:.0%}",
+                     "Lab Test macro-F1 (measured)": f"{scores['Lab Test macro-F1']:.3f}",
+                     "External v3 accuracy (measured)": f"{scores['External v3 accuracy']:.3f}"})
     st.dataframe(pd.DataFrame(rows), hide_index=True, width="stretch")
     st.caption("Disagreement between models trained on the same classes is itself a sign of domain shift.")

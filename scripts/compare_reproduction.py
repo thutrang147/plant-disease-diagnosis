@@ -1,8 +1,10 @@
 """Compare a fresh re-run directory with the committed results directory.
 
-Every CSV present in the committed directory must exist in the re-run.
-Integer and text columns must match exactly; floating-point columns within
-``--atol``. Prints one line per file and exits non-zero on any difference.
+Every CSV in the committed directory must exist in the re-run with the same
+shape. Files are compared cell by cell as raw text (so multi-row headers are
+handled): cells that parse as numbers must agree within ``--atol``; all other
+cells must match exactly. A committed directory without CSV files is an error.
+Prints one line per difference and exits non-zero on any difference.
 
 Usage::
 
@@ -12,33 +14,48 @@ Usage::
 from __future__ import annotations
 
 import argparse
+import csv
+import math
 import sys
 from pathlib import Path
 
-import numpy as np
-import pandas as pd
+
+def _number(text: str) -> float | None:
+    try:
+        value = float(text)
+    except ValueError:
+        return None
+    return value
+
+
+def compare_file(a_path: Path, b_path: Path, atol: float) -> list[str]:
+    with a_path.open(newline="") as fa, b_path.open(newline="") as fb:
+        a, b = list(csv.reader(fa)), list(csv.reader(fb))
+    if len(a) != len(b) or any(len(x) != len(y) for x, y in zip(a, b)):
+        return [f"{a_path.name}: shape differs ({len(a)} vs {len(b)} rows)"]
+    problems, worst = [], 0.0
+    for r, (row_a, row_b) in enumerate(zip(a, b)):
+        for c, (x, y) in enumerate(zip(row_a, row_b)):
+            nx, ny = _number(x), _number(y)
+            if nx is not None and ny is not None:
+                if not (math.isclose(nx, ny, abs_tol=atol) or (math.isnan(nx) and math.isnan(ny))):
+                    worst = max(worst, abs(nx - ny))
+                    problems.append(f"{a_path.name}: row {r} col {c}: {x} vs {y}")
+            elif x != y:
+                problems.append(f"{a_path.name}: row {r} col {c}: '{x}' vs '{y}'")
+    if len(problems) > 5:
+        problems = problems[:5] + [f"{a_path.name}: ... {len(problems) - 5} more (max abs numeric difference {worst:.3g})"]
+    return problems
 
 
 def compare(committed: Path, rerun: Path, atol: float) -> list[str]:
+    files = sorted(committed.glob("*.csv"))
+    if not files:
+        return [f"{committed}: no committed CSV files to compare"]
     problems = []
-    for path in sorted(committed.glob("*.csv")):
+    for path in files:
         other = rerun / path.name
-        if not other.is_file():
-            problems.append(f"{path.name}: missing in re-run")
-            continue
-        a, b = pd.read_csv(path), pd.read_csv(other)
-        if list(a.columns) != list(b.columns) or len(a) != len(b):
-            problems.append(f"{path.name}: shape or columns differ ({a.shape} vs {b.shape})")
-            continue
-        for column in a.columns:
-            x, y = a[column], b[column]
-            if pd.api.types.is_float_dtype(x) or pd.api.types.is_float_dtype(y):
-                xf, yf = pd.to_numeric(x, errors="coerce"), pd.to_numeric(y, errors="coerce")
-                if not np.allclose(xf, yf, atol=atol, equal_nan=True):
-                    worst = float(np.nanmax(np.abs(xf - yf)))
-                    problems.append(f"{path.name}:{column}: max abs difference {worst:.3g}")
-            elif not x.astype(str).equals(y.astype(str)):
-                problems.append(f"{path.name}:{column}: {int((x.astype(str) != y.astype(str)).sum())} values differ")
+        problems += [f"{path.name}: missing in re-run"] if not other.is_file() else compare_file(path, other, atol)
     return problems
 
 

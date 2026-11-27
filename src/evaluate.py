@@ -128,6 +128,8 @@ def main():
     model.load_state_dict(checkpoint["model_state_dict"], strict=True)
     model = model.to(device).eval()
 
+    if args.output.exists() and any(args.output.iterdir()):
+        raise FileExistsError(f"Refusing to overwrite committed evidence in {args.output}; pass a new --output directory.")
     args.output.mkdir(parents=True, exist_ok=True)
     preprocessing = ResNet18_Weights.IMAGENET1K_V1.transforms()
 
