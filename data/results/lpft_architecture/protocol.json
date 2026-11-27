@@ -1,0 +1,22 @@
+{
+  "head_epochs": 2,
+  "second_epochs": 6,
+  "batch_size": 16,
+  "head_lr": 0.0001,
+  "backbone_lr": 1e-05,
+  "weight_decay": 0.0001,
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "strategies": {
+    "last_block": "head 2 ep, then head + last block 6 ep",
+    "lp_ft": "head 2 ep, then all parameters 6 ep"
+  },
+  "selection": "epoch 0-8 maximizing Field Dev macro-F1, earliest tie",
+  "status": "exploratory, CPU",
+  "torch": "2.15.0+cu132",
+  "timm": "1.0.31",
+  "threads": 4
+}
