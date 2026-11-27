@@ -1,7 +1,7 @@
 # Tổng hợp cải thiện — plant-disease-diagnosis
 
-> **Tiến độ: ⏳ ĐANG CẬP NHẬT** · cập nhật lần cuối 2026-11-28 01:30 UTC (08:30 giờ VN).
-> Dòng này đổi thành **✅ DONE** khi đợt 2 đóng băng (hạn 04:30 UTC).
+> **Tiến độ: ⏳ ĐANG CẬP NHẬT** · cập nhật lần cuối 2026-11-28 00:05 UTC (07:05 giờ VN).
+> Dòng này đổi thành **✅ DONE** khi đợt 2 đóng băng (dừng chạy thí nghiệm 03:30 UTC, push cuối 04:15 UTC, tức 11:15 giờ VN).
 
 File này **chỉ để đọc và ra quyết định**. Nó liệt kê:
 - từng vấn đề của repo, mức nghiêm trọng, effort, và đã được sửa ở đợt nào;
@@ -59,7 +59,7 @@ Các reviewer ước tính sửa các lỗi effort S sẽ đưa C4 lên khoảng
 | 7 | Clone repo về không chạy được gì | 🟠 | P0 | S | C2 C5 | ⬜ | ✅ Tải checkpoint có kiểm SHA; script tái lập gọi unittest; script so sánh kiểm từng ô | 👤 Sao lưu checkpoint sang vị trí thứ hai (hiện chỉ có trên một Drive cá nhân) |
 | 8 | Không có demo chạy được; demo ghi sai số liệu lab *(hội đồng phát hiện)* | 🟠 | P0 | S | C5 | ⬜ | ✅ Demo hiện số đo thật của từng model (đọc từ CSV), ảnh ViT đúng vùng model thấy | 👤 Quay video demo dự phòng; tải sẵn dataset trước khi demo trực tiếp |
 | 9 | Báo cáo hoặc slide ngoài repo (LaTeX) chưa có số liệu mới | 🟠 | P0 | M | C5 | ⬜ | ⬜ | 👤 Nhóm cập nhật theo README đợt 2 |
-| 10 | "Model dựa vào vùng tổn thương" chưa có đối chứng; Grad-CAM bị diễn giải quá *(hội đồng phát hiện)* | 🟠 | P1 | S | C1 C4 | ⬜ | ✅ Đối chứng xoá vùng ngẫu nhiên cùng diện tích: mức giảm thêm 0.12–0.15, CI loại trừ 0, nên **model có dựa vào tổn thương**. Nhưng Grad-CAM pointing (0.58–0.66) **thua baseline tâm ảnh (0.74)** | Grad-CAM cho ViT (cần thêm thời gian) |
+| 10 | "Model dựa vào vùng tổn thương" chưa có đối chứng; Grad-CAM bị diễn giải quá *(hội đồng phát hiện)* | 🟠 | P1 | S | C1 C4 | ⬜ | ✅ Đối chứng xoá vùng ngẫu nhiên cùng diện tích: mức giảm thêm 0.12–0.15, CI loại trừ 0, nên **model có dựa vào tổn thương**. Xoá vùng đối chứng chỉ làm accuracy đổi −1.6 đến +1.9 pp (378 ảnh; 108 ảnh có vết bệnh quá lớn bị loại). Grad-CAM pointing (0.58–0.66) **trên mức ngẫu nhiên (0.46) nhưng không hơn baseline tâm ảnh (0.74)** | Grad-CAM cho ViT (cần thêm thời gian) |
 | 11 | So sánh CNN vs ViT bị confound (tỉ lệ tham số 75% vs 8%) | 🟠 | P1 | M | C3 | ✅ Ghi limitation | ✅ Train lại khám phá: thứ hạng **phụ thuộc cả độ sâu fine-tune lẫn ngân sách train** | 👤 Bản chính thức nhiều seed cần GPU |
 | 12 | Ngân sách train thấp (chọn epoch cuối khi Dev còn tăng) | 🟡 | P1 | M | C3 | ✅ Ghi limitation | ✅ Ablation 24 epoch: Field Dev của ResNet vẫn tăng (epoch được chọn 23/24), ViT plateau quanh epoch 12–18. ⏳ Mixed 24 epoch (E2) đang chạy | 👤 Nhiều seed hơn, cần GPU |
 | 13 | Lab split có thể bị rò rỉ | 🟡 | P1 | S–M | C3 | ⬜ | ✅ Chỉ 3/1.341 và 2/1.692 ảnh gần trùng; Lab Test không đổi | Không bắt được các ảnh khác nhau của cùng một lá |
@@ -91,7 +91,7 @@ Các reviewer ước tính sửa các lỗi effort S sẽ đưa C4 lên khoảng
 2. **"Mixed và Field-only có tương đương không?"** Không chứng minh được tương đương. Trên v3, CI loại trừ trường hợp Mixed thua và trường hợp Mixed thắng quá 3.6 pp. Mixed cao hơn ở cả 3 seed, nhưng p theo seed là 0.12. Lợi ích chắc chắn duy nhất của Mixed là giữ được kết quả trên Lab.
 3. **"Làm sao biết protocol đã khoá trước khi chạy?"** Commit `8762743` (protocol) có trước `cfc4752` (kết quả), và SHA-256 khớp với `run_record.json`. Đây là bằng chứng từ lịch sử git chứ không phải xác nhận của bên thứ ba. Mọi phân tích sau đó đều là khám phá (`docs/evaluation_ledger.md`).
 4. **"External v3 có thật sự độc lập không?"** Ảnh đã được lọc với 20.738 ảnh tham chiếu và 94 ảnh bị loại. Bộ lọc pHash không bắt được ảnh bị crop hoặc lật, nên đây là cận dưới của mức trùng. Nhãn PlantSeg chưa được audit (13/64 ảnh bất đồng).
-5. **"Grad-CAM có cho thấy model nhìn vào vết bệnh không?"** Không. Model *có* dựa vào vết bệnh: xoá vết bệnh làm accuracy giảm thêm 0.12–0.15 so với xoá một vùng đối chứng. Nhưng đỉnh Grad-CAM trùng vết bệnh còn ít hơn baseline "luôn chỉ vào tâm ảnh".
+5. **"Grad-CAM có cho thấy model nhìn vào vết bệnh không?"** Không đáng tin. Model *có* dựa vào vết bệnh: xoá vết bệnh làm accuracy giảm thêm 0.12–0.15 so với xoá một vùng đối chứng cùng diện tích. Đỉnh Grad-CAM trúng vết bệnh nhiều hơn mức ngẫu nhiên (0.58–0.66 so với 0.46), nhưng ít hơn baseline "luôn chỉ vào tâm ảnh" (0.74). Kết luận này chỉ áp dụng cho Grad-CAM của ResNet18; chưa thử phương pháp attribution khác.
 6. **"CNN hay ViT tốt hơn?"** Không kết luận được. Thứ hạng đổi theo độ sâu fine-tune và ngân sách train; các run 8 epoch đều là model chưa hội tụ.
 7. **"Clone về thì tái lập được gì?"** Tái lập được các phân tích inference (v3, retention, nội suy, lesion, control) bằng `reproduce_round2.sh`, mất khoảng 1.5 giờ CPU và tải khoảng 4 GB. Phần train của NB02–15 cần GPU trên Colab.
 
@@ -127,7 +127,9 @@ Các reviewer ước tính sửa các lỗi effort S sẽ đưa C4 lên khoảng
 | `dfdf608` | Sửa bug theo hội đồng: demo, script tái lập, script so sánh, chặn ghi đè |
 | `dd541b6`, `248a4b0` | Sửa tài liệu và viết theo giới hạn CI; CI cho metric phụ; sổ ghi đánh giá |
 | `dbeaf09` → `991123a` | Đối chứng occlusion và baseline tâm ảnh |
-| `0d47ea8` | E2: Mixed 24 epoch (⏳) |
+| `0d47ea8`, `7c1a280` | Khai báo trước E2 (Mixed 24 epoch) và bản bổ sung seed 43–44 cùng nhánh Field-only (⏳ đang chạy) |
+| `828bbfe` | Khai báo trước E3: AdaBN (⏳ đang chạy) |
 | `da2f057` | Hình, định nghĩa FO, audit Lab trong README |
+| `034ad91` | Sửa câu chữ theo Leader; bảng occlusion trên cùng 378 ảnh; kết quả E2 seed 42 |
 
 Lý do của từng thay đổi được giải thích trong `REPO_REVIEW.md` §(h) và §(h.2) trên nhánh đợt 2.
