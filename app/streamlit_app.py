@@ -131,8 +131,9 @@ with right:
         cam = grad_cam(model, transform, image, CLASS_NAMES.index(target))
         st.image(overlay(image, cam, transform=transform), caption=f"Grad-CAM (layer4) for '{target}' on the 224×224 model view",
                  width="stretch")
-        st.caption("On PlantSeg lesion masks, Grad-CAM peaks fall on lesions for about 0.65 of images "
-                   "against a 0.46 chance level: treat the map as a weak hint, not a lesion detector.")
+        st.caption("On PlantSeg lesion masks, Grad-CAM peaks fall on lesions for about 0.65 of images — less often "
+                   "than simply pointing at the image centre (0.74). The models do use lesion pixels, but this map "
+                   "is not a reliable picture of where.")
     else:
         st.image(model_view(image, transform), caption="224×224 region this model sees (its own resize and crop)",
                  width="stretch")

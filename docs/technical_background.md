@@ -100,8 +100,10 @@ Two quantitative tests use expert lesion masks:
 Occlusion complements them. Lesions are removed by inpainting and the prediction change is measured; the edited
 images are out-of-distribution, so this measures reliance rather than isolated causation.
 
-*Evidence:* `scripts/evaluate_lesion_reliance.py`. Pointing accuracy is 0.58–0.66 against a chance level of 0.46,
-and inpainting the lesions removes 38–52% of correct predictions.
+*Evidence:* `scripts/evaluate_lesion_reliance.py` and `scripts/evaluate_occlusion_control.py`. Inpainting the
+lesions lowers accuracy by 0.12–0.15 more than inpainting a same-area random region (intervals exclude zero), so
+the models use lesion pixels. Pointing accuracy (0.58–0.66) is above the area-based chance level (0.46) but below a
+centre-point baseline (0.74): a good pointing score needs a positional baseline, and Grad-CAM fails it here.
 
 ## 7. Weight-space interpolation
 
