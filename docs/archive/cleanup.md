@@ -2,8 +2,8 @@
 
 This is the historical 2026-11-04 snapshot. Its notebook counts, directory tree,
 and working-tree observations describe that cleanup, not the current checkout.
-For the ten-notebook research record, see the [README](../README.md),
-[current workflow](workflow.md), and [documentation audit](documentation_audit.md).
+For the ten-notebook research record, see the [README](../../README.md),
+[current workflow](../workflow.md), and [documentation audit](documentation_audit.md).
 The staging/commit commands below are a historical proposal, not required steps
 for reviewing the documentation revision.
 
@@ -83,7 +83,7 @@ Local `.venv/`, operating-system metadata, and Python caches are omitted from th
 
 ## Inventory and disposition
 
-- Archived two notebook 06 predecessors and their four random/exact-grouped preparation/evaluation scripts with `git mv`. Their split methods are superseded by the saved pHash protocol, not judged unused from their names. No main code imports these scripts. Exact move mappings are in [workflow.md](workflow.md).
+- Archived two notebook 06 predecessors and their four random/exact-grouped preparation/evaluation scripts with `git mv`. Their split methods are superseded by the saved pHash protocol, not judged unused from their names. No main code imports these scripts. Exact move mappings are in [workflow.md](../workflow.md).
 - Retained all eight main notebooks, the current verified scripts, original baseline preparation/evaluation code, and the manifest-backed dataset loader at their existing paths.
 - Retained all manifests, mappings, duplicate candidate pairs, conflicting labels, quarantine records, protocol metadata, and both timestamped backup sets without modification. Backup files are intentional historical snapshots, not redundant files to remove.
 - Retained all six saved result families, including predictions, metrics, reports, plots, confusion matrices, and evaluation protocols. Historical Dev results match their backup manifests by SHA-256. They must not be compared as if evaluated on today's split.

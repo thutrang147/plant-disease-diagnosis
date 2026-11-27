@@ -30,17 +30,17 @@ requirements are listed below; none of the checkpoints is tracked in Git.
 
 Run commands from the repository root so `src` imports resolve. Preparation scripts are retained for provenance and deliberate future dataset construction. They are **not** prerequisites when the committed manifests already exist. In particular, `src/data_prep.py` writes original splits and label mappings, and the verified preparation script can replace derived splits with backups when explicitly requested. Neither was run during cleanup.
 
-The [final submission audit](submission_audit.md) supersedes dated cleanup observations below.
+The [final submission audit](archive/submission_audit.md) supersedes dated cleanup observations below.
 
 The current verified pair is `src/prepare_field_dev_verified.py` and `src/evaluate_field_dev_verified.py`. The latter validates manifests and loads frozen ResNet18 checkpoints through `load_model`. Baseline model loading also lives in `src/evaluate.py` (ResNet18) and `src/evaluate_vit.py` (timm `vit_small_patch16_224.augreg_in1k`). Field-adapted and mixed-domain loading is implemented in notebooks 06–08. No model factory was substituted or consolidated.
 
-Experiment parameters remain in notebook configuration cells. `configs/config.yaml`, `src/train.py`, and `src/models.py` are starter scaffolds, not an alternative reproduction pipeline. Moving notebook parameters into YAML would change the working code and is outside this cleanup.
+Experiment parameters remain in notebook configuration cells. The unused starter scaffold (`train.py`, `models.py`, `config.yaml` and the upload-only Streamlit app) has been moved to `archive/scaffold/`; it is not a reproduction pipeline.
 
 The current sequence contains fifteen main notebooks (01–15). Notebooks 11–14 add canonical external evaluation, error analysis, Healthy parent/crop analysis and exploratory spatial sensitivity. Notebook 15 reports the completed controlled three-seed ResNet18 comparison from portable prediction exports; its original Colab execution remains archived. Notebook 09 evaluates
 four fixed models on Lab Test and verified Field Dev; notebook 10 reads its
 predictions for error analysis and loads the two mixed models for visualization.
 Neither performs training. See the [research overview](../README.md) for results
-and the [documentation audit](documentation_audit.md) for editorial findings.
+and the [documentation audit](archive/documentation_audit.md) for editorial findings.
 
 ## Manifests and audit evidence
 
@@ -205,5 +205,5 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python data/external_evaluation/tomato_field
 Readiness has three separate scopes: the branch can be integrated technically;
 no unintended external photographs/private packages are added by the proposed
 commit; historical photographs and existing dataset galleries still require
-rights/access review for redistribution. The [final audit and cleanup record](submission_audit.md#cleanup-and-integration-handoff)
+rights/access review for redistribution. The [final audit and cleanup record](archive/submission_audit.md#cleanup-and-integration-handoff)
 contains the exact status, retained files and manual Git commands.

@@ -281,3 +281,23 @@ _Cập nhật vòng 2: đã xem 57 ảnh nhúng, tìm Drive, đối chiếu lice
 - `python -m unittest discover -s tests -v`: **Ran 15 tests, OK** (0 failed) [VERIFIED].
 - `python scripts/audit_repository.py`: **exit 0, `"status": "passed"`**. 30 Python file parse được, 21 module `src` import được, split sizes khớp. Tuy nhiên chỉ **17 prediction file** được kiểm, so với 98 trong `docs/submission_audit.md`. 81 file còn lại nằm trong output bị ignore, đây là minh hoạ cụ thể cho #9 [VERIFIED].
 - Test pass chỉ chứng minh evidence đã lưu là nhất quán và I/O an toàn. Nó không chứng minh các kết luận khoa học ở #1–#8 là đúng.
+
+---
+
+## (g) Trạng thái sửa (vòng 3, sau khi chủ repo đồng ý)
+
+| Vấn đề | Đã làm | Còn lại |
+| --- | --- | --- |
+| #1 Healthy confound | README §2 và `docs/research_results_summary.md` báo cáo External v1 theo 2 strata; McNemar riêng 46 ảnh bệnh (ResNet p=0.83, ViT p=0.58) | — |
+| #2 Early Blight bias | README nêu 39/62 dự đoán EB (precision 0.28); `external_v1_prediction_distribution.csv` | — |
+| #3 RQ4 | README §4 có bảng Dev @ selected epoch, discordant pairs, bootstrap CI; kết luận đổi thành "không phát hiện khác biệt"; viết `scripts/evaluate_notebook15_lab_retention.py` (inference-only, kiểm SHA với seal) | **Chủ repo chạy script trên máy có checkpoint**, rồi thêm bảng kết quả vào README |
+| #4 Strawman | README §4 và Results Summary nêu A1 vs R1 và vai trò selection | — |
+| #5 Selective reporting | README §1 có cột Field Test; Holm cho cả family (`mcnemar_holm.csv`); §3 nêu cả gain lớn nhất lẫn loss lớn nhất; bỏ in đậm | — |
+| #6 Test reuse / nhãn | Limitations nêu row 2524; sensitivity loại 2524 (`notebook15_paired_bootstrap.csv`, gần như không đổi) | Audit nhãn 47 ảnh; locked test mới (L) |
+| #7 Confound kiến trúc | `docs/methods.md` có bảng recipe với tỉ lệ trainable 75% vs 8% | Control experiment (M) |
+| #8 Budget | Limitations + methods.md | Budget ablation (M) |
+| #9 Reproducibility | `outputs/external_confirmatory_eval/SUPERSEDED.md`; supplementary stats tái tạo được từ fresh clone; links docs được audit | Commit prediction CSV canonical NB11/13/14 (cần file local); pin môi trường; release checkpoint |
+| #10 License | `LICENSE` (MIT, chỉ cho code), `DATA_NOTICE.md`, `CITATION.cff` | **Quyết định của chủ repo:** snapshot không history hoặc `git filter-repo`; có giữ gallery có watermark hay không |
+| Docs/code hygiene | 4 file log docs → `docs/archive/`; scaffold → `archive/scaffold/`; tiêu đề NB14 → "Inference-view and cropping sensitivity" | Đổi tên file NB14 (đã giữ tên để không gãy link) |
+
+Kiểm tra sau khi sửa: `python -m unittest discover -s tests` → **21 tests OK** (thêm 6 test mới); `scripts/audit_repository.py` → **passed** (đã bắt và sửa 1 link gãy do di chuyển docs).
