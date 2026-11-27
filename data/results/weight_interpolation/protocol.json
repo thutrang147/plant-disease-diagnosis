@@ -1,0 +1,34 @@
+{
+  "alphas": [
+    0.0,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9,
+    1.0
+  ],
+  "selection_data": [
+    "lab_val",
+    "field_dev"
+  ],
+  "points": {
+    "alpha_field": 1.0,
+    "alpha_retention_matched": 0.4,
+    "field_only": 1.0
+  },
+  "mixed_lab_val_macro_f1_threshold": 0.9739614361770039,
+  "test_partitions": [
+    "lab_test",
+    "field_test",
+    "external_v3"
+  ],
+  "baseline_sha256": "65d53766258f26cb505cce4c319c3f783cb0f3c6ef4608680906919731f2782d",
+  "torch": "2.15.0+cu132",
+  "threads": 4,
+  "interpolation": "torch.lerp on floating-point tensors; integer buffers from the Lab baseline"
+}
