@@ -22,11 +22,15 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from src.inference import CLASS_NAMES, discover_checkpoints, load_checkpoint, load_image, predict_image  # noqa: E402
+from src.inference import (  # noqa: E402
+    CLASS_NAMES, discover_checkpoints, explain_image, load_checkpoint, load_image, predict_image,
+)
 
 MODELS_DIR = Path(os.environ.get("PLANT_MODELS_DIR", ROOT / "models"))
 UPLOAD_TYPES = ("jpg", "jpeg", "png", "webp")
+# Display heuristics for the warning, not calibrated decision thresholds.
 LOW_CONFIDENCE = 0.5
+LOW_MARGIN = 0.15
 
 # Five-class macro-F1 from the README "Main Results" table (historical checkpoints).
 KNOWN_CHECKPOINTS = {
@@ -115,7 +119,7 @@ def render_prediction(prediction) -> None:
     margin = ranked[0][1] - ranked[1][1]
     st.metric("Model probability", f"{prediction.confidence:.1%}",
               help="Softmax probability, not a calibrated likelihood of disease.")
-    if prediction.confidence < LOW_CONFIDENCE or margin < 0.15:
+    if prediction.confidence < LOW_CONFIDENCE or margin < LOW_MARGIN:
         st.warning(
             f"Low-confidence result: the runner-up, {ranked[1][0]}, is {ranked[1][1]:.1%}. "
             "Try a closer, well-lit photo of a single leaf."
@@ -128,6 +132,23 @@ def render_prediction(prediction) -> None:
             "Probability", format="%.3f", min_value=0.0, max_value=1.0)},
     )
     st.caption(f"{prediction.view_count} view(s) averaged · {STRATEGY_LABELS[prediction.strategy]}")
+
+
+def render_explanation(loaded, image, prediction, target) -> None:
+    """Draw the map in ``target`` (under the photo) when the toggle is on."""
+    if not st.toggle("Show where the model looked", key="explain",
+                     help="Grad-CAM for ResNet18, last-block attention for ViT-Small (Notebook 10)."):
+        return
+    with st.spinner("Computing map…"):
+        explanation = explain_image(loaded, image)
+    note = "Computed on the standard 224 × 224 view."
+    if explanation.label_id != prediction.label_id:
+        note += f" On that view the model predicts {explanation.class_name}, unlike the five-crop result."
+    with target:
+        st.image(explanation.overlay(), width="stretch",
+                 caption=f"{explanation.method} · {explanation.class_name}")
+        st.caption(note + " Bright areas are weighted most by this method, but they do not show that "
+                   "the model relied on a lesion; treat the map as qualitative.")
 
 
 def main() -> None:
@@ -170,8 +191,11 @@ def main() -> None:
 
     left, right = st.columns([1, 1])
     left.image(image, caption=f"{upload.name} · {image.width} × {image.height}", width="stretch")
-    with right, st.spinner("Classifying…"):
-        render_prediction(predict_image(loaded, image, strategy))
+    with right:
+        with st.spinner("Classifying…"):
+            prediction = predict_image(loaded, image, strategy)
+        render_prediction(prediction)
+        render_explanation(loaded, image, prediction, left)
 
 
 main()

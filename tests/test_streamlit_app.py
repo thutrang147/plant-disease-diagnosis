@@ -75,6 +75,12 @@ class StreamlitAppTests(unittest.TestCase):
         self.assertFalse(app.exception)
         self.assertIn("5 view(s)", app.main.caption[-1].value)
 
+        self.assertEqual(len(app.main.get("image")), 1)
+        app.toggle(key="explain").set_value(True).run()
+        self.assertFalse(app.exception)
+        self.assertEqual(len(app.main.get("image")), 2)
+        self.assertTrue(any("qualitative" in caption.value for caption in app.main.caption))
+
     def test_unreadable_checkpoint_and_image_show_errors(self):
         (self.models / "broken.pt").write_bytes(b"not a checkpoint")
         app = self.run_app()

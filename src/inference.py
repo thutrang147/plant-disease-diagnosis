@@ -30,8 +30,10 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Callable
 
+import numpy as np
 import timm
 import torch
+import torch.nn.functional as F
 from PIL import Image, ImageOps
 from torch import nn
 from torchvision import transforms
@@ -68,6 +70,8 @@ class LoadedModel:
     view_normalize: Callable
     preprocessing_source: str
     device: torch.device
+    mean: tuple[float, float, float]
+    std: tuple[float, float, float]
     metadata: dict = field(default_factory=dict)
 
 
@@ -169,6 +173,7 @@ def load_checkpoint(path: str | Path, device: str | torch.device = "cpu") -> Loa
     model.eval().requires_grad_(False).to(device)
     normalize = transforms.Compose([transforms.ToTensor(), transforms.Normalize(mean, std)])
     return LoadedModel(model, architecture, standard, normalize, source, device,
+                       tuple(float(v) for v in mean), tuple(float(v) for v in std),
                        _summarize_metadata(checkpoint))
 
 
@@ -198,6 +203,106 @@ def predict_image(loaded: LoadedModel, image: Image.Image, strategy: str = "stan
         strategy=strategy,
         view_count=int(views.shape[0]),
     )
+
+
+@dataclass(frozen=True)
+class Explanation:
+    """A qualitative heatmap on the model's standard 224 x 224 input view."""
+
+    method: str
+    label_id: int
+    class_name: str
+    model_input: np.ndarray  # H x W x 3, de-normalized to [0, 1]
+    heatmap: np.ndarray  # H x W, min-max scaled to [0, 1]
+
+    def overlay(self) -> np.ndarray:
+        """Blend the heatmap onto the input as in Notebook 10 (inferno, 42%)."""
+        from matplotlib import colormaps
+        colored = colormaps["inferno"](self.heatmap)[..., :3]
+        return (0.58 * self.model_input + 0.42 * colored).clip(0, 1)
+
+
+def _denormalize(tensor: torch.Tensor, mean, std) -> np.ndarray:
+    image = tensor.detach().cpu().permute(1, 2, 0).numpy()
+    return np.clip(image * np.asarray(std) + np.asarray(mean), 0, 1)
+
+
+def _scale(heat: torch.Tensor, size) -> np.ndarray:
+    heat = F.interpolate(heat, size=size, mode="bilinear", align_corners=False)[0, 0].cpu().numpy()
+    return (heat - heat.min()) / max(heat.max() - heat.min(), 1e-8)
+
+
+def _resnet_gradcam(model: nn.Module, tensor: torch.Tensor):
+    """Grad-CAM on ``layer4[-1]`` for the predicted class (Notebook 10, cell 18)."""
+    holder = {}
+
+    def capture(_, __, activation):
+        holder["activation"] = activation
+        activation.retain_grad()
+
+    handle = model.layer4[-1].register_forward_hook(capture)
+    try:
+        with torch.inference_mode(False), torch.enable_grad():
+            # Parameters are frozen; a grad-requiring input keeps the activation in the graph.
+            tensor = tensor.clone().requires_grad_(True)
+            logits = model(tensor)
+            predicted = int(logits.argmax(dim=1).item())
+            logits[0, predicted].backward()
+            features = holder["activation"].detach()
+            weights = holder["activation"].grad.detach().mean(dim=(2, 3), keepdim=True)
+            cam = torch.relu((features * weights).sum(dim=1, keepdim=True))
+    finally:
+        handle.remove()
+    return predicted, cam
+
+
+def _vit_last_block_attention(model: nn.Module, tensor: torch.Tensor):
+    """Mean-head CLS-to-patch attention of the final block (Notebook 10, cell 20)."""
+    attention_module = model.blocks[-1].attn
+    cache = {}
+
+    def save_input(_, args):
+        cache["x"] = args[0].detach()
+
+    handle = attention_module.register_forward_pre_hook(save_input)
+    try:
+        with torch.inference_mode():
+            predicted = int(model(tensor).argmax(dim=1).item())
+            x = cache["x"]
+            batch, tokens, channels = x.shape
+            heads = attention_module.num_heads
+            qkv = attention_module.qkv(x).reshape(batch, tokens, 3, heads, channels // heads)
+            qkv = qkv.permute(2, 0, 3, 1, 4)
+            q, k = attention_module.q_norm(qkv[0]), attention_module.k_norm(qkv[1])
+            attention = ((q * attention_module.scale) @ k.transpose(-2, -1)).softmax(dim=-1)
+            prefix = getattr(model, "num_prefix_tokens", 1)
+            height, width = model.patch_embed.grid_size
+            if prefix + height * width != tokens:
+                raise ValueError("Unexpected ViT token layout")
+            heat = attention[0, :, 0, prefix:].mean(dim=0).reshape(1, 1, height, width)
+    finally:
+        handle.remove()
+    return predicted, heat
+
+
+def explain_image(loaded: LoadedModel, image: Image.Image) -> Explanation:
+    """Return Grad-CAM (ResNet18) or last-block attention (ViT-Small) for one image.
+
+    Uses the standard view only. Following Notebook 10, neither map establishes
+    causal reliance on a lesion, and the two methods are not equivalent.
+    """
+    if image.mode != "RGB":
+        image = image.convert("RGB")
+    tensor = loaded.standard_transform(image).unsqueeze(0).to(loaded.device)
+    if loaded.architecture == RESNET_ARCHITECTURE:
+        method = "ResNet18 Grad-CAM (layer4, predicted class)"
+        predicted, heat = _resnet_gradcam(loaded.model, tensor)
+    else:
+        method = "ViT-Small last-block CLS-to-patch attention (mean of heads)"
+        predicted, heat = _vit_last_block_attention(loaded.model, tensor)
+    return Explanation(method, predicted, CLASS_NAMES[predicted],
+                       _denormalize(tensor[0], loaded.mean, loaded.std),
+                       _scale(heat, tensor.shape[-2:]))
 
 
 def discover_checkpoints(directory: str | Path) -> list[Path]:

@@ -210,7 +210,7 @@ python -m src.inference --checkpoint models/resnet18_geometric_mixed_best.pt pat
 python -m src.inference --checkpoint models/vit_small_mixed_best.pt --strategy five_crop --json path/to/folder/
 ```
 
-[`src/inference.py`](src/inference.py) validates class order and architecture, loads weights strictly, applies EXIF orientation as in Notebook 11 and uses the evaluation preprocessing of each architecture. `five_crop` reuses the Notebook 14 views and is exploratory. Reported probabilities are uncalibrated softmax outputs. On field images these models reach a reported macro-F1 of 0.24–0.49 with standard inference, so predictions are research outputs, not crop-management advice. Set `PLANT_MODELS_DIR` to read checkpoints from another folder.
+[`src/inference.py`](src/inference.py) validates class order and architecture, loads weights strictly, applies EXIF orientation as in Notebook 11 and uses the evaluation preprocessing of each architecture. `five_crop` reuses the Notebook 14 views and is exploratory. Reported probabilities are uncalibrated softmax outputs. On field images these models reach a reported macro-F1 of 0.24–0.49 with standard inference, so predictions are research outputs, not crop-management advice. Set `PLANT_MODELS_DIR` to read checkpoints from another folder. The app can also overlay Notebook 10's ResNet18 Grad-CAM or ViT-Small last-block attention on the standard view; like the notebook figures, these maps are qualitative and do not show reliance on a lesion.
 
 ## Limitations
 

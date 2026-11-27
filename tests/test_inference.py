@@ -8,6 +8,7 @@ from pathlib import Path
 import tempfile
 import unittest
 
+import numpy as np
 import timm
 import torch
 from PIL import Image
@@ -193,6 +194,60 @@ class PredictionTests(InferenceTestCase):
         self.assertEqual(record["image"], str(image_path))
         self.assertEqual(record["view_count"], 5)
         self.assertIn(record["class_name"], CLASS_NAMES)
+
+
+class ExplanationTests(InferenceTestCase):
+    def check_map(self, explanation, loaded, image):
+        self.assertEqual(explanation.heatmap.shape, (224, 224))
+        self.assertEqual(explanation.model_input.shape, (224, 224, 3))
+        for array in (explanation.heatmap, explanation.model_input, explanation.overlay()):
+            self.assertGreaterEqual(float(array.min()), 0.0)
+            self.assertLessEqual(float(array.max()), 1.0)
+        self.assertAlmostEqual(float(explanation.heatmap.max()), 1.0, places=5)
+        self.assertEqual(explanation.label_id, inference.predict_image(loaded, image).label_id)
+
+    def test_resnet_gradcam_matches_autograd_reference(self):
+        image = leaf_image()
+        explanation = inference.explain_image(self.resnet, image)
+        self.check_map(explanation, self.resnet, image)
+        self.assertIn("Grad-CAM", explanation.method)
+
+        model, tensor, captured = self.resnet.model, self.resnet.standard_transform(image).unsqueeze(0), {}
+        handle = model.layer4[-1].register_forward_hook(lambda _, __, out: captured.update(out=out))
+        try:
+            logits = model(tensor.requires_grad_(True))
+            (gradient,) = torch.autograd.grad(logits[0, explanation.label_id], captured["out"])
+        finally:
+            handle.remove()
+        cam = torch.relu((captured["out"].detach() * gradient.mean(dim=(2, 3), keepdim=True)).sum(1, keepdim=True))
+        expected = inference._scale(cam, (224, 224))
+        self.assertTrue(np.allclose(explanation.heatmap, expected, atol=1e-5))
+        # The displayed input is the de-normalized ResNet preprocessing of the image.
+        view = ResNet18_Weights.IMAGENET1K_V1.transforms()(image).permute(1, 2, 0).numpy()
+        expected_input = np.clip(view * np.asarray(self.resnet.std) + np.asarray(self.resnet.mean), 0, 1)
+        self.assertTrue(np.allclose(explanation.model_input, expected_input, atol=1e-6))
+
+    def test_vit_attention_matches_timm_unfused_attention(self):
+        image = leaf_image()
+        explanation = inference.explain_image(self.vit, image)
+        self.check_map(explanation, self.vit, image)
+        self.assertIn("attention", explanation.method)
+
+        attention_module, captured = self.vit.model.blocks[-1].attn, {}
+        fused = attention_module.fused_attn
+        attention_module.fused_attn = False
+        handle = attention_module.attn_drop.register_forward_hook(
+            lambda _, __, out: captured.update(attention=out.detach()))
+        try:
+            with torch.inference_mode():
+                self.vit.model(self.vit.standard_transform(image).unsqueeze(0))
+        finally:
+            handle.remove()
+            attention_module.fused_attn = fused
+        prefix = self.vit.model.num_prefix_tokens
+        grid = self.vit.model.patch_embed.grid_size
+        heat = captured["attention"][0, :, 0, prefix:].mean(0).reshape(1, 1, *grid)
+        self.assertTrue(np.allclose(explanation.heatmap, inference._scale(heat, (224, 224)), atol=1e-5))
 
 
 if __name__ == "__main__":
