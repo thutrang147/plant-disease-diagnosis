@@ -16,6 +16,7 @@ point to where they can be checked.
 | Field Test | 47 (8 / 9 / 10 / 9 / 11) | Original PlantDoc test split; **inspected since Notebook 04** |
 | External v1 | 62 = 16 self-collected Healthy + 46 online disease | Source and class fully confounded; report by stratum |
 | Healthy v2 | 57 Healthy (8 originals + 49 crops from 23 parents / 21 scenes) | Healthy recognition only |
+| External v3 (PlantSeg) | 486 (0 / 151 / 148 / 97 / 90) | Locked, pre-registered disease-only evaluation; screened against all PlantDoc and PlantVillage tomato rows (exact or pHash ≤ 10 excluded) |
 
 Lab splits use `StratifiedGroupKFold` on PlantVillage `leaf_id`. Some images (1,510 / 378 / 465 in
 train / val / test) have no reliable leaf group and are their own group, so same-leaf duplicates across
