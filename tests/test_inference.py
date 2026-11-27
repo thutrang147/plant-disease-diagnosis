@@ -119,8 +119,12 @@ class LoadingTests(InferenceTestCase):
                     inference.load_checkpoint(self.save(name, **payload))
         bare = self.root / "bare_state_dict.pt"
         torch.save(state, bare)
-        with self.assertRaises(ValueError):
-            inference.load_checkpoint(bare)
+        corrupt = self.root / "corrupt.pt"
+        corrupt.write_bytes(b"not a checkpoint")
+        for path in (bare, corrupt):
+            with self.subTest(name=path.name):
+                with self.assertRaises(ValueError):
+                    inference.load_checkpoint(path)
 
     def test_discover_checkpoints_lists_only_checkpoint_files(self):
         with tempfile.TemporaryDirectory() as directory:

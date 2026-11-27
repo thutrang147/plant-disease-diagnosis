@@ -24,6 +24,8 @@ from __future__ import annotations
 
 import argparse
 import json
+import pickle
+import zipfile
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Callable
@@ -125,7 +127,11 @@ def load_checkpoint(path: str | Path, device: str | torch.device = "cpu") -> Loa
     """
     path = Path(path)
     device = device if isinstance(device, torch.device) else resolve_device(device)
-    checkpoint = torch.load(path, map_location="cpu", weights_only=True)
+    try:
+        # weights_only refuses arbitrary pickled objects from untrusted files.
+        checkpoint = torch.load(path, map_location="cpu", weights_only=True)
+    except (pickle.UnpicklingError, EOFError, RuntimeError, zipfile.BadZipFile) as error:
+        raise ValueError(f"{path.name}: not a readable PyTorch checkpoint") from error
     if not isinstance(checkpoint, dict) or "model_state_dict" not in checkpoint:
         raise ValueError(f"{path.name}: not a research checkpoint dictionary with model_state_dict")
     if list(checkpoint.get("class_names", [])) != CLASS_NAMES:
