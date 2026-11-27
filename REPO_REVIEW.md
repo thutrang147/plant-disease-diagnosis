@@ -290,7 +290,7 @@ _Cập nhật vòng 2: đã xem 57 ảnh nhúng, tìm Drive, đối chiếu lice
 | --- | --- | --- |
 | #1 Healthy confound | README §2 và `docs/research_results_summary.md` báo cáo External v1 theo 2 strata; McNemar riêng 46 ảnh bệnh (ResNet p=0.83, ViT p=0.58) | — |
 | #2 Early Blight bias | README nêu 39/62 dự đoán EB (precision 0.28); `external_v1_prediction_distribution.csv` | — |
-| #3 RQ4 | README §4 có bảng Dev @ selected epoch, discordant pairs, bootstrap CI; kết luận đổi thành "không phát hiện khác biệt"; viết `scripts/evaluate_notebook15_lab_retention.py` (inference-only, kiểm SHA với seal) | **Chủ repo chạy script trên máy có checkpoint**, rồi thêm bảng kết quả vào README |
+| #3 RQ4 | README §4 có bảng Dev @ selected epoch, discordant pairs, bootstrap CI; kết luận đổi thành "không phát hiện khác biệt"; viết `scripts/evaluate_notebook15_lab_retention.py` (inference-only, kiểm SHA với seal). **Vòng 4:** đã chạy trên 6 checkpoint sealed + baseline; README §4 và Results Summary có bảng retention (Lab Test macro-F1 Field-only 0.8136 vs Mixed 0.9535); kết quả ở `data/results/notebook15_lab_retention/` | — |
 | #4 Strawman | README §4 và Results Summary nêu A1 vs R1 và vai trò selection | — |
 | #5 Selective reporting | README §1 có cột Field Test; Holm cho cả family (`mcnemar_holm.csv`); §3 nêu cả gain lớn nhất lẫn loss lớn nhất; bỏ in đậm | — |
 | #6 Test reuse / nhãn | Limitations nêu row 2524; sensitivity loại 2524 (`notebook15_paired_bootstrap.csv`, gần như không đổi) | Audit nhãn 47 ảnh; locked test mới (L) |
