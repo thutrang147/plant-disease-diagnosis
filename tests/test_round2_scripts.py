@@ -80,5 +80,41 @@ class HelperTest(unittest.TestCase):
         self.assertLess(ev.sign_flip_p(np.zeros(40), b), 0.001)
 
 
+class ReproducibilityTest(unittest.TestCase):
+    def test_checkpoint_registry(self):
+        registry = json.loads((ROOT / "data/checkpoints.json").read_text())
+        entries = registry["checkpoints"]
+        keys = [e["key"] for e in entries]
+        self.assertEqual(len(keys), len(set(keys)))
+        for entry in entries:
+            self.assertRegex(entry["sha256"], r"^[0-9a-f]{64}$")
+            self.assertIn(entry["hash_source"], registry["hash_sources"])
+            self.assertIn(entry["group"], {"core", "historical"})
+        by_key = {e["key"]: e["sha256"] for e in entries}
+        protocol = json.loads((V3 / "protocol.json").read_text())
+        for key in ("resnet18_lab", "vit_small_lab", "resnet18_geometric_mixed", "vit_small_mixed"):
+            self.assertEqual(by_key[key], protocol["models"][key]["checkpoint_sha256"])
+        seal = json.loads((ROOT / "data/results/notebook15/original_evaluation_seal.json").read_text())
+        for seed, files in seal["seed_checkpoints"].items():
+            for name, digest in files.items():
+                self.assertEqual(by_key[f"nb15_{name.replace('_selected.pt', '')}_s{seed}"], digest)
+
+    def test_dataset_revisions_are_pinned(self):
+        from src.dataset import DATASET_SOURCES
+        self.assertRegex(DATASET_SOURCES["plantvillage"][1], r"^[0-9a-f]{40}$")
+        self.assertEqual(DATASET_SOURCES["plantdoc"][1], "v0.1.0")
+
+    def test_compare_reproduction(self):
+        compare = load_script("compare_reproduction")
+        import tempfile
+        with tempfile.TemporaryDirectory() as a, tempfile.TemporaryDirectory() as b:
+            frame = pd.DataFrame({"model": ["x", "y"], "correct": [1, 2], "accuracy": [0.5, 0.25]})
+            frame.to_csv(Path(a) / "m.csv", index=False)
+            frame.assign(accuracy=[0.5, 0.25 + 1e-6]).to_csv(Path(b) / "m.csv", index=False)
+            self.assertEqual(compare.compare(Path(a), Path(b), atol=1e-4), [])
+            frame.assign(correct=[1, 3]).to_csv(Path(b) / "m.csv", index=False)
+            self.assertEqual(len(compare.compare(Path(a), Path(b), atol=1e-4)), 1)
+
+
 if __name__ == "__main__":
     unittest.main()
