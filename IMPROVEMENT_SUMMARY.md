@@ -1,85 +1,133 @@
 # Tổng hợp cải thiện — plant-disease-diagnosis
 
-> **Tiến độ: ⏳ ĐANG CẬP NHẬT** · cập nhật lần cuối 2026-11-27 19:30 UTC.
-> Dòng này sẽ đổi thành **✅ DONE** khi tất cả hạng mục của đợt 2 hoàn tất.
+> **Tiến độ: ⏳ ĐANG CẬP NHẬT** · cập nhật lần cuối 2026-11-28 01:30 UTC (08:30 giờ VN).
+> Dòng này đổi thành **✅ DONE** khi đợt 2 đóng băng (hạn 04:30 UTC).
 
-File này **chỉ để đọc và ra quyết định**. Nó liệt kê từng vấn đề của repo, mức nghiêm trọng, effort, và đã được sửa ở đợt nào. Nhóm đọc file này, chọn phương án, rồi merge PR tương ứng. Nhánh `docs/improvement-summary-20261127` chỉ chứa file này và không thay đổi code.
+File này **chỉ để đọc và ra quyết định**. Nó liệt kê:
+- từng vấn đề của repo, mức nghiêm trọng, effort, và đã được sửa ở đợt nào;
+- điểm chấm ước lượng theo rubric từ một hội đồng 5 reviewer độc lập;
+- những việc chỉ nhóm mới làm được.
+
+Nhánh `docs/improvement-summary-20261127` chỉ chứa file này và không thay đổi code.
 
 ## 1. Chọn phương án nào
 
 | Phương án | Nhánh | PR | Gồm những gì |
 | --- | --- | --- | --- |
-| **Đợt 1** | [`review/repo-review-20261127`](https://github.com/thutrang147/plant-disease-diagnosis/tree/review/repo-review-20261127) | [#6](https://github.com/thutrang147/plant-disease-diagnosis/pull/6) | Review toàn diện; sửa cách trình bày kết quả (strata, CI, Holm); đo Lab retention; LICENSE; dọn docs |
-| **Đợt 2** | [`review/repo-review-round2-20261127`](https://github.com/thutrang147/plant-disease-diagnosis/tree/review/repo-review-round2-20261127) | [#7](https://github.com/thutrang147/plant-disease-diagnosis/pull/7) (⏳ đang hoàn thiện) | **Toàn bộ đợt 1**, cộng thêm bằng chứng mới (External v3, đo phụ thuộc vùng tổn thương, nội suy trọng số, DINOv2), tải checkpoint, tái lập, demo |
+| **Đợt 1** | [`review/repo-review-20261127`](https://github.com/thutrang147/plant-disease-diagnosis/tree/review/repo-review-20261127) | [#6](https://github.com/thutrang147/plant-disease-diagnosis/pull/6) | Review toàn diện; sửa cách trình bày (strata, CI, Holm); đo Lab retention; LICENSE; dọn docs. Đã được sửa thêm theo hội đồng reviewer (commit `c90d5f3`). |
+| **Đợt 2** (khuyến nghị) | [`review/repo-review-round2-20261127`](https://github.com/thutrang147/plant-disease-diagnosis/tree/review/repo-review-round2-20261127) | [#7](https://github.com/thutrang147/plant-disease-diagnosis/pull/7) | **Toàn bộ đợt 1**, cộng thêm: test độc lập pre-register (External v3, 486 ảnh); các phép kiểm có đối chứng; tải checkpoint có kiểm SHA; script tái lập; demo chạy thật; tài liệu kỹ thuật; sửa theo hội đồng reviewer và Leader. |
 
-- Đợt 2 đã chứa đợt 1, nên **chỉ merge một trong hai PR**.
-- Xem riêng phần thay đổi của từng đợt: [diff đợt 1](https://github.com/thutrang147/plant-disease-diagnosis/compare/main...review/repo-review-20261127) · [diff riêng đợt 2](https://github.com/thutrang147/plant-disease-diagnosis/compare/review/repo-review-20261127...review/repo-review-round2-20261127).
-- Muốn chỉ lấy một vài hạng mục thì cherry-pick commit tương ứng (xem mục 4).
+- **Chỉ merge một trong hai PR.** Đợt 2 đã chứa toàn bộ đợt 1, kể cả các bản sửa của đợt 1.
+- Xem riêng phần thay đổi: [diff đợt 1](https://github.com/thutrang147/plant-disease-diagnosis/compare/main...review/repo-review-20261127) · [diff riêng đợt 2](https://github.com/thutrang147/plant-disease-diagnosis/compare/review/repo-review-20261127...review/repo-review-round2-20261127).
+- Muốn lấy một phần thì cherry-pick commit tương ứng ở mục 6.
 
 ## 2. Thang đo
 
 | Cột | Giá trị |
 | --- | --- |
-| Nghiêm trọng | 🔴 Nghiêm trọng: có thể làm sai kết luận chính · 🟠 Cao: làm yếu bằng chứng hoặc mất điểm rubric rõ ràng · 🟡 Trung bình · ⚪ Thấp |
+| Nghiêm trọng | 🔴 Có thể làm sai kết luận chính · 🟠 Làm yếu bằng chứng, hoặc mất điểm rubric rõ ràng · 🟡 Trung bình · ⚪ Thấp |
 | Ưu tiên | **P0** sửa trước khi nộp · **P1** nên sửa · **P2** làm nếu còn thời gian |
-| Effort | **S** dưới 1 ngày, không cần train · **M** 1–3 ngày hoặc phải chạy lại · **L** trên 3 ngày hoặc phải thu dữ liệu mới |
-| Rubric | **C1** Kiến thức CV và độ khó (20%) · **C2** Triển khai và hoàn thành (25%) · **C3** Thiết kế thực nghiệm, controls, tính đúng (25%) · **C4** Phân tích và hạn chế (15%) · **C5** Báo cáo, demo, tái lập (15%) |
+| Effort | **S** dưới 1 ngày, không cần train · **M** 1–3 ngày, hoặc phải chạy lại · **L** trên 3 ngày, hoặc phải thu dữ liệu mới |
+| Rubric | **C1** Kiến thức CV (20%) · **C2** Triển khai (25%) · **C3** Thiết kế thực nghiệm (25%) · **C4** Phân tích và hạn chế (15%) · **C5** Báo cáo, demo, tái lập (15%) |
 | Trạng thái | ✅ Done · ⏳ Đang làm · ⬜ Chưa làm · 👤 Cần nhóm quyết định hoặc tự làm |
 
-## 3. Bảng vấn đề, xếp theo ưu tiên
+## 3. Điểm rubric ước lượng (hội đồng 5 reviewer)
+
+Mỗi reviewer là một agent độc lập, chỉ được đọc repo, phụ trách đúng một tiêu chí, và mọi nhận định phải kèm bằng chứng (file, dòng hoặc con số). Họ chấm nhánh đợt 2 tại commit `ab02c7e`, **trước** các bản sửa ở mục 4.
+
+| Tiêu chí | Điểm | Lý do chính bị trừ (trước khi sửa) |
+| --- | ---: | --- |
+| C1 Kiến thức CV (20%) | 7.0 | Phép occlusion chưa có đối chứng; không có attribution cho ViT; câu "representation > recipe" chưa đủ căn cứ |
+| C2 Triển khai (25%) | 8.0 | Script tái lập gãy ở bước pytest; code train chỉ có trong notebook; vài lỗi nhỏ |
+| C3 Thiết kế thực nghiệm (25%) | 7.5 | Kết quả null bị viết như "đã xác nhận"; chọn metric khác nhau ở từng phần; độc lập và nhãn của v3 chưa chứng minh |
+| C4 Phân tích (15%) | 7.5 | Đổi metric theo từng claim; khoảng 8/60 con số lệch; tài liệu tự mâu thuẫn |
+| C5 Báo cáo, demo, tái lập (15%) | 7.0 | Demo ghi sai "mọi model 0.97–0.99 trên lab"; tài liệu phụ lỗi thời; không có hình |
+| **Trung bình có trọng số** | **≈ 7.45/10** | |
+
+Các reviewer ước tính sửa các lỗi effort S sẽ đưa C4 lên khoảng 8.5–9 và C5 lên khoảng 8. Hầu hết các lỗi đó đã được sửa (mục 4). Phần chưa sửa được là những việc cần người hoặc GPU (mục 5).
+
+## 4. Bảng vấn đề, xếp theo ưu tiên
 
 | # | Vấn đề | Nghiêm trọng | Ưu tiên | Effort | Rubric | Đợt 1 | Đợt 2 | Còn lại / ai làm |
 | --- | --- | :---: | :---: | :---: | :---: | --- | --- | --- |
-| 1 | Mức tăng trên External v1 (30.65% → 53.23%) gần như hoàn toàn đến từ 16 ảnh Healthy tự chụp, không phải do phân biệt bệnh tốt hơn | 🔴 | P0 | S | C3 C4 | ✅ Báo theo strata; McNemar riêng cho 46 ảnh bệnh (p = 0.83 / 0.58) | ✅ Xác nhận trên 486 ảnh độc lập (External v3): mọi model đạt 41–44%; Lab vs Mixed p = 1.0 / 0.49 | — |
-| 2 | Recall "Early Blight 11/13" của ResNet Lab là do model dồn dự đoán về một lớp, không phải năng lực phân biệt | 🔴 | P0 | S | C4 | ✅ Thêm phân bố dự đoán và precision (39/62 ảnh bị dự đoán EB, precision 0.28) | ✅ Tái lập trên v3: 300/486 ảnh (62%) bị dự đoán EB; recall BS = 0.00 | — |
-| 3 | RQ4: dữ liệu không đủ để nói "Field-only > Mixed"; Lab retention, lợi ích chính của Mixed, chưa được đo | 🔴 | P0 | S–M | C3 | ✅ Thêm CI và Dev tại epoch đã chọn; **đo retention**: Lab Test 0.954 (Mixed) vs 0.814 (Field-only) | ✅ So sánh pre-register trên v3: +1.7 pp, CI [−0.1, +3.6]. Nội suy trọng số cho thấy không thay được rehearsal (Field Dev 0.266 vs 0.440 ở cùng mức retention) | — |
-| 4 | Không có field test độc lập được khoá trước; Field Test 47 ảnh đã bị dùng lại (CI khoảng ±14 pp) | 🔴 | P0 | L → S–M | C3 | ⬜ Chỉ ghi thành limitation | ✅ **External v3**: 486 ảnh PlantSeg, lọc trùng với 20.738 ảnh tham chiếu, protocol commit *trước* khi chạy (CI khoảng ±4.4 pp) | 👤 Chưa có ảnh Healthy để đo specificity; muốn có cần tự thu ảnh (L) |
-| 5 | Nhãn nhiễu: Field Test row 2524 và cặp Bacterial Spot ↔ Septoria | 🟠 | P0 | S | C3 C4 | ✅ Ghi trong Limitations | ✅ 13/64 ảnh trùng giữa hai dataset có nhãn khác nhau (6 ca BS↔Septoria; PlantSeg gán row 2524 là Septoria); đã có sẵn danh sách để audit | 👤 Người có chuyên môn audit 13 ảnh trong `data/external_v3_plantseg/label_audit_candidates.csv` |
-| 6 | Clone repo về không chạy được gì vì checkpoint chỉ có trên Drive | 🟠 | P0 | S | C2 C5 | ⬜ | ✅ `scripts/download_checkpoints.py`: 16 checkpoint, kiểm SHA-256; tải 10 checkpoint core mất khoảng 30 giây | — |
-| 7 | Không có demo chạy được (app cũ chỉ có ô upload, không có inference) | 🟠 | P0 | S–M | C5 | ⬜ Chuyển scaffold vào `archive/` | ✅ Demo Streamlit (`app/streamlit_app.py`): dự đoán, Grad-CAM, so sánh các model; đã test bằng Chromium headless | — |
-| 8 | Báo cáo hoặc slide nằm ngoài repo (LaTeX) chưa có số liệu mới | 🟠 | P0 | M | C5 | ⬜ | ⬜ | 👤 Nhóm cập nhật, vì file không nằm trong repo |
-| 9 | Kết luận dựa trên so sánh không công bằng (strawman); báo cáo chọn lọc | 🟠 | P1 | S | C3 C4 | ✅ Nêu cặp A1 vs R1; Holm cho cả nhóm kiểm định; báo cả mức tăng lớn nhất lẫn mức giảm lớn nhất | — | — |
-| 10 | So sánh CNN và ViT bị confound: ResNet train khoảng 75% tham số, ViT chỉ khoảng 8% | 🟠 | P1 | M | C3 | ✅ Ghi limitation; thêm bảng recipe | ✅ LP-FT khám phá (3 seed): khi train 100% tham số, ViT v3 0.441 → 0.484 và giữ Lab 0.984; ResNet 0.418 → 0.403. Recipe cũ làm thiệt ViT | 👤 Bản chính thức cần GPU |
-| 11 | Ngân sách train thấp: các run chọn epoch cuối trong khi Dev vẫn đang tăng | 🟡 | P1 | M | C3 | ✅ Ghi limitation | ⏳ Ablation 24 epoch | — |
-| 12 | Lab split có ảnh không được nhóm theo lá, nên có thể có ảnh gần trùng giữa train và test, làm Lab accuracy bị phồng | 🟡 | P1 | S–M | C3 | ⬜ | ✅ Chỉ 3/1.341 ảnh val và 2/1.692 ảnh test gần trùng train, không ảnh nào khác nhãn; Lab Test trên phần sạch không đổi (sai khác dưới 0.0001) | — |
-| 13 | Giải thích cơ chế (Grad-CAM) chỉ định tính, không có mask | 🟡 | P1 | M | C1 C4 | ⬜ | ✅ Dùng mask chuyên gia: xoá tổn thương làm mất 38–52% dự đoán đúng; pointing 0.58–0.66 so với mức ngẫu nhiên 0.46 | Ảnh inpaint là OOD |
-| 14 | Revision dataset và môi trường chưa pin | 🟡 | P1 | S | C5 | ⬜ | ✅ Pin PlantVillage `f808f27`; thêm `requirements-lock.txt` | — |
-| 15 | Không có lệnh tái lập kết quả | 🟡 | P1 | S | C5 | ⬜ | ✅ `scripts/reproduce_round2.sh` + script so sánh (⏳ đang chạy kiểm chứng toàn bộ) | — |
-| 16 | Báo cáo chưa giải thích vì sao chọn từng kỹ thuật CV | 🟡 | P1 | S–M | C1 | ⬜ | ✅ `docs/technical_background.md`: mỗi kỹ thuật gắn với một quyết định của project và file bằng chứng | — |
-| 17 | README dài 300 dòng, người chấm khó tìm bằng chứng | 🟡 | P1 | S | C5 | ⬜ | ✅ Thêm "Quick start" và bảng "Where to find the evidence" theo tiêu chí ở đầu README; REPO_REVIEW §h.2 | — |
-| 18 | License và quyền dữ liệu | 🟠 | P1 | S | C5 | ✅ `LICENSE` (code), `DATA_NOTICE.md`, `CITATION.cff` | — | 👤 Quyết định có xử lý lịch sử git (ảnh có watermark) hay không |
-| 19 | Docs lẫn code scaffold không dùng | ⚪ | P1 | S | C2 | ✅ Đưa scaffold và docs cũ vào `archive/` | — | 👤 Đổi tên file NB14 nếu muốn |
-| 20 | Chưa định vị so với nghiên cứu 2025–2026 | ⚪ | P2 | S | C1 | ⬜ | ✅ Thêm mục "Related work and positioning" | Rubric không chấm khả năng publication, nên giữ mục này ngắn |
-| 21 | Thiếu baseline foundation model | ⚪ | P2 | S | C1 C3 | ⬜ | ✅ DINOv2-B đóng băng + linear probe: Field Test 0.665, v3 0.469 | — |
-| 22 | Phân tích lỗi trên v3 theo kích thước tổn thương; calibration | ⚪ | P2 | S | C4 | ⬜ | ✅ Model Lab tự tin 0.90 trong khi accuracy chỉ 0.43 (ECE 0.475); model đã adapt có ECE 0.16–0.30; thêm accuracy theo kích thước tổn thương và ma trận nhầm lẫn | — |
-| 23 | NB02–14 chỉ chạy 1 seed | 🟡 | P2 | L | C3 | ⬜ | ⬜ | 👤 Cần GPU |
-| 24 | Chưa có bản ViT của thí nghiệm có kiểm soát NB15 | 🟡 | P2 | M | C3 | ⬜ | ⬜ (một phần đã có qua LP-FT Field-only) | 👤 Cần GPU |
-| 25 | Chưa commit prediction CSV canonical của NB11, NB13, NB14 | ⚪ | P2 | S | C5 | ⬜ | ⬜ | 👤 Cần file local của Trang |
+| 1 | Mức tăng trên External v1 gần như hoàn toàn đến từ 16 ảnh Healthy tự chụp | 🔴 | P0 | S | C3 C4 | ✅ Báo theo strata; McNemar riêng cho ảnh bệnh | ✅ Kiểm lại trên 486 ảnh v3: CI của accuracy loại trừ mức tăng trên khoảng 5 pp | — |
+| 2 | **Headline nói "phân biệt bệnh không cải thiện, đã xác nhận"**, trong khi macro-F1 bệnh (metric phụ đã pre-register) có tăng *(hội đồng phát hiện)* | 🔴 | P0 | S | C3 C4 | ✅ Bỏ các chữ "confirmed" và "indistinguishable" | ✅ Viết theo giới hạn CI: accuracy ±5 pp; macro-F1 +0.086 [0.039; 0.133] và +0.066 [0.029; 0.102] (file `external_v3_secondary_metrics/`) | — |
+| 3 | Recall "Early Blight 11/13" là do model dồn dự đoán về một lớp | 🔴 | P0 | S | C4 | ✅ Báo phân bố dự đoán; ghi rõ 39/62 (chuẩn) và 43/62 (loader cũ) | ✅ Tái lập trên v3: 300/486 ảnh bị dự đoán EB | — |
+| 4 | RQ4: kết quả null bị viết như tương đương; Lab retention chưa được đo | 🔴 | P0 | S–M | C3 | ✅ Đo retention (0.954 vs 0.814); bỏ câu "tương đương" | ✅ P3 trên v3: +1.7 pp [−0.1; +3.6], p theo seed 0.12. Thêm caveat "so ở 8 epoch, model chưa hội tụ" | — |
+| 5 | Không có field test độc lập được khoá trước | 🔴 | P0 | L → S–M | C3 | ⬜ | ✅ External v3: 486 ảnh, lọc trùng, protocol commit trước khi chạy; có sổ ghi mọi lần đánh giá (`docs/evaluation_ledger.md`) | 👤 Chưa có ảnh Healthy nên chưa đo được specificity (L) |
+| 6 | Nhãn nhiễu: row 2524 và **row 2532** của Field Test đều đang bị tranh chấp; cặp BS ↔ Septoria | 🟠 | P0 | S | C3 C4 | ✅ Ghi trong Limitations | ✅ 13/64 ảnh trùng có nhãn khác nhau; danh sách audit có sẵn | 👤 Người có chuyên môn audit 13 ảnh (`label_audit_candidates.csv`) |
+| 7 | Clone repo về không chạy được gì | 🟠 | P0 | S | C2 C5 | ⬜ | ✅ Tải checkpoint có kiểm SHA; script tái lập gọi unittest; script so sánh kiểm từng ô | 👤 Sao lưu checkpoint sang vị trí thứ hai (hiện chỉ có trên một Drive cá nhân) |
+| 8 | Không có demo chạy được; demo ghi sai số liệu lab *(hội đồng phát hiện)* | 🟠 | P0 | S | C5 | ⬜ | ✅ Demo hiện số đo thật của từng model (đọc từ CSV), ảnh ViT đúng vùng model thấy | 👤 Quay video demo dự phòng; tải sẵn dataset trước khi demo trực tiếp |
+| 9 | Báo cáo hoặc slide ngoài repo (LaTeX) chưa có số liệu mới | 🟠 | P0 | M | C5 | ⬜ | ⬜ | 👤 Nhóm cập nhật theo README đợt 2 |
+| 10 | "Model dựa vào vùng tổn thương" chưa có đối chứng; Grad-CAM bị diễn giải quá *(hội đồng phát hiện)* | 🟠 | P1 | S | C1 C4 | ⬜ | ✅ Đối chứng xoá vùng ngẫu nhiên cùng diện tích: mức giảm thêm 0.12–0.15, CI loại trừ 0, nên **model có dựa vào tổn thương**. Nhưng Grad-CAM pointing (0.58–0.66) **thua baseline tâm ảnh (0.74)** | Grad-CAM cho ViT (cần thêm thời gian) |
+| 11 | So sánh CNN vs ViT bị confound (tỉ lệ tham số 75% vs 8%) | 🟠 | P1 | M | C3 | ✅ Ghi limitation | ✅ Train lại khám phá: thứ hạng **phụ thuộc cả độ sâu fine-tune lẫn ngân sách train** | 👤 Bản chính thức nhiều seed cần GPU |
+| 12 | Ngân sách train thấp (chọn epoch cuối khi Dev còn tăng) | 🟡 | P1 | M | C3 | ✅ Ghi limitation | ✅ Ablation 24 epoch: Field Dev của ResNet vẫn tăng (epoch được chọn 23/24), ViT plateau quanh epoch 12–18. ⏳ Mixed 24 epoch (E2) đang chạy | 👤 Nhiều seed hơn, cần GPU |
+| 13 | Lab split có thể bị rò rỉ | 🟡 | P1 | S–M | C3 | ⬜ | ✅ Chỉ 3/1.341 và 2/1.692 ảnh gần trùng; Lab Test không đổi | Không bắt được các ảnh khác nhau của cùng một lá |
+| 14 | So sánh nội suy trọng số và DINOv2 bị trình bày quá *(hội đồng phát hiện)* | 🟡 | P1 | S | C3 C4 | ⬜ | ✅ Nội suy: kết luận phụ thuộc metric (accuracy v3 0.447 vs 0.434). DINOv2: confound dung lượng model và dữ liệu pretrain; đã bỏ câu "representation > recipe" | — |
+| 15 | Số liệu lệch: Holm 10 phép (không phải 8); 4 hàng Field Test bị loại (không phải 3); 77+17 ảnh trùng; typo CI; số test | 🟡 | P1 | S | C4 | ✅ Holm, typo CI | ✅ Đã sửa hết | — |
+| 16 | Tài liệu phụ tự mâu thuẫn (methods, results summary, DATA_NOTICE, workflow) | 🟡 | P1 | S | C5 | ⬜ | ✅ Đã đồng bộ | — |
+| 17 | Revision dataset và môi trường chưa pin | 🟡 | P1 | S | C5 | ⬜ | ✅ Pin PlantVillage `f808f27`; lockfile (chỉ cho Linux x86_64) | Lockfile riêng cho CPU (chưa làm) |
+| 18 | Báo cáo chưa giải thích vì sao chọn từng kỹ thuật CV | 🟡 | P1 | S–M | C1 | ⬜ | ✅ `docs/technical_background.md`, đã sửa theo hội đồng | — |
+| 19 | Người chấm khó tìm bằng chứng; README không có hình | 🟡 | P1 | S | C5 | ⬜ | ✅ Quick start; bảng "Where to find the evidence"; thêm 2 hình | — |
+| 20 | Calibration và phân tích lỗi trên v3 | ⚪ | P2 | S | C4 | ⬜ | ✅ Model Lab tự tin 0.90 trong khi accuracy 0.43 (ECE 0.475); model đã adapt có ECE 0.16–0.30 | — |
+| 21 | Baseline foundation model | ⚪ | P2 | S | C1 C3 | ⬜ | ✅ DINOv2 probe (khám phá), có ghi rõ các confound | — |
+| 22 | License và lịch sử git có ảnh watermark | 🟠 | P1 | S | C5 | ✅ LICENSE, DATA_NOTICE, CITATION | ✅ DATA_NOTICE thêm PlantSeg | 👤 Quyết định có xử lý lịch sử git hay không |
+| 23 | NB02–14 chỉ chạy 1 seed; chưa có bản ViT có kiểm soát của NB15 | 🟡 | P2 | L | C3 | ⬜ | ⬜ | 👤 Cần GPU |
+| 24 | Đạt macro-F1 "tốt" (≥ 0.70) trên field | — | — | L | — | — | Leader quyết định **không làm**: hạn 5 giờ không đủ, và mốc 0.70 không có ý nghĩa thống kê trên 47 ảnh Field Test | Hướng làm tiếp: fine-tune DINOv2 trên GPU, crop lá (bài PlantDoc chỉ đạt 0.70 trên ảnh đã crop), thêm dữ liệu field |
+| 25 | Chưa commit prediction CSV chuẩn của NB11/13/14 | ⚪ | P2 | S | C5 | ⬜ | ⬜ | 👤 Cần file local của Trang |
 
-## 4. Commit theo từng đợt (dùng khi muốn cherry-pick)
+## 5. Việc chỉ nhóm làm được (checklist trước khi nộp)
 
-**Đợt 1**, từ `main` (`da5e1ba`):
+- [ ] Chọn và merge **một** PR (#7 được khuyến nghị), rồi đóng PR còn lại.
+- [ ] Người có chuyên môn audit 13 ảnh bất đồng nhãn (`data/external_v3_plantseg/label_audit_candidates.csv`), ưu tiên row 2524 và row 2532.
+- [ ] Cập nhật báo cáo LaTeX và slide theo các con số mới trong README đợt 2, đặc biệt là abstract, RQ2 và RQ4.
+- [ ] Quay video demo dự phòng; chạy demo một lần trước buổi bảo vệ để tải sẵn dataset.
+- [ ] Sao lưu checkpoint sang vị trí thứ hai; quyết định cách xử lý lịch sử git có ảnh watermark.
+- [ ] (Nếu có GPU) Chạy thêm seed cho các run 24 epoch; làm bản ViT có kiểm soát của NB15.
+
+## 6. Câu hỏi examiner có thể hỏi, kèm câu trả lời trung thực (gom từ 5 reviewer)
+
+1. **"Accuracy không đổi mà macro-F1 lại tăng?"** Accuracy (metric chính) không tăng quá khoảng 5 pp. Macro-F1 (metric phụ) tăng 0.07–0.09. Lý do: baseline dồn dự đoán về Early Blight, lớp lớn nhất. Adaptation làm thay đổi *cách* model sai nhiều hơn là *số lần* sai.
+2. **"Mixed và Field-only có tương đương không?"** Không chứng minh được tương đương. Trên v3, CI loại trừ trường hợp Mixed thua và trường hợp Mixed thắng quá 3.6 pp. Mixed cao hơn ở cả 3 seed, nhưng p theo seed là 0.12. Lợi ích chắc chắn duy nhất của Mixed là giữ được kết quả trên Lab.
+3. **"Làm sao biết protocol đã khoá trước khi chạy?"** Commit `8762743` (protocol) có trước `cfc4752` (kết quả), và SHA-256 khớp với `run_record.json`. Đây là bằng chứng từ lịch sử git chứ không phải xác nhận của bên thứ ba. Mọi phân tích sau đó đều là khám phá (`docs/evaluation_ledger.md`).
+4. **"External v3 có thật sự độc lập không?"** Ảnh đã được lọc với 20.738 ảnh tham chiếu và 94 ảnh bị loại. Bộ lọc pHash không bắt được ảnh bị crop hoặc lật, nên đây là cận dưới của mức trùng. Nhãn PlantSeg chưa được audit (13/64 ảnh bất đồng).
+5. **"Grad-CAM có cho thấy model nhìn vào vết bệnh không?"** Không. Model *có* dựa vào vết bệnh: xoá vết bệnh làm accuracy giảm thêm 0.12–0.15 so với xoá một vùng đối chứng. Nhưng đỉnh Grad-CAM trùng vết bệnh còn ít hơn baseline "luôn chỉ vào tâm ảnh".
+6. **"CNN hay ViT tốt hơn?"** Không kết luận được. Thứ hạng đổi theo độ sâu fine-tune và ngân sách train; các run 8 epoch đều là model chưa hội tụ.
+7. **"Clone về thì tái lập được gì?"** Tái lập được các phân tích inference (v3, retention, nội suy, lesion, control) bằng `reproduce_round2.sh`, mất khoảng 1.5 giờ CPU và tải khoảng 4 GB. Phần train của NB02–15 cần GPU trên Colab.
+
+## 7. Commit theo từng đợt
+
+**Đợt 1** (từ `main` `da5e1ba`):
 
 | Commit | Nội dung |
 | --- | --- |
-| `cd98d6f` | REPO_REVIEW.md: review toàn diện |
-| `91fb91e` | Review bổ sung: kiểm tra ảnh nhúng, Drive, license |
-| `6ccb60c` | Báo theo strata, thống kê bổ sung, license, dọn docs |
-| `33672f4` | Kết quả Lab retention cho RQ4 |
-| `61c3cd1` | Cập nhật Results Summary |
+| `cd98d6f` | REPO_REVIEW.md |
+| `91fb91e` | Review bổ sung |
+| `6ccb60c` | Strata, thống kê bổ sung, license, dọn docs |
+| `33672f4` | Lab retention cho RQ4 |
+| `61c3cd1` | Results Summary |
+| `c90d5f3` | Sửa theo hội đồng reviewer: bỏ câu "tương đương", Holm 10 phép, 39/62 và 43/62, thêm limitations |
+| `4d138dd` | Banner trỏ sang đợt 2 và PR tổng hợp |
 
 **Đợt 2**, nối tiếp đợt 1:
 
 | Commit | Nội dung |
 | --- | --- |
-| `8762743` | Khoá manifest và protocol External v3 (trước khi chạy) |
-| `86e7993` | Script khai báo trước: DINOv2 probe, LP-FT |
-| `cfc4752` | Kết quả External v3 |
-| `f3e1a30` | Kết quả nội suy trọng số |
+| `8762743` → `cfc4752` | Khoá protocol External v3, rồi chạy một lần |
+| `f3e1a30` | Nội suy trọng số |
+| `bd52233` | Đo phụ thuộc vùng tổn thương |
 | `3e0d998` | Danh sách 13 ảnh cần audit nhãn |
-| `bd52233` | Kết quả phụ thuộc vùng tổn thương và Grad-CAM pointing |
-| `a9cd49b` | README/docs đợt 2; REPO_REVIEW §h "vì sao cải thiện so với đợt 1" |
-| `fe7fdb7`, `9eaf2f5` | Baseline DINOv2 |
+| `fe7fdb7`, `9eaf2f5` | DINOv2 probe |
 | `d6ca8c7` | Tải checkpoint, pin revision, lockfile, script tái lập |
+| `ef20700` | Demo và LP-FT |
+| `a18dbf6`, `82ceb3a` | Phân tích lỗi v3, audit Lab split |
+| `45755d5`, `7e75e42` | Tài liệu kỹ thuật, bảng rubric |
+| `ab02c7e` | Ablation 24 epoch |
+| `ccccef5` | Merge các bản sửa đợt 1 |
+| `dfdf608` | Sửa bug theo hội đồng: demo, script tái lập, script so sánh, chặn ghi đè |
+| `dd541b6`, `248a4b0` | Sửa tài liệu và viết theo giới hạn CI; CI cho metric phụ; sổ ghi đánh giá |
+| `dbeaf09` → `991123a` | Đối chứng occlusion và baseline tâm ảnh |
+| `0d47ea8` | E2: Mixed 24 epoch (⏳) |
+| `da2f057` | Hình, định nghĩa FO, audit Lab trong README |
 
-Giải thích chi tiết vì sao từng hạng mục của đợt 2 tốt hơn đợt 1 nằm ở `REPO_REVIEW.md` §(h) trên nhánh đợt 2.
+Lý do của từng thay đổi được giải thích trong `REPO_REVIEW.md` §(h) và §(h.2) trên nhánh đợt 2.
