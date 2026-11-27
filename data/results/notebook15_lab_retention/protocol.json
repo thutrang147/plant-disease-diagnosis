@@ -1,0 +1,9 @@
+{
+  "inference_only": true,
+  "device": "cpu",
+  "precision": "float32",
+  "transform": "torchvision ResNet18_Weights.IMAGENET1K_V1.transforms()",
+  "checkpoints_verified_against": "data/results/notebook15/original_evaluation_seal.json",
+  "torch": "2.15.0+cu132",
+  "threads": 4
+}
