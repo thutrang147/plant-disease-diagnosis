@@ -218,9 +218,11 @@ def main() -> None:
     (results.groupby(["partition", "arch", "strategy"])[["accuracy", "macro_f1"]].agg(["mean", "std"])
      .round(4).to_csv(output / "summary.csv"))
     (output / "protocol.json").write_text(json.dumps({
-        **CONFIG, "strategies": {"last_block": "head 2 ep, then head + last block 6 ep",
-                                 "lp_ft": "head 2 ep, then all parameters 6 ep"},
-        "selection": "epoch 0-8 maximizing Field Dev macro-F1, earliest tie", "status": "exploratory, CPU",
+        **CONFIG, "strategies": {
+            "last_block": f"head {CONFIG['head_epochs']} ep, then head + last block {CONFIG['second_epochs']} ep",
+            "lp_ft": f"head {CONFIG['head_epochs']} ep, then all parameters {CONFIG['second_epochs']} ep"},
+        "selection": f"epoch 0-{CONFIG['head_epochs'] + CONFIG['second_epochs']} maximizing Field Dev macro-F1, earliest tie",
+        "status": "exploratory, CPU",
         "torch": torch.__version__, "timm": timm.__version__, "threads": args.threads}, indent=2) + "\n")
     print(results.groupby(["partition", "arch", "strategy"])[["accuracy", "macro_f1"]].mean().round(4).to_string())
 
