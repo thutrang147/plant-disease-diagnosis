@@ -36,10 +36,19 @@ run occlusion_control 1e-4 evaluate_occlusion_control.py
 run occlusion_subset 1e-4 analyze_occlusion_subset.py
 run external_v3_label_merge 1e-4 analyze_external_v3_label_merge.py
 run lab_split_duplicates 1e-4 audit_lab_split_duplicates.py
+run nb15_sealed_field_dev 1e-4 check_nb15_sealed_field_dev.py
+run adabn 1e-4 evaluate_adabn.py
+run adabn_paired 1e-4 analyze_adabn.py
+run mixed_budget_summary 1e-4 analyze_mixed_budget.py
 if [[ $ALL == 1 ]]; then
   run frozen_foundation_probe 1e-3 evaluate_frozen_foundation_probe.py --backbones dinov2_vits14 dinov2_vitb14
   run lpft_architecture 2e-2 explore_lpft_architecture.py
   run training_budget 2e-2 explore_training_budget.py
+  run mixed_budget 2e-2 explore_mixed_budget.py
+  for spec in "field_only 42" "field_only 43" "field_only 44" "mixed 42" "mixed 43" "mixed 44"; do
+    set -- $spec
+    run "mixed_budget_amendment/${1}_s$2" 2e-2 explore_mixed_budget.py --condition "$1" --seed "$2"
+  done
 fi
 
 if [[ $status == 0 ]]; then echo "All re-runs match the committed results."; else echo "Some re-runs differ; see above."; fi
