@@ -71,9 +71,12 @@ def main() -> None:
     entries = {e["key"]: e for e in registry()}
 
     _, transform, _ = load_checkpoint(ROOT / entries["resnet18_lab"]["local_path"])
+    row_ids = {}
+
     def stack(name):
         ds = PlantDiseaseDataset(ROOT / "data/splits" / f"{name}.csv", transform=transform)
         items = [ds[i] for i in range(len(ds))]
+        row_ids[name] = ds.metadata.row_id.to_numpy()
         return torch.stack([a for a, _ in items]), ds.metadata.label_id.to_numpy()
     adapt_x, _ = stack("field_adapt_train")
     sets = {name: stack(name) for name in ("field_dev", "field_test", "lab_test")}
@@ -82,8 +85,9 @@ def main() -> None:
     source = load_dataset(PLANTSEG[0], split="train", revision=PLANTSEG[1])
     sets["external_v3"] = (torch.stack([transform(ImageOps.exif_transpose(source[int(r)]["image"]).convert("RGB"))
                                         for r in v3.plantseg_row]), v3.label_id.to_numpy())
+    row_ids["external_v3"] = v3.plantseg_row.to_numpy()
 
-    rows = []
+    rows, per_image = [], []
     for key in MODELS:
         path = ROOT / entries[key]["local_path"]
         if sha256(path) != entries[key]["sha256"]:
@@ -94,6 +98,8 @@ def main() -> None:
                 adapt_bn(model, adapt_x)
             for part, (x, y) in sets.items():
                 p = predict(model, x)
+                per_image.append(pd.DataFrame({"model": key, "variant": variant, "partition": part,
+                                               "row_id": row_ids[part], "label_id": y, "predicted_label_id": p}))
                 labels = [1, 2, 3, 4] if part == "external_v3" else range(5)
                 rows.append({"model": key, "variant": variant, "partition": part, "n": len(y),
                              "correct": int((p == y).sum()), "accuracy": float((p == y).mean()),
@@ -103,6 +109,7 @@ def main() -> None:
     output.mkdir(parents=True)
     frame = pd.DataFrame(rows)
     frame.to_csv(output / "adabn_results.csv", index=False)
+    pd.concat(per_image).to_csv(output / "predictions.csv", index=False)
     (output / "protocol.json").write_text(json.dumps({
         "statistics_source": "field_adapt_train (370 images, labels unused), eval transform, batch 32",
         "momentum": "None (cumulative average)", "models": MODELS, "status": "exploratory, CPU",
