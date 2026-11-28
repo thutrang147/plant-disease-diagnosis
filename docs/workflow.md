@@ -59,7 +59,7 @@ All paths below are relative to `data/splits/`:
 | `dataset_sources.json` | Source names, requested revisions, seed, lab splitting description |
 | `split_backups/` | Earlier random and exact-duplicate-grouped manifests/protocols |
 
-Four quarantined training rows are near original Field Test images and ten have label conflicts, according to the saved current protocol. The audit uses Field Test image content to detect contamination; model development does not use Field Test inference or labels for checkpoint selection. Source revision metadata is incomplete: do not invent resolved SHAs or refresh row-index manifests against a changed upstream dataset.
+Four quarantined training rows are near original Field Test images and ten have label conflicts, according to the saved current protocol. The audit uses Field Test image content to detect contamination; model development does not use Field Test inference or labels for checkpoint selection. The manifests were built on the upstream default branches. Round 2 pins PlantVillage to `f808f27`, where every manifest row's class label matches and the Lab baseline reproduces its recorded Lab Test result exactly; PlantDoc stays on `v0.1.0`. Do not refresh row-index manifests against a changed upstream dataset.
 
 ## Saved result families
 
@@ -120,7 +120,7 @@ recorded in the notebook. The code checks model/split metadata and selected-case
 predictions but does not verify both mixed checkpoint hashes against notebook
 09's exported record; exact cross-notebook identity depends on preserved files.
 
-Histories, predictions, summaries, plots, and experiment metadata are written alongside the Drive experiments. Preserve them there. This checkout contains six local checkpoints in ignored `models/`:
+Histories, predictions, summaries, plots, and experiment metadata are written alongside the Drive experiments. Preserve them there. `python scripts/download_checkpoints.py --group all` downloads the 16 registered checkpoints (`data/checkpoints.json`) into ignored `models/` and `outputs/`, verifying SHA-256. The six fixed checkpoints use these local names:
 
 | Local filename | Corresponding Drive checkpoint |
 | --- | --- |
@@ -131,7 +131,7 @@ Histories, predictions, summaries, plots, and experiment metadata are written al
 | `resnet18_geometric_mixed_best.pt` | `mixed_domain_verified/R2_resnet_geometric/mixed_domain_best.pt` |
 | `vit_small_mixed_best.pt` | `mixed_domain_verified/V1_vit_small/mixed_domain_best.pt` |
 
-The augmentation filenames differ locally from Drive; do not rename Drive source paths inside notebooks. Historical field-only histories/checkpoints and the full Notebook 09 prediction exports remain external. The two historical Mixed weights are present locally. Notebook 15's full controlled run and Colab assets have been imported under ignored `outputs/controlled_field_mixed/`; the [guide](notebook15_colab_guide.md) distinguishes these from the compact committed exports. A fresh clone does not include ignored local artifacts.
+The augmentation filenames differ locally from Drive; do not rename Drive source paths inside notebooks. The historical field-only checkpoints (A1, A2, ViT V1) are in the registry under `models/`; their histories and the full Notebook 09 prediction exports remain on Drive. The two historical Mixed weights are present locally. Notebook 15's full controlled run and Colab assets have been imported under ignored `outputs/controlled_field_mixed/`; the [guide](notebook15_colab_guide.md) distinguishes these from the compact committed exports. A fresh clone does not include ignored local artifacts.
 
 ## Re-evaluation without training
 

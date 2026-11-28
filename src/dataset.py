@@ -15,8 +15,13 @@ from torch.utils.data import Dataset
 from torchvision import transforms
 
 
+# PlantVillage is pinned to the commit that was the default branch when the
+# Lab-retention and External v3 evaluations ran (2026-11-27). The split manifests
+# were built on the default branch; every row's class_label matches at this
+# commit, and the ResNet18 Lab baseline reproduces its recorded Lab Test result
+# exactly (1,657/1,692). Pinning prevents a silent upstream change.
 DATASET_SOURCES = {
-    "plantvillage": ("geraldmc/plantvillage-full", None),
+    "plantvillage": ("geraldmc/plantvillage-full", "f808f2706d3ce50ce14652d2b6863d3cc30cf9c4"),
     "plantdoc": ("geraldmc/plantdoc-full", "v0.1.0"),
 }
 

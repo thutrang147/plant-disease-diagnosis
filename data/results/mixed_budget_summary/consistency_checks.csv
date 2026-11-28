@@ -1,0 +1,9 @@
+check,partition,selected_epoch_ref,selected_epoch_new,correct_ref,correct_new,macro_f1_abs_diff
+field_only_s42 vs training_budget,field_dev,23,23,53,53,0.0
+field_only_s42 vs training_budget,field_test,23,23,25,25,0.0
+field_only_s42 vs training_budget,lab_test,23,23,1533,1533,0.0
+field_only_s42 vs training_budget,external_v3,23,23,229,229,0.0
+mixed_s42 re-run vs mixed_budget,field_dev,20,20,55,55,0.0
+mixed_s42 re-run vs mixed_budget,field_test,20,20,26,26,0.0
+mixed_s42 re-run vs mixed_budget,lab_test,20,20,1659,1659,0.0
+mixed_s42 re-run vs mixed_budget,external_v3,20,20,235,235,0.0

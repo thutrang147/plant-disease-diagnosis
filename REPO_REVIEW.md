@@ -10,7 +10,7 @@ Quy ước: **[VERIFIED]** = đã kiểm tra trực tiếp trong file (có đư�
 
 1. **Verdict tổng thể: mức "PASS WITH MAJOR REVISIONS" về mặt khoa học.** Kỹ thuật kiểm soát provenance (hash, seal, audit) tốt hơn hẳn mức thường gặp ở đồ án đại học. Nhưng **câu chuyện chính trong README đang nói quá so với bằng chứng ở hai chỗ quan trọng**.
 2. **Mức tăng External v1 (30.65% → 53.23%, McNemar p=0.024) gần như hoàn toàn đến từ 16 ảnh Healthy tự chụp.** Trên 46 ảnh bệnh, ResNet Lab → Mixed chỉ đi từ 19/46 lên 21/46, còn ViT Lab → Mixed *giảm* từ 22/46 xuống 19/46 (Notebook 12) [VERIFIED]. Ngoài ra, con số "Early Blight 11/13" của baseline là kết quả của một model **gán nhãn Early Blight cho ~43/62 ảnh** [VERIFIED, file upstream raw-RGB].
-3. **Không thể kết luận "Field-only > Mixed" ở RQ4.** Trên Field Test lệch nhau ròng chỉ 2 ảnh, bootstrap 95% CI của Δmacro-F1 là [−0.086, +0.023]. Trên Field Dev, tại đúng epoch đã chọn, Mixed ≥ Field-only ở cả 3 seed. Lab-retention, chiều đo mà Mixed thực sự có lợi trong lịch sử, lại không được đo [VERIFIED].
+3. **Không thể kết luận "Field-only > Mixed" ở RQ4.** Trên Field Test lệch nhau ròng chỉ 2 ảnh, bootstrap 95% CI của Δmacro-F1 là [−0.086, +0.024]. Trên Field Dev, tại đúng epoch đã chọn, Mixed ≥ Field-only ở cả 3 seed. Lab-retention, chiều đo mà Mixed thực sự có lợi trong lịch sử, lại không được đo [VERIFIED].
 4. **Có nhiều confound chưa được nêu đủ.** Ví dụ ResNet fine-tune `layer4` (~75% tham số) trong khi ViT chỉ fine-tune block cuối (~8%). Tất cả các run đều chọn checkpoint ở **epoch cuối cùng** trong khi Dev vẫn đang tăng. Một ảnh trong Field Test (row 2524) là bản trùng pHash=0 với một ảnh train mang nhãn khác [VERIFIED].
 5. **Cách sửa phần lớn là S/M effort, không cần train lại.** Gồm: viết lại khung kết luận, báo cáo theo strata, thêm CI/Holm, chạy inference Lab Val/Test cho 6 checkpoint NB15, commit các prediction CSV canonical, thêm LICENSE và dọn docs. Chỉ việc thu thập một locked field test mới là L.
 
@@ -36,7 +36,7 @@ Quy ước: **[VERIFIED]** = đã kiểm tra trực tiếp trong file (có đư�
 ### #3 — RQ4: kết luận "Field-only cao hơn" không được dữ liệu hỗ trợ, và chiều đo quan trọng nhất bị bỏ
 - **Flaw:**
   - (a) Paired discordance từng seed trên Field Test (Field-only-only / Mixed-only correct): seed 42 = 3/2, seed 43 = 1/0, seed 44 = 1/1. Chênh lệch ròng là 2 ảnh trên 141 cặp outcome.
-  - (b) Tôi tự tính paired bootstrap trên 47 ảnh, lấy trung bình 3 seed: Δmacro-F1 (Mixed−FO) = −0.021, **95% CI [−0.086, +0.023]**; Δacc 95% CI [−0.071, +0.028].
+  - (b) Tôi tự tính paired bootstrap trên 47 ảnh, lấy trung bình 3 seed: Δmacro-F1 (Mixed−FO) = −0.023, **95% CI [−0.086, +0.024]**; Δacc −0.014, 95% CI [−0.064, +0.028] (giá trị chuẩn trong `data/results/supplementary_statistics/notebook15_paired_bootstrap.csv`, 10.000 lần resample).
   - (c) **Field Dev tại epoch đã chọn** (log NB15 archived): seed 42 FO 0.4388 / Mx 0.4390; seed 43 (ep7) 0.4361 / 0.4478; seed 44 0.4147 / 0.4327. Mixed ≥ FO ở cả 3 seed, tức là ngược chiều với Test.
   - (d) Lab retention không được đo. Trong lịch sử, đây lại là lợi ích rõ nhất của Mixed (A1 Lab Val 0.8185 vs R1 0.9556).
 - **Quan sát thêm (ảnh confusion 6 panel, NB15 cell 21):** sáu ma trận gần như giống hệt nhau. Bacterial Spot→Septoria 7–8/9 ở mọi run; Healthy row chỉ 2–3/8 đúng. Khác biệt giữa hai điều kiện nhỏ hơn nhiều so với lỗi chung mà cả hai cùng mắc, tức yếu tố quyết định là khởi tạo từ Lab baseline, không phải cách fine-tune [VERIFIED quan sát].
@@ -226,7 +226,7 @@ Tôi đã đối chiếu và thấy khớp: Lab Test, Field Dev (NB09 ↔ `final
 2. **"Baseline nhận 11/13 Early Blight tốt hơn adapted model. Sao lại nói adaptation tốt?"**
    *Trả lời:* "Baseline dự đoán Early Blight cho khoảng 2/3 số ảnh, precision ~0.26. Đó là bias chứ không phải năng lực. Model adapted thì gần như không dự đoán Early Blight. Cả hai thất bại với Early Blight theo hai kiểu khác nhau, và chúng tôi báo cáo điều này như một failure mode mở."
 3. **"Field-only hơn Mixed 0.023 macro-F1 trên 47 ảnh. Có significant không?"**
-   *Trả lời:* "Không. Chênh lệch ròng là 2 ảnh, bootstrap CI [−0.086, +0.023], và trên Field Dev chiều còn ngược lại. Kết luận của chúng tôi là không có bằng chứng Mixed cải thiện field performance khi đã control exposure; chúng tôi không kết luận Field-only tốt hơn."
+   *Trả lời:* "Không. Chênh lệch ròng là 2 ảnh, bootstrap CI [−0.086, +0.024], và trên Field Dev chiều còn ngược lại. Kết luận của chúng tôi là không có bằng chứng Mixed cải thiện field performance khi đã control exposure; chúng tôi không kết luận Field-only tốt hơn."
 4. **"Test set 47 ảnh đã xem từ notebook 04. Có leakage vào quyết định không?"**
    *Trả lời:* "Có xem từ trước, nên chúng tôi gọi đó là historical test. Mọi selection dùng Field Dev, và NB15 seal hash checkpoint trước khi mở test. Claim generalization cần một locked test mới; đây là limitation chính."
 5. **"ViT giữ Lab tốt hơn ResNet có phải nhờ kiến trúc?"**
@@ -301,3 +301,62 @@ _Cập nhật vòng 2: đã xem 57 ảnh nhúng, tìm Drive, đối chiếu lice
 | Docs/code hygiene | 4 file log docs → `docs/archive/`; scaffold → `archive/scaffold/`; tiêu đề NB14 → "Inference-view and cropping sensitivity" | Đổi tên file NB14 (đã giữ tên để không gãy link) |
 
 Kiểm tra sau khi sửa: `python -m unittest discover -s tests` → **21 tests OK** (thêm 6 test mới); `scripts/audit_repository.py` → **passed** (đã bắt và sửa 1 link gãy do di chuyển docs).
+
+---
+
+## (h) Đợt 2 — vì sao cải thiện so với đợt 1
+
+Ngày: 2026-11-27 · Nhánh đợt 2: `review/repo-review-round2-20261127`, tách từ đầu nhánh đợt 1 (`61c3cd1`).
+
+**Cách chọn khi chốt:**
+- Merge `review/repo-review-20261127` nếu chỉ muốn đợt 1 (sửa cách trình bày và đo Lab retention).
+- Merge nhánh đợt 2 nếu muốn cả hai. Đợt 2 đã chứa toàn bộ đợt 1.
+
+**Vấn đề còn lại sau đợt 1.** Đợt 1 sửa *cách nói*: báo theo strata, thêm CI/Holm, viết lại kết luận RQ4 và đo retention. Giới hạn trần vẫn nằm ở *bằng chứng*:
+- Field test chỉ có 47 ảnh và đã bị dùng lại, nên CI khoảng ±14 pp, không kiểm được khác biệt dưới khoảng 10 pp.
+- Các claim cơ chế (shortcut, Grad-CAM) vẫn chỉ định tính.
+- RQ4 mới có hai điểm Field-only và Mixed, chưa biết Mixed có thay được bằng cách rẻ hơn không.
+- RQ1 chưa được định vị so với các nghiên cứu 2025–2026.
+
+Đợt 2 không viết lại kết luận cho mạnh hơn. Đợt 2 **bổ sung bằng chứng mới cho đúng những chỗ đó**, và mọi phép thử xác nhận đều được khai báo trước khi chạy.
+
+| # | Lỗ hổng sau đợt 1 | Đợt 2 làm gì | Bằng chứng | Vì sao tốt hơn đợt 1 | Còn lại |
+| --- | --- | --- | --- | --- | --- |
+| 1 | Không có test độc lập (#6, hạng 12 "locked field test mới", effort L) | **External v3**: 486 ảnh PlantSeg có mask do chuyên gia review. Lọc trùng với 20.738 ảnh tham chiếu (toàn bộ PlantDoc và toàn bộ PlantVillage cà chua). Protocol được commit (`8762743`) *trước* khi chạy (`cfc4752`); SHA-256 của protocol trong `run_record.json` khớp bản đã commit | Mọi checkpoint pre-register đạt 41–44% accuracy. P1 ResNet: −0.2 pp, CI [−5.3; +5.1], p = 1.0. P2 ViT: +1.4 pp [−2.1; +4.9], p = 0.49. P3: +1.7 pp [−0.1; +3.6], Holm 0.23, p theo seed 0.12. Riêng metric phụ macro-F1 bệnh **có tăng**: +0.086 [0.039; 0.133] và +0.065 [0.029; 0.102] | Đợt 1 kết luận "adaptation không cải thiện phân biệt bệnh" chỉ từ 46 ảnh online. Đợt 2 kiểm lại trên 486 ảnh độc lập theo protocol khoá trước. Kết quả: accuracy không tăng quá khoảng 5 pp, nhưng lỗi được phân bố đều hơn giữa các lớp. Kết luận được thu hẹp lại và viết theo giới hạn của CI, không viết là "đã xác nhận". Effort L giảm xuống S–M vì không phải tự chụp ảnh | Không có Healthy nên không đo được specificity; ảnh lấy từ web; nhãn PlantSeg chưa được audit |
+| 2 | Bias Early Blight (#2) chỉ thấy trên 62 ảnh | Báo phân bố dự đoán trên v3 | ResNet Lab dự đoán EB cho 300/486 ảnh (62%), so với 39/62 (63%) trên v1; recall BS = 0.00 | Cho thấy bias là thuộc tính của model, không phải do mẫu nhỏ | — |
+| 3 | Nhãn/leakage (#6): mới nghi row 2524 | Đối chiếu nhãn trên ảnh trùng giữa hai dataset | 94/589 ảnh PlantSeg trùng dữ liệu công khai, 74 trong số đó là ảnh repo đang dùng (3 Field Test, 7 Field Dev). **13/64** ảnh trùng có nhãn khác nhau, 6 ca là BS↔Septoria. PlantSeg gán row 2524 là Septoria | Có nguồn độc lập thứ hai xác nhận row 2524; tìm ra cặp lớp có nhãn nhiễu trùng đúng cặp model không phân biệt được; có sẵn danh sách ưu tiên để audit (`label_audit_candidates.csv`) | Cần người có chuyên môn audit; chưa sửa nhãn nào |
+| 4 | Cơ chế chỉ định tính (#10, #11: Grad-CAM không có mask) | Dùng mask chuyên gia của PlantSeg: inpaint vùng tổn thương, giữ riêng vùng tổn thương, Grad-CAM pointing game và tỉ lệ năng lượng | Xoá tổn thương làm mất 38–52% dự đoán đúng. Pointing 0.58–0.66 so với mức ngẫu nhiên 0.46. Năng lượng CAM khoảng 1.25 lần mức ngẫu nhiên. Lá đã xoá tổn thương chỉ 0–8% bị gọi là Healthy | Câu "có thể model nhìn nền" trở thành số đo: model có dùng tổn thương nhưng định vị yếu, và adaptation không cải thiện định vị. Healthy mà model học được không có nghĩa là "không có tổn thương" | Ảnh inpaint là OOD; Grad-CAM mới làm cho ResNet |
+| 5 | RQ4: chỉ có hai điểm FO/Mixed; không rõ Mixed có thay được không | Nội suy trọng số Lab ↔ Field-only (WiSE-FT/PAINT); chọn α trên tập dev theo quy tắc khai báo trước | Ở cùng mức giữ Lab (α = 0.4, Lab Test 0.951 vs 0.954): Field Dev macro-F1 0.266 vs Mixed 0.440, External v3 macro-F1 0.375 vs 0.420; **nhưng accuracy v3 lại 0.447 vs 0.434**. Hai đầu mút tái lập đúng số đã seal | Đợt 1 chỉ cho thấy Mixed giữ được Lab. Đợt 2 cho thấy trên macro-F1, cách rẻ hơn không đạt được điểm vận hành của rehearsal; trên accuracy v3 thì hai cách tương đương. Kết luận phụ thuộc metric và được ghi rõ như vậy | Chỉ ResNet18, một recipe |
+| 6 | RQ1 thiếu điểm tham chiếu foundation model | DINOv2 đóng băng + linear probe (S/14, B/14), cùng manifest; chọn C theo quy tắc khai báo trước | DINOv2-B, probe Lab+Field (chỉ train lớp linear): Field Dev 0.622, Field Test 0.665 (31/47), External v3 acc 0.469 / F1 0.456. Model tốt nhất của repo: 0.446 / 0.510 / 0.444 / 0.441 | Đặt kết quả của repo vào bối cảnh: representation quan trọng hơn recipe adaptation. Đồng thời cho thấy cải thiện đo bên trong PlantDoc (+0.16 trên Field Test) phóng đại cải thiện trên dữ liệu ngoài (khoảng +2–3 pp trên v3), nên cần External v3 | Chưa pre-register cho v3; input 224 (DINOv2 gốc dùng 518); không có kiểm định từng ảnh |
+| 7 | Confound tỉ lệ tham số train được (#7: ResNet 75% vs ViT 8%) | LP-FT khám phá: hai kiến trúc dùng chung một recipe và cùng batch, so last-block với toàn bộ tham số; 3 seed | Đo lại tỉ lệ tham số: 75.1% vs 8.2%. Ở 8 epoch, khi cả hai train 100%: ViT v3 0.441 → 0.484, Lab giữ 0.984; ResNet 0.418 → 0.403, Lab 0.815 → 0.786. Ở **24 epoch (seed 42)**: Field Dev của ResNet vẫn đang tăng (epoch được chọn 23/24), v3 0.471–0.498. ResNet last-block 8 epoch tái lập NB15 Field-only (Lab Test 0.815 vs 0.814) | Đợt 1 chỉ ghi confound này thành limitation. Đợt 2 đo được rằng thứ hạng CNN vs ViT **phụ thuộc cả độ sâu fine-tune lẫn ngân sách train**, và các run 8 epoch (kể cả NB15) đều so model chưa hội tụ. Hội đồng reviewer đã bác câu "recipe cũ làm thiệt ViT" vì kết luận đó phụ thuộc ngân sách | Chạy trên CPU, chỉ Field-only, không seal; bản chính thức cần GPU |
+| 8 | Chưa định vị so với các nghiên cứu khác | Thêm mục "Related work and positioning" vào README | RQ1 tái lập kết quả đã biết (Mohanty 2016; MLD 2026; AgriPath 2026). Đóng góp chính là RQ4 có kiểm soát, phân tích theo strata, và quy trình đánh giá chặt | Giảm rủi ro bị hỏi "khác gì bài X?"; câu chuyện trung thực hơn | — |
+
+**Những gì đợt 2 không thay đổi:**
+- Notebook gốc, checkpoint đã seal, các split và nhãn hiện có.
+- Mọi số liệu của đợt 1 vẫn giữ nguyên. Đợt 2 chỉ bổ sung, không sửa số cũ.
+- Không có kết luận về hiệu năng khi triển khai.
+
+**Tái lập:**
+- PlantSeg được pin ở revision `2fff5d6`, PlantVillage ở `f808f27`, PlantDoc ở `v0.1.0`.
+- Mỗi script từ chối ghi đè thư mục output và ghi lại hash checkpoint.
+- Tests tăng từ 21 lên 35 (`tests/test_round2_scripts.py`, `tests/test_inference.py`).
+
+### (h.2) Bổ sung theo rubric chấm điểm của thầy
+
+Sau khi có rubric (C1 Kiến thức CV 20%, C2 Triển khai 25%, C3 Thiết kế thực nghiệm 25%, C4 Phân tích 15%, C5 Báo cáo/demo/tái lập 15%), đợt 2 ưu tiên những chỗ dễ mất điểm nhất, tính theo trọng số × mức hở. Rubric chấm độc lập với khả năng publication, nên không đầu tư thêm vào novelty.
+
+| Tiêu chí | Lỗ hổng trước đó | Đã làm | Vì sao cải thiện |
+| --- | --- | --- | --- |
+| C2 + C5 | Clone về không chạy được gì: checkpoint chỉ có trên Drive, demo đã bị chuyển vào archive | `scripts/download_checkpoints.py` + `data/checkpoints.json` (16 checkpoint, kiểm SHA-256); demo Streamlit mới (`app/streamlit_app.py`, `src/inference.py`): dự đoán, Grad-CAM, so sánh các model; đã test bằng Chromium headless | Người chấm có thể tải checkpoint trong khoảng 30 giây và chạy demo thật; trước đây phần "hoàn thành" có lỗ hổng rõ |
+| C5 | Revision dataset và môi trường chưa pin; không có lệnh tái lập | Pin PlantVillage `f808f27`; `requirements-lock.txt`; `scripts/reproduce_round2.sh` + `compare_reproduction.py`; mục "Quick start" và "Where to find the evidence" ở đầu README | Có thể tái lập và đối chiếu từng CSV; người chấm tìm được bằng chứng theo từng tiêu chí |
+| C3 | Lab split có ảnh không nhóm lá, có thể bị rò rỉ | `scripts/audit_lab_split_duplicates.py`: chỉ 3/1.341 ảnh val và 2/1.692 ảnh test gần trùng train, không ảnh nào khác nhãn; báo thêm Lab Test trên phần sạch | Con số "0.97–0.99 trong lab" không bị phồng vì rò rỉ. Phép kiểm cho kết quả âm tính nhưng vẫn làm tăng độ tin cậy |
+| C3 | Ngân sách train thấp (#8) | Ablation 24 epoch, 1 seed, cả hai kiến trúc và hai chiến lược (`scripts/explore_training_budget.py`) | Đã có kết quả: ResNet18 chưa plateau ở 24 epoch (epoch được chọn 23/24), ViT plateau khoảng epoch 12–18. Lab Test của ResNet Field-only tụt xuống 0.864. Kết luận này buộc RQ4 phải ghi rõ caveat "so ở mức 8 epoch" |
+| C4 | Chưa có calibration và phân tích theo kích thước tổn thương | `scripts/analyze_external_v3_errors.py`: model Lab tự tin 0.90 trong khi accuracy chỉ 0.43 (ECE 0.475); model đã adapt có ECE 0.16–0.29. Thêm ma trận nhầm lẫn và accuracy theo kích thước tổn thương | Cho thấy một lợi ích của adaptation mà accuracy che mất |
+| C1 | Kiến thức CV nằm rải rác, chưa giải thích vì sao chọn từng kỹ thuật | `docs/technical_background.md`: mỗi kỹ thuật (LP-FT, inductive bias, BN freeze, pHash, Grad-CAM/pointing game, nội suy trọng số, DINOv2, thống kê) gắn với một quyết định của project và file bằng chứng | Người chấm đánh giá kiến thức qua phần giải thích; giờ phần đó đã nằm ở một chỗ |
+| C3 + C4 | Kết quả null bị viết như "đã xác nhận"/"tương đương"; metric phụ chưa có CI (hội đồng reviewer phát hiện) | Viết lại mọi kết luận theo giới hạn CI; `scripts/analyze_external_v3_secondary.py` thêm CI cho disease macro-F1 và balanced accuracy | Người chấm thấy rõ: accuracy không tăng quá ~5 pp, nhưng macro-F1 bệnh tăng 0.086 [0.039; 0.133] (ResNet) và 0.065 [0.029; 0.102] (ViT). Trước đó phần này bị viết quá mạnh theo một hướng |
+| C3 | Test set bị dùng lại nhiều lần mà không ghi lại | `docs/evaluation_ledger.md`: mỗi lần chạm Field Test hoặc External v3, kèm dữ liệu chọn model và trạng thái (confirmatory hay khám phá) | Chỉ P1–P3 là confirmatory; mọi phân tích sau đó được dán nhãn khám phá. Đây là cách chống "garden of forking paths" mà người chấm có thể kiểm |
+| C1 + C4 | Phép xoá vết bệnh chưa có đối chứng; Grad-CAM bị diễn giải quá | `scripts/evaluate_occlusion_control.py` (xoá vùng ngẫu nhiên cùng diện tích) và baseline "chỉ vào tâm ảnh"; `scripts/analyze_occlusion_subset.py` đặt mọi điều kiện trên cùng 378 ảnh | Xoá vùng đối chứng chỉ đổi accuracy −1.6 đến +1.9 pp, còn xoá vết bệnh giảm thêm 0.12–0.15 (CI loại trừ 0), nên model có dựa vào vết bệnh. Grad-CAM trên mức ngẫu nhiên (0.58–0.66 so với 0.46) nhưng không hơn baseline tâm ảnh (0.74), nên đã rút câu "Grad-CAM cho thấy model nhìn vào vết bệnh" |
+| C4 | Chưa biết kết luận accuracy nhạy thế nào với ranh giới nhãn hay bị tranh chấp | `scripts/analyze_external_v3_label_merge.py`: gộp Bacterial Spot + Septoria, chạy lại P1–P3 trên dự đoán đã lưu | Gộp làm accuracy tăng 8–15 pp; P1 thành +4.5 pp [−0.8; +9.9], không có so sánh nào có ý nghĩa. Phép gộp không phân biệt được nhiễu nhãn với lỗi model, nên chỉ đo được lượng lỗi nằm trên ranh giới đó |
+| C3 | RQ4 chỉ so ở 8 epoch, khi ResNet18 chưa hội tụ | `scripts/explore_mixed_budget.py`: chạy lại cả hai nhánh NB15 ở 24 epoch × 3 seed. Protocol khai báo trước (`0d47ea8`, `7c1a280`), phép kiểm tái lập được sửa trước khi chạy (`64d749b`); `scripts/analyze_mixed_budget.py` tổng hợp | Tái lập Lab Test của checkpoint niêm phong trong 0.001 (4/6 khớp từng bit). Lợi ích giữ Lab vẫn đứng (+0.11 đến +0.13 ở mọi seed, p = 0.001). Trên v3, Mixed +2.4 pp [+0.7; +4.1] nhưng p theo seed 0.06 (khám phá). Kết luận RQ4 giờ không còn phụ thuộc vào một ngân sách train quá ngắn |
+| C1 + C3 | Chưa kiểm khoảng cách lab → field có phải do thống kê BatchNorm | `scripts/evaluate_adabn.py`, `scripts/analyze_adabn.py` (AdaBN, khai báo trước ở `828bbfe`) | Không dùng nhãn, model Lab tăng Field Dev macro-F1 +0.155 [0.049; 0.257] và v3 disease macro-F1 +0.098 [0.050; 0.146]; accuracy không tăng có ý nghĩa. Model đã adapt (BN đóng băng) thì giảm. Đây là một giải thích cơ chế cho domain gap mà trước đó repo chưa có |
+| C4 + C5 | Số liệu trong README có thể lệch với file kết quả khi sửa nhiều lần | `tests/test_claims.py`: tính lại từng con số headline từ CSV đã commit và kiểm README ghi đúng | Test này đã bắt 5 lỗi làm tròn hoặc lấy nhầm nguồn (CI của P1, ViT +0.065, CI của P3, ECE 0.29), tất cả đã sửa. Sau khi đóng băng, chỉ cần chạy test là biết tài liệu còn khớp hay không |

@@ -11,3 +11,4 @@ scipy
 ImageHash
 ipykernel
 nbformat
+opencv-python-headless

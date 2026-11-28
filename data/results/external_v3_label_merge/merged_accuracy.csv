@@ -1,0 +1,11 @@
+model,n,accuracy_original,accuracy_merged,gain_pp,errors_original,errors_that_are_bs_septoria_swaps
+resnet18_lab,486,0.4259,0.5062,8.0247,279,39
+vit_small_lab,486,0.43,0.5514,12.1399,277,59
+resnet18_geometric_mixed,486,0.4239,0.5514,12.7572,280,62
+vit_small_mixed,486,0.4444,0.5638,11.9342,270,58
+nb15_field_only_s42,486,0.4115,0.5638,15.2263,286,74
+nb15_mixed_s42,486,0.4403,0.5844,14.4033,272,70
+nb15_field_only_s43,486,0.4198,0.57,15.0206,282,73
+nb15_mixed_s43,486,0.4259,0.5782,15.2263,279,74
+nb15_field_only_s44,486,0.4198,0.57,15.0206,282,73
+nb15_mixed_s44,486,0.4362,0.5864,15.0206,274,73

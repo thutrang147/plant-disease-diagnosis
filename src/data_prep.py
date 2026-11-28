@@ -172,7 +172,8 @@ def validate_and_save_partitions(partitions: dict[str, pd.DataFrame]) -> None:
 
 
 def main() -> None:
-    lab_dataset = load_dataset("geraldmc/plantvillage-full", split="train")
+    lab_dataset = load_dataset("geraldmc/plantvillage-full", split="train",
+                               revision="f808f2706d3ce50ce14652d2b6863d3cc30cf9c4")
     field_dataset = load_dataset("geraldmc/plantdoc-full", revision="v0.1.0", split="train")
 
     lab = build_metadata(lab_dataset, "plantvillage", LAB_LABEL_MAP)

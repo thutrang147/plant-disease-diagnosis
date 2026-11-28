@@ -1,0 +1,590 @@
+plantseg_row,plantseg_disease,plantseg_split,class_name,label_id,status,width,height,lesion_area_fraction,exact_hash,phash,min_reference_distance,nearest_reference,nearest_in_repo_manifest
+6673,tomato bacterial leaf spot,train,Bacterial Spot,3,included,966,1280,0.018451572204968944,320b5721b5e64e312fd77c56b5a0012bae06e50dbf0e51c44ad7074384a69368,d52ad5a9051ef217,18,plantdoc:1852,field_adapt_train
+6674,tomato bacterial leaf spot,train,Bacterial Spot,3,included,650,488,0.6174401008827238,138fa715a1fd94ad038294400db74c1c0ccacd0f3551bf307e141c8593808349,bcb3130c74ecf0f0,16,plantvillage:38210,lab_train
+6675,tomato bacterial leaf spot,train,Bacterial Spot,3,included,620,462,0.5234918307498952,e5108ab2d64b1b1c893865fed82cfc63b1fe8e2dde71dbec34a09ff6063f2e60,e549045b4a666fbc,18,plantdoc:970,
+6676,tomato bacterial leaf spot,train,Bacterial Spot,3,included,640,853,0.21574589683470105,78964997c6f0706f473afb33d97076701c7c332bf405a902ac6dac5e3c4ee691,9cea15e48753dc15,14,plantvillage:42206,lab_val
+6677,tomato bacterial leaf spot,train,Bacterial Spot,3,included,327,248,0.273096083653941,87415d50f416af9427ed016b4d1e5e20af8b170dd4b2ed30280bf16ca3614d58,a2c5459d0e6b6ba6,16,plantdoc:706,
+6678,tomato bacterial leaf spot,validation,Bacterial Spot,3,included,463,550,0.2336775967013548,269f213586b460a56435ded2ca814e3841b372ab4f8b46f2cf53f71e0a981ee2,d6651587f19026b7,16,plantvillage:53851,lab_train
+6679,tomato bacterial leaf spot,train,Bacterial Spot,3,included,595,402,0.03753083322881391,796aff62af04db093c8dd5b0ff92c8c7268ce1d811e2667560984794641e2f9b,d2c209010b9f3f7f,16,plantdoc:1192,
+6680,tomato bacterial leaf spot,train,Bacterial Spot,3,included,660,880,0.00659435261707989,0e916a7636debad942d5802c0c8a9502f9e721661883398631d6028196da99d8,bdc0da1761c8c3ce,16,plantvillage:37422,lab_train
+6681,tomato bacterial leaf spot,train,Bacterial Spot,3,excluded_reference_match,269,600,0.3151920693928129,64d0006bfc15d6b4fcf46995bc9b5450d2456b11007e326db30e7d0e3dfb8b33,f9b0819f9a683c2d,10,plantvillage:37085,lab_train
+6682,tomato bacterial leaf spot,train,Bacterial Spot,3,included,1200,1200,0.018578472222222222,867e580f4f5c5ae44a379e164c13c8f7a2d88c8812910c7fa5b20bd352c86501,8694777245e24bda,16,plantdoc:1023,
+6683,tomato bacterial leaf spot,train,Bacterial Spot,3,included,619,812,0.2842101912348695,98d2413cddb374de5b621a8f96b5b1a4ffc2f85a4cb4cda1d22558c7d2a73deb,8fc36878c01a7aaf,18,plantdoc:1194,
+6684,tomato bacterial leaf spot,train,Bacterial Spot,3,included,630,473,0.028813047417698582,29b1805c42ad05864bc1a12c098ef4ec2ece75cfebfcc9b03c7ac8ef494df00a,ca947f7c94c4ca4a,16,plantdoc:609,
+6685,tomato bacterial leaf spot,train,Bacterial Spot,3,included,1067,800,0.11920923149015933,e49688a566bf56adbf50629c3d5556a13399bb76fb1b1ed8afa163888f44a77c,a656fea713092559,18,plantdoc:776,
+6686,tomato bacterial leaf spot,train,Bacterial Spot,3,included,360,270,0.3454218106995885,37756a444ad7ad85013e8c59ecf6ecb6fb3b36304c40820ba4320ac27304074c,8383b3a5ab6a554d,18,plantdoc:2003,field_dev
+6687,tomato bacterial leaf spot,train,Bacterial Spot,3,included,417,277,0.11758391121038188,870a84430ab9c451131852bc763ebf838ef83d7900925e3dda9b0026134d69f9,e0cb85cf4d31d64a,16,plantvillage:52326,
+6688,tomato bacterial leaf spot,train,Bacterial Spot,3,included,500,317,0.27425867507886437,0811dd81d9dd6a09c785bcde4e1e73fe6ddd172d8ccc09b61835f681d4fa9ded,ccbcadb1985c3896,16,plantvillage:38600,lab_train
+6689,tomato bacterial leaf spot,train,Bacterial Spot,3,included,320,280,0.38690848214285717,3ad2cbd080989d8caff612bca2f2970bbaa418504128164569879bd8185211d9,839031abb17e11ef,18,plantdoc:809,
+6690,tomato bacterial leaf spot,train,Bacterial Spot,3,included,479,318,0.5414844868108349,0dd49897ae83fb3fb02eac95d314b5071dd639a215c01d08e6a3f3a56958d442,891e74c33fa43ba4,16,plantvillage:40404,lab_val
+6691,tomato bacterial leaf spot,validation,Bacterial Spot,3,included,556,316,0.1489163099899827,b4104bac0e398f884fb1fb01868682214bcb1d2cfe016c9e89a97dbb3961bec1,c4bc5b055b91bae4,18,plantdoc:1632,field_adapt_train
+6692,tomato bacterial leaf spot,train,Bacterial Spot,3,included,620,465,0.04456468955948665,7603fe6e14d1baf2f9e8ea8199fb5b2fb0be19d1b5255a63297cb1bcc564d071,db4e888b061b3fd1,16,plantvillage:41550,
+6693,tomato bacterial leaf spot,train,Bacterial Spot,3,included,562,418,0.0550366939672053,4295202b6c86e5166ff8741432c0206d19cf31b3af22a999bb2e18a1a452e0b0,e4cc082b0b56b7bb,14,plantvillage:47003,
+6694,tomato bacterial leaf spot,train,Bacterial Spot,3,included,360,225,0.4131358024691358,88e21a3d6196f59a3bd4288953afe15c9b0ab17be525374e88aae5b1f5f3ecd8,8383b1a37a5d4dd2,18,plantdoc:648,
+6695,tomato bacterial leaf spot,train,Bacterial Spot,3,included,375,500,0.158128,7c125b0c0cc840b2401523808a7c257a69474fd69bc5c38c2a00d163e61efe42,acede506c31a8aba,12,plantvillage:37616,lab_train
+6696,tomato bacterial leaf spot,train,Bacterial Spot,3,included,640,480,0.23504557291666667,102fe3d7dbab5f2ea50b16af4d6263c59fcc3b9cfcd8654c0a54f49ec3c0dbd4,d289653269667b74,16,plantvillage:37682,lab_val
+6697,tomato bacterial leaf spot,validation,Bacterial Spot,3,included,232,138,0.17931659170414793,0ed5eb3aa53b07f40de3ea425fa82b9086f1a8215031f3bd5e18fb2576df4fef,a5c849d5b5cd8a33,16,plantdoc:364,
+6698,tomato bacterial leaf spot,validation,Bacterial Spot,3,included,620,465,0.024332292750607006,c42d7707ebf9103ef93419b3d02a9fe99ad0be6a0bcd5fa857b69a8a7dcb72ae,dec325d6857a8a70,14,plantvillage:44173,
+6699,tomato bacterial leaf spot,train,Bacterial Spot,3,included,780,1040,0.38948224852071006,8718c5030461420062e70105aa7b3f4b366d8009560d527060c5b3cab155c980,810f3f9de47ad142,16,plantdoc:386,
+6700,tomato bacterial leaf spot,validation,Bacterial Spot,3,included,638,411,0.11514083701347734,cebe4d2718e9a21737c0fe0ba79a66b8312fcc7295c84a0039d57b34d67ff26a,890707fe14bb1ba9,16,plantdoc:455,
+6701,tomato bacterial leaf spot,validation,Bacterial Spot,3,included,777,1381,0.36890712994985264,5ae0ce1a87e5ea125ffabec596dc1983334003e453c5de72bdb6b5615b792122,d331139ae0ce0b6f,18,plantvillage:37325,lab_train
+6702,tomato bacterial leaf spot,validation,Bacterial Spot,3,included,640,640,0.16416748046875,5d924a8edb4010947b0753586cddbafe90e9723044db37bee421a98941375a3f,ed89793d01c2393b,18,plantvillage:40449,lab_train
+6703,tomato bacterial leaf spot,train,Bacterial Spot,3,included,640,364,0.12089629120879121,20f17597ec7cc97a6b32e319680b9a334ba456dd748276bf9f13599f199dfebe,888d1c9df838e9f1,16,plantvillage:44183,
+6704,tomato bacterial leaf spot,train,Bacterial Spot,3,included,600,400,0.007166666666666667,f6a1cb7c30c4d7df24b99773b7dbd5477e90c6c8cf86256d69f70fa48d3fe06e,9e967362666548ab,16,plantdoc:1023,
+6705,tomato bacterial leaf spot,train,Bacterial Spot,3,excluded_reference_match,517,661,0.1282740821157791,ec888455de8d3f2666e1fc7596a1e99a2ee300d7c92c36a2fd62d50a1c94c08f,aca6400f773725ce,6,plantdoc:1831,field_adapt_train
+6706,tomato bacterial leaf spot,train,Bacterial Spot,3,included,1800,1350,0.43839958847736626,a58571845be1815f0d018eec0cc47b0e2fd2e0a5084836883a825caa810e078e,d4896492ad765aad,16,plantvillage:42511,lab_val
+6707,tomato bacterial leaf spot,train,Bacterial Spot,3,included,484,616,0.13399229902329077,83bb7ec034c4c9efb792a33b9bb1d043967d0257d22f8cf623d818d7eff46e4b,da971a6066c2f635,16,plantvillage:40842,lab_val
+6708,tomato bacterial leaf spot,train,Bacterial Spot,3,included,364,438,0.4755381604696673,64c7d326178dbf96cc20569a93e44ea1cdbd23a6b936774ab3e6dce658765ef9,bfc0b8c3158ad2f8,14,plantvillage:45681,
+6709,tomato bacterial leaf spot,train,Bacterial Spot,3,included,630,409,0.06574688555128654,6244a9345d89739f969947068bcf55736160b8dc192879598058a63f4edb887d,cbd038f29cbaa385,16,plantdoc:1705,field_adapt_train
+6710,tomato bacterial leaf spot,train,Bacterial Spot,3,included,640,523,0.2409237571701721,c301675f7ff2a0c34fbff83b44b5ecceea3d2e92f16b63400b438b740a80537a,f0811634fffb3150,18,plantdoc:367,
+6711,tomato bacterial leaf spot,train,Bacterial Spot,3,included,651,401,0.06724739610267726,dd2a9438975068746d1b2931eb26dd3eaf82666215596739777f996c5b1883e2,e9d6192423bb2a79,18,plantvillage:36277,lab_train
+6712,tomato bacterial leaf spot,train,Bacterial Spot,3,included,1800,1350,0.1374366255144033,bf1f43c478ef67ba1c053c1fc54ec66534fbe8e5cd3fbb973f068923210b64ef,e2205b7c388f8cfa,18,plantvillage:40826,lab_val
+6713,tomato bacterial leaf spot,train,Bacterial Spot,3,included,499,323,0.11417882204036556,2ecd1cbbefbf719a84c6b3f730ded648efeb1ffe5d42ae9c94a5e85a67961270,e6be59411a91b8f2,18,plantdoc:426,
+6714,tomato bacterial leaf spot,train,Bacterial Spot,3,included,493,301,0.024691191633028513,380069887af05f459b9ecb24bb45b3bb21bc2ebacaeaae572bbd6ec02fab7685,9497717272536a4e,16,plantdoc:1562,field_adapt_train
+6715,tomato bacterial leaf spot,train,Bacterial Spot,3,included,335,245,0.2284861407249467,3e8786bd01a1d3d27efcef873f4485b1dd938dc694b40123930678015934acbd,fbca68b580d0783d,18,plantdoc:722,
+6716,tomato bacterial leaf spot,train,Bacterial Spot,3,included,1067,800,0.08484887535145268,3ce5628377e2242a18cd92c59edadd793145e58cef946e8b2bceb927a9236b85,cfd13cacf2c4340b,18,plantdoc:305,
+6717,tomato bacterial leaf spot,train,Bacterial Spot,3,included,600,380,0.023789473684210527,a6223f11af11376f304d47ab61beb243759ec2f263ad732c63c386dfe830367a,e4880c44515eebff,18,plantdoc:1088,
+6718,tomato bacterial leaf spot,train,Bacterial Spot,3,included,500,338,0.42357396449704143,0c6c3544308370be8a83e99bc52da639766259f845a9143bfecfd2e12e988911,8383b1a1aa5b5dd9,16,plantdoc:1530,
+6719,tomato bacterial leaf spot,train,Bacterial Spot,3,included,667,500,0.006530734632683658,e1582b489bcff3e45708fb90325736ecf366952803af1fc9f26316b87d8ae1f6,d32dd44e99922bd8,16,plantvillage:38872,lab_train
+6720,tomato bacterial leaf spot,train,Bacterial Spot,3,included,640,853,0.2471204572098476,c9e2d85451438f0d6d61d85c9dfc830832345614a8c570a7e29e23c17bc93dba,f98878ce0f6429a7,16,plantdoc:459,
+6721,tomato bacterial leaf spot,validation,Bacterial Spot,3,included,650,650,0.05117396449704142,00e23d227e16d901a5a0da6514fd8e65337d621718613fbd35daaeafd01e7f07,c61f366c8963e1c9,16,plantdoc:891,
+6722,tomato bacterial leaf spot,train,Bacterial Spot,3,included,1200,1600,0.009721875,66de57beee8aa6d789c6635c2ff092c058dd9fc77320ae06541b7737a0bc0af2,876d3830c7db2d34,16,plantvillage:40045,lab_train
+6723,tomato bacterial leaf spot,train,Bacterial Spot,3,included,1052,838,0.017643402270479232,02a7171b858988ef7251cc0d4c81c3cf7b8d3d9a9014e29c22f3f6fee86dfd25,dbc08e3f357c3058,16,plantdoc:1067,
+6724,tomato bacterial leaf spot,train,Bacterial Spot,3,included,600,380,0.010842105263157894,0525c013a7bc4a7293fd0b7c6f55596c307551b173b5316e66c12ac9393a155d,ead235a1ab5582ab,14,plantvillage:38656,lab_train
+6725,tomato bacterial leaf spot,train,Bacterial Spot,3,included,640,480,0.11574869791666667,0d6c425195bf2a94ffbf301a7dc8961edf589dbd908c88f195aa693eb9457206,a5898595aa4e7675,16,plantvillage:42550,lab_train
+6726,tomato bacterial leaf spot,train,Bacterial Spot,3,included,800,600,0.07191458333333334,7b8293a765759448b424235dec310dde4f3e7b91cb9e0d609a6859f7a5c03029,bcfd651150653317,18,plantvillage:40238,lab_val
+6727,tomato bacterial leaf spot,train,Bacterial Spot,3,included,1100,731,0.2576570078348464,cd4a2b5276b2e4f30c13fa4a34edaa77b6bd31e004c5f01399d2a1ee247fea9b,d3c9475b08ba3ce1,18,plantvillage:38427,lab_test
+6728,tomato bacterial leaf spot,train,Bacterial Spot,3,included,400,533,0.3183677298311445,9789b4d2f83105c26cd4598a84d091dd6aefa9c1496bbbf0620838d475efed7d,caafb395c0d5c4c4,14,plantdoc:868,
+6729,tomato bacterial leaf spot,train,Bacterial Spot,3,included,1280,720,0.032727864583333335,5291b1379acb33df8ac5c9ee6004bbc4633ec9cec7db3b8ea105c163e794cf2e,bfc5e030e23a856d,16,plantvillage:36524,lab_test
+6730,tomato bacterial leaf spot,train,Bacterial Spot,3,included,660,330,0.25410927456382004,fa299d05dba31544eaa319f3eec7585c53b58696d6caad181bba7dcdd01ec587,89f3627a5d62ac46,18,plantdoc:476,
+6731,tomato bacterial leaf spot,train,Bacterial Spot,3,included,326,394,0.08452710909034288,f4ff496b73390b6bda066ca9d2cba9f2ddd75dcf3cab88c164e028ce3ab95fab,ef4f907087438c3e,14,plantdoc:115,
+6732,tomato bacterial leaf spot,train,Bacterial Spot,3,included,840,1136,0.23166918175720994,ff4f6f8d5cab1ef9b7c7049b3f1f486c40d41e424bb128d3253d1b4bf7c89ed7,f8d16319695663a6,18,plantdoc:1999,field_adapt_train
+6733,tomato bacterial leaf spot,train,Bacterial Spot,3,included,1862,1468,0.022498953690181078,6a0f32c10d84eaca32c096ee96b9a0df17ff292d34ddc41607a59b2169963248,cee3b10c46d3f648,14,plantvillage:52940,lab_train
+6734,tomato bacterial leaf spot,train,Bacterial Spot,3,included,600,331,0.17887713997985902,74e47a00b1922a10a91180919362a52c6daa8dcbf5093b117034f7e7ca08cc4e,e3ff87889780cad0,14,plantvillage:52125,
+6735,tomato bacterial leaf spot,train,Bacterial Spot,3,included,350,350,0.1966857142857143,eb35e5f15470cab9baf132bd3339f79086e2a25f253ba222761875532af54850,a94685b5d5068bfc,16,plantdoc:1318,
+6736,tomato bacterial leaf spot,train,Bacterial Spot,3,included,1920,1440,0.25155562789351854,c0377daf6af76e8539b79f90470542c7335622007fecf02847ea48cce41d4865,cba98138de8f1273,18,plantvillage:36234,lab_train
+6737,tomato bacterial leaf spot,train,Bacterial Spot,3,excluded_reference_match,322,268,0.2765365717993882,24a4eaa7622452e1c74e7490334db3ffa33e095880a2c10b000737c9fbcb0f14,e07f438a5b4d4d94,2,plantdoc:1883,field_adapt_train
+6738,tomato bacterial leaf spot,train,Bacterial Spot,3,included,1692,1309,0.7724563713299634,21f4b8012e21d67c67d3c3143b63de06169b17b16ebb796577dd77493443fc66,80498ebf096d7db2,16,plantdoc:658,
+6739,tomato bacterial leaf spot,train,Bacterial Spot,3,excluded_reference_match,190,184,0.18335240274599543,4667d4c30de8e4d7a9c21ab35bf0f97b28e5ee6deda7357398af342e05c47953,b89c4ca6dae417aa,10,plantvillage:52450,
+6740,tomato bacterial leaf spot,train,Bacterial Spot,3,included,640,640,0.13470703125,0f97ec832cd8bf1f4c92db4c051db2112395cf2aad627d4a3250760a55b399b2,d36a26251d1d0d5f,16,plantdoc:2172,
+6741,tomato bacterial leaf spot,train,Bacterial Spot,3,included,800,533,0.37438320825515947,adda453ab7a12e0fd0dbf9ccd0e153cfe162712cc6575302b12e09c3d0265ac9,b166d17e133c1f88,16,plantvillage:37970,lab_train
+6742,tomato bacterial leaf spot,validation,Bacterial Spot,3,included,2657,1771,0.5025048097490047,cf85c64386d4a28679a1cd35088e58ee5550dd4ccf57ccb0924c51e8b28aa8c3,949668c1af51d796,14,plantvillage:51305,
+6743,tomato bacterial leaf spot,validation,Bacterial Spot,3,included,1024,768,0.17060089111328125,9e59c9b9bfc0cb79bbd3e6476a1f6efaf7021c142611c7b2b86c7704f4751f58,ea8e21451b675da3,16,plantvillage:41210,
+6744,tomato bacterial leaf spot,train,Bacterial Spot,3,excluded_reference_match,296,225,0.30714714714714714,59b3033387ddbd16f1a2f5b27f285e295e4b7864f7edfbad0bc6e473ac061299,9e42c8de014f7bcc,4,plantdoc:1664,field_adapt_train
+6745,tomato bacterial leaf spot,train,Bacterial Spot,3,included,900,600,0.5148481481481482,c1929b5d4c527cb3b992e05c208c0d6de1297be2d4dcecffea0b094550257bd6,a9c08bcf2f2cf42c,14,plantvillage:41602,
+6746,tomato bacterial leaf spot,train,Bacterial Spot,3,included,396,353,0.4780596331587833,b98da84dac3aef85143b2b2ba991b41870fd8861c2cb8718588dc101fe148ca3,a41aa7f439391ace,16,plantdoc:2228,
+6747,tomato bacterial leaf spot,train,Bacterial Spot,3,included,685,296,0.1636713355691458,59332525175f841cddc70119bdceca5a940ea148b56da991f25b407c3402424c,a862bd2ce239cf34,14,plantvillage:36848,lab_train
+6748,tomato bacterial leaf spot,train,Bacterial Spot,3,included,312,305,0.15536990332072298,89ef65288ff693135913fdb2f69f03f40b909602efd43e33d3aef0be4a680507,acf249995b92163e,16,plantvillage:41618,
+6749,tomato bacterial leaf spot,train,Bacterial Spot,3,included,685,437,0.2167732883462226,099c3155d2e91026be8de4ea4453ffdd559fa977a17ea9b8fa4e4cda9d6e7afa,d6028d55a177897d,16,plantvillage:38258,lab_train
+6750,tomato bacterial leaf spot,train,Bacterial Spot,3,included,1200,800,0.052501041666666665,923b94bd07df4bb84967c7775357416ad8cede81926fffb7b961b629e2b4859a,b7bca8c629ee3a04,18,plantdoc:255,
+6751,tomato bacterial leaf spot,validation,Bacterial Spot,3,included,400,358,0.8030446927374302,dd7f5a5c01d786fd380c0ca395ceaa0dbf6d18dd0a77745c23137c497e377f01,d0e5562ce696a674,18,plantvillage:36152,lab_train
+6752,tomato bacterial leaf spot,train,Bacterial Spot,3,excluded_reference_match,397,682,0.33490179277129795,4ef3e20c9df5c10dadba5b3f0fcc089145ebef3fa66c4cceae6eb21b7118c25a,ce736d324668e48d,4,plantdoc:1638,field_adapt_train
+6753,tomato bacterial leaf spot,train,Bacterial Spot,3,excluded_reference_match,1117,827,0.25172907652320575,4ea6635443aac76e2ed9f7c6cba6dfc1fe7932044c695dd9e605622d50e10365,d2436b7ba0c60fa5,0,plantdoc:1864,field_adapt_train
+6754,tomato bacterial leaf spot,train,Bacterial Spot,3,excluded_reference_match,115,118,0.5728813559322034,239d2faa82ac3b06c32d808e3f9c5c1e7acadd725190b5663c41bb60b2d7e749,a9ddf730f002c327,4,plantvillage:36177,lab_val
+6755,tomato bacterial leaf spot,train,Bacterial Spot,3,included,355,250,0.41972957746478873,1723de1bd3276df9ad2b33ad38e363a1a64fc6cbc01c42148b5eb7bbef940c2b,9f8fe434f9c209a8,18,plantvillage:37682,lab_val
+6756,tomato bacterial leaf spot,train,Bacterial Spot,3,excluded_reference_match,350,234,0.27608058608058605,5511e8be01894f5cf694fb03507d67a451e2d7f42444c28503772a9b8c50ea5f,b4537ffd60c42603,10,plantvillage:40125,lab_train
+6757,tomato bacterial leaf spot,train,Bacterial Spot,3,included,600,399,0.1931996658312448,8cb990c0d9cff32e06596d417c2d2e3f211ababe9174b28bdfabc608ba702d15,81744b9e03dd0ff4,14,plantdoc:1028,
+6758,tomato bacterial leaf spot,validation,Bacterial Spot,3,included,606,504,0.7821356540415947,8ca15a80d6f9eaf4743b7c270c48dc33139558ddd78e60017e880750f6c2967b,805b8eaf93693ab4,16,plantvillage:36468,lab_train
+6759,tomato bacterial leaf spot,train,Bacterial Spot,3,included,1024,768,0.32230885823567706,2f11a9bf9596fc5247d8286f566dbb5a777f5b5c89e607cf04540a82f0bbc96a,c936cfb192d4630d,12,plantdoc:1998,field_adapt_train
+6760,tomato early blight,validation,Early Blight,1,included,671,500,0.039499254843517136,1f8ea01d913c7932b480181692c79070841b96d187334a0a04308fdc4d817b92,9dbfe48b62589c22,16,plantvillage:42956,lab_test
+6761,tomato early blight,train,Early Blight,1,included,1049,776,0.2076118148850648,f2e61c134657900bc61921749c45d851be4d124d97db72de2bbe420adaef66e6,cfdcb8a123247726,14,plantvillage:47796,
+6762,tomato early blight,train,Early Blight,1,included,245,251,0.10454508496625742,efd19e1900617e5a63e4ca8b3edd087407bdd98a7493156d13b621265e8c4d10,a19161ae88b71f6b,16,plantvillage:37508,lab_val
+6763,tomato early blight,train,Early Blight,1,included,500,323,0.4353622291021672,9d4d6539d74bb67578ddd1b8a2f99820ff4eeec55e79f68d16ed29a6c6c66d87,d29dcac54a9a3cd8,14,plantvillage:54048,lab_val
+6764,tomato early blight,train,Early Blight,1,included,620,410,0.05435483870967742,8cc1cc1cfaf78b7e9a755f0cb6de0ac8956a40ab13587ca1a3ed7104126b1ed5,abe1dd0fa656811c,12,plantvillage:47047,
+6765,tomato early blight,train,Early Blight,1,included,996,1328,0.09095871437557458,9e6c2154e4ba67256ebaba018347887464b5e096dce4724cc1cfd87aadf06fa5,9dfb698f8b21a061,18,plantdoc:998,
+6766,tomato early blight,train,Early Blight,1,included,690,303,0.01818529679054862,76f73f6bb313d79f44f30a793d88bfd2d350c7fbd9f640be1c1740ecdb2e7022,d88b312634b1fb35,16,plantvillage:47144,
+6767,tomato early blight,train,Early Blight,1,included,650,420,0.3091868131868132,98936b41f03930eef7d724f341e31b42b51252057f675eaaaca9d4866ca088df,d6d1cac528da35d1,16,plantvillage:36577,lab_train
+6768,tomato early blight,train,Early Blight,1,included,640,462,0.06250676406926407,a26009f65bec4d4486f423ed134cbb9094bddadfc918d6a6a8feb219f6fadd58,da273be489672433,16,plantdoc:1666,field_adapt_train
+6769,tomato early blight,validation,Early Blight,1,included,700,525,0.08562176870748299,f543e8c7be438a67d20876ebf52bab1741dad85ab56e23d35de6c1ba4147fe84,d4ca64488be79e8b,16,plantdoc:48,
+6770,tomato early blight,train,Early Blight,1,included,500,372,0.0808978494623656,1df19857e4fa8e1eea02bc6fdb3c9ecec8e4c7c98a465125a009f6b52f0dfd84,afa00a97d5026bee,16,plantvillage:42261,lab_train
+6771,tomato early blight,validation,Early Blight,1,included,603,400,0.043611111111111114,71909c37bd634aabc2a4d54b8c3d3e4dae86dfebcc2dac455b6fdf696d81fa17,c310af40ff67e03a,18,plantdoc:191,
+6772,tomato early blight,train,Early Blight,1,included,640,302,0.08551324503311258,6f4c738d00cf7e8a20383efc26ad22da3f4676dbc9c4410c558426d53d53bf4f,862b39b87c71a49e,14,plantdoc:570,
+6773,tomato early blight,train,Early Blight,1,included,528,542,0.007359107681985911,3d3b3c342e85aab1d170ae4f2cd7cf0c9ff318752d8613a4effcb269ca041ae7,d5ca49bb20e839f4,16,plantdoc:2477,
+6774,tomato early blight,train,Early Blight,1,included,600,400,0.1071875,188b13972ddaac83d930a8b9878ec94d34c4686af76f7f78e283a92473b6aa9a,ea167199ad689e68,16,plantvillage:36303,lab_val
+6775,tomato early blight,train,Early Blight,1,included,500,408,0.09181862745098039,3f8030c08baa309b389276ed796957ba55dfded5dc16955885a2a248d344198c,d39b29a9979098da,16,plantvillage:36200,lab_train
+6776,tomato early blight,train,Early Blight,1,included,304,215,0.11199510403916768,31a8fb57b6970b572603c362515239ac3e3d7275662d45b626bce302ffa1b78c,f0c1d1e6a2031f9f,16,plantvillage:40336,lab_train
+6777,tomato early blight,train,Early Blight,1,included,640,402,0.04493547885572139,c4b656814c19f120f47ee966d60963f791f2e1d603747de6ec9e43cb49199147,d96d6416cfc298b8,14,plantdoc:2087,
+6778,tomato early blight,train,Early Blight,1,included,1179,785,0.0897597553794374,9383d3dfd3308d31e74fb049e2fed597454114cad52743b3b45f3e9c1eb30dff,91896ae589379b6c,16,plantdoc:636,
+6779,tomato early blight,train,Early Blight,1,included,640,463,0.03185070194384449,ea03c689cd9c04dd073eb3e1502445f60d57a653e78da20228f96ceee49f7cf9,8097239c8f69d26f,12,plantvillage:43303,lab_train
+6780,tomato early blight,train,Early Blight,1,included,996,1328,0.006286440944500895,40ecaa974b5ea45ed91a6cb540c068b636fc5c6ffb6e86259033fd8d1c8e0375,82cd7fe6c8c28ab2,16,plantdoc:1399,
+6781,tomato early blight,train,Early Blight,1,included,816,612,0.01214677047289504,3b246df3d21883b3b240deeba2dc120aadad01ce04631e481384122aa05280c6,a9e0904bfbe643b2,14,plantvillage:44187,
+6782,tomato early blight,train,Early Blight,1,included,640,432,0.03802445023148148,4d9ac864cc1d237dcb0cead04cb5bd6ce624995036a13356198623b1a57670e3,c1c84f8c3ed4bc2b,16,plantdoc:795,
+6783,tomato early blight,train,Early Blight,1,included,800,506,0.1393848814229249,91c97519dadb9ff736103377d010ae3339f5689776fe920e7bc0813a864317bd,80953f7ff4528263,14,plantvillage:54079,lab_train
+6784,tomato early blight,train,Early Blight,1,included,998,631,0.02138349599357193,e6c6a139890192cac4237eb1983264ed5e55be5857b38d934840ab39fe144cac,c493239e4de8976c,14,plantvillage:42182,lab_train
+6785,tomato early blight,train,Early Blight,1,included,690,518,0.04498629063846455,48a76d43ea1d50060aa46645ad6ae21a49cebea244c526285f57290c7a24c3b0,fcb4855b52ab8ec0,12,plantdoc:1511,
+6786,tomato early blight,train,Early Blight,1,included,668,603,0.4423714759535655,290965b0b620d2725cfd6725b3066a8b051e5f148ec32937ed7597492ec03bd2,eed593cb18d0b530,14,plantvillage:38874,lab_train
+6787,tomato early blight,train,Early Blight,1,included,450,337,0.0333135509396637,ac4cb58ef6d63de8f24dfdd9dde78a83d70359dc10cabfc9c3ab050fe5aaa369,d0c9fc4b6b431539,16,plantdoc:2141,
+6788,tomato early blight,train,Early Blight,1,included,750,451,0.04529490022172949,d488eee98b85d62ee6331d1dbd4ef90823a73dc7d1d9115afce34560d6b269fb,ec868ff03920f89b,16,plantvillage:52318,
+6789,tomato early blight,train,Early Blight,1,included,640,480,0.024996744791666668,19afb3756f397541db92b7d324c1c91313f55e01b172ad5a8666e51031fe429c,d53a68b5a1b545a9,16,plantvillage:53027,lab_train
+6790,tomato early blight,train,Early Blight,1,included,168,243,0.14491475602586715,d7a4d2393e4f27e9b4167553df5e612a4e13fe155808b3d2703a6f7fbe1d3da0,a16ac69f79c98315,14,plantvillage:41931,
+6791,tomato early blight,train,Early Blight,1,included,664,498,0.028916872308511154,c780dffffefdabcef8c0670e31233eb4cd5809e2d56dc2f11ff17ce8a42c33d4,caf734da070363f0,16,plantdoc:1947,field_adapt_train
+6792,tomato early blight,validation,Early Blight,1,included,467,296,0.08097980207187916,d78ed61666b5be8449c8808b68b9b5622c138d5d203d2fd38985de919de5d1fe,9288cdf47ea83371,14,plantvillage:43580,lab_train
+6793,tomato early blight,train,Early Blight,1,included,720,807,0.04669558033870302,de6aceb7cfbb4e5191debcc526e21946d6c44705f602e292ca157c85c6a44d51,b689b4770743e5a2,16,plantvillage:48701,
+6794,tomato early blight,train,Early Blight,1,included,602,443,0.03723480047696542,25bbb77e7bca4026ec049215e90e45e17c651679aadd36c1d94b9a77e0c8a00b,c1c26f8c3e62bc2b,16,plantvillage:40371,lab_train
+6795,tomato early blight,validation,Early Blight,1,included,996,1328,0.013636624812503025,4addfdd763cdc73a372a53ec3d733abf80384f043637967e69b24293ed851965,9f6676090d73813b,16,plantvillage:41851,
+6796,tomato early blight,train,Early Blight,1,included,640,422,0.07569609004739336,50c8cbe62e496b926ec54beba6dfd92f4607f6f2c8dc3d0c7e2e53aa72ceb19f,bb8ac9fc192e24f0,14,plantdoc:687,
+6797,tomato early blight,train,Early Blight,1,included,1200,1600,0.0062953125,f67a1b0070d53a476b297196389c75104cf136eb5b96a6cf08f3b97aedbd84a5,cb7092e9b59b91e0,16,plantvillage:38218,lab_test
+6798,tomato early blight,train,Early Blight,1,included,590,385,0.11907550077041602,3e4b48e7a8764e730604623d13d42f463be67dce0adc5e5ee9c7f2891af9558c,c440bb1bb71fb119,16,plantdoc:1602,field_dev
+6799,tomato early blight,train,Early Blight,1,included,639,800,0.21723982785602505,4694a06352dbe7a996c3a9f300a86fc20f5f8cb758bdb5c767e8d72b4d707a67,ffe0d9a0e591109b,16,plantdoc:506,
+6800,tomato early blight,validation,Early Blight,1,excluded_internal_duplicate,500,362,0.05842541436464088,38927b16a7fbe0df9f315779ebdf6b6afe33e6ac27dd213e3cb54b54024ce91d,8097239c8f69d26f,12,plantvillage:43303,lab_train
+6801,tomato early blight,train,Early Blight,1,included,192,204,0.005131740196078431,27a4df93b854b7c07bab527dd2e6f9a244621c91fae756a4dc48b93dbedd0c9b,dfd637016a821d65,16,plantvillage:42579,lab_train
+6802,tomato early blight,train,Early Blight,1,included,201,215,0.0032164757607312275,6065a88714d09728bf93d2f6fcd6e954e64c709f11216258c44adfebc30afb59,cc1a343cb0f54f6c,16,plantvillage:39621,lab_train
+6803,tomato early blight,train,Early Blight,1,included,604,380,0.5338271174625305,95b823121fa83da7c0fad82a10d2e46a6dbe75455fef9dcfd0936a1de414afcf,ddcc229f7fb51080,18,plantdoc:727,
+6804,tomato early blight,train,Early Blight,1,included,664,498,0.019015822325446363,ed4b19b6abfa89faf86ed924dc5491bbd53da04e195f5464068eb0394eb7fe0f,cb64a7874ac94ae9,14,plantvillage:42649,lab_train
+6805,tomato early blight,train,Early Blight,1,included,1280,828,0.07881095259661836,b74e94e2f8d8ba4795f14b77f68219122dfa9b265d68e592ccf68a40077403f5,d22dfac40b663179,16,plantvillage:48193,
+6806,tomato early blight,train,Early Blight,1,included,723,550,0.07791273733182447,fd83c32bd5c1d76234a70e8515e205db9f8b289fa421df31081b3571e647f368,fad8a36c93c415a6,16,plantdoc:511,
+6807,tomato early blight,train,Early Blight,1,included,500,794,0.03187405541561713,4803c1ca6188d2fa3227a69d85ca2ef7eb7636b87d5c6150a698e1522fdde3d8,aa419f6a5dbc5834,16,plantvillage:36374,lab_val
+6808,tomato early blight,train,Early Blight,1,included,473,371,0.036163047132770694,f1f643ebd8a20318f6435963f04548316f02dfaca1e1790f997653b32de6fd46,fb162856746d1d0b,18,plantdoc:2479,
+6809,tomato early blight,train,Early Blight,1,included,960,720,0.041653645833333336,f633df8708a7b61e1a80f93798e9a113d4065ab3c75a78e51f50309e7aa63365,aac8d8494dfad435,16,plantvillage:38286,lab_train
+6810,tomato early blight,validation,Early Blight,1,included,790,532,0.18799133910726182,a57a0e69eeb45ae478a17a54511227f0f57cf7d3e66c0ab847a59434f11ef1d8,e16d949cd26c9333,14,plantvillage:38054,lab_train
+6811,tomato early blight,train,Early Blight,1,included,1080,538,0.28519551149662675,8404be7000ae071595e64cb22ab998d2333a50ef227eef2d10354a883636f813,da18a1d3a7ee5126,16,plantdoc:70,
+6812,tomato early blight,train,Early Blight,1,included,450,600,0.0737,a5f88a5bf0beaf60cef5426f1edfe4b0f655e5e0faba13b18a7aece8e431757c,ac9b4a1aa3a1e7e1,16,plantdoc:998,
+6813,tomato early blight,train,Early Blight,1,included,1200,1135,0.05890455212922173,061030e5f97471ac24b40fdfbcee1070304dee0a2b932174a859e748831f96e7,dc92e51ef451da48,16,plantvillage:36593,lab_train
+6814,tomato early blight,validation,Early Blight,1,included,800,1200,0.01746875,7d0b5557566792af5d603eb3c2d7590ea487be861d780146b73b391ac23a9d6b,d594f84fb46ab160,16,plantdoc:432,
+6815,tomato early blight,train,Early Blight,1,included,706,1100,0.25089621426731906,981bc2a7f9f048fcb65de01991fd675e374d4142fe101b236a28f4f9de46bce2,d91c4c6db45b66d0,18,plantdoc:166,
+6816,tomato early blight,train,Early Blight,1,included,1170,748,0.06400772430184194,48f364caa794514c5f33b482bca4e167bbdafd935bb28cabf058b4ff500f820d,d1e1c49222377d9b,16,plantvillage:36705,lab_train
+6817,tomato early blight,train,Early Blight,1,included,1200,630,0.042955026455026454,29562a130f5f5673382a3fb36718ecf0632685b5d7228f47a3da238c40068fce,f10b1ef880d12dee,16,plantvillage:50115,
+6818,tomato early blight,train,Early Blight,1,excluded_reference_match,800,600,0.17683958333333333,b6efe373b3876e2de21531512f86e90a3b3cf526c7f40955b5f4d9ea670dabd9,c2470afc169979b5,0,plantdoc:1572,field_adapt_train
+6819,tomato early blight,train,Early Blight,1,included,1620,849,0.2791853887652867,3e1250281707ce6374d534e604e43e9ccab8b5732f2c512d8267ea590b48e599,92241f5563cef48d,18,plantdoc:693,
+6820,tomato early blight,train,Early Blight,1,included,1920,1247,0.16393009890403634,b5a81e38247342815b18f4402d937cbd4a65d326837171d748265dc63ee6a461,e2f33442700f6b2f,16,plantdoc:1279,
+6821,tomato early blight,train,Early Blight,1,included,800,533,0.12197232645403377,f06261e09f526ac3c42208d27f3dd79b173180a113767aca2f754396176673d1,a7f2acdc9818917a,12,plantvillage:36376,lab_train
+6822,tomato early blight,train,Early Blight,1,excluded_reference_match,500,334,0.1560359281437126,f28da1d005be74aa234dc5c0cdf4d9178582cfea1072392a66e2a74bba4d70f1,906f121f13cb3bc9,0,plantdoc:1560,field_adapt_train
+6823,tomato early blight,train,Early Blight,1,excluded_reference_match,260,195,0.09209072978303748,4d4c2517d209bc84886e88358d4081fa646fdc588b4048b220292621ef665811,91ca7ecda331e6c0,0,plantdoc:1914,field_dev
+6824,tomato early blight,train,Early Blight,1,included,800,533,0.1477016885553471,efc579ff1dbedf0ad0b6684d2a3dec54ce88545f0929fe777bcc97304ba989fa,8fc729328b0fa5e4,16,plantvillage:39823,lab_train
+6825,tomato early blight,train,Early Blight,1,excluded_reference_match,660,440,0.0715668044077135,d066179a24c6db47fe492fe212d06b62bc7849eacefd31a54cace19cc5591a16,eb892cfe12ecd222,0,plantdoc:1570,field_adapt_train
+6826,tomato early blight,train,Early Blight,1,included,1600,900,0.04296319444444444,6646793748d3983f54ef198f046b4f926db26a2917d2819feaf00ac6c38973b9,da9898e8cf3244bb,16,plantvillage:51019,
+6827,tomato early blight,train,Early Blight,1,excluded_reference_match,800,600,0.18364375,59e56f42ccbf36e004260e490fd3e48b6a9df8360c801152eef9a2d37faefd42,878f6a5e7c5a5070,0,plantdoc:1001,
+6828,tomato early blight,train,Early Blight,1,excluded_reference_match,450,600,0.009751851851851852,377e7fb8bfded510140c6ad49efb07eae112dc794ba03a67335d548713357f30,b712b18d52fc74e0,0,plantdoc:2492,field_test
+6829,tomato early blight,train,Early Blight,1,included,300,200,0.21163333333333334,149a224b69a4d0be15b47d858a1603b53e01344885fd22d97b70b36a93d9bf34,c2693ec1389fe1cc,14,plantdoc:233,
+6830,tomato early blight,train,Early Blight,1,included,685,556,0.05693693220605997,812e3bd0a81640b5b343573242865985ffdc41b5edf423dab2f5d79c64167c43,914c51bd93796ca3,14,plantvillage:49593,
+6831,tomato early blight,validation,Early Blight,1,included,2048,1360,0.04373133042279412,6dec70c86b7da1d6bef6f1a97eb53be5000e2ef40beadfc3544952eb7ab997c5,9c2fa8ada26a68a7,18,plantdoc:530,
+6832,tomato early blight,validation,Early Blight,1,excluded_reference_match,500,311,0.04468167202572347,1314995aed88dd210e198645565bab43bfa636be723c97743cf93cbcd90c2783,aae2943e47f1ac62,10,plantdoc:976,
+6833,tomato early blight,train,Early Blight,1,excluded_reference_match,813,576,0.1436082069154025,301683799ebbae02e98a690d85e8d182b25ffa6da914c008aee2a22d5bb77585,86287ad17a9d70b5,0,plantdoc:1587,field_adapt_train
+6834,tomato early blight,train,Early Blight,1,included,1920,700,0.027794642857142858,13c99edbed0c95c603f1382f47d5bb1a249b51ae1c9057ed597e3af1180119c8,eb66189b6cc9c866,16,plantdoc:1255,
+6835,tomato early blight,train,Early Blight,1,included,2560,1709,0.07444389079871269,2bbbcd0412ce8dea58c02c8ccf7af2bd6705e8b18cba3b967a2b7a81d30919d8,8f3443c39cefe211,16,plantvillage:39318,lab_train
+6836,tomato early blight,train,Early Blight,1,included,386,523,0.12364893648639277,25786eca0a679bf39dd91bbb73eaa0561f7b8336dde6eee4b4883c5de1f5178a,c54105a71b37369f,18,plantdoc:312,
+6837,tomato early blight,train,Early Blight,1,included,453,1024,0.018692656594922738,2fa92778c37b8b9fd66e71c560932e938ce5cb9b489bb25fbeae6069b6d46a8f,dcbd6993c182516e,16,plantdoc:2505,field_test
+6838,tomato early blight,train,Early Blight,1,included,701,467,0.21268484605962115,40e7b538e2219011a5d107c489e88c4448e8455853c920c1c53af7f0d947d162,9bbc34037b948db8,16,plantvillage:37065,lab_train
+6839,tomato early blight,train,Early Blight,1,included,1024,685,0.015530907846715328,ee46d8d87cf0d7ec68cd2cd16aaef5283f156da85a297c40398a2f6368ab86fd,aa5a08d98c4d9edd,16,plantdoc:189,
+6840,tomato early blight,train,Early Blight,1,included,700,580,0.061573891625615766,1e4c33614635b0929f056ba590e5a923e025738f3c600ba267cf40499875666d,ae643756ce917053,16,plantdoc:1608,field_dev
+6841,tomato early blight,validation,Early Blight,1,included,975,1390,0.023164729754657814,37ca730179cdbb96c741383add1173ad4a96197d41d76b5de8814aa49d0dc03c,d8c759c067cb268d,16,plantdoc:1981,field_quarantined_train
+6842,tomato early blight,train,Early Blight,1,excluded_reference_match,1890,1063,0.0356304160631536,0f3f5643f51f5b82d951812cc107db49252427b8c90ec6dc7e933ea279d1f57b,a972239a9c239de9,10,plantdoc:1002,
+6843,tomato early blight,validation,Early Blight,1,included,685,786,0.10059434260136327,96982c88a7fb0685ea6533e6a92c5a8d9667d3ed62bf77cb43da44ecd392f36d,ca760b7273419976,18,plantvillage:41910,
+6844,tomato early blight,validation,Early Blight,1,included,732,580,0.11657716223855286,11378b012117fc23967f03c8e386661637b4ac758cfcb86171513a8e5a273084,d1c6e629a7079e1a,16,plantdoc:1020,
+6845,tomato early blight,train,Early Blight,1,excluded_reference_match,421,299,0.16145663692911447,1cd89e4f8a42f22941719d974012a5682baa4627db3ba61dea451445f22b86e5,839363780cf179bc,2,plantdoc:1066,
+6846,tomato early blight,train,Early Blight,1,included,253,254,0.08342410755967757,0ded1318ceb6315fd5e4dfb4387a3f6b22715167c27f67ca92d409a1a2d43656,9fbd2aa12d7092d8,16,plantdoc:771,
+6847,tomato early blight,train,Early Blight,1,excluded_reference_match,652,418,0.09797971644113071,71d899c53f2644972695e09f8c19f9aa5aae471729b548f1d3ec87c2d3f0df4a,df2d6250e79ce8c0,0,plantdoc:1027,
+6848,tomato early blight,train,Early Blight,1,included,190,184,0.23712814645308924,7a32bbc7f5ff4754008ea89672b1ffbc36452b3deabf9ddfb0f6fc92731f1b8c,d65114e3b987f1c8,18,plantdoc:669,
+6849,tomato early blight,train,Early Blight,1,included,900,426,0.07234480959833073,56a3b934be82a9f08755db0786a88e7365175984ef8855e5870b9c0a2dce53c3,f11a7cc700612ef7,16,plantdoc:774,
+6850,tomato early blight,train,Early Blight,1,included,1200,630,0.0706084656084656,bce342bd65438ebea6ca94b2827d12aa11a437594e44cf12d9969e51335331af,dbdd32610a4b662d,16,plantvillage:43143,lab_test
+6851,tomato early blight,train,Early Blight,1,excluded_reference_match,768,576,0.2718460648148148,27016b38e221ff3bbe285f3093f93b9a4e0611aed54e5b89ab505c7d0eb4d391,85d310d25fc70abe,0,plantdoc:1000,
+6852,tomato early blight,train,Early Blight,1,included,1200,801,0.018507074490220557,6152114cc45b8454fa709a4fb65ed6c3605694a70995bd3f74624b78d32657cd,cfb037267e50117a,18,plantdoc:1370,
+6853,tomato early blight,train,Early Blight,1,included,800,531,0.02610875706214689,4601737e2130526082fea68da3630cdfb2f69c99ff9d6b45082f9eed12111a8f,c443637c5986c3bb,16,plantvillage:42302,lab_val
+6854,tomato early blight,train,Early Blight,1,included,767,510,0.1329064089781936,f925bf8eb017f04de0f9724c82491fdd2a4ff0e2ac53394f01fcb763951afb7c,e3f25e8c24537272,18,plantdoc:1048,
+6855,tomato early blight,train,Early Blight,1,included,700,580,0.012916256157635468,a4fea35d17def4b8367978d66065e9dbc44664c2056d6a754b67f323a4100161,898d21e1a5b55b3b,16,plantvillage:43101,lab_train
+6856,tomato early blight,train,Early Blight,1,excluded_reference_match,465,350,0.08999078341013825,3b20049610a8f97f30c4e7b1311c6fe32d89c801a55059f4fe26e785f4bc27ca,9875f2e3f24a8722,0,plantdoc:1610,field_adapt_train
+6857,tomato early blight,train,Early Blight,1,included,1100,825,0.084633608815427,a7e66b56c564ad162181c584aeea5f0d3e3c87a2bc01df89c43cca36d173dd08,8b8f25e16a0e2b7a,18,plantdoc:721,
+6858,tomato early blight,train,Early Blight,1,included,244,215,0.03322531452535265,2d811e252801a4f32511aa198cf08a63a6e1cb935c344950c3a6cb9df919cb4f,86cd333b4c9173c3,14,plantvillage:40612,lab_test
+6859,tomato early blight,train,Early Blight,1,included,400,267,0.11703183520599252,67dbf77010c3629918721e432ef3c1a76e479b363986c9e71b7416e4c872c0fe,d96e56318e89cd34,14,plantvillage:42944,lab_train
+6860,tomato early blight,train,Early Blight,1,excluded_reference_match,499,332,0.1439384793683753,7fcdf16090eb67e48316ee66cebf338af95fb76eed03350dc8feafb8e7ef79f5,dc923d1fb73d0884,0,plantdoc:1604,field_adapt_train
+6861,tomato early blight,train,Early Blight,1,included,640,480,0.017083333333333332,dd424abf5e381e76158af739ee65fe2acc7674b4db65f53c5cd59087232d7bff,dcd23279c96586a5,14,plantvillage:46033,
+6862,tomato early blight,train,Early Blight,1,included,433,325,0.08844199680227394,37960e8b76f38d63d87f4eb3dd65117e4a132d6e513d3f122582324309e30423,eea10a31f50c5f5a,16,plantdoc:1611,field_adapt_train
+6863,tomato early blight,validation,Early Blight,1,included,708,466,0.03264651681579011,228470942d19845246dad5dec3fe460e3613c6f318ed0dcd1480aad9ad8bb2fe,9a99f006712f46af,16,plantvillage:50840,
+6864,tomato early blight,train,Early Blight,1,excluded_reference_match,640,480,0.05092122395833333,12e6ba87e5d031ae15c078402a499206f237456b0d2fe91fc30c7f09207540d9,cea03ab1f81e03de,0,plantdoc:1611,field_adapt_train
+6865,tomato early blight,train,Early Blight,1,included,246,173,0.14582452182903333,d0f7eaf44201ca39338f4a6f4a015224659a466687ad01c6c7f576989750d1de,fe4ca5ea84899335,14,plantvillage:37392,lab_train
+6866,tomato early blight,train,Early Blight,1,excluded_reference_match,1300,1359,0.09750721684496519,3c97167baa854b4fe9bb826a4ed858831d209244e57aab5deae3f7ff5f05b875,d4ab64943bc06dc7,4,plantdoc:1603,field_adapt_train
+6867,tomato early blight,train,Early Blight,1,included,850,638,0.029044809146229023,07bd65730507f927468a29ada6b0d38db9544ca60ec39c2f03d703b05fa41b15,ba4d7367b80f0ea0,18,plantvillage:39318,lab_train
+6868,tomato early blight,train,Early Blight,1,included,320,240,0.035846354166666664,6c9d1c3cd874f6482f092a078bc5fb788c0f31b03ee677d333c52af89e1764eb,af2ed0b6c7c1384c,14,plantvillage:40602,lab_val
+6869,tomato early blight,train,Early Blight,1,included,398,340,0.03895950339934969,b77f289846798af11d59692a6d06e40208bcb6ac1b2ee0eabe43bf2d8d8f33a1,c5332acb4668d9d9,14,plantvillage:47333,
+6870,tomato early blight,train,Early Blight,1,included,1880,1000,0.09484095744680851,490e5b14d812844382f75c4a60dbdeda5beedf8808fbd48359d2567ae5e88938,c57260f2744c9f9c,16,plantdoc:78,
+6871,tomato early blight,train,Early Blight,1,included,1440,1920,0.06296043113425925,b01b9803420063ee9754e2c5d948626178dc30893558f430e9de17caa796a477,ab8c5b4ac22e169f,16,plantvillage:51504,
+6872,tomato early blight,train,Early Blight,1,excluded_reference_match,300,400,0.0901,d8f771441c566d64f293866c3427b89ccae59d444a910be5d64c670d76633084,c8326c695375de51,0,plantdoc:977,
+6873,tomato early blight,train,Early Blight,1,included,1920,1314,0.22780473110096397,c43368988f7deed1da25bad4770ca44d620a5e30c1c1d99f11ae3b301a9819c8,f2a36d7c188c3cf0,16,plantdoc:946,
+6874,tomato early blight,train,Early Blight,1,included,1500,1000,0.013102,93851f0b93fc9b44159524c7070bf63f5addab35c7d47fd10b0220e5ab41be98,96d6e5633c939415,18,plantdoc:2278,
+6875,tomato early blight,train,Early Blight,1,included,1024,706,0.1478357936437677,1e1afb60da1901a273dbac6a7422abbe36fd001fcd6072b541ea3c28defe5e50,8cb9f0900f9b72dc,16,plantvillage:42212,lab_train
+6876,tomato early blight,train,Early Blight,1,included,1083,1390,0.07737499750891808,4f479a48a99a10e280324f497ebcfe61164e438f848d38d8545dae029b3e7a02,85956c4e726c6b65,12,plantvillage:39615,lab_train
+6877,tomato early blight,train,Early Blight,1,included,627,967,0.0378124025867998,d7e47b0ad0f4ce5980457fa3dc9ae76d95b3ba919ce119e6859a5fa713cfed91,b9b453fce021e8ac,14,plantvillage:37400,lab_val
+6878,tomato early blight,validation,Early Blight,1,included,827,656,0.13702738372607426,a5aa16126f14a9121ad280c2a97216369c55bf28ad7e9c7fdef356f31fa5d2b0,d2d3e24e29c8a5cb,16,plantdoc:1724,field_adapt_train
+6879,tomato early blight,train,Early Blight,1,included,1500,1225,0.028199183673469387,46d76a3f4e7a7f146f1559d26e37ba41b1dd7bb28a72a6a977dbbcbb560e5f17,d49f294f6c6812b3,16,plantdoc:1781,field_dev
+6880,tomato early blight,train,Early Blight,1,excluded_reference_match,1050,705,0.039220533603512325,6b796c9565582af49a80d46a28ea1edf1b57e948e47798600939f00d47f7df23,89a622787ddcc68e,2,plantdoc:2532,field_test
+6881,tomato early blight,train,Early Blight,1,included,576,768,0.04121455439814815,d34c569a4a96c21f2b53890f89f86c9ff4c2660cc401e7ea4a149d74d6d43b9a,98f166cc5a66a1a7,12,plantvillage:39826,lab_train
+6882,tomato early blight,validation,Early Blight,1,included,400,266,0.15428571428571428,515eb82792d8e3f2f2f99221cc3ea7a483db68de71623c0769ec3df03b619ca4,eb000518f1fcf0bf,16,plantvillage:40627,lab_train
+6883,tomato early blight,train,Early Blight,1,included,628,411,0.06711531606924233,e36c114936eaafc98175d409e249f09beead649e57db21edca1c8d0596044af4,cd7264c71849a79d,16,plantvillage:42034,
+6884,tomato early blight,train,Early Blight,1,included,400,395,0.021037974683544305,e5830870ded865edeabe90ecafe1054437869a45f65e3eecee5b4460463d983e,c3be709180ccced7,16,plantdoc:576,
+6885,tomato early blight,train,Early Blight,1,excluded_reference_match,600,265,0.04228930817610063,d47d57ed711e96263a225b25ea7c222e23ad18d22b9ec51eb0e3e35579803aef,915b1a297dc560af,0,plantdoc:1034,
+6886,tomato early blight,train,Early Blight,1,excluded_reference_match,300,450,0.21185185185185185,38e1bad6cf83818e36900432a0bc9f9088c921dcc31fc83d8a15ab99117aaf35,da6f3ea67a22414c,0,plantdoc:983,
+6887,tomato early blight,train,Early Blight,1,included,1600,1157,0.19897796024200518,4651d52359de941c561d520735544c3dd9e866daffda4369f6ba9a8c851013b9,cc9f177654507b90,16,plantvillage:47144,
+6888,tomato early blight,validation,Early Blight,1,included,1280,720,0.09678168402777777,b97c616d6ef70faa771a5696388346e845df1e9b803de058aaacd10d4710f1e1,d0aead9039cbe466,14,plantvillage:42384,lab_val
+6889,tomato early blight,train,Early Blight,1,included,400,300,0.140325,44b76fd33f799f0dd3fc1cf9467b5a4d9818adf0ba189525f3d0dbe8966014ae,d0e17a11875acf0f,16,plantdoc:2427,
+6890,tomato early blight,validation,Early Blight,1,included,580,303,0.03587686354842381,a93ff84d620cc122fb14dfa687bf0e21005efafc4cb6a0654a24879e1e43608f,f114f66c6815abf0,16,plantdoc:1429,
+6891,tomato early blight,train,Early Blight,1,included,480,320,0.11690755208333334,fb1c1a7368bb96a75dcc5105d5f964fb3262e93dc9eabaa559fb156a74e815d7,d2f843b72fb03449,16,plantvillage:40816,lab_train
+6892,tomato early blight,train,Early Blight,1,excluded_reference_match,1850,1235,0.14058168289747236,e018d0d38781fdec78184db0473bd70a74fbd875e938edc1763b3eadd70f3569,bfbcb090d049c98f,8,plantvillage:37784,lab_train
+6893,tomato early blight,train,Early Blight,1,included,1050,715,0.06204062604062604,e570a9a95c370c407883f771d8bcc4300f34430071b99ac3ffe442e37c2166e2,9c97e0d3a98b8d94,14,plantvillage:48021,
+6894,tomato early blight,train,Early Blight,1,included,600,440,0.12940151515151516,2cd67a2e36791d910ea774e6d65358a989835356c32019df40960dd7db003b1d,a66636699389796c,16,plantdoc:2295,
+6895,tomato early blight,train,Early Blight,1,excluded_reference_match,126,168,0.14805366591080876,55965f3182f3274178bc7fa7d91e952f93298bf8a3431209575266d74f97921c,d089fc86897fd1c8,4,plantdoc:1582,field_adapt_train
+6896,tomato early blight,train,Early Blight,1,excluded_reference_match,328,477,0.17091067137086466,db849a26dcfd714212827eb9b495382c79b15d68a41d15a0d65a4bc097ab9a38,d24d641fc6b08dcb,0,plantdoc:1612,field_adapt_train
+6897,tomato early blight,train,Early Blight,1,included,487,200,0.007053388090349076,81aea14ed205c1364736517b7c763f16b0afcbd0cb23012d0a0811e46a86b8de,8aa5fecc85087c6b,16,plantdoc:551,
+6898,tomato early blight,train,Early Blight,1,excluded_reference_match,567,393,0.13043068513806427,3e44a115e2638223b30896eaba5623fb9fc8b9ac2eb397b8f4fb00ed1ad66598,c1114f4e8c583faf,2,plantdoc:1595,field_dev
+6899,tomato early blight,train,Early Blight,1,excluded_reference_match,810,450,0.025574759945130317,5d494ecb8d167adac2508751fe9a18a4f1fa3ce7890b43aaee7d607ae8c534db,cc112e5c339ef02f,0,plantdoc:1569,field_adapt_train
+6900,tomato early blight,train,Early Blight,1,included,600,267,0.037771535580524346,91fe1d2fdeac836d7a65d531e02e77d8280a137dbb692613121443a8ddd00439,c77b646c39393132,16,plantdoc:2213,
+6901,tomato early blight,train,Early Blight,1,excluded_reference_match,600,800,0.10710416666666667,48bfd9c6b2ffaba07ad762f2962d93a0e4cb67f00cc365545927c158718c43cb,97f17062ca88e63e,0,plantdoc:1594,field_adapt_train
+6902,tomato early blight,validation,Early Blight,1,included,670,999,0.07894760432073865,2a3548dab4b7080574b486ec6430a0ce43a0525fdc9e3fe7495f61b3c46324c3,b2944bd33be1b134,16,plantdoc:52,
+6903,tomato early blight,train,Early Blight,1,included,478,640,0.09066749476987447,f362cc3c20e61abd71e24be881d0435d59a9b0c7c88613b674ed3b1953052984,c2f9cf509c909b1d,16,plantdoc:519,
+6904,tomato early blight,train,Early Blight,1,included,1220,470,0.13676142309033834,bd1015a6578afa4fae433ff7665762629f08f60d85320ee6a2e5c396fca4c1ed,91133cdc3387db92,14,plantdoc:1007,
+6905,tomato early blight,train,Early Blight,1,excluded_reference_match,224,164,0.125,318fbeb414720182c3f7fe33c40eaca5a98c2e8c3476209a2a5560af880d8db7,be24b43fd836c832,10,plantvillage:36421,lab_test
+6906,tomato early blight,train,Early Blight,1,included,300,200,0.025583333333333333,cb5d8a0259d64636db147b19aa126739c116bd177227f1887f95e058861234c5,9bb984d6cac8f590,14,plantvillage:40659,lab_train
+6907,tomato early blight,train,Early Blight,1,included,1050,714,0.07115246098439376,78fcae3d8f9f1cd241019e87130fa37f0ae5eece22b438b879cc69a8f93825f2,e41fb00be44b79ac,18,plantdoc:186,
+6908,tomato early blight,validation,Early Blight,1,included,205,178,0.2604823239243628,5e3e5328d818fcf870a1988e6e83243ad0774ba52c6235ac7035f3dee921df41,c16133e62ecd4f0b,16,plantdoc:1173,
+6909,tomato early blight,train,Early Blight,1,included,140,169,0.052366863905325446,10f747e2e7ec133f5cd9d374daf4396371d78614e7c28e972ae6438cc3f1496c,dfa0109bad323f23,16,plantdoc:1581,field_adapt_train
+6910,tomato late blight,train,Late Blight,2,included,400,300,0.458975,a52d0ddc5c563c537ed2faf1050b6d873501b0494f358a138a3ddb853e01563a,d4d1c7bc306bec84,16,plantvillage:40705,lab_train
+6911,tomato late blight,validation,Late Blight,2,included,477,332,0.03282943093127226,7a3ecc8f553466d4de12851477d755cbcf254db64241453cec77cd6c6e50c34d,c61b285a4d2fc9e9,18,plantdoc:434,
+6912,tomato late blight,train,Late Blight,2,included,640,480,0.04951171875,c8fa1dc57bffe7e6a325afd4c9312e965c02cad034cb8443e95500014ef5d0c1,8ddf3932962c6a62,16,plantdoc:2014,field_adapt_train
+6913,tomato late blight,train,Late Blight,2,included,1200,1600,0.008309375,4334836863bf29d933c068577c63f8bbbf5acf876c49425050ffe27bbb7de5d7,cdd9f064820bda6b,16,plantvillage:36662,lab_train
+6914,tomato late blight,train,Late Blight,2,included,1200,1600,0.07110677083333333,725ffb68772e9fefb1cbd076d2c666050947adbb26c76b7a76c0762c787398da,c8d8e624f5f1510f,16,plantdoc:2102,
+6915,tomato late blight,train,Late Blight,2,included,1200,1600,0.06443177083333333,b435e69e3d71f3d88b775e5f82a57a4fcfe33cc88a09dc2d0387408d45b2b466,cf91b384d8c54f52,16,plantdoc:2042,
+6916,tomato late blight,train,Late Blight,2,included,242,208,0.09738556897647807,cdb57ab580ec3a71ae7eea993bb3371c15113c1097d63c32b59961e6ebc2e124,d0d00bf4ff52611b,18,plantdoc:321,
+6917,tomato late blight,train,Late Blight,2,included,1080,810,0.040857338820301785,e156c11efd026f48b1130f3009860b288975da05f0eb544708ca25daedd21ffa,bc86c339d3dc36c0,14,plantdoc:134,
+6918,tomato late blight,train,Late Blight,2,included,1200,1600,0.042853125,428fd1e5e529b6cd3fb67540a8a4e4c186b411ac83af4836225210ed922a2d21,a1ad4ed1d084cff8,16,plantvillage:48456,
+6919,tomato late blight,train,Late Blight,2,included,1080,1440,0.025662294238683128,35ca3dc80d8fcf6df19a4aee0deaf41200e02cde6f23c9548da9771003882067,8a81fb8926cf41bd,18,plantvillage:40587,lab_train
+6920,tomato late blight,train,Late Blight,2,included,1080,1440,0.009750514403292181,f7b11e5e452ece756a9421243e9d251276fed2d047fa5e293be06a9bf489e605,ef844e69b236017e,14,plantvillage:38793,lab_train
+6921,tomato late blight,train,Late Blight,2,included,371,237,0.36487085878057934,a3dfd523ca7d69458dbc54d653bbb6080a74a426ad8f9c6971bf6a5eb1d4616e,d0380b766da1a7b6,18,plantdoc:1214,
+6922,tomato late blight,train,Late Blight,2,included,1000,750,0.15530266666666667,4978cdc0427bd8d164d976ff79bbba3c27a0ba6066c3791153c5787330c52d8a,cc57526ce795c9c0,18,plantdoc:1027,
+6923,tomato late blight,train,Late Blight,2,included,716,296,0.2189151441944738,e0c975b2794709b822f79dddfb7ba3958ee497315efb7ac7bfd0fd9290bb5122,8e7935a70277a4ca,16,plantdoc:2425,
+6924,tomato late blight,train,Late Blight,2,excluded_reference_match,690,354,0.12021616310488824,62eba743eb68f7762c2ca1dc1ce02f88f332ea51100376e466aa0ce53f09e883,dfdf2b1a842d08a6,0,plantdoc:2014,field_adapt_train
+6925,tomato late blight,train,Late Blight,2,included,500,327,0.04485626911314985,10f338cac501d06caa7bb9ca3d0a6e03ac954ca986678fc270cb78c86c3d3f27,f4990e626a849fb6,16,plantvillage:40977,lab_train
+6926,tomato late blight,train,Late Blight,2,included,640,392,0.44567123724489793,e017b43c49ab866f9b226a8847461aed216e136c78b79c59450a7128635562fe,a994701a877fa6e2,12,plantvillage:45604,
+6927,tomato late blight,train,Late Blight,2,included,497,323,0.20474550086899104,acae8a0308bb57b08aab0d7454429aef6b829537fbb46cd40c510d1e1bbe713a,eadb1128d19c2acf,16,plantvillage:42619,lab_test
+6928,tomato late blight,train,Late Blight,2,included,650,488,0.05915825977301387,a8a0b4feaf0ed71c5ab9f71a19b00762d6868cce1ba4f7c377c59a0c97e6140c,e784f9899b7824ca,18,plantdoc:1369,
+6929,tomato late blight,train,Late Blight,2,included,640,397,0.3349693010075567,d604a43444da95243457919676fcfb822b014431b7d427c8a75c5e8506801796,951e7a30ab3ca956,16,plantdoc:1641,field_adapt_train
+6930,tomato late blight,train,Late Blight,2,included,393,287,0.1735244833364364,d57d6c36715e23ecfad9b72545e34996880b856af7a1417a94ac55abb3a8c0df,c2ba09993ddd166c,16,plantdoc:812,
+6931,tomato late blight,train,Late Blight,2,included,640,462,0.17058306277056276,ad1bcae6f2d07df37458d95060d3eddd097353606ffdc0fc81eecafe1ac570a0,fa8585ce849be316,14,plantvillage:37546,lab_train
+6932,tomato late blight,train,Late Blight,2,included,1200,1600,0.10411979166666667,12ce0c916b5b43394d6142bc8996c9edb51eb366f4f99f7c7282b16911f494a9,99bc133a95994e63,18,plantdoc:1152,
+6933,tomato late blight,train,Late Blight,2,included,640,448,0.07972935267857142,337d93598e009e3c65c82061c3a4ed1c18eb30e7a97d211a2617cf75ef67a488,d193276b3878a2e6,16,plantdoc:861,
+6934,tomato late blight,train,Late Blight,2,included,640,410,0.24140625,7a472365f1b53645d2e6732d5c50d2a027ceb1fd9c3fc070d7fb921d9f2155a4,e8213f9e33a5e1a4,16,plantvillage:40867,lab_test
+6935,tomato late blight,train,Late Blight,2,included,667,500,0.02333433283358321,fcf5e44489695edc5810ddb0f497d2d82e0d3f377c856a2c849e5e944b643f2a,c63de1279c06afd0,16,plantvillage:46927,
+6936,tomato late blight,train,Late Blight,2,included,640,480,0.14562174479166667,3e670817183b3e8c48a0aa060505f7e4ab41a10dcfefa9e048c7260f66cd8cf8,ad6c9397c41ec931,12,plantvillage:37782,lab_train
+6937,tomato late blight,train,Late Blight,2,included,720,480,0.037841435185185186,2eef74a09399b64b949f17e11eb5633c03a79f1cbcd27e10f91d5b09ad78227a,a7c3673678c1aa83,18,plantdoc:135,
+6938,tomato late blight,train,Late Blight,2,included,660,880,0.06145488980716254,c9477115e065f962c0c258ca3e20ef556dbbc32f5896c2d2feebb22781d25576,e9be9106da13bac1,14,plantdoc:1463,
+6939,tomato late blight,train,Late Blight,2,included,445,313,0.529611946727932,c6e28e9b247f67359d66ff545e3e502a55a52e59d88815965eac43716ff92931,b6e274896725c9cc,16,plantvillage:40474,lab_train
+6940,tomato late blight,train,Late Blight,2,included,499,375,0.37877354709418837,b584c41941d8d223d0fb2917728b883bb93373c48e41493ce50ed2e96fedc9c4,98d061cf24fcf2f0,14,plantvillage:38944,lab_train
+6941,tomato late blight,train,Late Blight,2,included,517,602,0.05138577404782254,847c32e826ca0f6acedadc3c98cd2c35c21486b9d103a9e5738d824cf7d948c0,cf8859c3ce98d0b6,14,plantvillage:43869,lab_test
+6942,tomato late blight,train,Late Blight,2,included,268,201,0.4742518749535903,742855b1eb43d9f99ae4fa2ef33361422f249c3b3e727f83564bda89b25aac7b,df3b3a92721c0ec1,12,plantdoc:1986,field_dev
+6943,tomato late blight,train,Late Blight,2,included,220,165,0.1922589531680441,54a9498ff39a39c6223121ab05500da53b0f6d2d0d5b418407d84cec09ed270a,83963e6f70ace192,14,plantvillage:48905,
+6944,tomato late blight,train,Late Blight,2,included,640,546,0.22372653388278388,9cd2443dcaf3a0157912122d1ab88fa2881eabdd539594d73874f29fc7b8b6d3,f497e3198463c378,14,plantvillage:36856,lab_train
+6945,tomato late blight,train,Late Blight,2,included,427,282,0.33735279950836283,afee4868328cc139ade541c5b651c94a55792656afcc9eb4f7d852ae059aeec2,8795385a8de2b936,16,plantdoc:1384,
+6946,tomato late blight,train,Late Blight,2,included,1200,1600,0.04276875,63ea75223a51157b30d0b73c46e65a8a3c45aa9d357aa348d9f8f31f7a540f70,8b87633f251078ed,16,plantdoc:1834,field_adapt_train
+6947,tomato late blight,train,Late Blight,2,included,1600,1200,0.0461359375,17bb7d832ed642c2986541760edee63022a030e6a7f6c11f93651fdd86b696dc,d69664644ad9957a,16,plantvillage:36504,lab_test
+6948,tomato late blight,train,Late Blight,2,included,640,480,0.20927734375,50196955c8d0b0431a472fe5317ddaae915bef4fa8846879cb6b6f524f3572c0,91a0683cb6eb4ad7,14,plantdoc:530,
+6949,tomato late blight,train,Late Blight,2,included,800,572,0.17809222027972027,d6c42c286665f9d1095caf0e85f9f31319929a1fe74577c2290b1127ccec86ca,c29b0f2b24cf87e8,16,plantvillage:49229,
+6950,tomato late blight,validation,Late Blight,2,included,720,1280,0.1389702690972222,e31dab0c1da167b7560c5ffcb8442750c1e43838ef400180177f9608aa6e079e,d798e3d095c6b4c1,16,plantvillage:53692,lab_train
+6951,tomato late blight,train,Late Blight,2,included,1080,1440,0.07957883230452675,fda10d78fbff5abbcd3942493c5fcac5ed7644ad7fb31b72f3a39d63bd6487e8,85e9693c67d4025f,18,plantdoc:731,
+6952,tomato late blight,train,Late Blight,2,included,690,476,0.09995432955791012,8a387f20d8566a1b869eedfb54d91b37ce685c285c446f2383ff08301c59f3c0,d38c32647293ccdb,14,plantvillage:53932,lab_train
+6953,tomato late blight,train,Late Blight,2,included,864,1152,0.040061165766460904,710788361471ff4437486f8aab0542ab47abbca3653ab0841d1b1d4ed42392ba,d99d269c3cc62387,16,plantvillage:49431,
+6954,tomato late blight,validation,Late Blight,2,included,800,585,0.207267094017094,98df61d5eeb6846d49eb828e4c542536c9a7b8e95e85f576880e1d9822206e25,8a4139d2b2e8737e,16,plantvillage:47700,
+6955,tomato late blight,train,Late Blight,2,included,640,427,0.08447745901639345,c4c9dd7a4f4a2b4d397dff2290d485d2e2c66b59084616e7560dd5ff351f712d,9dd2e1e4e9d20387,18,plantvillage:42973,lab_train
+6956,tomato late blight,train,Late Blight,2,included,447,500,0.03463087248322148,f36941aa8ee2de279b7ef8654a0f3f370b21bc3a348256165aa55b2cf2a2bf36,a9e4d591ca4a6f0b,12,plantdoc:546,
+6957,tomato late blight,train,Late Blight,2,included,640,462,0.12595035173160174,65d68e40c2d756119cd0770924e9bd1ff5a4e8c847b5b1267fad8acf4724ef2a,c7944e99d57f8c04,14,plantvillage:40553,lab_train
+6958,tomato late blight,train,Late Blight,2,included,640,472,0.1701271186440678,f5d9d894ab89f359466508829278899c724d522a864b2dde26ee936e9766454c,e1871fcfb22c2c68,14,plantvillage:45225,
+6959,tomato late blight,train,Late Blight,2,included,640,805,0.050450310559006215,c60cefad415d8183bbde6682de07fc27f763fcea8246a208bc22dfbd10acee78,b4c14db3c4f4a78a,16,plantvillage:41564,
+6960,tomato late blight,train,Late Blight,2,included,700,525,0.05863945578231292,e068b117dd8a4f98ea08fcb79104e3c684a1b4eeae0ce918cc1629388c46a4a2,8d2d33a366355b54,16,plantvillage:52770,lab_train
+6961,tomato late blight,train,Late Blight,2,included,864,1152,0.01823218074845679,df9dc1583dcfc0287acfcf24301f3b9de65b500161a7eab94c3de189d67801d7,ff8035c782f46664,18,plantdoc:1103,
+6962,tomato late blight,train,Late Blight,2,included,1200,900,0.06867314814814815,d7f100d820be617f25f76e5b3026cdddc0778a9ca4f5ca31ac715f596538eb41,d67ba600338d83ed,16,plantvillage:54197,lab_train
+6963,tomato late blight,train,Late Blight,2,included,1080,1440,0.047136059670781896,d2e725ff5af02c754665c351502766d10f836a54f5b2d5dbefa7ac5b5df65dc2,c914938b61e33bcd,16,plantvillage:40259,lab_val
+6964,tomato late blight,validation,Late Blight,2,included,1129,677,0.20736511442002373,f0be1efb81c4e6110f87745ee0046f46b87edfd0167b72eb332a564393ca1715,ec1fe44572b403dc,18,plantdoc:1717,field_dev
+6965,tomato late blight,train,Late Blight,2,included,1200,1600,0.0358296875,f00ecc7f2f86202589a95184b7a9bed36f445c7083d7811305f497bd87a9de5d,8d0953d6894b73b5,16,plantdoc:855,
+6966,tomato late blight,train,Late Blight,2,included,640,479,0.10000652400835074,d99c0cb5e5a789a08d9651ea987837109ecfa96733a1c6b412430c9e15519756,d2c10d51e2c64fbd,14,plantdoc:1864,field_adapt_train
+6967,tomato late blight,train,Late Blight,2,included,1080,1440,0.039216177983539095,148b579127b825a6004505fd54e0b4186071056e98b414e2236588154644c0be,a407e7470fc923f8,18,plantdoc:630,
+6968,tomato late blight,train,Late Blight,2,included,1080,707,0.16667059563099168,3ab6a88b0740ff1600fb31df43d4e542efdd5079d9f4bb3cb97dc5c3177214b5,d0c42f7269cad70e,16,plantdoc:2561,
+6969,tomato late blight,validation,Late Blight,2,included,400,306,0.2323611111111111,e516debcbb5d4a408e51c51461d5a37fdd3874000e27730cf00858bc1fd5522c,e4d2d35dd1873162,12,plantvillage:48002,
+6970,tomato late blight,train,Late Blight,2,included,4032,3024,0.09506668215125556,055e8cc9d92c23067357336874b6f204d9eeb36a07321acaa08b155ef7251dd2,d03e3a00dcced36d,18,plantdoc:1049,
+6971,tomato late blight,train,Late Blight,2,included,447,313,0.06129610966971861,05677204f46c8a247acf38bf3775c85a5ea8ad9c91b13e3e6c22ce80d19def69,d0c36663893d3b9a,16,plantvillage:38879,lab_train
+6972,tomato late blight,train,Late Blight,2,included,1200,900,0.1484824074074074,ff0b62d1564d1380443a030a51dbe46fbaf4dda8a73c7b483c2fed3268cb092a,e6e3b39e3c3c8888,14,plantvillage:39185,lab_train
+6973,tomato late blight,train,Late Blight,2,included,296,401,0.063447799420368,b30f19a45577233704eeba35fef9400e970e597d6b8f799ec2ddfc6402f24d66,c19595d5dc96aca4,18,plantdoc:378,
+6974,tomato late blight,train,Late Blight,2,included,218,303,0.07051806098040997,0bfb065cebf8c7799027d23adc97d6652ffb302d9de03cfac4b084abec0c93f8,9086d91c58fe54bd,16,plantdoc:1633,field_adapt_train
+6975,tomato late blight,train,Late Blight,2,included,4032,3024,0.047245137445410264,98c848b7374ddc623c0172a7d8f1b9d62b19f2852cdb8481f0d84146567861e6,96576cadc2c9292e,14,plantvillage:41067,lab_train
+6976,tomato late blight,train,Late Blight,2,included,1080,1440,0.01873585390946502,ad350bb29e3ace53d60aca7e544e07c98e5f55516d7a5be6ea2ef1d5685c8253,fdb8623835c5f608,16,plantdoc:1910,field_adapt_train
+6977,tomato late blight,train,Late Blight,2,included,736,418,0.3983156074474724,a36410a6a90a4bf23d08c11ce00a57618b07e60aabe5492725d8802f46486f9e,9dc0ea83ac7df00e,14,plantvillage:47667,
+6978,tomato late blight,train,Late Blight,2,included,400,532,0.11152725563909774,54d6629e222eb092ff3f09ada50af84983cf2b4e3b00ca643efba1f8fa6c5497,9284e5e2d6c8eec6,18,plantdoc:245,
+6979,tomato late blight,validation,Late Blight,2,included,800,1200,0.23068854166666666,01b1eb55ec1de71fb6032b1a04862e185c0d5d5f179b1be02b47179bca594780,a4ded2153f4af450,16,plantvillage:36623,lab_train
+6980,tomato late blight,train,Late Blight,2,included,800,600,0.41616875,8d73573bdba773a41ed38f6e307f8c2660f5c3fff1541b5e914e02e2fe3379f2,a63d69da1a4639e1,18,plantvillage:41054,lab_train
+6981,tomato late blight,train,Late Blight,2,included,480,360,0.07532407407407407,5d0a487e729f114c7a57ef73a48944408bc282e2ab4f59b6ff7df176a8a9bb7c,964a29b54ea7326d,12,plantvillage:39938,lab_test
+6982,tomato late blight,train,Late Blight,2,included,1600,900,0.027692361111111112,d5efeccc3381929b6ffd15e763b91aee26130c3979f8b46ad847e04a5f3e5cb9,c836a71c11cc77d3,18,plantdoc:1763,field_adapt_train
+6983,tomato late blight,train,Late Blight,2,excluded_reference_match,3072,1928,0.039798636324343016,f7f04c09c8acadec0d1f2481a72e3db28fc1752d66a58b94b4f0e391229dd543,d5492039cacbce3e,0,plantdoc:970,
+6984,tomato late blight,train,Late Blight,2,included,1000,667,0.1059175412293853,a1790e7ded0a1d65ed13cf4465c21de356a23580d8c6991092969b042dbbc7bc,c15e36aae05b8967,16,plantvillage:51367,
+6985,tomato late blight,train,Late Blight,2,included,1280,960,0.030668131510416665,183714f6a39666b24c48a4c97130d6cc64be436a14c95d36478d01261648eb20,bd141a41b564fd1e,16,plantvillage:47196,
+6986,tomato late blight,validation,Late Blight,2,included,500,800,0.1571975,bb62add8aeb14a8e0265a21226c31b238f7ef1a978e240b17c931547ee727475,81f174b2cccceb49,18,plantdoc:469,
+6987,tomato late blight,train,Late Blight,2,included,6692,4654,0.05290001132781806,dbde2d05f38819d67566a824ed2af787bab4eee9a916160af7bda4c8d5f1d3f1,feab18eb125e6700,16,plantvillage:39801,lab_test
+6988,tomato late blight,train,Late Blight,2,included,350,263,0.09507876154263988,32390ceefcb62a12d54a50761339b311464b1b47f6183b3429cdc7fe0bde39f4,91c56fd23d09dc32,14,plantvillage:40401,lab_test
+6989,tomato late blight,train,Late Blight,2,included,1176,882,0.2568596032517315,778adda405a32d017e9aedd541eb02ce9eb6a582c8d7eff348fcfc0ca7b86d65,e93b36c7e9984131,16,plantvillage:39689,lab_test
+6990,tomato late blight,validation,Late Blight,2,included,1200,1600,0.21570572916666667,501117bcae27002662fdd862b66816c0849523edd9d7b2097a349b3c642aac73,b76a81297ec34a5a,16,plantvillage:51279,
+6991,tomato late blight,train,Late Blight,2,included,866,1390,0.36287487331151247,192fc8120937fa92b7ec19c42ad8d0daa63857759f9f141f2bfa349df3b1fa76,a6f7319b7ca443c0,18,plantdoc:1023,
+6992,tomato late blight,train,Late Blight,2,included,1195,698,0.37857836496385366,1e13228a21bdf14b9e37646a95614895fb45a63d72ae336e7991f433169d54ea,b56649523791597c,18,plantdoc:742,
+6993,tomato late blight,train,Late Blight,2,included,480,358,0.2655551675977654,3ccb60a256d3b8faa31ff5912e4ad4e744bd166c1d7a47d02ae161bd4e54402f,be8179a7e54b900d,16,plantdoc:413,
+6994,tomato late blight,train,Late Blight,2,excluded_reference_match,545,538,0.24796221138433205,6ed3d4e5b380a480db664b469a3efb551a76593ef8331235044a5d2b96dff4c2,efa4c3963e4061cb,4,plantvillage:40029,lab_train
+6995,tomato late blight,train,Late Blight,2,included,1200,667,0.0895039980009995,d6ae3b7ce5299615c6d1ba8b989ca81ff5f742e98e86d0728e4c0d2a3e85fa66,e298fcbe580f01e3,18,plantvillage:46577,
+6996,tomato late blight,train,Late Blight,2,included,1300,956,0.024035242999678148,4ba122b1f53a587c982fcc630594b07c3fd96ce74715ac478e07651b7d357128,eb9930f2608e70af,18,plantdoc:70,
+6997,tomato late blight,train,Late Blight,2,included,768,576,0.06384051287615741,2a47359e72f626803b03548d8aead005387c27599f54c9292bc0dd3a55381881,a5b2020759ddf729,16,plantvillage:50161,
+6998,tomato late blight,train,Late Blight,2,included,1000,556,0.1974748201438849,540dd73158b0bb5c5aeec5cdf7d32e29d9845c614ee5454080813cba0090393c,ab8f42d3bb80857c,16,plantvillage:42219,lab_test
+6999,tomato late blight,train,Late Blight,2,included,800,533,0.17557457786116323,ce0bb9d3da57be4b02169cb753fcbbbb25d97a10ac7d4bf2e712504a9f713f67,f8416c388363d33f,16,plantvillage:38516,lab_val
+7000,tomato late blight,validation,Late Blight,2,included,1200,605,0.38440358126721763,9ba5f4f3a74eb4067dd1f9a2495c182f46361e6b56ceec3068fda2520fce70da,a6e7f8b8d2522b0a,16,plantvillage:48500,
+7001,tomato late blight,train,Late Blight,2,excluded_reference_match,600,438,0.23701674277016743,ff07d66c07aeeb26552f81c8675fab2672059ac494899b46d868d846cfceac42,d41778c2675867cc,0,plantdoc:1981,field_quarantined_train
+7002,tomato late blight,train,Late Blight,2,included,1200,675,0.3032148148148148,b4ca72071bf792ed0fc45e1cb0e6fd8ff450098a19fd09cee778727c6f29002f,99ca5d38342a327f,16,plantvillage:40643,lab_val
+7003,tomato late blight,train,Late Blight,2,excluded_reference_match,243,170,0.40970709271362865,2c66903349f4af72eab3ba825fd081a3703b9675dd98ebf1cbc8f7f75b8c2644,bf3f3b91603d44c0,6,plantdoc:1120,
+7004,tomato late blight,validation,Late Blight,2,included,1140,797,0.15699112901450615,06ced387d2c6bb4c400ffef4de21a9c326cf55c41591db4203e7cd3e23342ed7,c16c1bcbe43d9748,16,plantvillage:51209,
+7005,tomato late blight,train,Late Blight,2,included,600,498,0.4349631860776439,b63d602759683b470b89604c5bd78cff8704b4508d1116a44961117c7ef6cac0,e7734921c8351e8f,18,plantdoc:346,
+7006,tomato late blight,train,Late Blight,2,included,962,550,0.07356454356454356,a7b97fd069b4b5291c1588680fed32ed9a8a79910ac0046fe7c4ec0b2b1f25d8,c05999b3666c8dd3,14,plantvillage:41782,
+7007,tomato late blight,train,Late Blight,2,excluded_reference_match,1738,2380,0.13299600622757735,15d77ee4e2c28837b26c5fc6f30a87728be603a87ae9d1aa4bb953497d745097,829ddc6c627454fa,0,plantdoc:1974,field_adapt_train
+7008,tomato late blight,train,Late Blight,2,included,300,238,0.026946778711484595,bc0a216c0047657f789a98457271363cdb4d2f06f578e54f206627114c21313b,aab5985896da87cc,12,plantvillage:36368,lab_train
+7009,tomato late blight,train,Late Blight,2,included,640,482,0.029087785269709544,5bd03603b72ffadb6491ea1435aa28efe4479bbb2f8421ac21e3404496563035,c94eba29a24be13e,18,plantvillage:39364,lab_train
+7010,tomato late blight,validation,Late Blight,2,included,300,225,0.10087407407407407,0260982b56fc754eed7d0ebb9dd07d3a83e90dd2b815f4a66b914ceb8abe1724,8619c5de9689e93c,18,plantdoc:1752,field_dev
+7011,tomato late blight,validation,Late Blight,2,included,532,800,0.16303101503759398,840202f1d75c3160d7398c5fb87df7cd990e692e9bfc5929562a53939bdf3922,d7a32a9a2d87ca38,16,plantvillage:42201,lab_train
+7012,tomato late blight,validation,Late Blight,2,included,295,336,0.20668886198547215,0757a65e738e926a61224279a9d1fd13f9d7ff4ce849391efca00907ba017ea8,a75649283a3776d8,18,plantdoc:34,
+7013,tomato late blight,train,Late Blight,2,included,1024,683,0.05973474103221083,8066ece16079e93a7ae096f1b17c1b94d6589624f97b93b01d039512eb8ba840,c836813feb0d7166,16,plantvillage:50407,
+7014,tomato late blight,train,Late Blight,2,included,768,486,0.18783757716049382,ce01e85dacdc8ba9e865b091d3427bf7604d7a1f1760445576da1ecc18d56236,94e13b1e6e332d31,14,plantvillage:40191,lab_train
+7015,tomato late blight,validation,Late Blight,2,included,1000,667,0.05809895052473763,65953af0b1b9411f25b23be590f5cf2a42f501cde765ae62ce1905e40a17442a,f40d1fe0451f18db,18,plantdoc:158,
+7016,tomato late blight,train,Late Blight,2,included,320,240,0.145390625,ac4b097c76e9d75d280932a21b4ef9880bde881e2d41cde4432547fe93c8620d,eb1b946e919564b2,16,plantdoc:427,
+7017,tomato late blight,train,Late Blight,2,excluded_reference_match,1104,1390,0.09177288603899489,bc1b75f2c3450111d3c34e59a9654964a8dbcd4b89be3bc1e530e3bde2b68a03,ed921fbc53c71481,4,plantdoc:2016,field_adapt_train
+7018,tomato late blight,validation,Late Blight,2,excluded_reference_match,574,481,0.0841561207414866,5808f6dc5f78615542406276a5153f251d0599105df23f66dfa6e0907e9472e2,8e0593da957aad43,0,plantdoc:1928,field_adapt_train
+7019,tomato late blight,train,Late Blight,2,included,1600,1157,0.3925253889369058,db99b9ff761a4ae892a7a97af10e6fc068c60eaeeb40b1525d48dac38a8e7dd6,9597ca6c4585378d,16,plantdoc:1259,
+7020,tomato late blight,train,Late Blight,2,included,665,800,0.027197368421052633,5c44e355e41c8171de3281337c5486adf08a08f452d2f2aa7c6c09ec5693d3c9,9b9838e7ec2c22c7,14,plantvillage:39905,lab_test
+7021,tomato late blight,train,Late Blight,2,included,825,337,0.1705386206276414,1e91f52721628cd3a60428f4b6062ac803d0485a11b876953a4391a2f2de36d0,ecce0e78deb8f004,16,plantvillage:44658,
+7022,tomato late blight,train,Late Blight,2,included,753,220,0.1826391404080647,df236bf67d8b361fa5e42f3a49d4dd0fc0af982c8e6c34fdd83f8caf16cb18c0,dbd9d0240c02faf7,18,plantvillage:43031,lab_train
+7023,tomato late blight,train,Late Blight,2,included,450,320,0.13839583333333333,7037dfc0a65d5a8e36407cd2ea97bb8d848042039b3c86c9547b0ebded2ebb14,98ac26e39d8e6ab4,14,plantvillage:38265,lab_train
+7024,tomato late blight,train,Late Blight,2,included,631,419,0.03795921918082825,013a7fedadd10d28aa8bb0caca48dbb1096f860e877f9a5d1252efdec3e32725,e1c44dca75bc39c4,18,plantdoc:949,
+7025,tomato late blight,train,Late Blight,2,included,187,148,0.0897528544587368,1eab0cc509f6477b8375d56f3e8b637bd90439bca73e85c7be8cdfc47763ea71,93d1276a72663bb0,16,plantvillage:39826,lab_train
+7026,tomato late blight,train,Late Blight,2,included,496,445,0.039343965204784344,da346d317bc37a9c167298e6fe5b1a576f5e8ddb23a87b16537399fb1b57a44a,a3de50699722cd9a,14,plantvillage:44459,
+7027,tomato late blight,train,Late Blight,2,included,300,225,0.1213925925925926,11e1f80eac3d833d63226bbb59db7d5f2478fed27ed9d194c245f842c63a14fc,e1746961362b5f49,18,plantdoc:296,
+7028,tomato late blight,train,Late Blight,2,included,790,432,0.0682401547116737,37683d3f2348244c2ef94cc03123966fb895c3a9946fbfac12602af6dde6ede7,e2d4c79d3b6128cc,14,plantvillage:41019,lab_train
+7029,tomato late blight,validation,Late Blight,2,included,332,149,0.018456375838926176,17c7a6f07f3075e50aa78135b2d538810018d8c6aa31c8ab8e13c02929848d9f,eb1e05296ceb424f,16,plantdoc:1763,field_adapt_train
+7030,tomato late blight,train,Late Blight,2,included,640,523,0.3127210803059273,3e1ed4ab6c6002fa0f88eae010d280cb6e88178000fce280377b5efd81b75c44,fab692709803f9a3,16,plantdoc:2012,field_adapt_train
+7031,tomato late blight,train,Late Blight,2,included,300,231,0.06372294372294372,52b31dabb77e567fa68a795e2a8cb7ebc5d10abad465571d22688c554fde3bd6,97586167b196da49,16,plantdoc:479,
+7032,tomato late blight,validation,Late Blight,2,excluded_reference_match,600,450,0.08114814814814815,780a62377766a2faa76bf9f75868c95d2986135b6786cbb84ac9660dc70ad8db,f4b1cfc2d0a46e1a,0,plantdoc:1093,
+7033,tomato late blight,train,Late Blight,2,included,1024,682,0.09310707248900293,6036852fa9824cd213a094ba23b8963f030cbc7d28d87af6866668b4a4376bfd,d9e3850ff0c09ab9,12,plantvillage:48178,
+7034,tomato late blight,train,Late Blight,2,included,1024,683,0.034365563232064425,ea16f76be4c133d795f9f1bd83bc176dfbab4622a301b3225f6bc623caedbe47,c1e3723888c8f6fc,14,plantvillage:36301,lab_train
+7035,tomato late blight,train,Late Blight,2,excluded_reference_match,1200,936,0.1704059829059829,7666d789acd16756ce1e87a4c1aa7b4ad536d7a162b22e5a01e2cfcfe9eb6d46,a9931ed2e4ac319e,0,plantdoc:1982,field_adapt_train
+7036,tomato late blight,train,Late Blight,2,excluded_reference_match,640,517,0.45927828820116057,d5c532281626811116609cac91e871872c53e918b79b27f85f58da742fe0c9da,eec294edb0d650a5,0,plantdoc:1936,field_adapt_train
+7037,tomato late blight,train,Late Blight,2,excluded_reference_match,1200,1600,0.07455052083333333,cbc64cd3ad759525893883cb61b78d55d6d6651282e584927d44f2e23844c71b,c7e322f614dcab03,0,plantdoc:2001,field_adapt_train
+7038,tomato late blight,train,Late Blight,2,excluded_reference_match,1200,925,0.2916594594594595,4864ea2d6f257061ee5fde8da3c176de85ceec9a73624b2089bb3ec54f9c5e41,d7b668c0b84aaf0b,0,plantdoc:1983,field_adapt_train
+7039,tomato late blight,train,Late Blight,2,excluded_reference_match,1200,1600,0.1113546875,271f9bdd1e9c3bbea11f07c9562e8b32c23f5db19ea492ef9da122025689a990,d2e1346b615769a6,0,plantdoc:1999,field_adapt_train
+7215,tomato septoria leaf spot,validation,Septoria Leaf Spot,4,included,714,500,0.24555742296918767,0b609758576632ed8cae58838c21089e6327fe7868dbe32496b25eb6e4b9a89c,f3d8483602fd4e9a,18,plantdoc:135,
+7216,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,313,336,0.16633386581469647,e5c1d1849abc1bf8a5a23c447602a2d8a8aa9f42e98745c97200ecabe0efd58c,8c1e49e306ee1bda,16,plantdoc:560,
+7217,tomato septoria leaf spot,validation,Septoria Leaf Spot,4,included,293,240,0.3117463026166098,2108068137b24657a126bb9b3e752ca67213aab9b6bea548ca28639432ec8b32,d8031c9516db9bdc,16,plantvillage:50007,
+7218,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,322,241,0.14784412772866679,da4edc68015afa085bf957d1fcd428c9ead02d51ba2470fdbe9a20adc4226d06,a3f18cc59e5ed80c,14,plantvillage:36217,lab_train
+7219,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,1200,1600,0.0456984375,957669fedd871cbe20aff875664f751cf176aeb6de04e586f9dc212cb102660d,80e3b70ced961e99,16,plantvillage:37556,lab_train
+7220,tomato septoria leaf spot,validation,Septoria Leaf Spot,4,included,400,300,0.10650833333333333,8a6273dd98a5a48a43cd38c528d97055ee4fe573a33643cf05dca01012ccbcc6,818733f858817f4f,16,plantvillage:50364,
+7221,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,597,467,0.007977073088497448,85ff142ef63b6b591faa5820bf85d7cb4a1a9665161620a32c57128d53582808,c23f3f90744e0cec,16,plantvillage:50140,
+7222,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,640,480,0.07765950520833333,3284d2ad76cd7a0a147d875c17efeee822d1a04f85efae57c1caeaa0ef4bb4f1,d39e1361f5c528aa,16,plantdoc:1034,
+7223,tomato septoria leaf spot,validation,Septoria Leaf Spot,4,included,700,548,0.11452554744525548,b78637f261fe3ee89ce6e9dd5e9bda10b9c607d53090d528803be8eacddf8a81,f12339ad1593d8b2,16,plantvillage:52191,
+7224,tomato septoria leaf spot,validation,Septoria Leaf Spot,4,included,745,559,0.21367734809283115,5d75e6efec87232f14f658d1d94dbc3a46727d07583a79b68390fd36be373caf,9c4d6129e7c786b8,16,plantvillage:38832,lab_test
+7225,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,165,244,0.6309736711376056,ed2ed2bd575a76473dedccc6358f366f4c74a39cea298f472dd970b65d44b28d,83e06b97f11ba12b,16,plantvillage:36516,lab_val
+7226,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,500,310,0.02778064516129032,c3b7ec896d78a4ae21c7c8b3c332f43624709cc3840997a567131a4645ac07f6,dd9272a52db43623,16,plantvillage:39745,lab_train
+7227,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,572,188,0.15378105936616576,15eca4e491cecc6e94eccd50e7e7672e0cfeca45389b3dd19f22019c4b437c05,8e853df06376b702,16,plantdoc:1363,
+7228,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,491,326,0.07993577649219696,345fabe312ed8f62690b7c5917eb2522fb1edd9e57bea3e793e0d58ee8f36a45,c2f71fd03ec38650,18,plantdoc:1133,
+7229,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,519,532,0.025573326379532645,e865aad1de3d28b5ae6c54c2d7b8f68277ea588bd8207311cb654a8aa4540407,a9d0a706eee45e85,14,plantvillage:43391,lab_val
+7230,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,500,667,0.12065967016491753,75e7b6760217e5e550250f8ec8f32b0b6ff96842d711b575e6bc3e8917948d12,f810c8dfbea0a50f,16,plantvillage:38326,lab_train
+7231,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,599,422,0.48261320209828384,7c156c32df66979f173d1bc4e1e8895c3ea1dc2bdd88990b0eefdfb0465e65f5,d73123d486d9d2c9,16,plantdoc:1102,
+7232,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,425,328,0.12013629842180774,c3f10bffb8581110f7e175b348b54f6686b7bb3591f42e10eb19198e91eaf873,dd616ea5145512de,16,plantdoc:1119,
+7233,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,816,612,0.014884099064462386,f770006fe351ca0074cb7f1acd35224cb83a6284239c418763f1b8d4ae1ab8c7,8fc4746d0c0fc8dd,14,plantvillage:41484,
+7234,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,450,600,0.4028851851851852,36908e2bbdc313bc696e2f2d6f846fb6dd67fb654394b4321037fb32d3917137,94de40471e5c997b,16,plantdoc:364,
+7235,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,500,316,0.036037974683544305,581a5abff6784597875cbe63091d4bac7741f91510d9fa53afaa8ec9beada5b2,80f1f7c0e2c3f68a,16,plantdoc:532,
+7236,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,747,1328,0.020946234738149383,3aff48c838cf0f800f634eca29789c29960a7f143222ad85828b8739f56868bf,aba815d47a5a2b4b,14,plantvillage:53177,lab_train
+7237,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,800,478,0.5094377615062762,f9906b0d1c72f52afccf34377bca1d89f0d328f9e1505fa4686981c6bea144e5,9deab094a31d474b,16,plantdoc:885,
+7238,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,747,1328,0.01666202964468315,c3f37eeb47bb28022c7cd8e687ab380a9cdce97c895b9920688146e433b6cd09,f8b527f8461ca863,16,plantvillage:38849,lab_train
+7239,tomato septoria leaf spot,train,Septoria Leaf Spot,4,excluded_internal_duplicate,638,411,0.16259753335011326,cebe4d2718e9a21737c0fe0ba79a66b8312fcc7295c84a0039d57b34d67ff26a,890707fe14bb1ba9,16,plantdoc:455,
+7240,tomato septoria leaf spot,validation,Septoria Leaf Spot,4,included,500,310,0.4304193548387097,ef2644331d606ec373f60d884b1311498ac36413d5fa6fdc7d68ddf11533b576,c134386a6166a7f7,14,plantvillage:46152,
+7241,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,600,400,0.3922333333333333,2b4225fe7795c5771f3d28801c3a09304b29f65f71562fa594988d24bac4ee07,d52d009450d7fafa,16,plantvillage:47514,
+7242,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,500,310,0.5803806451612903,db949e6b58fb30c4e54f6c4e8fa270723f1e64f34acc396ad62d3fd541888a7a,c46e369f4ae98594,16,plantvillage:37742,lab_train
+7243,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,640,442,0.36803591628959276,9632b00ba11c145846c8a035eb7a7581db0bb6a1ce6883d0a6ecf8fcf81c1493,9e62dcb6805f429e,16,plantdoc:1664,field_adapt_train
+7244,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,640,853,0.1729337631887456,c404ea0325918de043a04c18aa41a23ff91395848abfb49dbb0511394c1ebcc6,f085217c7ca22cfe,18,plantdoc:1246,
+7245,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,1536,1033,0.2798017001452081,dee2920e557fb198abd777d95295bd00c4d42c82d6ec189d16d10f594416f17b,a19195ad433bd4a7,14,plantvillage:51326,
+7246,tomato septoria leaf spot,train,Septoria Leaf Spot,4,excluded_internal_duplicate,1500,1000,0.6606286666666666,f65adf7c0cec28828d1baaa6b854610126241c969e6912dfa04f6854e5264296,d2f843b72fb03449,16,plantvillage:40816,lab_train
+7247,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,800,488,0.10212602459016394,ae0448b05f9d967057ef1312bec0bac1ee58131b876f9188b9319f0e6710afb5,97f529674c91a06b,18,plantdoc:1428,
+7248,tomato septoria leaf spot,validation,Septoria Leaf Spot,4,included,1500,1000,0.055730666666666664,b6e1bb1dd5b8fda2b6db3221833836eac8485947da730b6a09d1380672490e10,abb1e487334fd01a,14,plantvillage:36342,lab_train
+7249,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,722,433,0.17831850198000165,42dca1db68bf52d021abb3683ce6e2a4336a6ead189a3f8f78f039bc282931b7,c7b8aa841c73d94d,18,plantdoc:264,
+7250,tomato septoria leaf spot,train,Septoria Leaf Spot,4,excluded_reference_match,800,533,0.44980065666041275,b80929824f4d9357eb4208d9c3d7aba7424846c1547656fbc4f401cf2902ce02,c9bf7a5a50133ac1,0,plantdoc:1688,field_dev
+7251,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,816,1024,0.14086315678615197,e91b378bdf1f1c0351a9b1aa5267b3ddf6036efeab15f1f32abe9d881adc52a8,82f84fc1ec718d66,14,plantdoc:681,
+7252,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,600,451,0.7380635624538063,c332be5ec7735b3b36696d95b1e68fea578bc81c95af6cbab349de7feb020376,dc8170dd849acece,14,plantvillage:53365,lab_train
+7253,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,2219,2728,0.17009656670794351,a1581bb49152ee5f615bc352e1ae484a05286695319e129fe9360ee8f3a78bfe,b130dc89cbf4b40f,16,plantdoc:342,
+7254,tomato septoria leaf spot,train,Septoria Leaf Spot,4,excluded_reference_match,866,1390,0.1902055261102896,17e151ed024d397beca3d622116ea740bdbfc9cad1aaa0a17cbc533fb9913fc8,d8e06ac8659f7cc1,8,plantdoc:1744,field_adapt_train
+7255,tomato septoria leaf spot,train,Septoria Leaf Spot,4,excluded_reference_match,800,600,0.4233145833333333,9c40bbee41a1dbc87df88cdf2be987cbbf42369144e9326182cfd5953f546d1b,843e7da161d74cd8,0,plantdoc:1687,field_adapt_train
+7256,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,1225,1213,0.1424230698050036,39d756cc72c6b2468c1ce8b0e7a8f821d6a9bcdcf52935b59d372347fd8b8530,b8acfce388920df2,16,plantdoc:1399,
+7257,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,750,300,0.5771288888888889,2e7466290cb49a8b5d78e413e4cc4dd2f9dc2dc016be530a18a67978a6e310a8,b7d0bcb4ad616152,14,plantvillage:39762,lab_train
+7258,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,513,545,0.21109859255682528,c89ed2ce0f5631b576e1af2943e347b8494d5db1d3f0d4b364bed400b56d82fa,d4d62ba04a502fdf,18,plantdoc:1642,field_adapt_train
+7259,tomato septoria leaf spot,train,Septoria Leaf Spot,4,excluded_reference_match,300,305,0.2747650273224044,62d414d3b8332e0300206503a744fa7b94fb0e5f1f4e2907e6ee4b1288780893,fe7c60e03f69a418,0,plantdoc:1735,field_adapt_train
+7260,tomato septoria leaf spot,validation,Septoria Leaf Spot,4,included,3648,2736,0.5464121171899046,ac2ede0a421c4c1c1f27f979b1b99b0dde5039a0c4b923fb6b73021887c8ecf9,98bba4d1224bcf95,16,plantvillage:43359,lab_train
+7261,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,1600,1200,0.38485260416666667,919dd48e61aa714aa82c73a4f61fa457e5bb9a11fd8b5ff0cab859286a5888c0,aefcfd209c10ca3c,14,plantvillage:44386,
+7262,tomato septoria leaf spot,validation,Septoria Leaf Spot,4,excluded_reference_match,300,579,0.3300460564191134,1fed7444972bf1252d627c9ae0b8e37c4b2eba6c3ee0b2d27c3b17ee469619fe,bbe09706de03d81b,0,plantdoc:1736,field_adapt_train
+7263,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,413,471,0.2656395387691944,c876e95e51573ac4e975713f07a9a499371931094f48d5f7ea233c09949129e8,c69f0928314d4bbf,14,plantvillage:47465,
+7264,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,337,500,0.23045697329376855,d6fa39bc9bc37946ee2423dca8bea21ab96449c587de9ed2fd2abe8c3dc44cc6,d7bd1eb0ed225830,16,plantdoc:1447,
+7265,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,624,468,0.18807185513916283,18739550aeccc2ee0df24a4c2f376b8c973e8f0872d909e3ee94d3d69d6ed384,de8424fcee3e8183,16,plantvillage:39981,lab_val
+7266,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,660,373,0.2975343244780242,6e07cef9447dd62c9643ba1e6021c03188caf68773366cf0f90437a565f3abc2,fec1358d1625614f,16,plantvillage:39749,lab_train
+7267,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,640,482,0.1535431794605809,6c734260fac18caa942f1416a152675e141f4f870235e2c87626f729b4d1b8ff,e59a753968f0f105,18,plantdoc:860,
+7268,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,1497,846,0.3186451705617697,1de9c4f4ea9384446feb548ceba2c7da6a4a1ee586a97f60691d2780c68d0a4b,a4a24af1f3d434d6,16,plantdoc:2503,field_test
+7269,tomato septoria leaf spot,train,Septoria Leaf Spot,4,excluded_reference_match,1486,983,0.27220076427121087,1cec9fbe232d0970084d721f337bb2146a264c86c43ed0b629a5365363f20b21,c90f82700befd6aa,4,plantdoc:1751,field_adapt_train
+7270,tomato septoria leaf spot,train,Septoria Leaf Spot,4,excluded_reference_match,1861,1481,0.3427553234758309,0e7d8bf1e1c96172972fe4ade72cb710ba9df1ed6ac7e8d69c302905aece851e,c057a2da29dcbdc4,0,plantdoc:1724,field_adapt_train
+7271,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,245,150,0.09175510204081633,0695fde3c55075aa03787a9f52f386386aa17e9e05ec10c82acb67eb6a7b7972,d1da7eeca134c415,14,plantdoc:636,
+7272,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,1515,1245,0.05774861823531751,1e31700a9f55fbafa41afe3aa9f5bcf82b5f930d1a8d77c97234af3f7232407f,85832b22697ba3ee,18,plantdoc:43,
+7273,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,800,553,0.17704113924050632,fd31110c9c83a8506d0f1b7649289a68a64c274425a4c2cc202cc0b84030a1b5,be8473ed73384930,14,plantvillage:50815,
+7274,tomato septoria leaf spot,train,Septoria Leaf Spot,4,excluded_reference_match,600,900,0.1776537037037037,38d0559c4fac8c9357c5eb2dcc235aa347ae95bb0a5a6a3dec89a08ecc6847ff,aee1a83ef2111ad6,0,plantdoc:1922,field_adapt_train
+7275,tomato septoria leaf spot,validation,Septoria Leaf Spot,4,included,312,379,0.4305527366213382,846b7646726c657df76a4f18742e6fe5c0414cad3a74e046b42034bc81083157,85923b5e4ce8e3c9,18,plantdoc:211,
+7276,tomato septoria leaf spot,train,Septoria Leaf Spot,4,excluded_reference_match,1500,1004,0.07667928286852589,0e9ab83fec06dccf6909ee66060ceeff6abc259663dd3627326049d51dba0604,fc2101ac36e7c6ea,0,plantdoc:1631,field_adapt_train
+7277,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,1024,683,0.04306597730600293,8b6329ba187058621ca79c053e5947f6cf70ec698814e1253a74d87082ca52e8,87bb7c406c0aa9be,16,plantdoc:1384,
+7278,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,640,426,0.12919600938967135,5fe8f4b90b7455ea0868255ee974ab822fc1aa9cb614e6fbfcf068e5696b08c6,b81356c0c2376eeb,16,plantvillage:36273,lab_train
+7279,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,600,409,0.4982070089649552,a6ddb24898475cd5e800d714cf57d2b3e979ed279ad3e543cb142afeb5bdad5c,9de33566960f84d8,18,plantvillage:36703,lab_train
+7280,tomato septoria leaf spot,train,Septoria Leaf Spot,4,excluded_reference_match,1024,611,0.5738687218698855,e3719bd0da758a25424641b147b8351301f5163e2636f973006a5f317999159d,951e7af021e7296a,2,plantdoc:1641,field_adapt_train
+7281,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,600,406,0.13933908045977011,ad91180cf38a8cc41b2697b72b3c2d4b23114aabd89b89b08df5b9e779f629f1,c6b57c5380ea12f9,16,plantvillage:49459,
+7282,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,600,400,0.3047166666666667,f221dd76e24bdaead598067372207a1c30ce76ff3d306e5dc105b5b7f86c1857,80db0ef4dbe45aa2,18,plantdoc:238,
+7283,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,590,332,0.06136410046967531,68bdfb22dabefc2598b285a52aeb7e84887dc36c0666dd423ded8e4d4a398bd7,8ed638dd58c8332d,16,plantvillage:44776,
+7284,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,374,348,0.7826080275370336,ae8b6c12dca8fbbabd573b31193114dacecebb92aaafbd0831a7cf5b435225c9,a58995ae42745d9b,16,plantvillage:38064,lab_train
+7285,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,1500,1225,0.25331809523809523,c94910433b0c5837f74913c0c485b9ec7d0dd4ea6757c4434db13ed4c799f5e4,e8d0d4bd39da13c8,16,plantdoc:1466,
+7286,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,600,450,0.7769555555555555,560f23feecde541f3a9b0b8fd4deb73072d274cdb1a81b0826fb202e2d51dabd,c0aa79853fa5173c,14,plantdoc:2242,
+7287,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,441,630,0.13097217723068064,876309bf2e1602556c67991cf97e2b14dc7512e266e26834e21684ffbdc15c0d,97ad1ab4ed625834,18,plantdoc:401,
+7288,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,313,215,0.7809049706516086,3c1a1b17bd3d1d782c95eaa490862244828ca2e80d4db0ac019afd8f052f4d8d,8c237cc341ad6a5f,16,plantvillage:53840,lab_train
+7289,tomato septoria leaf spot,train,Septoria Leaf Spot,4,excluded_reference_match,736,497,0.675930583501006,960ad2da6d54183abd55630cce0d32f084d802bed65ea3f0b9c9208194a50c1e,bf8194dacac9a545,0,plantdoc:1737,field_adapt_train
+7290,tomato septoria leaf spot,train,Septoria Leaf Spot,4,excluded_internal_duplicate,1280,720,0.05342556423611111,5291b1379acb33df8ac5c9ee6004bbc4633ec9cec7db3b8ea105c163e794cf2e,bfc5e030e23a856d,16,plantvillage:36524,lab_test
+7291,tomato septoria leaf spot,validation,Septoria Leaf Spot,4,included,640,480,0.101044921875,757fef586858478437084ad0a222ef52d2f3bdb95fe148e15c0bbf4cfc581b1b,f81cab5ca4e3951a,16,plantdoc:147,
+7292,tomato septoria leaf spot,train,Septoria Leaf Spot,4,excluded_reference_match,1050,713,0.3275228745074467,96ce54b1545a7a039c2eece6e74480f0724a6030a389e387314ab02cfc894551,85b64a4d8e6279bc,8,plantdoc:1691,field_adapt_train
+7293,tomato septoria leaf spot,train,Septoria Leaf Spot,4,excluded_reference_match,300,226,0.6152949852507374,d3e5dabdee428334a37c515cfca37f7a131686e98fb6ca345d7fc99831b4a851,e325867898636f1e,10,plantvillage:48722,
+7294,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,600,450,0.29288888888888887,481c8ea6f19e13ff4b6fa5dfc8bc89433f7c37ae14cf65cc86ae0bab5231c851,85852a2dd7f2ce8c,16,plantvillage:40997,lab_train
+7295,tomato septoria leaf spot,train,Septoria Leaf Spot,4,excluded_reference_match,400,300,0.09865,43f41f01a4dfd5aba21548f32cb58f0ddbd2ed0eb39011fe45645d8c49a5c7fe,f839079f28d8364e,0,plantdoc:1607,field_adapt_train
+7296,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,1109,852,0.39168010769758316,266834f98295852850d6b17516406d05c5b4206debe0ac3eff91113f1b541dfd,9aad5362ed1704b9,16,plantdoc:2456,
+7297,tomato septoria leaf spot,train,Septoria Leaf Spot,4,excluded_reference_match,555,555,0.2917133349565782,6357624e5fcd97d05f14a8e19721cfe22b677a71948f32ee169d61af5ee949d1,9dfa2090e7a15d63,0,plantdoc:1686,field_adapt_train
+7298,tomato septoria leaf spot,train,Septoria Leaf Spot,4,excluded_reference_match,215,349,0.25472113013926834,a5f8e02edaab6b706a678bc5c17fe5e39b9a9f2a33e2776073dd85ab8d19787b,e933934b9ac5499c,10,plantvillage:47684,
+7299,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,768,576,0.5665215386284722,961eb1155c232d5ea96ca51dd65a8fe7f1ee0a6d7ef9f2b6e9677ad1d11aa9f2,c14c2fd80fb85fa2,16,plantdoc:1630,field_adapt_train
+7300,tomato septoria leaf spot,train,Septoria Leaf Spot,4,excluded_reference_match,200,200,0.3027,f2971c2ed5a6567bfec0440b3801f67db76206c768a63017f6deafe10c32a6bc,a4e04af1f5ce8c0f,0,plantdoc:2503,field_test
+7301,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,1280,720,0.14787217881944445,9a7bb1b1a0c7e65038bd4fd4b160db0cb49d7197ba7a435b182c1e494ff24da1,c18ab966c523de4b,16,plantdoc:1056,
+7302,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,350,485,0.06404712812960235,616c6318259cae2699164344fc64ee83232ab012c60384bd43c621370b00a750,ef61c41d96ae91c4,12,plantvillage:46131,
+7303,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,1920,825,0.11967866161616161,b4ac66d0ad31e536005f8258ca1b2df0a5a720e76dc9858dc72d33c24bc87f64,dd11b6871433d64e,16,plantvillage:52083,
+7304,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,800,533,0.26765243902439023,9b68637605766fb1bff7c59ac003681178e43bc98640a2ae4f3c036b3849e8c7,9cdb9391cb9540f4,14,plantvillage:50972,
+7305,tomato septoria leaf spot,validation,Septoria Leaf Spot,4,included,391,450,0.3526285876669508,e787f0bda330421691f472542c1cebc300c78e96939e219d274f271bac101c2d,9965d88ee9ca46c9,14,plantvillage:47626,
+7306,tomato septoria leaf spot,validation,Septoria Leaf Spot,4,excluded_reference_match,237,500,0.3890126582278481,33513d3db060b39dca7f8ecc609600917258ddf9028dcf0c51ba1bb821ba14e3,ea6585c79e1e8338,4,plantdoc:1667,field_adapt_train
+7307,tomato septoria leaf spot,train,Septoria Leaf Spot,4,excluded_reference_match,2400,2205,0.3560544217687075,6976513f331a8dd547a8b40dc01a6336ccb60c012e681303470954aff0d0ad22,a2abd469876e6ac1,0,plantdoc:1721,field_adapt_train
+7308,tomato septoria leaf spot,train,Septoria Leaf Spot,4,excluded_reference_match,192,117,0.4532140313390313,8b4f3754d3460f86bb5ae4690cfde636e4474c49683d00ffeaacae902faf4272,ba27e44bc78cd870,10,plantvillage:46442,
+7309,tomato septoria leaf spot,train,Septoria Leaf Spot,4,excluded_reference_match,2996,3070,0.21136346833780545,844ad0f88db501385415a8f87e6e477435252a4d89f312e8d3c3c9189ef05ff7,bc0adbb1d6cc5055,0,plantdoc:1719,field_adapt_train
+7310,tomato septoria leaf spot,train,Septoria Leaf Spot,4,excluded_reference_match,396,672,0.36204680735930733,8c141a39af5730d458c805568660bbbab89a6eb6b3cc656db62c662495994beb,ce726d324679649c,6,plantdoc:1638,field_adapt_train
+7311,tomato septoria leaf spot,train,Septoria Leaf Spot,4,excluded_internal_duplicate,900,600,0.26155555555555554,c1929b5d4c527cb3b992e05c208c0d6de1297be2d4dcecffea0b094550257bd6,a9c08bcf2f2cf42c,14,plantvillage:41602,
+7312,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,469,407,0.369943892331952,4b9303913a3ff0dd70bb8d85b4cb34a6990cf7edbed0ee0fb5344bcaed3e760f,b990b40d4876e78f,14,plantvillage:48908,
+7313,tomato septoria leaf spot,train,Septoria Leaf Spot,4,excluded_reference_match,350,260,0.3313296703296703,2c6e36b745ce86fb2bb03b2ab1ecf7ba02df95238c285d006ccb8a24f97bb683,fe78e19452839cc6,0,plantdoc:2524,field_test
+7314,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,383,262,0.5550495286309369,067db45e32b252341f7c76217be8e3cd3cea9497edd86f4fa45dc42247068290,84237cc34da74a5f,16,plantvillage:51066,
+7315,tomato septoria leaf spot,validation,Septoria Leaf Spot,4,excluded_reference_match,825,619,0.5060889998531356,d3b4db65d05849778f9c7a6c21915fcd105b7b56b195c110b9a4794f0b6d6bcc,c395492dad7e0c66,0,plantdoc:1863,field_adapt_train
+7316,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,268,262,0.08451065284265695,7fee66d252081cbf8e1384cc0382e660cf85cdb48617e175184df89e2ae3bb23,85bd68c0724fdb34,12,plantdoc:1153,
+7317,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,1130,554,0.06417366857288904,3fba32f13243e585dbdfa7346edf529cb5622b0db0d1653e8a8700dbf4140b5d,80d56b9d3994379a,16,plantvillage:50531,
+7318,tomato septoria leaf spot,train,Septoria Leaf Spot,4,included,990,742,0.2829875575158594,850f2aba0a3a97a9c7edb0eeab495ef0b112ff665be6fd0e05592a975a2c0ec7,8dcfe4d9646c3078,14,plantvillage:40972,lab_train
+10833,tomato bacterial leaf spot,test,Bacterial Spot,3,included,1200,1200,0.029127083333333335,cc6eb7a7328a192e400c78d3736b43e5805e89c7f92b4e3feb6a6fd47608f856,c43f6258b4b60df1,18,plantdoc:175,
+10834,tomato bacterial leaf spot,test,Bacterial Spot,3,included,534,705,0.09896937338964593,7e907aa997f057b2ce85ec6ca2c5505ca72df1b03da71e966a2bbfebe1f5b347,a9c3aecb14385ce5,16,plantvillage:37249,lab_val
+10835,tomato bacterial leaf spot,test,Bacterial Spot,3,included,289,189,0.06466377400633457,214c2e1e572c849edf03201c2fc7f0aefd64ab99f2d352b23478a24464050010,a22f2db0cd34f507,16,plantvillage:49304,
+10836,tomato bacterial leaf spot,test,Bacterial Spot,3,included,500,378,0.32492063492063494,3ea56d42aa961a1ffbf76d16cdf55bdd78f7b33ad29787de6c017557944d36f3,e2aca75296639a8e,12,plantvillage:46193,
+10837,tomato bacterial leaf spot,test,Bacterial Spot,3,included,400,300,0.398325,133b488cd8e57e2e969dd33d37158dd3e1628ad082c7176847c9b9c5a784f150,8e5e2596f19b3911,14,plantvillage:40780,lab_train
+10838,tomato bacterial leaf spot,test,Bacterial Spot,3,included,720,499,0.4910515475395235,6c238b44d66f2ce46f77543b631bdaa6c400e51e92705132c46e6e6b0c37e92d,fd8de9e098a35a24,14,plantvillage:41545,
+10839,tomato bacterial leaf spot,test,Bacterial Spot,3,included,607,425,0.0365771877119876,965e7e25a587fcf698417329ac5bca6ce6a7d60b0f2def20d0837767b7521c24,c5dd6bd685561419,14,plantvillage:51957,
+10840,tomato bacterial leaf spot,test,Bacterial Spot,3,included,1200,900,0.017902777777777778,46831e166929e5975e535684809fd6582fa3f1930f925f858e528032a5d1733b,f4d1cfe0f0f60146,16,plantvillage:39661,lab_val
+10841,tomato bacterial leaf spot,test,Bacterial Spot,3,included,600,400,0.0322125,f09eaf4c7a54c1f3e537b02e646f965a5bf76449f856633be01c9579d63bf445,8dd6d4b16d171c29,16,plantdoc:5,
+10842,tomato bacterial leaf spot,test,Bacterial Spot,3,included,500,324,0.06554938271604938,fbd0bb04c66219840479b51ea0796e6e2b91b7f0bb64ea7b5f52c1775a06d360,c4d13fcc69763912,14,plantvillage:51679,
+10843,tomato bacterial leaf spot,test,Bacterial Spot,3,excluded_internal_duplicate,640,480,0.044970703125,653f5f71ea05d98ab794ccfde5a86fdc32952ee81a6a4492097b11c7d9c3af04,d39e1361f5c528aa,16,plantdoc:1034,
+10844,tomato bacterial leaf spot,test,Bacterial Spot,3,included,500,889,0.16068616422947132,e5debf404800af128f4c198297d82edea3ad4cb5ac325dcdfb904ddafe4ff1a3,dc392be11a9c86e5,16,plantvillage:40005,lab_train
+10845,tomato bacterial leaf spot,test,Bacterial Spot,3,included,600,450,0.08861481481481481,4da9d248ba595e6dc631c42ea70c80ce0d4b88686b2210c419b3ee3a086a4e11,d02f3ed782599a64,16,plantvillage:36147,lab_train
+10846,tomato bacterial leaf spot,test,Bacterial Spot,3,included,1920,1440,0.2554553674768518,c317774c5f912df30dbdcdfa4319ae5c1b686f81ccd82dc7f1b810c96997480a,d39c926ecd53b490,14,plantvillage:50553,
+10847,tomato bacterial leaf spot,test,Bacterial Spot,3,included,1500,1101,0.02691916439600363,a63b9960a29e295ddc8bb8f5dfcfa0e6688d161130587bc82e90d3747aa347fd,84866a3f69a35e9a,14,plantdoc:431,
+10848,tomato bacterial leaf spot,test,Bacterial Spot,3,included,864,576,0.2841133777006173,f5a1e1186875a004dfd66ead4d15064f96ef1821c6da534b305458043c7fd9f7,eed3459256990dc6,14,plantvillage:40473,lab_train
+10849,tomato bacterial leaf spot,test,Bacterial Spot,3,included,333,248,0.6292502179598953,55d9208eee4c65a3b3d2f5089959cd933efbe6d91503cc53a2cf8fea8d08189f,9292a0d76f6929b5,18,plantdoc:24,
+10850,tomato bacterial leaf spot,test,Bacterial Spot,3,excluded_internal_duplicate,1515,1245,0.22300422813365675,1e31700a9f55fbafa41afe3aa9f5bcf82b5f930d1a8d77c97234af3f7232407f,85832b22697ba3ee,18,plantdoc:43,
+10851,tomato bacterial leaf spot,test,Bacterial Spot,3,excluded_reference_match,660,495,0.7499693908784818,15238f0eb8d3af16630411383e3ccd9acd3d01f85271e6815e0bc954ba1e33cc,d4563cd038873f0f,0,plantdoc:1833,field_adapt_train
+10852,tomato bacterial leaf spot,test,Bacterial Spot,3,included,1050,713,0.5114699792960663,f939afb776a87dde30ba2d41faa1f93e7b06514371f4cedd0481383ad5db3f1d,8fc2ea8483e374b3,16,plantvillage:39665,lab_train
+10853,tomato bacterial leaf spot,test,Bacterial Spot,3,included,2016,1008,0.6041420619173595,57c22d6bb1f57314638a478eea67bc2ee1a20839af9bfea3358123255b854fe7,8f2d1fb828a35ab1,18,plantvillage:50866,
+10854,tomato bacterial leaf spot,test,Bacterial Spot,3,included,660,495,0.031805938169574534,6c2fcd9914387ae981332d7e136af28f3dc588e7563833fa815e4020fbbc8c5b,d69862e2276fec44,16,plantvillage:36605,lab_test
+10855,tomato early blight,test,Early Blight,1,included,1280,668,0.05535296594311377,69101dcf8da4a735e1fbf3fb52a93af06ea594ca750cd8ff27cbf09d08f83263,c77037851cb629da,16,plantvillage:50059,
+10856,tomato early blight,test,Early Blight,1,included,637,335,0.2514726211954357,6ad0f8e8379afe7a74d035df4ae26c567270233a93a0221e2e4e488e11669da7,d29083c7acd3acc7,16,plantdoc:996,
+10857,tomato early blight,test,Early Blight,1,included,640,450,0.03840277777777778,29588c5425d70db24e26b58f02abbc7e23d53bdd0e872c8c14f697f49f83a537,809333ac9f69f247,16,plantdoc:2148,
+10858,tomato early blight,test,Early Blight,1,included,690,518,0.033129091824744,460911a2b7921f31f39da8d56beb17d88de0d1f77e5e9eecd57647ea85707e54,8ed6702db924f067,16,plantvillage:41778,
+10859,tomato early blight,test,Early Blight,1,included,600,380,0.12953070175438597,818da9de4b0461c3131fcff829c68711b890b882b53b68859d081c46cc4c763c,acb0379f9d0c8be0,14,plantvillage:44780,
+10860,tomato early blight,test,Early Blight,1,included,600,449,0.08616184112843356,8a4b37125371c37b47ac025a9ad5bafea7bfe101c6d21dfe430eeb6c811c05b7,9a89edf436612273,14,plantvillage:36322,lab_train
+10861,tomato early blight,test,Early Blight,1,included,625,500,0.312688,0769ca1e26740717bb60773abacf8893a5bba5361a9c37b385d841c3590e6609,c6d589c6153b9335,14,plantvillage:39812,lab_test
+10862,tomato early blight,test,Early Blight,1,included,690,334,0.10165321530851341,8507d71fb505d235265b2f96396a63177376badbd8e5168c6a9b30de08cbc2d2,e72c273f24a01ef4,18,plantdoc:315,
+10863,tomato early blight,test,Early Blight,1,excluded_internal_duplicate,663,412,0.0754733558845495,5d532e8916b606cba49231a00f9c6ef6790a02e02701dc1e59499819c2f2914c,9289cdf47ca83374,14,plantvillage:43580,lab_train
+10864,tomato early blight,test,Early Blight,1,included,497,297,0.047659695547019494,2bcae3f6a10fa923aaca6a72938c90ab1e8ccefd36e8c859096d1829eb6f671b,c14a43bc6f9c3b98,16,plantvillage:51104,
+10865,tomato early blight,test,Early Blight,1,included,620,410,0.17509441384736427,a29e639302bce0fc13a8f9d695d593d195d50ab5c4322e3964e5904e139b5091,e1c68f318d9ba334,12,plantvillage:36962,lab_train
+10866,tomato early blight,test,Early Blight,1,included,400,300,0.011308333333333333,4f8e32b3481803b5168ba5b5622961fef087b7744d1664b0e42194179b86b4f5,d1c9f858cc472b39,16,plantvillage:40329,lab_train
+10867,tomato early blight,test,Early Blight,1,included,500,364,0.06103296703296703,b9d93078d80a929ba203e97346938e585e4cf5fbdc5f47167aa1536aee1faeee,aad4e5996c429e63,16,plantvillage:36766,lab_train
+10868,tomato early blight,test,Early Blight,1,included,492,353,0.1510513830350768,868404c792b9a5ce88c80b6599e3c55eeb6cfe096910bf148079afae932fba6b,91da7eaee135c414,14,plantdoc:1914,field_dev
+10869,tomato early blight,test,Early Blight,1,included,243,187,0.10162628463282058,7183deef8ab8c36054af51830244b0f87d5160b0c02920009c5216edb6d5e4a2,80a23c78f5f2d66a,18,plantdoc:1762,field_adapt_train
+10870,tomato early blight,test,Early Blight,1,included,1080,1439,0.07817543046868967,3ca095ef3c0f074a7adadc5bbc4e48c18fd674f3430a724cbc1ed2b4fb4a21bb,ddaf3ac42052574b,16,plantvillage:40248,lab_train
+10871,tomato early blight,test,Early Blight,1,included,600,450,0.07414814814814814,33f313c32a6e899574e4d0196fcefb4434ade3080b48d93e98c7a319920b13ac,cc7b6c13871c8dac,18,plantdoc:89,
+10872,tomato early blight,test,Early Blight,1,included,1200,800,0.12639791666666667,e1de6b1af12af28808b0cc101914eb606687d42510336f08d5bc3bb911065471,ac5027ed9ccaca69,16,plantvillage:39909,lab_test
+10873,tomato early blight,test,Early Blight,1,included,600,450,0.04395555555555555,5262b8733fdff7d5b6e5f191c5c82cc7178566be9b87316db5e2adb757830985,b852290ef79d226d,18,plantdoc:1330,
+10874,tomato early blight,test,Early Blight,1,excluded_reference_match,1200,1600,0.21960260416666666,88a16ca0404be777f7b97c325949d2a059de30ad4357904f86a8120c47f6efef,d089fc86837fd2c8,0,plantdoc:1582,field_adapt_train
+10875,tomato early blight,test,Early Blight,1,excluded_reference_match,800,500,0.1232625,2158eee5461a96acc222853b044117d898157df32f3bea7e0bb4fa55ce08fd54,f00f3729cd64d8e2,0,plantdoc:980,
+10876,tomato early blight,test,Early Blight,1,included,301,226,0.05908035163025902,6f700d3930a5a9187fdbcf0f554509b87d15bcec978b9612bb474d37ed4b00a9,9af1709e93e05e31,14,plantvillage:53722,lab_val
+10877,tomato early blight,test,Early Blight,1,excluded_reference_match,1280,879,0.12845118742889647,f6daebefea56eeb23c2d27dd9ae437b2b5663fe94dbd1c844ccb231e24fac7e5,dcdd2de0367c3250,0,plantdoc:1766,field_adapt_train
+10878,tomato early blight,test,Early Blight,1,included,660,1015,0.10680250783699059,7b00f7f206f403f351dad55fc56c196ac5c93cda2310da2d4a9341c28256fd8f,fe3e784123d231e2,14,plantvillage:53521,lab_train
+10879,tomato early blight,test,Early Blight,1,included,1200,667,0.17977886056971515,bb66766e4eb333bdec10b5d5b0a96142c8ee816193c0c9883f028fc12cbfa41c,a88d723bb156a92e,18,plantdoc:463,
+10880,tomato early blight,test,Early Blight,1,excluded_reference_match,600,411,0.029878345498783456,aece44abfde407965eecc260bd1209cb4481b947ef74b40146ad1061d72134d0,ca13d17d9f42a0ba,2,plantdoc:1574,field_adapt_train
+10881,tomato early blight,test,Early Blight,1,included,1600,1067,0.10949215089034676,39bc6f64b436df00e913a856fa220960ab0583842820e5b9b6bc4c4c9d04c571,99d9e1699c662726,12,plantvillage:53195,lab_train
+10882,tomato early blight,test,Early Blight,1,included,600,400,0.011733333333333333,d361fa80880547474f58cbc20f8c8048543bff67d629b935b13a1cd94b83cddc,f88e0e712f7f4340,16,plantdoc:965,
+10883,tomato early blight,test,Early Blight,1,included,1084,1100,0.1277230795035223,16bb363d88f280803eaad7f39648da9d8c01f7defc9c975f5a87216c1e86c0ad,e4b4c209ff07f11c,12,plantvillage:44170,
+10884,tomato early blight,test,Early Blight,1,included,300,225,0.13407407407407407,c575a184f9041abffd82eca3769fe9a445d763d56b058856e7e29c7e40ba4c0e,d9a62bc1a81dc17d,16,plantdoc:697,
+10885,tomato early blight,test,Early Blight,1,excluded_reference_match,275,193,0.13024964672633066,fd44bc0b497c337bacb2fb83446ed17f1d34358fe6b94537cc758607ec6ab30e,91ca7eada135c615,10,plantdoc:1914,field_dev
+10886,tomato early blight,test,Early Blight,1,included,300,200,0.02925,34103306944c2b33ea8ab4b5270424292264a95fa59afcbf4f0a2e2ab985a10a,ab66249b0d689b5b,14,plantvillage:49821,
+10887,tomato early blight,test,Early Blight,1,excluded_reference_match,768,512,0.1993408203125,440e390a7c2ba3cc00b6cc3eb4f8e39da666250768061569c8bade576af6ce5d,c1959ddb7aca9821,0,plantdoc:986,
+10888,tomato early blight,test,Early Blight,1,excluded_reference_match,1280,933,0.1574122454448017,2e9371a58eca7faed7566383c3dbab186b3674389f7338890af9f13c5ec0139c,918aafe33864b27c,0,plantdoc:2022,field_dev
+10889,tomato early blight,test,Early Blight,1,included,800,400,0.155546875,6c7385ea6fbe22ce44d5bf3b7cb03365ea3296da945acdc0e3ef6cdecfb00386,987fc03d81ec356c,18,plantdoc:1006,
+10890,tomato early blight,test,Early Blight,1,included,150,150,0.041244444444444445,052f383e9bb05b2b2460276b792fad2315add70b682b36e4abcfe27f197e77f3,adda85c0d6cab741,14,plantvillage:52427,
+10891,tomato early blight,test,Early Blight,1,included,800,533,0.7923803939962476,9e2fef6b8d4f38134ba50f56719348d3b226e3955c812e2037c568c388afd19a,eaf2e552a54fa424,14,plantvillage:38374,lab_train
+10892,tomato late blight,test,Late Blight,2,included,1199,1599,0.01697318121574107,97031690fef9f8e63c11262c22178f3720de9229841256d5aa3a4d905757b6c8,989de45ab91ed04e,16,plantdoc:1423,
+10893,tomato late blight,test,Late Blight,2,included,658,350,0.17946591402518455,42eb1a4b4f8db685e6ba918a066f0840b6cb54f76761ee075156876f4253b592,f1aba0c34ef254a5,16,plantvillage:53735,lab_train
+10894,tomato late blight,test,Late Blight,2,included,1200,1600,0.029334895833333333,6479c3354760cf9ae91d4c20827d9ddc15342c83157c1b289443ee0c44784ce4,d5b34e7970077309,16,plantdoc:78,
+10895,tomato late blight,test,Late Blight,2,included,1080,1440,0.02389789094650206,5dbf4229758a69318f96b0c6c629327f9846bd2e31eec974025a7deb891c8f9f,faa34639638a9ec8,16,plantvillage:37628,lab_train
+10896,tomato late blight,test,Late Blight,2,included,1080,1117,0.0401032859179681,493e7d5c95f38f84bc3aebb7cedd9c2734088a1ef98c966f4a480ee8f9937ed1,af96a0d074ab7295,16,plantvillage:37076,lab_test
+10897,tomato late blight,test,Late Blight,2,included,640,640,0.060859375,d4ed6cd0371cb4496b5d722774fbcd0276e112417a27635d6de194588a6cebd7,d94f4eb12348bc87,18,plantdoc:619,
+10898,tomato late blight,test,Late Blight,2,included,187,314,0.07513879900541572,2488c68f14bdd7b4394e114e6368f66b44e48116fad9ceb00bf96a7b70339237,9595591c70fe12b5,14,plantvillage:53528,lab_test
+10899,tomato late blight,test,Late Blight,2,included,1200,1600,0.030060416666666666,e2234065966b90aa9840e59fc7c0870d0b25f783301643a39fb9e0118d3e592e,fabc203a26e6ed28,18,plantdoc:323,
+10900,tomato late blight,test,Late Blight,2,included,500,375,0.065824,0865ce13b8aa6377de92a35c119ecfd28d3d7ccf5550dc08689c70b7eeeedb93,958a6d93986d41de,16,plantdoc:819,
+10901,tomato late blight,test,Late Blight,2,included,640,480,0.07313802083333333,f4ca310174dbba7f4cb40c7d685686ab92d72295851f2cf60e20f53935ddcde1,de6132f9cc0c31cb,16,plantvillage:41624,
+10902,tomato late blight,test,Late Blight,2,included,390,256,0.07553084935897436,35f69528ba7a8cdb03e331af0053568617e560e0acda4c04ca8388294240f4ed,be0de5f44cfc1828,16,plantvillage:37878,lab_train
+10903,tomato late blight,test,Late Blight,2,included,1080,671,0.11690953248330298,8f9b21308f2b8e40c889f12834d365881308df45a992ae04f6a68396232a9987,8e5d35ebca901137,16,plantvillage:39313,lab_train
+10904,tomato late blight,test,Late Blight,2,included,504,372,0.20560249189281446,685afa5efbb3a5a24fa2fe084df855b84280b465c31ba7241cd3a1cd2ce0f72a,c72c58f1737c92b0,16,plantvillage:47581,
+10905,tomato late blight,test,Late Blight,2,included,600,380,0.38375877192982455,2efda112317f492ac9e8b45983973d215af7b4c949ba42b4758dcdf1214ad467,d7302b5c5479686d,16,plantvillage:40876,lab_train
+10906,tomato late blight,test,Late Blight,2,included,501,423,0.40720922221750355,b335c7c06a129b47f637d25e02c2b79303d0b35c154d52a9661f9ed85eb8560b,b7e638a97508c9d2,16,plantvillage:47866,
+10907,tomato late blight,test,Late Blight,2,included,141,103,0.1304138263444192,bd9d3bd7aea09f7ea9162e48e4f3fd88b61e3a613aa23cbc638adf23012659b2,ab0dc0eacbe0353d,16,plantdoc:116,
+10908,tomato late blight,test,Late Blight,2,included,1080,1440,0.03846707818930041,3af07873de00dd497c97e62d53a5c46efb203a076d2dbf79b94b090bfb817ee5,92af928b57643da2,18,plantdoc:2085,
+10909,tomato late blight,test,Late Blight,2,included,750,1000,0.06902933333333333,cdc298755f7811a0ad5e9fe426fedab5bea3166722108853570e5881c0038c92,81bb73d60c2ce16b,12,plantvillage:49853,
+10910,tomato late blight,test,Late Blight,2,included,1024,600,0.152919921875,d0c0c0677a0fbe95c58a9e38488a4a6b1fa23a6b0b617dbf316dc342c8c6e5a9,fe058848d3ff6055,18,plantdoc:714,
+10911,tomato late blight,test,Late Blight,2,included,659,494,0.1730968895332764,a2b8409457e6040e927ca190c51f000f981ceaee922660aa9121f6a969980542,88443e2e6377cdcc,18,plantdoc:1850,field_adapt_train
+10912,tomato late blight,test,Late Blight,2,included,4429,2953,0.07278819974589484,debb679eeba2cf4320d52d743cf2061726fca68bd13649d9f7b27ce80593a840,cb201f32643ef83e,18,plantdoc:129,
+10913,tomato late blight,test,Late Blight,2,included,1500,1000,0.16267,524632e78cd81a11ffb8cd75f605c9d1a985fded5292337f84f43389fb681ec4,ace91eb300b7731c,16,plantvillage:43266,lab_val
+10914,tomato late blight,test,Late Blight,2,included,2000,1333,0.19855176294073518,f7ba6b9b46a8522b6303a6012cfcaea2f443b72aba85fb9dffddafe1d0d15ab7,bc0dc176cb293c93,14,plantvillage:41137,lab_test
+10915,tomato late blight,test,Late Blight,2,excluded_reference_match,225,300,0.0744,8b0a29538be71a3f515ff4d7acc1722f5d84f7716a3595e13a31ec9c611e6a85,99844759a73d86d5,4,plantdoc:1949,field_adapt_train
+10916,tomato late blight,test,Late Blight,2,included,1024,683,0.11408194546120058,921e9adb583c12622b64abc10bb75b948fecb23c2fd22f5e127f2c660a0ae204,fac0d750d96ca0ae,16,plantvillage:39041,lab_train
+10917,tomato late blight,test,Late Blight,2,included,320,240,0.23638020833333334,39f12da6f9ba0d063eb1494850c51a6f070e2c7eb874ca5839d21dd329d5ca1e,ba91f9a6c44b907c,14,plantdoc:2114,
+10918,tomato late blight,test,Late Blight,2,included,975,1300,0.03360394477317554,18389284a565ed523d8109927442369f735d371436827f3764e9ae77527aaa3f,aafd2647d814d9c8,16,plantvillage:40481,lab_train
+10919,tomato late blight,test,Late Blight,2,included,524,226,0.16848780652570425,0a11cd2520bf736a9b5c687b1ea2296cd384c4186399145a30384540b136b12b,b0f66321c9552f3c,18,plantdoc:1733,field_adapt_train
+10920,tomato late blight,test,Late Blight,2,included,960,580,0.16827047413793103,49dde21326870c07062c96d7c79bd337692e6e0b417e2cb7662d958e767a0327,8a24f387555e2ba5,16,plantvillage:37040,lab_test
+10921,tomato late blight,test,Late Blight,2,included,750,499,0.07741082164328657,d42d0cfc5fe4039f7c0a08e6f0c17462dc2a3d7af094f2a0a90194c01e97bca3,e89f40b0f13b7a94,18,plantdoc:1471,
+10922,tomato late blight,test,Late Blight,2,included,1300,1300,0.0601301775147929,ab3ee377551d7d1984b5cbc682cb09c8341da7c1d18fd949c08a370efa1bbd07,d90f9ed12309bc87,18,plantvillage:43926,
+10923,tomato late blight,test,Late Blight,2,included,1280,719,0.02514016863699583,484d1562874e8861723926b7db78085b6515f67cbefdc92335446b8d516b5062,8a94e2eaf224e597,16,plantvillage:37209,lab_train
+10924,tomato late blight,test,Late Blight,2,included,320,240,0.10526041666666666,4a4d1eb5b607dc2c5894e0df6d63e78d539f1519be08f5f4bdd8946eb6e8c7da,cb45cd73b01f321c,16,plantdoc:2516,field_test
+10969,tomato septoria leaf spot,test,Septoria Leaf Spot,4,included,500,310,0.04153548387096774,45a8cd04a82ca4b5206b30be087164782034ea153dec7a9e9623923a48750c6f,c5bd6ba487565449,12,plantvillage:51957,
+10970,tomato septoria leaf spot,test,Septoria Leaf Spot,4,included,612,816,0.01919934640522876,526caebff174cb770321309dca4755bed4126e3ee62516fe4068c519a18e6746,c3c23f071c3d27d8,16,plantvillage:52321,
+10971,tomato septoria leaf spot,test,Septoria Leaf Spot,4,included,600,380,0.04692105263157895,fb2fc2ef6edaa359b066747587500ba586783bf16752219c773b4832d50f8533,c7783ec88f068753,16,plantdoc:1592,field_adapt_train
+10972,tomato septoria leaf spot,test,Septoria Leaf Spot,4,excluded_internal_duplicate,602,413,0.0412949570841344,a0cb73903b55caaa3199bdca64f6846e0500f64b729160893ce7978c2c97f555,c1c86f8c3ed0bc2b,16,plantvillage:49642,
+10973,tomato septoria leaf spot,test,Septoria Leaf Spot,4,included,794,479,0.20976478074073296,6c723bab15ad626384cd48f7ad77144fddb2f37a8b2403472a48ca8953e9316c,fc2185ae63c64a73,16,plantdoc:497,
+10974,tomato septoria leaf spot,test,Septoria Leaf Spot,4,included,553,415,0.3629272968909998,58c489a5db5631864cf436bdb49aff5a43d7381d35f2cbb48abe3044d0de54c7,c5fc198c7c342e0f,16,plantdoc:756,
+10975,tomato septoria leaf spot,test,Septoria Leaf Spot,4,included,600,380,0.7004824561403509,5794005e91ecb0ca60054b884a0673a5f614df14846ffa522e16c623d712d30f,c7d31e83656d2532,16,plantdoc:2479,
+10976,tomato septoria leaf spot,test,Septoria Leaf Spot,4,excluded_reference_match,590,332,0.11023075352256484,bd1a0ef40971f065bf961ddb5655aa965243fb3d35416516473f2826851aca46,d54e219f141bde29,0,plantdoc:1682,field_dev
+10977,tomato septoria leaf spot,test,Septoria Leaf Spot,4,included,814,458,0.21524789974571634,5a0ca4a8fff107b176b805b6aca502003c5d4a13be699b3f02618322159e2ff9,d5b5325b296462ae,16,plantdoc:1504,
+10978,tomato septoria leaf spot,test,Septoria Leaf Spot,4,included,285,255,0.13272789817681457,a767ab13f77352c0a6cfe886b299ee449a2a8530b476fbed7a5fdac1edb633cb,cf9d7f28e8e0e0a0,16,plantdoc:1079,
+10979,tomato septoria leaf spot,test,Septoria Leaf Spot,4,excluded_reference_match,2400,2285,0.36229485776805254,a705e2cc53ff869da01dbc6f0122f5f62d17e77dd0f0b40043b886bc198346ef,8997c26e366c3c78,0,plantdoc:1722,field_adapt_train
+10980,tomato septoria leaf spot,test,Septoria Leaf Spot,4,excluded_reference_match,400,266,0.607171052631579,a32d3821f3fd99909bf8d8de2c8d7c69a4747f5799fd7985879b79db9338266f,f6b42441a5fde988,2,plantdoc:1720,field_adapt_train
+10981,tomato septoria leaf spot,test,Septoria Leaf Spot,4,included,600,450,0.391662962962963,64921223d67278d0558cb2c52a7f624e51a1bbdfb6a0e51fe83484f92f0267a7,8ddc4f4cca63c949,18,plantvillage:36319,lab_train
+10982,tomato septoria leaf spot,test,Septoria Leaf Spot,4,included,1600,900,0.3661270833333333,a0430134d0805cf8393d25502a1d162f7a6ecf633dd9cb7c4a82587e5ad16d05,b44e4d0ab534765d,14,plantdoc:917,
+10983,tomato septoria leaf spot,test,Septoria Leaf Spot,4,included,708,466,0.07366152615116026,9042884bbbd0aea795ec5327f61f3f652bdd7965fa440583a32adbc8ec14867d,c383643c5fdaba30,16,plantdoc:2214,
+10984,tomato septoria leaf spot,test,Septoria Leaf Spot,4,included,750,230,0.049397101449275366,ddc9517975f0c0e5bcb515486de2c6c08839179fc98d47017cecf22210dd9497,8a8136f60c9f91ee,16,plantdoc:1439,
+10985,tomato septoria leaf spot,test,Septoria Leaf Spot,4,excluded_reference_match,880,591,0.2781129826180588,7647ef1009bc859b6e4d71673d9e2c28f921e2ce05ea56feb9c6704459705276,dbaf22b4e43c49a4,2,plantdoc:1898,field_adapt_train
+10986,tomato septoria leaf spot,test,Septoria Leaf Spot,4,excluded_reference_match,375,500,0.331232,1d503e131f77b4089d10ce5cd67e4870d3a72e626657d6c7f82096857b5e99bb,d089fc82837fd3c8,2,plantdoc:1582,field_adapt_train
+10987,tomato septoria leaf spot,test,Septoria Leaf Spot,4,excluded_reference_match,1280,879,0.42452627275312854,f6daebefea56eeb23c2d27dd9ae437b2b5663fe94dbd1c844ccb231e24fac7e5,dcdd2de0367c3250,0,plantdoc:1766,field_adapt_train
+10988,tomato septoria leaf spot,test,Septoria Leaf Spot,4,excluded_reference_match,300,225,0.28025185185185186,e81bc2bf108ca608c195eb497a9571211a01a28716374c18b76745989dea1f6d,aa88551eafeee828,0,plantdoc:323,
+10989,tomato septoria leaf spot,test,Septoria Leaf Spot,4,excluded_reference_match,98,98,0.21688879633486047,8624028833d583a3b098bcbe86ecf8214ddd3b27e4cdf2f6d247dad3ad9c64d8,facae44499d69d21,6,plantvillage:42411,lab_train
+10990,tomato septoria leaf spot,test,Septoria Leaf Spot,4,included,1920,1379,0.25424635907662557,79ba0f9be82f7235cbfad1a25a2245fa5da7f173a56b189d1011114e70eed059,c2429b3b791e15f1,18,plantvillage:36688,lab_test
+10991,tomato septoria leaf spot,test,Septoria Leaf Spot,4,excluded_reference_match,251,253,0.06320961214430815,dd06c3686e3b7819fc36aa0debb7c46a3b5e60eb68d38d16b529afc54122c315,a857bd2bd625d860,2,plantdoc:1627,field_dev
+10992,tomato septoria leaf spot,test,Septoria Leaf Spot,4,excluded_reference_match,600,265,0.20146540880503144,d47d57ed711e96263a225b25ea7c222e23ad18d22b9ec51eb0e3e35579803aef,915b1a297dc560af,0,plantdoc:1034,
+10993,tomato septoria leaf spot,test,Septoria Leaf Spot,4,included,480,320,0.20568359375,060f49032cb134a127834f9ec6f9b98d3bf94f5ad5467194fd2984755b1ba719,bb5bf0258eb0033b,12,plantvillage:40267,lab_train
+10994,tomato septoria leaf spot,test,Septoria Leaf Spot,4,excluded_reference_match,375,500,0.25045866666666666,9522a2bfb2a64e1bb4ba26ad4ad88af88d98cf35e0d86360c82e85457bb0cf7c,aae897349816cee9,0,plantdoc:1653,field_adapt_train

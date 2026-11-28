@@ -1,0 +1,23 @@
+{
+  "backbones": {
+    "dinov2_vits14": "vit_small_patch14_dinov2.lvd142m",
+    "dinov2_vitb14": "vit_base_patch14_dinov2.lvd142m"
+  },
+  "input": "224x224, timm eval transform",
+  "feature": "CLS embedding (num_classes=0)",
+  "probe": "StandardScaler + LogisticRegression(max_iter=5000)",
+  "C_grid": [
+    0.01,
+    0.1,
+    1.0,
+    10.0
+  ],
+  "selection": {
+    "lab_only": "lab_val",
+    "lab_plus_field": "field_dev"
+  },
+  "domain_weighting": "Field Adapt Train rows weighted so both domains have equal total weight",
+  "torch": "2.15.0+cu132",
+  "timm": "1.0.31",
+  "sklearn": "1.9.1"
+}

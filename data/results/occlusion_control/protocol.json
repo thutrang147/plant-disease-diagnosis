@@ -1,0 +1,12 @@
+{
+  "control": "same-area random translation of the dilated lesion mask, overlap <= 10%, Telea inpainting radius 5",
+  "dilate_px": 5,
+  "images_with_control": 378,
+  "control_unavailable": 108,
+  "masks_resized_to_image": 0,
+  "centre_baseline_pointing": 0.7443298969072165,
+  "centre_baseline_images": 485,
+  "bootstrap": "10,000 image resamples, seed 0",
+  "status": "exploratory control requested by the review panel",
+  "torch": "2.15.0+cu132"
+}

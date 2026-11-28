@@ -1,0 +1,11 @@
+model,images,accuracy_original,accuracy_lesion_inpainted,accuracy_control_inpainted,extra_drop_lesion_vs_control,extra_drop_ci_low,extra_drop_ci_high
+nb15_field_only_s42,378,0.3995,0.2566,0.4101,0.1534,0.1085,0.2011
+nb15_field_only_s43,378,0.4101,0.2646,0.4048,0.1402,0.0926,0.1878
+nb15_field_only_s44,378,0.4074,0.2646,0.4153,0.1508,0.1058,0.1984
+nb15_mixed_s42,378,0.4259,0.2751,0.418,0.1429,0.0979,0.1878
+nb15_mixed_s43,378,0.4233,0.2778,0.4153,0.1376,0.0899,0.1852
+nb15_mixed_s44,378,0.4286,0.2725,0.4127,0.1402,0.0926,0.1878
+resnet18_geometric_mixed,378,0.3968,0.291,0.4074,0.1164,0.0714,0.1614
+resnet18_lab,378,0.4683,0.3386,0.4868,0.1481,0.1005,0.1958
+vit_small_lab,378,0.4286,0.3042,0.4444,0.1402,0.0979,0.1825
+vit_small_mixed,378,0.4312,0.2725,0.4259,0.1534,0.1058,0.2037

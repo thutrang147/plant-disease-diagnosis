@@ -1,0 +1,12 @@
+{
+  "control_minus_original_pp_range": [
+    -1.6,
+    1.9
+  ],
+  "lesion_removed_net_accuracy_loss_share_486": [
+    0.292,
+    0.426
+  ],
+  "excluded_images": 108,
+  "note": "excluded images have lesions too large for a control region"
+}

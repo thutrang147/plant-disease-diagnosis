@@ -1,0 +1,41 @@
+model,class_name,n,correct,recall
+resnet18_lab,Early Blight,151,116,0.7682119205298014
+resnet18_lab,Late Blight,148,66,0.44594594594594594
+resnet18_lab,Bacterial Spot,97,0,0.0
+resnet18_lab,Septoria Leaf Spot,90,25,0.2777777777777778
+vit_small_lab,Early Blight,151,51,0.33774834437086093
+vit_small_lab,Late Blight,148,92,0.6216216216216216
+vit_small_lab,Bacterial Spot,97,5,0.05154639175257732
+vit_small_lab,Septoria Leaf Spot,90,61,0.6777777777777778
+resnet18_geometric_mixed,Early Blight,151,44,0.2913907284768212
+resnet18_geometric_mixed,Late Blight,148,86,0.581081081081081
+resnet18_geometric_mixed,Bacterial Spot,97,29,0.29896907216494845
+resnet18_geometric_mixed,Septoria Leaf Spot,90,47,0.5222222222222223
+vit_small_mixed,Early Blight,151,57,0.37748344370860926
+vit_small_mixed,Late Blight,148,85,0.5743243243243243
+vit_small_mixed,Bacterial Spot,97,28,0.28865979381443296
+vit_small_mixed,Septoria Leaf Spot,90,46,0.5111111111111111
+nb15_field_only_s42,Early Blight,151,32,0.2119205298013245
+nb15_field_only_s42,Late Blight,148,91,0.6148648648648649
+nb15_field_only_s42,Bacterial Spot,97,40,0.41237113402061853
+nb15_field_only_s42,Septoria Leaf Spot,90,37,0.4111111111111111
+nb15_mixed_s42,Early Blight,151,45,0.2980132450331126
+nb15_mixed_s42,Late Blight,148,93,0.6283783783783784
+nb15_mixed_s42,Bacterial Spot,97,35,0.36082474226804123
+nb15_mixed_s42,Septoria Leaf Spot,90,41,0.45555555555555555
+nb15_field_only_s43,Early Blight,151,38,0.25165562913907286
+nb15_field_only_s43,Late Blight,148,88,0.5945945945945946
+nb15_field_only_s43,Bacterial Spot,97,37,0.38144329896907214
+nb15_field_only_s43,Septoria Leaf Spot,90,41,0.45555555555555555
+nb15_mixed_s43,Early Blight,151,44,0.2913907284768212
+nb15_mixed_s43,Late Blight,148,93,0.6283783783783784
+nb15_mixed_s43,Bacterial Spot,97,25,0.25773195876288657
+nb15_mixed_s43,Septoria Leaf Spot,90,45,0.5
+nb15_field_only_s44,Early Blight,151,36,0.23841059602649006
+nb15_field_only_s44,Late Blight,148,90,0.6081081081081081
+nb15_field_only_s44,Bacterial Spot,97,34,0.35051546391752575
+nb15_field_only_s44,Septoria Leaf Spot,90,44,0.4888888888888889
+nb15_mixed_s44,Early Blight,151,47,0.31125827814569534
+nb15_mixed_s44,Late Blight,148,93,0.6283783783783784
+nb15_mixed_s44,Bacterial Spot,97,28,0.28865979381443296
+nb15_mixed_s44,Septoria Leaf Spot,90,44,0.4888888888888889
