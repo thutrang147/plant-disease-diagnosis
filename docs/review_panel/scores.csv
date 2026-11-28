@@ -1,0 +1,16 @@
+snapshot,blind_label,criterion,weight,score,weighted_total,weighted_total_stated_in_report
+S0_main_da5e1ba,B,C1,0.2,7.0,6.8,6.8
+S0_main_da5e1ba,B,C2,0.25,7.5,6.8,6.8
+S0_main_da5e1ba,B,C3,0.25,6.0,6.8,6.8
+S0_main_da5e1ba,B,C4,0.15,7.5,6.8,6.8
+S0_main_da5e1ba,B,C5,0.15,6.0,6.8,6.8
+S1_round1_61c3cd1,C,C1,0.2,6.5,7.25,7.25
+S1_round1_61c3cd1,C,C2,0.25,7.0,7.25,7.25
+S1_round1_61c3cd1,C,C3,0.25,7.5,7.25,7.25
+S1_round1_61c3cd1,C,C4,0.15,8.0,7.25,7.25
+S1_round1_61c3cd1,C,C5,0.15,7.5,7.25,7.25
+S2_round2_bb794d7,A,C1,0.2,7.5,7.825,7.83
+S2_round2_bb794d7,A,C2,0.25,8.0,7.825,7.83
+S2_round2_bb794d7,A,C3,0.25,8.0,7.825,7.83
+S2_round2_bb794d7,A,C4,0.15,8.5,7.825,7.83
+S2_round2_bb794d7,A,C5,0.15,7.0,7.825,7.83

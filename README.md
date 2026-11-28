@@ -140,7 +140,7 @@ Laboratory accuracy does not transfer: on PlantDoc the lab-trained baselines fal
 | Lab + Field probe (C chosen on Field Dev) | 0.961 | 0.622 | 0.665 (31/47) | 0.469 / 0.456 |
 | DINOv2 ViT-S/14 (same size as ViT-Small), Lab + Field probe | 0.935 | 0.570 | 0.538 (25/47) | 0.436 / 0.432 |
 | Best fixed project checkpoint in each column (Notebooks 08–09) | 0.989 | 0.446 | 0.510 (25/47) | 0.444 / 0.441 |
-| Fully fine-tuned project models, exploratory (below) | 0.863–0.984 | 0.516–0.555 | 0.562–0.564 | 0.484–0.498 / 0.469–0.487 |
+| Full fine-tuning (LP-FT), exploratory (below): ViT-Small at 8 epochs and ResNet18 at 24 epochs, the two LP-FT runs with the highest External v3 accuracy | 0.863–0.984 | 0.516–0.555 | 0.562–0.564 | 0.484–0.498 / 0.469–0.487 |
 
 The frozen DINOv2-B probe exceeds the fixed project checkpoints on both PlantDoc partitions. That advantage does not carry over cleanly:
 - On External v3 the margin is 2–3 pp of accuracy, and fully fine-tuned ResNet18 and ViT-Small reach the same or higher (0.484–0.498).
