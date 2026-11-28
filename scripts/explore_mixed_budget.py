@@ -28,6 +28,16 @@ and excluded, never tuned. Field-only seed 42 is re-run here as a consistency
 check against ``data/results/training_budget``. Endpoints are unchanged;
 External v3 is a pre-declared secondary endpoint on an already reused set.
 
+Correction (committed before any amendment run): Notebook 15 selected epoch 7
+for seed 43 (epoch 8 for seeds 42 and 44), so its sealed values belong to that
+epoch. The sanity check is therefore evaluated at the Notebook 15 selected
+epoch of each seed: Lab Test macro-F1 within 0.01 of the sealed value (the
+declared criterion), plus Field Dev macro-F1 within 1e-3 of the per-arm value in
+the README Notebook 15 table (reported, not a gate). The epoch-8 Lab Test value
+is still recorded. Per-image predictions of the selected checkpoint are now
+saved, so the pre-declared P3-style sign-flip on External v3 can be computed;
+Mixed seed 42 is re-run for that reason and must match data/results/mixed_budget.
+
 Usage from the repository root::
 
     python scripts/explore_mixed_budget.py --output data/results/mixed_budget
@@ -68,6 +78,10 @@ SANITY_TOLERANCE = 0.01
 NB15_LAB_TEST = {("mixed", 42): 0.9552975465455024, ("mixed", 43): 0.9449250178210471, ("mixed", 44): 0.9603422930100965,
                  ("field_only", 42): 0.8116476460444467, ("field_only", 43): 0.8092055163696659,
                  ("field_only", 44): 0.8199427434570354}
+NB15_SELECTED_EPOCH = {42: 8, 43: 7, 44: 8}
+# Per-arm Field Dev macro-F1 at the selected epoch (README, Notebook 15 table; 4 decimals).
+NB15_FIELD_DEV = {("field_only", 42): 0.4388, ("mixed", 42): 0.4390, ("field_only", 43): 0.4361,
+                  ("mixed", 43): 0.4478, ("field_only", 44): 0.4147, ("mixed", 44): 0.4327}
 
 
 def augmented(images, ids, idx, transform, epoch, tag):
@@ -117,11 +131,16 @@ def main() -> None:
     plantseg = load_dataset(*lpft.PLANTSEG[:1], split="train", revision=lpft.PLANTSEG[1])
     tensors["external_v3"] = (torch.stack([evaluation(ImageOps.exif_transpose(plantseg[int(r)]["image"]).convert("RGB"))
                                            for r in v3.plantseg_row]), v3.label_id.to_numpy())
+    row_ids = {"external_v3": v3.plantseg_row.to_numpy(),
+               **{name: manifest(name)[2] for name in ("field_dev", "field_test", "lab_test")}}
     print("data ready", flush=True)
+
+    predictions = {}
 
     def score(part, state=None):
         x, y = tensors[part]
         p = lpft.predict(model, x)
+        predictions[part] = p
         labels = [1, 2, 3, 4] if part == "external_v3" else range(5)
         return {"n": len(y), "correct": int((p == y).sum()), "accuracy": float((p == y).mean()),
                 "macro_f1": macro_f1(y, p, labels)}
@@ -130,7 +149,8 @@ def main() -> None:
     dev0 = score("field_dev")["macro_f1"]
     history = [{"epoch": 0, "field_dev_macro_f1": dev0}]
     best = (dev0, 0, copy.deepcopy(model.state_dict()))
-    sanity = None
+    sanity = {}
+    nb15_epoch = NB15_SELECTED_EPOCH[SEED]
     epoch = 0
     for phase, epochs in (("head", HEAD_EPOCHS), ("second", SECOND_EPOCHS)):
         lpft.set_phase(model, "resnet18", "last_block", phase)
@@ -153,9 +173,15 @@ def main() -> None:
             dev = score("field_dev")["macro_f1"]
             history.append({"epoch": epoch, "field_dev_macro_f1": dev})
             if epoch == 8:
-                lab8 = score("lab_test")["macro_f1"]
-                sanity = {"epoch8_lab_test_macro_f1": lab8, "nb15_sealed_lab_test_macro_f1": expected,
-                          "within_tolerance": abs(lab8 - expected) <= SANITY_TOLERANCE}
+                sanity["epoch8_lab_test_macro_f1"] = score("lab_test")["macro_f1"]
+            if epoch == nb15_epoch:
+                lab = score("lab_test")["macro_f1"]
+                sanity.update({"nb15_selected_epoch": nb15_epoch, "lab_test_macro_f1": lab,
+                               "nb15_sealed_lab_test_macro_f1": expected,
+                               "within_tolerance": abs(lab - expected) <= SANITY_TOLERANCE,
+                               "field_dev_macro_f1": dev, "nb15_field_dev_macro_f1": NB15_FIELD_DEV[(args.condition, SEED)],
+                               "field_dev_within_1e-3": abs(dev - NB15_FIELD_DEV[(args.condition, SEED)]) <= 1e-3})
+            if epoch == max(8, nb15_epoch):
                 print("sanity", sanity, flush=True)
             if dev > best[0]:
                 best = (dev, epoch, copy.deepcopy(model.state_dict()))
@@ -166,6 +192,9 @@ def main() -> None:
     output.mkdir(parents=True)
     pd.DataFrame(history).to_csv(output / "field_dev_history.csv", index=False)
     pd.DataFrame(results).to_csv(output / "selected_results.csv", index=False)
+    pd.concat([pd.DataFrame({"partition": part, "row_id": row_ids[part], "label_id": tensors[part][1],
+                             "predicted_label_id": predictions[part]}) for part in tensors]
+              ).to_csv(output / "predictions.csv", index=False)
     (output / "protocol.json").write_text(json.dumps({
         "arm": f"{args.condition}, ResNet18 last block", "condition": args.condition, "seed": SEED, "head_epochs": HEAD_EPOCHS,
         "second_epochs": SECOND_EPOCHS, "batch_field": BATCH, "batch_lab": BATCH, "lambda_lab": LAMBDA_LAB,
