@@ -23,8 +23,9 @@ unfrozen, and early gradients do not destroy the features.
   the parameters. The Lab heads were already trained, so this tests fine-tuning depth more than LP-FT's
   feature-distortion argument. At 8 epochs ViT-Small gains about 4 pp on External v3 and keeps Lab macro-F1 at
   0.984, while ResNet18 forgets more Lab performance (0.786).
-- With 24 epochs (`scripts/explore_training_budget.py`, one seed) ResNet18 keeps improving and catches up
-  (External v3 0.498 with full fine-tuning). The architecture ranking therefore depends on both depth and budget.
+- With 24 epochs (`scripts/explore_training_budget.py`, one seed), ResNet18 Field Dev is still rising at epoch 23 of
+  24 (one seed), and the External v3 ordering of the four runs changes (exploratory). The architecture ranking
+  therefore depends on both depth and budget.
 
 ## 2. CNN versus Vision Transformer inductive biases
 
