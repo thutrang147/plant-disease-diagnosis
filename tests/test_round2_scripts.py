@@ -71,6 +71,10 @@ class HelperTest(unittest.TestCase):
         self.assertTrue(torch.allclose(interp.interpolate(theta0, theta1, 0.3)["w"], torch.full((3,), 0.3)))
         self.assertEqual(int(interp.interpolate(theta0, theta1, 0.7)["n"]), 5)
 
+    def test_label_merge_only_folds_septoria_into_bacterial_spot(self):
+        merge = load_script("analyze_external_v3_label_merge").merge
+        self.assertEqual(merge(pd.Series([0, 1, 2, 3, 4])).tolist(), [0, 1, 2, 3, 3])
+
     def test_paired_statistics(self):
         ev = load_script("evaluate_external_v3_plantseg")
         a = np.asarray([1, 0, 1, 0, 1, 1], dtype=float)
