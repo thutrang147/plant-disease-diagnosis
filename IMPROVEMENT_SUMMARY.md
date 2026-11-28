@@ -1,7 +1,7 @@
 # Tổng hợp cải thiện — plant-disease-diagnosis
 
-> **Tiến độ: ⏳ ĐANG CẬP NHẬT** · cập nhật lần cuối 2026-11-28 00:05 UTC (07:05 giờ VN).
-> Dòng này đổi thành **✅ DONE** khi đợt 2 đóng băng (dừng chạy thí nghiệm 03:30 UTC, push cuối 04:15 UTC, tức 11:15 giờ VN).
+> **Tiến độ: ✅ DONE** · chốt lúc 2026-11-28 04:50 UTC (11:50 giờ VN). Đợt 2 dừng chạy thí nghiệm lúc 00:54 UTC; commit cuối của đợt 2 là `7d62f0b`.
+> Phiên làm việc bị gián đoạn từ 00:57 đến 04:30 UTC vì hết hạn mức sử dụng, nên mốc push cuối 04:15 bị trễ khoảng 35 phút.
 
 File này **chỉ để đọc và ra quyết định**. Nó liệt kê:
 - từng vấn đề của repo, mức nghiêm trọng, effort, và đã được sửa ở đợt nào;
@@ -44,7 +44,7 @@ Mỗi reviewer là một agent độc lập, chỉ được đọc repo, phụ t
 | C5 Báo cáo, demo, tái lập (15%) | 7.0 | Demo ghi sai "mọi model 0.97–0.99 trên lab"; tài liệu phụ lỗi thời; không có hình |
 | **Trung bình có trọng số** | **≈ 7.45/10** | |
 
-Các reviewer ước tính sửa các lỗi effort S sẽ đưa C4 lên khoảng 8.5–9 và C5 lên khoảng 8. Hầu hết các lỗi đó đã được sửa (mục 4). Phần chưa sửa được là những việc cần người hoặc GPU (mục 5).
+Các reviewer ước tính sửa các lỗi effort S sẽ đưa C4 lên khoảng 8.5–9 và C5 lên khoảng 8. *Lưu ý:* đây là **ước lượng của agent, không phải điểm chấm**, và cùng một họ agent vừa làm vừa chấm nên các điểm này không độc lập. Một hội đồng chấm lại sau khi sửa đã được chạy nhưng bị dừng giữa chừng vì hết hạn mức sử dụng. Nếu nó chạy xong, điểm trước và sau khi sửa sẽ được ghi cạnh nhau ở đây. Hầu hết các lỗi đó đã được sửa (mục 4). Phần chưa sửa được là những việc cần người hoặc GPU (mục 5).
 
 ## 4. Bảng vấn đề, xếp theo ưu tiên
 
@@ -64,7 +64,7 @@ Các reviewer ước tính sửa các lỗi effort S sẽ đưa C4 lên khoảng
 | 12 | Ngân sách train thấp (chọn epoch cuối khi Dev còn tăng) | 🟡 | P1 | M | C3 | ✅ Ghi limitation | ✅ Ablation 24 epoch: Field Dev của ResNet vẫn tăng (epoch được chọn 23/24), ViT plateau quanh epoch 12–18. ✅ NB15 chạy lại 24 epoch × 3 seed, cả hai nhánh; tái lập Lab Test của checkpoint niêm phong trong 0.001 (4/6 khớp từng bit) | 👤 NB02–14 vẫn ở 8 epoch; bản chính thức cần GPU |
 | 13 | Lab split có thể bị rò rỉ | 🟡 | P1 | S–M | C3 | ⬜ | ✅ Chỉ 3/1.341 và 2/1.692 ảnh gần trùng; Lab Test không đổi | Không bắt được các ảnh khác nhau của cùng một lá |
 | 14 | So sánh nội suy trọng số và DINOv2 bị trình bày quá *(hội đồng phát hiện)* | 🟡 | P1 | S | C3 C4 | ⬜ | ✅ Nội suy: kết luận phụ thuộc metric (accuracy v3 0.447 vs 0.434). DINOv2: confound dung lượng model và dữ liệu pretrain; đã bỏ câu "representation > recipe" | — |
-| 15 | Số liệu lệch: Holm 10 phép (không phải 8); 4 hàng Field Test bị loại (không phải 3); 77+17 ảnh trùng; typo CI; số test | 🟡 | P1 | S | C4 | ✅ Holm, typo CI | ✅ Đã sửa hết | — |
+| 15 | Số liệu lệch: Holm 10 phép (không phải 8); 4 hàng Field Test bị loại (không phải 3); 77+17 ảnh trùng; typo CI; số test | 🟡 | P1 | S | C4 | ✅ Holm, typo CI | ✅ Đã sửa hết. Thêm `tests/test_claims.py` tính lại các con số headline từ CSV; test này bắt thêm 5 lỗi (CI của P1 là [−5.3; +5.1]; ViT +0.065; CI của P3 −0.003; ECE 0.16–0.29) và đã sửa | — |
 | 16 | Tài liệu phụ tự mâu thuẫn (methods, results summary, DATA_NOTICE, workflow) | 🟡 | P1 | S | C5 | ⬜ | ✅ Đã đồng bộ | — |
 | 17 | Revision dataset và môi trường chưa pin | 🟡 | P1 | S | C5 | ⬜ | ✅ Pin PlantVillage `f808f27`; lockfile (chỉ cho Linux x86_64) | Lockfile riêng cho CPU (chưa làm) |
 | 18 | Báo cáo chưa giải thích vì sao chọn từng kỹ thuật CV | 🟡 | P1 | S–M | C1 | ⬜ | ✅ `docs/technical_background.md`, đã sửa theo hội đồng | — |
@@ -140,5 +140,8 @@ Các reviewer ước tính sửa các lỗi effort S sẽ đưa C4 lên khoảng
 | `6a6faca` → `53d3d20` | E2: 6 lần chạy 24 epoch, kiểm checkpoint niêm phong, tổng hợp 3 seed |
 | `9e65ca4`, `e762937` | README: ranh giới BS/Septoria; RQ4 ở 24 epoch (câu chữ đã qua Leader duyệt) |
 | `a04188a`, `02427c1` | REPO_REVIEW §h.2; sổ ghi đánh giá (104 lần đánh giá trên v3) |
+| `5a9f7cf` | E3: phép kiểm cặp cho AdaBN, đoạn README đã qua Leader duyệt |
+| `e4edfdb`, `e00808c`, `785b88b`, `8638ed7` | Rà nhất quán: `tests/test_claims.py` và 5 lỗi số liệu đã sửa |
+| `2ba372c`, `7d62f0b` | REPO_REVIEW §h.2; commit cuối kèm bảng claim → file → value |
 
 Lý do của từng thay đổi được giải thích trong `REPO_REVIEW.md` §(h) và §(h.2) trên nhánh đợt 2.
