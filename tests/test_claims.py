@@ -66,7 +66,8 @@ class ReadmeClaimsTest(unittest.TestCase):
         self.assertEqual(round(seed.seed_level_t_test_p, 2), 0.12)
         diffs = sorted(round(100 * seed[f"seed_{s}"], 1) for s in (42, 43, 44))
         self.assertEqual(diffs, [0.6, 1.6, 2.9])
-        self.assertStated("(+0.6 to +2.9 pp)")
+        self.assertStated("(+2.9, +0.6, +1.6 pp)")
+        self.assertStated("excludes losses from rehearsal larger than 0.1 pp")
 
     def test_lab_retention_eight_epochs(self):
         s = pd.read_csv(R / "notebook15_lab_retention/lab_retention_summary.csv").set_index(["partition", "condition"])
