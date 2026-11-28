@@ -1,7 +1,7 @@
 # Tổng hợp cải thiện — plant-disease-diagnosis
 
-> **Tiến độ: ✅ DONE** · cập nhật lần cuối 2026-11-28 04:55 UTC (11:55 giờ VN). Đợt 2 dừng chạy thí nghiệm lúc 00:54 UTC.
-> Push cuối lúc khoảng 04:55 UTC, so với kế hoạch là 04:15 UTC, tức trễ khoảng 40 phút. Lý do: phiên làm việc bị gián đoạn từ 00:57 đến 04:30 UTC vì hết hạn mức sử dụng. Hội đồng chấm lại sau khi sửa đã bị dừng trước khi có kết quả, nên mục 3 chỉ có điểm trước khi sửa.
+> **Tiến độ: ✅ DONE** · cập nhật lần cuối 2026-11-28 04:46 UTC (11:46 giờ VN). Đợt 2 dừng chạy thí nghiệm lúc 00:54 UTC.
+> Push cuối lúc 04:46 UTC, so với kế hoạch là 04:15 UTC, tức trễ khoảng 30 phút. Lý do: phiên làm việc bị gián đoạn từ 00:57 đến 04:30 UTC vì hết hạn mức sử dụng. Hội đồng chấm lại sau khi sửa đã bị dừng trước khi có kết quả, nên mục 3 chỉ có điểm trước khi sửa.
 
 File này **chỉ để đọc và ra quyết định**. Nó liệt kê:
 - từng vấn đề của repo, mức nghiêm trọng, effort, và đã được sửa ở đợt nào;
