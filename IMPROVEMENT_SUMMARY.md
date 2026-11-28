@@ -69,7 +69,7 @@ Các reviewer ước tính sửa các lỗi effort S sẽ đưa C4 lên khoảng
 | 17 | Revision dataset và môi trường chưa pin | 🟡 | P1 | S | C5 | ⬜ | ✅ Pin PlantVillage `f808f27`; lockfile (chỉ cho Linux x86_64) | Lockfile riêng cho CPU (chưa làm) |
 | 18 | Báo cáo chưa giải thích vì sao chọn từng kỹ thuật CV | 🟡 | P1 | S–M | C1 | ⬜ | ✅ `docs/technical_background.md`, đã sửa theo hội đồng | — |
 | 19 | Người chấm khó tìm bằng chứng; README không có hình | 🟡 | P1 | S | C5 | ⬜ | ✅ Quick start; bảng "Where to find the evidence"; thêm 2 hình | — |
-| 20 | Calibration và phân tích lỗi trên v3 | ⚪ | P2 | S | C4 | ⬜ | ✅ Model Lab tự tin 0.90 trong khi accuracy 0.43 (ECE 0.475); model đã adapt có ECE 0.16–0.30 | — |
+| 20 | Calibration và phân tích lỗi trên v3 | ⚪ | P2 | S | C4 | ⬜ | ✅ Model Lab tự tin 0.90 trong khi accuracy 0.43 (ECE 0.475); model đã adapt có ECE 0.16–0.29 | — |
 | 21 | Baseline foundation model | ⚪ | P2 | S | C1 C3 | ⬜ | ✅ DINOv2 probe (khám phá), có ghi rõ các confound | — |
 | 22 | License và lịch sử git có ảnh watermark | 🟠 | P1 | S | C5 | ✅ LICENSE, DATA_NOTICE, CITATION | ✅ DATA_NOTICE thêm PlantSeg | 👤 Quyết định có xử lý lịch sử git hay không |
 | 23 | NB02–14 chỉ chạy 1 seed; chưa có bản ViT có kiểm soát của NB15 | 🟡 | P2 | L | C3 | ⬜ | ⬜ | 👤 Cần GPU |
