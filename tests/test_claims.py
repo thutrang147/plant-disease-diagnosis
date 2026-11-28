@@ -115,6 +115,24 @@ class ReadmeClaimsTest(unittest.TestCase):
         adapted = cal.drop(index=["resnet18_lab", "vit_small_lab"]).ece_10_bins
         self.assertStated(f"(ECE {adapted.min():.2f}–{adapted.max():.2f})")
 
+    def test_adabn(self):
+        d = pd.read_csv(R / "adabn_paired/adabn_paired.csv").set_index(["model", "partition"])
+        fd, v3 = d.loc[("resnet18_lab", "field_dev")], d.loc[("resnet18_lab", "external_v3")]
+        self.assertStated(f"macro-F1 rises from {fd.macro_f1_original:.3f} to {fd.macro_f1_adabn:.3f} "
+                          f"({f3(fd.macro_f1_difference, True)}, paired bootstrap 95% CI {f3(fd.macro_f1_ci_low)} to "
+                          f"{f3(fd.macro_f1_ci_high)})")
+        self.assertStated(f"accuracy rises by {pp(fd.accuracy_difference, False)} pp (95% CI {pp(fd.accuracy_ci_low)} to "
+                          f"{pp(fd.accuracy_ci_high)}; McNemar p = {fd.mcnemar_p:.2f}, Holm {fd.mcnemar_holm_p:.2f})")
+        self.assertStated(f"accuracy gain is {pp(v3.accuracy_difference)} pp ({pp(v3.accuracy_ci_low)} to "
+                          f"{pp(v3.accuracy_ci_high)}; p = {v3.mcnemar_p:.2f}, Holm {v3.mcnemar_holm_p:.2f})")
+        self.assertStated(f"({f3(v3.macro_f1_difference, True)}, {f3(v3.macro_f1_ci_low)} to {f3(v3.macro_f1_ci_high)})")
+        self.assertGreater(v3.macro_f1_ci_low, 0)  # condition for the "similar to supervised Mixed" clause
+        adapted = d.drop(index="resnet18_lab", level="model").xs("field_dev", level="partition").macro_f1_difference
+        self.assertEqual((round(adapted.min(), 2), round(adapted.max(), 2)), (-0.11, -0.09))
+        raw = pd.read_csv(R / "adabn/adabn_results.csv")
+        lab = raw[(raw.model == "resnet18_lab") & (raw.partition == "lab_test")].set_index("variant").macro_f1
+        self.assertStated(f"lowers Lab Test macro-F1 from {lab['original']:.3f} to {lab['adabn_field_adapt_train']:.3f}")
+
     def test_readme_test_count(self):
         n = unittest.defaultTestLoader.discover(str(ROOT / "tests"), top_level_dir=str(ROOT / "tests")).countTestCases()
         self.assertStated(f"{n} automated tests")

@@ -65,6 +65,13 @@ batches of a different domain gives noisy batch statistics and silently rewrites
 therefore **freezes BN statistics** in both conditions, so Field-only and Mixed differ only in their gradients.
 ViT uses LayerNorm, which normalizes per token and has no running statistics.
 
+*Tested afterwards (AdaBN, exploratory):* re-estimating the Lab baseline's BN statistics on 370 unlabelled field
+images, with no weight changed, raises Field Dev macro-F1 from 0.235 to 0.391 (paired 95% CI of the gain 0.049 to
+0.257) and External v3 disease macro-F1 from 0.333 to 0.431, while accuracy gains are not distinguishable from zero.
+So part of the lab-to-field gap is a normalization-statistics mismatch. Applying AdaBN *after* BN-frozen fine-tuning
+lowers every adapted checkpoint, consistent with those weights having co-adapted with the laboratory statistics
+(`scripts/evaluate_adabn.py`, `data/results/adabn_paired/`).
+
 *Implementation:* `set_phase` in `src/controlled_field_mixed.py` and `scripts/explore_lpft_architecture.py`.
 
 ## 5. Near-duplicate detection with perceptual hashing
