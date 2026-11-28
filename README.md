@@ -189,8 +189,8 @@ External v1 combines two sources that coincide with class: **16 self-collected H
 | ResNet18 Geometric + Mixed | 206 | 0.424 (0.381–0.468) | 0.419 | 88 | 23 |
 | ViT-Small Mixed | 216 | 0.444 (0.401–0.489) | 0.441 | 103 | 22 |
 
-- Accuracy differences are small and their intervals exclude gains above about 5 pp: ResNet −0.2 pp (95% CI −5.4 to +4.9; McNemar p = 1.0), ViT +1.4 pp (−2.1 to +4.9; p = 0.49). The same holds with Healthy predictions excluded (disease-restricted argmax), for images ≥ 224 px, and on PlantSeg's own test split ([`comparisons.csv`](data/results/external_v3_plantseg/comparisons.csv)).
-- Disease macro-F1, the pre-registered secondary metric, does improve: ResNet +0.086 (95% CI 0.039 to 0.133), ViT +0.066 (0.029 to 0.102). Balanced accuracy rises for ResNet (+0.050, 0.005 to 0.095) but not detectably for ViT (+0.016, −0.019 to +0.051). These intervals were added after the run ([`external_v3_secondary_metrics/`](data/results/external_v3_secondary_metrics/)).
+- Accuracy differences are small and their intervals exclude gains above about 5 pp: ResNet −0.2 pp (95% CI −5.3 to +5.1; McNemar p = 1.0), ViT +1.4 pp (−2.1 to +4.9; p = 0.49). The same holds with Healthy predictions excluded (disease-restricted argmax), for images ≥ 224 px, and on PlantSeg's own test split ([`comparisons.csv`](data/results/external_v3_plantseg/comparisons.csv)).
+- Disease macro-F1, the pre-registered secondary metric, does improve: ResNet +0.086 (95% CI 0.039 to 0.133), ViT +0.065 (0.029 to 0.102). Balanced accuracy rises for ResNet (+0.050, 0.005 to 0.095) but not detectably for ViT (+0.016, −0.019 to +0.051). These intervals were added after the run ([`external_v3_secondary_metrics/`](data/results/external_v3_secondary_metrics/)).
 - What adaptation changes is the **error profile**. The ResNet baseline assigns Early Blight to 300 of 486 images, the same 62% as on External v1 (39/62). Its Bacterial Spot recall is 0.00. Adapted models spread their predictions, which raises disease macro-F1 (0.333 → 0.419; 0.375 → 0.441) without raising accuracy.
 | | |
 | --- | --- |
