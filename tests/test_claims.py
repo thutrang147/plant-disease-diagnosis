@@ -108,6 +108,13 @@ class ReadmeClaimsTest(unittest.TestCase):
         lo, hi = ranges["control_minus_original_pp_range"]
         self.assertStated(f"changes accuracy by only {f'{lo:+.1f}'.replace('-', '−')} to {f'{hi:+.1f}'} pp")
 
+    def test_calibration(self):
+        cal = pd.read_csv(R / "external_v3_error_analysis/calibration.csv").set_index("model")
+        lab = cal.loc["resnet18_lab"]
+        self.assertStated(f"ResNet18 mean confidence is {lab.mean_confidence:.2f} at {lab.accuracy:.2f} accuracy (ECE {lab.ece_10_bins:.3f})")
+        adapted = cal.drop(index=["resnet18_lab", "vit_small_lab"]).ece_10_bins
+        self.assertStated(f"(ECE {adapted.min():.2f}–{adapted.max():.2f})")
+
     def test_boundary_sensitivity(self):
         c = pd.read_csv(R / "external_v3_label_merge/merged_comparisons.csv").set_index("id")
         p1 = c.loc["P1"]
