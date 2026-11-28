@@ -1,6 +1,6 @@
 # Tổng hợp cải thiện — plant-disease-diagnosis
 
-> **Tiến độ: ✅ DONE** · cập nhật lần cuối 2026-11-28 04:58 UTC (11:58 giờ VN), sau khi thêm điểm chấm của hội đồng Sonnet cho cả ba vòng (mục 3). Đợt 2 dừng chạy thí nghiệm lúc 00:54 UTC.
+> **Tiến độ: ✅ DONE** · cập nhật lần cuối 2026-11-28 05:08 UTC (12:08 giờ VN), sau khi thêm đợt 3 và điểm chấm của đợt 3 (mục 3). Đợt 2 dừng chạy thí nghiệm lúc 00:54 UTC.
 > Push cuối lúc 04:46 UTC, so với kế hoạch là 04:15 UTC, tức trễ khoảng 30 phút. Lý do: phiên làm việc bị gián đoạn từ 00:57 đến 04:30 UTC vì hết hạn mức sử dụng. Hội đồng chấm lại sau khi sửa đã bị dừng trước khi có kết quả, nên mục 3 chỉ có điểm trước khi sửa.
 
 File này **chỉ để đọc và ra quyết định**. Nó liệt kê:
@@ -15,9 +15,10 @@ Nhánh `docs/improvement-summary-20261127` chỉ chứa file này và không tha
 | Phương án | Nhánh | PR | Gồm những gì |
 | --- | --- | --- | --- |
 | **Đợt 1** | [`review/repo-review-20261127`](https://github.com/thutrang147/plant-disease-diagnosis/tree/review/repo-review-20261127) | [#6](https://github.com/thutrang147/plant-disease-diagnosis/pull/6) | Review toàn diện; sửa cách trình bày (strata, CI, Holm); đo Lab retention; LICENSE; dọn docs. Đã được sửa thêm theo hội đồng reviewer (commit `c90d5f3`). |
-| **Đợt 2** (khuyến nghị) | [`review/repo-review-round2-20261127`](https://github.com/thutrang147/plant-disease-diagnosis/tree/review/repo-review-round2-20261127) | [#7](https://github.com/thutrang147/plant-disease-diagnosis/pull/7) | **Toàn bộ đợt 1**, cộng thêm: test độc lập pre-register (External v3, 486 ảnh); các phép kiểm có đối chứng; tải checkpoint có kiểm SHA; script tái lập; demo chạy thật; tài liệu kỹ thuật; sửa theo hội đồng reviewer và Leader. |
+| **Đợt 3** (khuyến nghị) | [`review/repo-review-round3-20261128`](https://github.com/thutrang147/plant-disease-diagnosis/tree/review/repo-review-round3-20261128) | [#8](https://github.com/thutrang147/plant-disease-diagnosis/pull/8) | **Toàn bộ đợt 1 và 2**, cộng thêm: README gọn hơn (phân tích khám phá chuyển sang `docs/exploratory_analyses.md`); tài liệu quy trình chuyển vào `docs/process/`; test provenance; test demo. Không có thí nghiệm mới và không đổi con số nào. |
+| **Đợt 2** | [`review/repo-review-round2-20261127`](https://github.com/thutrang147/plant-disease-diagnosis/tree/review/repo-review-round2-20261127) | [#7](https://github.com/thutrang147/plant-disease-diagnosis/pull/7) | **Toàn bộ đợt 1**, cộng thêm: test độc lập pre-register (External v3, 486 ảnh); các phép kiểm có đối chứng; tải checkpoint có kiểm SHA; script tái lập; demo chạy thật; tài liệu kỹ thuật; sửa theo hội đồng reviewer và Leader. |
 
-- **Chỉ merge một trong hai PR.** Đợt 2 đã chứa toàn bộ đợt 1, kể cả các bản sửa của đợt 1.
+- **Chỉ merge một trong ba PR.** Đợt 3 chứa toàn bộ đợt 2, và đợt 2 chứa toàn bộ đợt 1. Điểm của đợt 3 không cao hơn đợt 2 (xem mục 3), nhưng đợt 3 gọn hơn và kiểm chứng được nhiều hơn.
 - Xem riêng phần thay đổi: [diff đợt 1](https://github.com/thutrang147/plant-disease-diagnosis/compare/main...review/repo-review-20261127) · [diff riêng đợt 2](https://github.com/thutrang147/plant-disease-diagnosis/compare/review/repo-review-20261127...review/repo-review-round2-20261127).
 - Muốn lấy một phần thì cherry-pick commit tương ứng ở mục 6.
 
@@ -33,16 +34,21 @@ Nhánh `docs/improvement-summary-20261127` chỉ chứa file này và không tha
 
 ## 3. Điểm rubric qua từng vòng (ước lượng của agent, không phải điểm chấm)
 
-Vòng lặp: **chấm `main` → sửa ra đợt 1 → chấm đợt 1 → sửa ra đợt 2 → chấm đợt 2**. Mỗi snapshot được một reviewer **Sonnet 5.5** chấm. Reviewer chạy tách khỏi các tác giả Opus, đọc một bản clone chỉ chứa đúng commit đó, và không biết snapshot nào là bản nào (nhãn mù A/B/C). Cả ba dùng chung một prompt đã commit trước khi chấm (`docs/review_panel/protocol.md`). Báo cáo gốc nằm ở [`docs/review_panel/`](https://github.com/thutrang147/plant-disease-diagnosis/tree/review/repo-review-round2-20261127/docs/review_panel). Lỗi nào của vòng trước đã được sửa ở vòng sau được ghi trong [`traceability.csv`](https://github.com/thutrang147/plant-disease-diagnosis/blob/review/repo-review-round2-20261127/docs/review_panel/traceability.csv).
+Vòng lặp: **chấm `main` → sửa ra đợt 1 → chấm đợt 1 → sửa ra đợt 2 → chấm đợt 2 → sửa ra đợt 3 → chấm đợt 3**. Đợt 3 là vòng đầu tiên được làm *sau khi* có điểm chấm của vòng trước, tức là vòng lặp đúng nghĩa. Mỗi snapshot được một reviewer **Sonnet 5.5** chấm. Reviewer chạy tách khỏi các tác giả Opus, đọc một bản clone chỉ chứa đúng commit đó, và không biết snapshot nào là bản nào (nhãn mù A/B/C). Cả ba dùng chung một prompt đã commit trước khi chấm (`docs/review_panel/protocol.md`). Báo cáo gốc nằm ở [`docs/review_panel/`](https://github.com/thutrang147/plant-disease-diagnosis/tree/review/repo-review-round3-20261128/docs/process/review_panel). Lỗi nào của vòng trước đã được sửa ở vòng sau được ghi trong [`traceability.csv`](https://github.com/thutrang147/plant-disease-diagnosis/blob/review/repo-review-round3-20261128/docs/process/review_panel/traceability.csv).
 
-| Tiêu chí (trọng số) | Main `da5e1ba` | Đợt 1 `61c3cd1` | Đợt 2 `bb794d7` | Đổi main → đợt 2 |
+| Tiêu chí (trọng số) | Main `da5e1ba` | Đợt 1 `61c3cd1` | Đợt 2 `bb794d7` | Đợt 3 `f1f3674` |
 | --- | ---: | ---: | ---: | ---: |
-| C1 Kiến thức CV (20%) | 7.0 | 6.5 | 7.5 | +0.5 |
-| C2 Triển khai (25%) | 7.5 | 7.0 | 8.0 | +0.5 |
-| C3 Thiết kế thực nghiệm (25%) | 6.0 | 7.5 | 8.0 | +2.0 |
-| C4 Phân tích và hạn chế (15%) | 7.5 | 8.0 | 8.5 | +1.0 |
-| C5 Báo cáo, demo, tái lập (15%) | 6.0 | 7.5 | 7.0 | +1.0 |
-| **Tổng có trọng số** | **6.80** | **7.25** (+0.45) | **7.83** (+0.58) | **+1.03** |
+| C1 Kiến thức CV (20%) | 7.0 | 6.5 | 7.5 | 7.5 |
+| C2 Triển khai (25%) | 7.5 | 7.0 | 8.0 | 8.0 |
+| C3 Thiết kế thực nghiệm (25%) | 6.0 | 7.5 | 8.0 | 7.5 |
+| C4 Phân tích và hạn chế (15%) | 7.5 | 8.0 | 8.5 | 8.5 |
+| C5 Báo cáo, demo, tái lập (15%) | 6.0 | 7.5 | 7.0 | 7.0 |
+| **Tổng có trọng số** | **6.80** | **7.25** | **7.83** | **7.70** |
+
+**Đợt 3 không tăng điểm.**
+- Tổng điểm giảm 0.13, do C3 giảm 0.5. C5 giữ nguyên dù README đã rút từ 389 xuống 318 dòng: reviewer vẫn thấy README quá dày (khoảng 40 KB) và vẫn phạt việc có tài liệu quy trình trong repo.
+- Mỗi snapshot chỉ được chấm một lần, nên chênh 0.5 điểm nằm trong mức dao động giữa hai lần chấm khác nhau. Kết luận trung thực là đợt 3 **không có cải thiện đo được về điểm**.
+- Giá trị thật của đợt 3 nằm ở chỗ kiểm chứng được: test provenance, test demo, và tài liệu khám phá được tách riêng.
 
 - **Đây là ước lượng của agent, không phải điểm chấm.** Reviewer là Sonnet 5.5, tách khỏi các tác giả Opus, nhưng cùng nhà cung cấp nên **chưa độc lập hoàn toàn**. Việc giấu nhãn cũng chỉ một phần, vì nội dung repo vẫn cho thấy bản nào hoàn thiện hơn. Muốn có đánh giá thật sự độc lập thì cần một người chấm theo rubric.
 - **Có ba lần điểm giảm, giữ nguyên, không chấm lại:**
@@ -52,7 +58,7 @@ Vòng lặp: **chấm `main` → sửa ra đợt 1 → chấm đợt 1 → sửa
   - Đợt 1 được làm từ bản review main trong `REPO_REVIEW.md`.
   - Đợt 2 được sửa theo một hội đồng cùng model chấm ở `ab02c7e`, được 7.45, và con số đó chỉ giữ để tham khảo.
   - Vì vậy `traceability.csv` chỉ cho thấy lỗi nào đã được sửa ở vòng sau, không chứng minh vòng sau được sinh ra từ điểm chấm lần này.
-- **Việc còn mở sau đợt 2**, theo reviewer đợt 2; đây là các việc lớn hơn một lần sửa chữ nhỏ, hoặc cần nhóm quyết định:
+- **Việc còn mở sau đợt 3**, theo reviewer đợt 2 và đợt 3; đây là các việc lớn hơn một lần sửa chữ nhỏ, hoặc cần nhóm quyết định:
   - README quá dài, nên có bản tóm tắt 1 trang (C5-1).
   - Đưa `REPO_REVIEW.md` và các tài liệu quy trình ra khỏi phần nộp (C5-2).
   - Các kết luận khám phá dựa trên v3 đã dùng lại 104 lần (C3-2).
@@ -60,7 +66,9 @@ Vòng lặp: **chấm `main` → sửa ra đợt 1 → chấm đợt 1 → sửa
   - Lab split có ảnh không mang leaf ID (C3-5).
   - Chưa ai chạy end-to-end `reproduce_round2.sh` và demo (C2-1, C5-5).
   - Grad-CAM mới chỉ chạy cho ResNet18 (C1-2).
-- Lỗi C3-3 của đợt 2, một hàng tham chiếu ghi khoảng số không nói rõ lấy từ run nào, đã sửa ở `bc2ce5d`.
+- **Đã sửa sau khi chấm** (chỉ sửa chữ, không đổi điểm):
+  - Đợt 2: lỗi C3-3 (`bc2ce5d`).
+  - Đợt 3: ghi chú số checkpoint, link tới tài liệu tự đánh giá, và tiêu đề Discussion 4 (`8ba3fa4`).
 
 ## 4. Bảng vấn đề, xếp theo ưu tiên
 
