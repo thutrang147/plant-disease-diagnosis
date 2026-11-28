@@ -48,6 +48,16 @@ class ReadmeClaimsTest(unittest.TestCase):
         self.assertStated(f"ResNet {f3(f1a.difference, True)} (95% CI {f3(f1a.ci_low)} to {f3(f1a.ci_high)})")
         self.assertStated(f"ViT {f3(f1b.difference, True)} ({f3(f1b.ci_low)} to {f3(f1b.ci_high)})")
 
+    def test_secondary_metrics(self):
+        c = pd.read_csv(R / "external_v3_secondary_metrics/comparison_intervals.csv").set_index(["id", "metric"])
+        b1, b2, b3 = (c.loc[(k, "balanced_accuracy")] for k in ("P1", "P2", "P3"))
+        self.assertStated(f"Balanced accuracy rises for ResNet ({f3(b1.difference, True)}, {f3(b1.ci_low)} to {f3(b1.ci_high)})")
+        self.assertStated(f"ViT ({f3(b2.difference, True)}, {f3(b2.ci_low)} to {f3(b2.ci_high, True)})")
+        f = c.loc[("P3", "disease_macro_f1")]
+        self.assertStated(f"Disease macro-F1 is {f.b_value:.3f} vs {f.a_value:.3f} ({f3(f.difference, True)}, "
+                          f"95% CI {f3(f.ci_low)} to {f3(f.ci_high, True)}) and balanced accuracy {f3(b3.difference, True)} "
+                          f"({f3(b3.ci_low)} to {f3(b3.ci_high, True)}")
+
     def test_p3_eight_epochs(self):
         c = pd.read_csv(R / "external_v3_plantseg/comparisons.csv")
         p3 = c[(c.family == "all") & (c.id == "P3")].iloc[0]
