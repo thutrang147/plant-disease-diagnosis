@@ -1,0 +1,24 @@
+{
+  "arm": "mixed, ResNet18 last block",
+  "condition": "mixed",
+  "seed": 43,
+  "head_epochs": 2,
+  "second_epochs": 22,
+  "batch_field": 16,
+  "batch_lab": 16,
+  "lambda_lab": 1.0,
+  "selection": "epoch 0-24 maximizing Field Dev macro-F1, earliest tie",
+  "sanity_check": {
+    "nb15_selected_epoch": 7,
+    "lab_test_macro_f1": 0.9458901512711592,
+    "nb15_sealed_lab_test_macro_f1": 0.9449250178210471,
+    "within_tolerance": true,
+    "field_dev_macro_f1": 0.4478203463203464,
+    "nb15_field_dev_macro_f1": 0.4478,
+    "field_dev_within_1e-3": true,
+    "epoch8_lab_test_macro_f1": 0.9603795865909628
+  },
+  "counterpart": "data/results/training_budget (resnet18, last_block, seed 42)",
+  "status": "exploratory, CPU",
+  "torch": "2.15.0+cu132"
+}
