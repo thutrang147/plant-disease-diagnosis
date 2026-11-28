@@ -115,6 +115,10 @@ class ReadmeClaimsTest(unittest.TestCase):
         adapted = cal.drop(index=["resnet18_lab", "vit_small_lab"]).ece_10_bins
         self.assertStated(f"(ECE {adapted.min():.2f}–{adapted.max():.2f})")
 
+    def test_readme_test_count(self):
+        n = unittest.defaultTestLoader.discover(str(ROOT / "tests"), top_level_dir=str(ROOT / "tests")).countTestCases()
+        self.assertStated(f"{n} automated tests")
+
     def test_boundary_sensitivity(self):
         c = pd.read_csv(R / "external_v3_label_merge/merged_comparisons.csv").set_index("id")
         p1 = c.loc["P1"]
