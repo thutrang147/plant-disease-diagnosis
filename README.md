@@ -197,6 +197,16 @@ External v1 combines two sources that coincide with class: **16 self-collected H
 | ![External v3 confusion matrices](data/results/external_v3_error_analysis/confusion_matrices.png) | ![External v3 accuracy by lesion size](data/results/external_v3_error_analysis/accuracy_by_lesion_size.png) |
 
 - Adaptation also changes **calibration**. On field images the Lab baselines are confidently wrong: ResNet18 mean confidence is 0.90 at 0.43 accuracy (ECE 0.475), and ViT-Small 0.81 at 0.43 (ECE 0.384). The adapted models are far less over-confident (ECE 0.16–0.30). This is a practical benefit that accuracy alone hides. Accuracy by lesion size and confusion matrices are in [`data/results/external_v3_error_analysis/`](data/results/external_v3_error_analysis/).
+- **Boundary sensitivity** (post-hoc, exploratory; [`external_v3_label_merge/`](data/results/external_v3_label_merge/)). Merging Bacterial Spot and Septoria into one class raises External v3 accuracy by 8–15 pp for every model. Under the merge, P1 becomes +4.5 pp (95% CI −0.8 to +9.9; McNemar p = 0.12, Holm 0.28), while P2 and P3 barely change (+1.2 and +1.5 pp); none is significant. A merge credits every BS↔Septoria confusion, whether it comes from label noise or from the model, so this shows how much of the error lies on that boundary, not that the labels are wrong. Label noise on this pair is documented separately: 6 of the 13 label conflicts among 64 images shared with PlantDoc are BS↔Septoria. An expert audit of those images would estimate the noise rate.
+
+  | Model | External v3 errors | of which BS↔Septoria swaps |
+  | --- | ---: | ---: |
+  | ResNet18 Lab baseline | 279 | 39 (14%) |
+  | ViT-Small Lab baseline | 277 | 59 (21%) |
+  | ResNet18 Geometric + Mixed | 280 | 62 (22%) |
+  | ViT-Small Mixed | 270 | 58 (21%) |
+  | Notebook 15 Field-only, 3 seeds | 282–286 | 73–74 (26%) |
+  | Notebook 15 Mixed, 3 seeds | 272–279 | 70–74 (26–27%) |
 
 **Lesion reliance, measured with PlantSeg masks** ([`scripts/evaluate_lesion_reliance.py`](scripts/evaluate_lesion_reliance.py), exploratory). Notebook 10's Grad-CAM and attention views are qualitative. The expert lesion masks allow two measurements on the same 486 images:
 
@@ -322,7 +332,7 @@ See [Workflow and Artifact Provenance](docs/workflow.md) for setup and reproduct
   - Only P1–P3 were confirmatory. External v3 was then reused for exploratory analyses (DINOv2, LP-FT, budget, interpolation, lesion and calibration analyses) without multiplicity control.
 
   The 47-image Field Test was inspected early and reused, Field Dev selected checkpoints, and External v1 confounds source with class.
-- **Label noise.** PlantDoc contains conflicting duplicates. One Field Test image (row 2524, Bacterial Spot) duplicates a training image labelled Septoria, is predicted Septoria in every controlled run, and is labelled Septoria by PlantSeg. Field Test row 2532 (Late Blight) is labelled Early Blight by PlantSeg, so two of the 47 Field Test labels are disputed — as many images as RQ4's net Field Test difference. 13 of 64 images shared with PlantSeg have conflicting labels and await expert audit ([`label_audit_candidates.csv`](data/external_v3_plantseg/label_audit_candidates.csv)).
+- **Label noise.** PlantDoc contains conflicting duplicates. One Field Test image (row 2524, Bacterial Spot) duplicates a training image labelled Septoria, is predicted Septoria in every controlled run, and is labelled Septoria by PlantSeg. Field Test row 2532 (Late Blight) is labelled Early Blight by PlantSeg, so two of the 47 Field Test labels are disputed — as many images as RQ4's net Field Test difference. 13 of 64 images shared with PlantSeg have conflicting labels, 6 of them Bacterial Spot ↔ Septoria, and await expert audit ([`label_audit_candidates.csv`](data/external_v3_plantseg/label_audit_candidates.csv)). On External v3, 14–27% of each model's errors are Bacterial Spot ↔ Septoria swaps, and merging the two classes moves P1 from −0.2 to +4.5 pp (CI −0.8 to +9.9), so the accuracy comparison is sensitive to that boundary (RQ2).
 - **Confounded architecture comparison.** Pretraining, preprocessing, batch size, precision and the share of trainable parameters during adaptation (ResNet 75%, ViT 8%) all differ. Exploratory CPU runs show the ranking changes with fine-tuning depth and training budget; they are Field-only, unsealed and partly single-seed.
 - **Low training budget.** The historical runs (including Notebook 15) selected their final or near-final epoch. A single-seed 24-epoch ablation indicates that ResNet18 Field Dev keeps rising through epoch 23 of 24 without a clear plateau, so the 8-epoch comparisons describe under-trained models.
 - **Web-sourced "field" images.** PlantDoc photographs were collected from the web; several carry stock-photo watermarks. Field results describe web photographs, not images captured in the field by the project.
