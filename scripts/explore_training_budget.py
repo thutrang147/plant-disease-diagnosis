@@ -1,7 +1,7 @@
 """Training-budget ablation: does Field Dev keep rising beyond the historical budget?
 
 Historical adaptation runs used 2 head + 6 second-phase epochs and selected their
-final or near-final epoch while Field Dev was still rising (REPO_REVIEW #8).
+final or near-final epoch while Field Dev was still rising.
 This reruns ``scripts/explore_lpft_architecture.py`` unchanged except for the
 budget: 2 head + 22 second-phase epochs (24 in total), seed 42 only, both
 architectures and both strategies. The per-epoch Field Dev history answers the

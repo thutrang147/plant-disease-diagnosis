@@ -1,5 +1,7 @@
 # Evaluation ledger: every look at a test partition
 
+Commit hashes below refer to the original working history; see [provenance_timeline.md](provenance_timeline.md).
+
 Test-set reuse weakens every later claim. This ledger lists each evaluation that touched the historical
 **Field Test** (47 images) or **External v3** (486 PlantSeg images) after round 1, with what selected the models
 and whether the analysis was confirmatory. Field Dev and Lab Validation are development data and are not listed.

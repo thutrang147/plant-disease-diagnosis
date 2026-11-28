@@ -14,7 +14,8 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 R = ROOT / "data/results"
-README = (ROOT / "README.md").read_text()
+README = (ROOT / "README.md").read_text() + "\n" + (ROOT / "docs/exploratory_analyses.md").read_text()
+README_ONLY = (ROOT / "README.md").read_text()
 
 
 def pp(x: float, signed: bool = True) -> str:
@@ -67,7 +68,7 @@ class ReadmeClaimsTest(unittest.TestCase):
         diffs = sorted(round(100 * seed[f"seed_{s}"], 1) for s in (42, 43, 44))
         self.assertEqual(diffs, [0.6, 1.6, 2.9])
         self.assertStated("(+2.9, +0.6, +1.6 pp)")
-        self.assertStated("excludes losses from rehearsal larger than 0.1 pp")
+        self.assertStated("rehearsal is unlikely to cost more than 0.1 pp")
 
     def test_lab_retention_eight_epochs(self):
         s = pd.read_csv(R / "notebook15_lab_retention/lab_retention_summary.csv").set_index(["partition", "condition"])
@@ -136,7 +137,7 @@ class ReadmeClaimsTest(unittest.TestCase):
 
     def test_readme_test_count(self):
         n = unittest.defaultTestLoader.discover(str(ROOT / "tests"), top_level_dir=str(ROOT / "tests")).countTestCases()
-        self.assertStated(f"{n} automated tests")
+        self.assertIn(f"{n} automated tests", README_ONLY)
 
     def test_boundary_sensitivity(self):
         c = pd.read_csv(R / "external_v3_label_merge/merged_comparisons.csv").set_index("id")
