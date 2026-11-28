@@ -1,0 +1,16 @@
+{
+  "statistics_source": "field_adapt_train (370 images, labels unused), eval transform, batch 32",
+  "momentum": "None (cumulative average)",
+  "models": [
+    "resnet18_lab",
+    "resnet18_geometric_mixed",
+    "nb15_field_only_s42",
+    "nb15_mixed_s42",
+    "nb15_field_only_s43",
+    "nb15_mixed_s43",
+    "nb15_field_only_s44",
+    "nb15_mixed_s44"
+  ],
+  "status": "exploratory, CPU",
+  "torch": "2.15.0+cu132"
+}
