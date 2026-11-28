@@ -1,11 +1,11 @@
 # Tổng hợp cải thiện — plant-disease-diagnosis
 
-> **Tiến độ: ✅ DONE** · chốt lúc 2026-11-28 04:50 UTC (11:50 giờ VN). Đợt 2 dừng chạy thí nghiệm lúc 00:54 UTC; commit cuối của đợt 2 là `7d62f0b`.
-> Phiên làm việc bị gián đoạn từ 00:57 đến 04:30 UTC vì hết hạn mức sử dụng, nên mốc push cuối 04:15 bị trễ khoảng 35 phút.
+> **Tiến độ: ✅ DONE** · cập nhật lần cuối 2026-11-28 04:55 UTC (11:55 giờ VN). Đợt 2 dừng chạy thí nghiệm lúc 00:54 UTC.
+> Push cuối lúc khoảng 04:55 UTC, so với kế hoạch là 04:15 UTC, tức trễ khoảng 40 phút. Lý do: phiên làm việc bị gián đoạn từ 00:57 đến 04:30 UTC vì hết hạn mức sử dụng. Hội đồng chấm lại sau khi sửa đã bị dừng trước khi có kết quả, nên mục 3 chỉ có điểm trước khi sửa.
 
 File này **chỉ để đọc và ra quyết định**. Nó liệt kê:
 - từng vấn đề của repo, mức nghiêm trọng, effort, và đã được sửa ở đợt nào;
-- điểm chấm ước lượng theo rubric từ một hội đồng 5 reviewer độc lập;
+- điểm chấm ước lượng theo rubric từ một hội đồng 5 reviewer (agent, không độc lập);
 - những việc chỉ nhóm mới làm được.
 
 Nhánh `docs/improvement-summary-20261127` chỉ chứa file này và không thay đổi code.
@@ -44,7 +44,7 @@ Mỗi reviewer là một agent độc lập, chỉ được đọc repo, phụ t
 | C5 Báo cáo, demo, tái lập (15%) | 7.0 | Demo ghi sai "mọi model 0.97–0.99 trên lab"; tài liệu phụ lỗi thời; không có hình |
 | **Trung bình có trọng số** | **≈ 7.45/10** | |
 
-Các reviewer ước tính sửa các lỗi effort S sẽ đưa C4 lên khoảng 8.5–9 và C5 lên khoảng 8. *Lưu ý:* đây là **ước lượng của agent, không phải điểm chấm**, và cùng một họ agent vừa làm vừa chấm nên các điểm này không độc lập. Một hội đồng chấm lại sau khi sửa đã được chạy nhưng bị dừng giữa chừng vì hết hạn mức sử dụng. Nếu nó chạy xong, điểm trước và sau khi sửa sẽ được ghi cạnh nhau ở đây. Hầu hết các lỗi đó đã được sửa (mục 4). Phần chưa sửa được là những việc cần người hoặc GPU (mục 5).
+Các reviewer ước tính sửa các lỗi effort S sẽ đưa C4 lên khoảng 8.5–9 và C5 lên khoảng 8. *Lưu ý:* đây là **ước lượng của agent, không phải điểm chấm**, và cùng một họ agent vừa làm vừa chấm nên các điểm này không độc lập. Một hội đồng chấm lại sau khi sửa đã được chạy nhưng bị dừng trước khi có kết quả: lần đầu vì hết hạn mức sử dụng, lần sau do chủ động dừng để kịp hạn. Vì vậy ở đây không có điểm sau khi sửa. Hầu hết các lỗi đó đã được sửa (mục 4). Phần chưa sửa được là những việc cần người hoặc GPU (mục 5).
 
 ## 4. Bảng vấn đề, xếp theo ưu tiên
 
@@ -73,7 +73,7 @@ Các reviewer ước tính sửa các lỗi effort S sẽ đưa C4 lên khoảng
 | 21 | Baseline foundation model | ⚪ | P2 | S | C1 C3 | ⬜ | ✅ DINOv2 probe (khám phá), có ghi rõ các confound | — |
 | 22 | License và lịch sử git có ảnh watermark | 🟠 | P1 | S | C5 | ✅ LICENSE, DATA_NOTICE, CITATION | ✅ DATA_NOTICE thêm PlantSeg | 👤 Quyết định có xử lý lịch sử git hay không |
 | 23 | NB02–14 chỉ chạy 1 seed; chưa có bản ViT có kiểm soát của NB15 | 🟡 | P2 | L | C3 | ⬜ | ⬜ | 👤 Cần GPU |
-| 24 | Đạt macro-F1 "tốt" (≥ 0.70) trên field | — | — | L | — | — | **Cố ý không làm**, Leader quyết định. Lý do: (1) mốc 0.70 trên 47 ảnh Field Test có Wilson 95% CI khoảng [0.56; 0.81], nên "đạt 0.70" không phân biệt được với 0.60 về mặt thống kê; (2) muốn tiến gần mốc đó phải tune nhiều lần trên chính các test set đã dùng lại, làm hỏng tính trung thực của mọi kết luận; (3) fine-tune DINOv2 cần GPU, trong khi môi trường này chỉ có CPU và hạn là sáng nay. DINOv2 chỉ được chạy dạng probe đóng băng (khám phá) | Hướng làm tiếp: fine-tune DINOv2 trên GPU, crop lá (bài PlantDoc đạt 0.70 accuracy trên ảnh đã crop), thêm dữ liệu field, AdaBN rồi fine-tune |
+| 24 | Đạt macro-F1 "tốt" (≥ 0.70) trên field | — | — | L | — | — | **Cố ý không làm**, Leader quyết định. Lý do: (1) mốc 0.70 trên 47 ảnh Field Test có Wilson 95% CI khoảng [0.56; 0.81], nên "đạt 0.70" không phân biệt được với 0.60 về mặt thống kê; (2) muốn tiến gần mốc đó phải tune nhiều lần trên chính các test set đã dùng lại, làm hỏng tính trung thực của mọi kết luận; (3) với hạn sáng nay và CPU 4 nhân, ưu tiên sửa tính đúng đắn và các phép đối chứng rẻ có giá trị rubric cao hơn; fine-tune DINOv2 nên làm trên GPU với protocol khai báo trước. DINOv2 chỉ được chạy dạng probe đóng băng (khám phá) | Hướng làm tiếp: fine-tune DINOv2 trên GPU, crop lá (bài PlantDoc đạt 0.70 accuracy trên ảnh đã crop), thêm dữ liệu field, AdaBN rồi fine-tune |
 | 25 | Chưa commit prediction CSV chuẩn của NB11/13/14 | ⚪ | P2 | S | C5 | ⬜ | ⬜ | 👤 Cần file local của Trang |
 | 26 | Chưa kiểm phần khoảng cách lab → field có phải do thống kê BatchNorm không | 🟡 | P1 | S | C1 C3 | ⬜ | ✅ AdaBN (khám phá): chỉ ước lượng lại BN trên 370 ảnh field không nhãn, model Lab tăng Field Dev macro-F1 0.235 → 0.391 và v3 accuracy 0.426 → 0.459; model đã adapt thì giảm. Lab Test tụt 0.974 → 0.673 (giá phải trả) | Chưa thử "AdaBN rồi mới fine-tune" |
 | 27 | Test set bị dùng lại nhiều lần | 🟠 | P1 | S | C3 | ⬜ | ✅ Sổ ghi đánh giá: 104 lần đánh giá model trên v3 sau lần chạy confirmatory, đều dán nhãn khám phá | — |
