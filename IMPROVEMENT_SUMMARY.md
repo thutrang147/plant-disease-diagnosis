@@ -1,11 +1,11 @@
 # Tổng hợp cải thiện — plant-disease-diagnosis
 
-> **Tiến độ: ✅ DONE** · cập nhật lần cuối 2026-11-28 04:46 UTC (11:46 giờ VN). Đợt 2 dừng chạy thí nghiệm lúc 00:54 UTC.
+> **Tiến độ: ✅ DONE** · cập nhật lần cuối 2026-11-28 04:58 UTC (11:58 giờ VN), sau khi thêm điểm chấm của hội đồng Sonnet cho cả ba vòng (mục 3). Đợt 2 dừng chạy thí nghiệm lúc 00:54 UTC.
 > Push cuối lúc 04:46 UTC, so với kế hoạch là 04:15 UTC, tức trễ khoảng 30 phút. Lý do: phiên làm việc bị gián đoạn từ 00:57 đến 04:30 UTC vì hết hạn mức sử dụng. Hội đồng chấm lại sau khi sửa đã bị dừng trước khi có kết quả, nên mục 3 chỉ có điểm trước khi sửa.
 
 File này **chỉ để đọc và ra quyết định**. Nó liệt kê:
 - từng vấn đề của repo, mức nghiêm trọng, effort, và đã được sửa ở đợt nào;
-- điểm chấm ước lượng theo rubric từ một hội đồng 5 reviewer (agent, không độc lập);
+- điểm rubric ước lượng qua ba vòng (main, đợt 1, đợt 2), do reviewer Sonnet chấm, tách khỏi tác giả nhưng chưa độc lập hoàn toàn;
 - những việc chỉ nhóm mới làm được.
 
 Nhánh `docs/improvement-summary-20261127` chỉ chứa file này và không thay đổi code.
@@ -31,20 +31,36 @@ Nhánh `docs/improvement-summary-20261127` chỉ chứa file này và không tha
 | Rubric | **C1** Kiến thức CV (20%) · **C2** Triển khai (25%) · **C3** Thiết kế thực nghiệm (25%) · **C4** Phân tích và hạn chế (15%) · **C5** Báo cáo, demo, tái lập (15%) |
 | Trạng thái | ✅ Done · ⏳ Đang làm · ⬜ Chưa làm · 👤 Cần nhóm quyết định hoặc tự làm |
 
-## 3. Điểm rubric ước lượng (hội đồng 5 reviewer)
+## 3. Điểm rubric qua từng vòng (ước lượng của agent, không phải điểm chấm)
 
-Mỗi reviewer là một agent độc lập, chỉ được đọc repo, phụ trách đúng một tiêu chí, và mọi nhận định phải kèm bằng chứng (file, dòng hoặc con số). Họ chấm nhánh đợt 2 tại commit `ab02c7e`, **trước** các bản sửa ở mục 4.
+Vòng lặp: **chấm `main` → sửa ra đợt 1 → chấm đợt 1 → sửa ra đợt 2 → chấm đợt 2**. Mỗi snapshot được một reviewer **Sonnet 5.5** chấm. Reviewer chạy tách khỏi các tác giả Opus, đọc một bản clone chỉ chứa đúng commit đó, và không biết snapshot nào là bản nào (nhãn mù A/B/C). Cả ba dùng chung một prompt đã commit trước khi chấm (`docs/review_panel/protocol.md`). Báo cáo gốc nằm ở [`docs/review_panel/`](https://github.com/thutrang147/plant-disease-diagnosis/tree/review/repo-review-round2-20261127/docs/review_panel). Lỗi nào của vòng trước đã được sửa ở vòng sau được ghi trong [`traceability.csv`](https://github.com/thutrang147/plant-disease-diagnosis/blob/review/repo-review-round2-20261127/docs/review_panel/traceability.csv).
 
-| Tiêu chí | Điểm | Lý do chính bị trừ (trước khi sửa) |
-| --- | ---: | --- |
-| C1 Kiến thức CV (20%) | 7.0 | Phép occlusion chưa có đối chứng; không có attribution cho ViT; câu "representation > recipe" chưa đủ căn cứ |
-| C2 Triển khai (25%) | 8.0 | Script tái lập gãy ở bước pytest; code train chỉ có trong notebook; vài lỗi nhỏ |
-| C3 Thiết kế thực nghiệm (25%) | 7.5 | Kết quả null bị viết như "đã xác nhận"; chọn metric khác nhau ở từng phần; độc lập và nhãn của v3 chưa chứng minh |
-| C4 Phân tích (15%) | 7.5 | Đổi metric theo từng claim; khoảng 8/60 con số lệch; tài liệu tự mâu thuẫn |
-| C5 Báo cáo, demo, tái lập (15%) | 7.0 | Demo ghi sai "mọi model 0.97–0.99 trên lab"; tài liệu phụ lỗi thời; không có hình |
-| **Trung bình có trọng số** | **≈ 7.45/10** | |
+| Tiêu chí (trọng số) | Main `da5e1ba` | Đợt 1 `61c3cd1` | Đợt 2 `bb794d7` | Đổi main → đợt 2 |
+| --- | ---: | ---: | ---: | ---: |
+| C1 Kiến thức CV (20%) | 7.0 | 6.5 | 7.5 | +0.5 |
+| C2 Triển khai (25%) | 7.5 | 7.0 | 8.0 | +0.5 |
+| C3 Thiết kế thực nghiệm (25%) | 6.0 | 7.5 | 8.0 | +2.0 |
+| C4 Phân tích và hạn chế (15%) | 7.5 | 8.0 | 8.5 | +1.0 |
+| C5 Báo cáo, demo, tái lập (15%) | 6.0 | 7.5 | 7.0 | +1.0 |
+| **Tổng có trọng số** | **6.80** | **7.25** (+0.45) | **7.83** (+0.58) | **+1.03** |
 
-Các reviewer ước tính sửa các lỗi effort S sẽ đưa C4 lên khoảng 8.5–9 và C5 lên khoảng 8. *Lưu ý:* đây là **ước lượng của agent, không phải điểm chấm**, và cùng một họ agent vừa làm vừa chấm nên các điểm này không độc lập. Một hội đồng chấm lại sau khi sửa đã được chạy nhưng bị dừng trước khi có kết quả: lần đầu vì hết hạn mức sử dụng, lần sau do chủ động dừng để kịp hạn. Vì vậy ở đây không có điểm sau khi sửa. Hầu hết các lỗi đó đã được sửa (mục 4). Phần chưa sửa được là những việc cần người hoặc GPU (mục 5).
+- **Đây là ước lượng của agent, không phải điểm chấm.** Reviewer là Sonnet 5.5, tách khỏi các tác giả Opus, nhưng cùng nhà cung cấp nên **chưa độc lập hoàn toàn**. Việc giấu nhãn cũng chỉ một phần, vì nội dung repo vẫn cho thấy bản nào hoàn thiện hơn. Muốn có đánh giá thật sự độc lập thì cần một người chấm theo rubric.
+- **Có ba lần điểm giảm, giữ nguyên, không chấm lại:**
+  - C1 và C2 giảm 0.5 từ main sang đợt 1, vì đợt 1 chỉ sửa cách trình bày và chưa thêm phương pháp mới.
+  - C5 giảm 0.5 từ đợt 1 sang đợt 2. Reviewer chê README quá dài (388 dòng). Reviewer cũng không kiểm được thứ tự pre-register, vì bản clone chỉ có một commit và không có lịch sử.
+- **Vòng lặp này là hồi cứu:**
+  - Đợt 1 được làm từ bản review main trong `REPO_REVIEW.md`.
+  - Đợt 2 được sửa theo một hội đồng cùng model chấm ở `ab02c7e`, được 7.45, và con số đó chỉ giữ để tham khảo.
+  - Vì vậy `traceability.csv` chỉ cho thấy lỗi nào đã được sửa ở vòng sau, không chứng minh vòng sau được sinh ra từ điểm chấm lần này.
+- **Việc còn mở sau đợt 2**, theo reviewer đợt 2; đây là các việc lớn hơn một lần sửa chữ nhỏ, hoặc cần nhóm quyết định:
+  - README quá dài, nên có bản tóm tắt 1 trang (C5-1).
+  - Đưa `REPO_REVIEW.md` và các tài liệu quy trình ra khỏi phần nộp (C5-2).
+  - Các kết luận khám phá dựa trên v3 đã dùng lại 104 lần (C3-2).
+  - Field Test chỉ có 47 ảnh (C3-4).
+  - Lab split có ảnh không mang leaf ID (C3-5).
+  - Chưa ai chạy end-to-end `reproduce_round2.sh` và demo (C2-1, C5-5).
+  - Grad-CAM mới chỉ chạy cho ResNet18 (C1-2).
+- Lỗi C3-3 của đợt 2, một hàng tham chiếu ghi khoảng số không nói rõ lấy từ run nào, đã sửa ở `bc2ce5d`.
 
 ## 4. Bảng vấn đề, xếp theo ưu tiên
 
