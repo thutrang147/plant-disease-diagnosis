@@ -1,0 +1,19 @@
+group,lesion_size,n,correct,accuracy
+nb15_field_only,small (<6%),486,187,0.38477366255144035
+nb15_field_only,medium (6%-17%),486,209,0.43004115226337447
+nb15_field_only,large (>17%),486,212,0.43621399176954734
+nb15_mixed,small (<6%),486,197,0.4053497942386831
+nb15_mixed,medium (6%-17%),486,223,0.4588477366255144
+nb15_mixed,large (>17%),486,213,0.4382716049382716
+resnet18_geometric_mixed,small (<6%),162,60,0.37037037037037035
+resnet18_geometric_mixed,medium (6%-17%),162,71,0.4382716049382716
+resnet18_geometric_mixed,large (>17%),162,75,0.46296296296296297
+resnet18_lab,small (<6%),162,77,0.47530864197530864
+resnet18_lab,medium (6%-17%),162,85,0.5246913580246914
+resnet18_lab,large (>17%),162,45,0.2777777777777778
+vit_small_lab,small (<6%),162,66,0.4074074074074074
+vit_small_lab,medium (6%-17%),162,68,0.41975308641975306
+vit_small_lab,large (>17%),162,75,0.46296296296296297
+vit_small_mixed,small (<6%),162,61,0.3765432098765432
+vit_small_mixed,medium (6%-17%),162,79,0.4876543209876543
+vit_small_mixed,large (>17%),162,76,0.4691358024691358

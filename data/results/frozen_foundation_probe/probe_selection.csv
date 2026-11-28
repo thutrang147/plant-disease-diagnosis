@@ -1,0 +1,17 @@
+backbone,probe,C,selection_partition,selection_macro_f1
+dinov2_vits14,lab_only,0.01,lab_val,0.9713630212859238
+dinov2_vits14,lab_only,0.1,lab_val,0.9770449738470498
+dinov2_vits14,lab_only,1.0,lab_val,0.9743760456022965
+dinov2_vits14,lab_only,10.0,lab_val,0.9702450407293266
+dinov2_vits14,lab_plus_field,0.01,field_dev,0.5650711295872586
+dinov2_vits14,lab_plus_field,0.1,field_dev,0.5695755693581781
+dinov2_vits14,lab_plus_field,1.0,field_dev,0.5254676046108114
+dinov2_vits14,lab_plus_field,10.0,field_dev,0.5634250667930141
+dinov2_vitb14,lab_only,0.01,lab_val,0.9833152665636492
+dinov2_vitb14,lab_only,0.1,lab_val,0.9871701370431415
+dinov2_vitb14,lab_only,1.0,lab_val,0.9852314642340575
+dinov2_vitb14,lab_only,10.0,lab_val,0.9837202705300643
+dinov2_vitb14,lab_plus_field,0.01,field_dev,0.6217266336036219
+dinov2_vitb14,lab_plus_field,0.1,field_dev,0.5869404383174267
+dinov2_vitb14,lab_plus_field,1.0,field_dev,0.5447134324564747
+dinov2_vitb14,lab_plus_field,10.0,field_dev,0.5660430107526881

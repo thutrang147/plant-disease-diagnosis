@@ -1,2 +1,2 @@
--r ../requirements.txt
-streamlit
+# Demo dependencies (on top of ../requirements.txt)
+streamlit>=1.50

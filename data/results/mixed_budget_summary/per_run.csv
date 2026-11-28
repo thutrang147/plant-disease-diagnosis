@@ -1,0 +1,7 @@
+condition,seed,selected_epoch,sanity_epoch,sanity_lab_test,sanity_expected,sanity_pass,sanity_field_dev,sanity_field_dev_expected,sanity_field_dev_match,epoch8_lab_test,field_dev_mean_epochs_20_24,field_dev_accuracy,field_dev_macro_f1,lab_test_accuracy,lab_test_macro_f1,field_test_accuracy,field_test_macro_f1,external_v3_accuracy,external_v3_macro_f1
+field_only,42,23,8,0.81165,0.81165,True,0.43883,0.4388,True,0.81165,0.51651,0.57609,0.53121,0.90603,0.86367,0.53191,0.50728,0.47119,0.457
+field_only,43,22,7,0.80921,0.80921,True,0.43615,0.4361,True,0.81171,0.52191,0.55435,0.54613,0.89775,0.85516,0.55319,0.54833,0.46091,0.45382
+field_only,44,22,8,0.81947,0.81994,True,0.41473,0.4147,True,0.81947,0.52267,0.55435,0.54447,0.90485,0.86533,0.48936,0.48995,0.45679,0.4471
+mixed,42,20,8,0.9553,0.9553,True,0.43902,0.439,True,0.9553,0.53139,0.59783,0.55423,0.9805,0.97672,0.55319,0.5352,0.48354,0.46629
+mixed,43,22,7,0.94589,0.94493,True,0.44782,0.4478,True,0.96038,0.52631,0.57609,0.55005,0.98404,0.98041,0.53191,0.53094,0.48765,0.47178
+mixed,44,23,8,0.96034,0.96034,True,0.4181,0.4327,False,0.96034,0.53134,0.56522,0.55223,0.98345,0.98008,0.48936,0.48995,0.48971,0.47464

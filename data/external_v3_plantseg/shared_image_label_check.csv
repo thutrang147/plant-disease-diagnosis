@@ -1,0 +1,65 @@
+plantseg_row,plantseg_class_name,nearest_reference,nearest_in_repo_manifest,nearest_repo_class_name,min_reference_distance,labels_agree,source_url
+6737,Bacterial Spot,plantdoc:1883,field_adapt_train,Bacterial Spot,2,True,https://www.forestryimages.org/browse/detail.cfm?imgnum=5076091
+6744,Bacterial Spot,plantdoc:1664,field_adapt_train,Septoria Leaf Spot,4,False,https://projects.cos.ncsu.edu/bio181/BIOLAB/EcologyII/EcoII_LabUnit_Final.pdf
+6752,Bacterial Spot,plantdoc:1638,field_adapt_train,Septoria Leaf Spot,4,False,https://www.gardenanswers.com/plant-diseases/septoria-leaf-spot-10/
+6753,Bacterial Spot,plantdoc:1864,field_adapt_train,Bacterial Spot,0,True,https://www.invasive.org/browse/detail.cfm?imgnum=5606052
+6754,Bacterial Spot,plantvillage:36177,lab_val,Bacterial Spot,4,True,http://ephytia.inra.fr/en/D/7892
+6818,Early Blight,plantdoc:1572,field_adapt_train,Early Blight,0,True,https://www.gardeningknowhow.com/edible/vegetables/potato/potato-blight-diseases.htm
+6822,Early Blight,plantdoc:1560,field_adapt_train,Early Blight,0,True,https://www.researchgate.net/figure/Early-and-late-Scorch_fig3_328678357
+6823,Early Blight,plantdoc:1914,field_dev,Bacterial Spot,0,False,https://site.extension.uga.edu/forsyth/2017/07/leaf-spots-fruit-rots-viral-wilts/
+6825,Early Blight,plantdoc:1570,field_adapt_train,Early Blight,0,True,https://www.invasive.org/browse/detail.cfm?imgnum=1573858
+6828,Early Blight,plantdoc:2492,field_test,Early Blight,0,True,https://extension.umn.edu/plant-diseases/tomato-leaf-spot-diseases
+6833,Early Blight,plantdoc:1587,field_adapt_train,Early Blight,0,True,https://www.cottoninc.com/wp-content/uploads/2017/04/AFulmer-Presentation.pdf
+6856,Early Blight,plantdoc:1610,field_adapt_train,Early Blight,0,True,https://www.reddit.com/r/OrganicGardening/comments/rvyk9h/bean_diseases_phaseolus_vulgaris_is_also_known_as/
+6860,Early Blight,plantdoc:1604,field_adapt_train,Early Blight,0,True,https://www.nature.com/articles/s43016-023-00764-3
+6864,Early Blight,plantdoc:1611,field_adapt_train,Early Blight,0,True,https://en.wikipedia.org/wiki/Passalora
+6866,Early Blight,plantdoc:1603,field_adapt_train,Early Blight,4,True,https://barmac.com.au/problem/target-spot-in-tomato/
+6880,Early Blight,plantdoc:2532,field_test,Late Blight,2,False,https://www.researchgate.net/figure/Leaf-spot-disease-caused-by-Septoria-lycopersici_fig2_355834053
+6895,Early Blight,plantdoc:1582,field_adapt_train,Early Blight,4,True,https://www.researchgate.net/figure/Leaf-extension-in-the-variety-Victoria-in-response-to-applied-nitrogen-treatments-mM-of_fig3_276498747
+6896,Early Blight,plantdoc:1612,field_adapt_train,Early Blight,0,True,https://universe.roboflow.com/bryan-b56jm/tomato-leaf-disease-ssoha
+6898,Early Blight,plantdoc:1595,field_dev,Early Blight,2,True,https://paulownia.energy/article/view/the-main-diseases-and-pests-of-paulownia/
+6899,Early Blight,plantdoc:1569,field_adapt_train,Early Blight,0,True,https://www.workshop.bunnings.com.au/t5/Garden/How-to-treat-tomato-leaves-turning-yellow/td-p/183798
+6901,Early Blight,plantdoc:1594,field_adapt_train,Early Blight,0,True,https://herbiesheadshop.com/blog/leaf-septoria-an-in-depth-guide-to-yellow-spots-on-cannabis-leaves
+6924,Late Blight,plantdoc:2014,field_adapt_train,Late Blight,0,True,http://www.sohu.com/a/279441226_717269
+6994,Late Blight,plantvillage:40029,lab_train,Late Blight,4,True,https://mdpi-res.com/d_attachment/plants/plants-11-00024/article_deploy/plants-11-00024.pdf
+7001,Late Blight,plantdoc:1981,field_quarantined_train,Late Blight,0,True,https://thegardeningcook.com/tomato-plant-problems/
+7007,Late Blight,plantdoc:1974,field_adapt_train,Late Blight,0,True,https://apps.lucidcentral.org/pppw_v10/text/web_full/entities/tomato_powdery_mildew_314.htm
+7017,Late Blight,plantdoc:2016,field_adapt_train,Late Blight,4,True,https://typeset.io/pdf/parietaria-mottle-virus-a-potential-threat-for-tomato-crops-23t37mimni.pdf
+7018,Late Blight,plantdoc:1928,field_adapt_train,Late Blight,0,True,https://apps.lucidcentral.org/pppw_v10/text/web_full/entities/papaya_brown_spot_300.htm
+7035,Late Blight,plantdoc:1982,field_adapt_train,Late Blight,0,True,https://ask2.extension.org/kb/faq.php?id=849151
+7036,Late Blight,plantdoc:1936,field_adapt_train,Late Blight,0,True,https://projectblue.blob.core.windows.net/media/Default/Horticulture/Publications/Tomato%20leaf%20mould.pdf
+7037,Late Blight,plantdoc:2001,field_adapt_train,Late Blight,0,True,https://commons.wikimedia.org/wiki/File:Stevia_rebaudiana_TSWV_symptoms_2.jpg
+7038,Late Blight,plantdoc:1983,field_adapt_train,Late Blight,0,True,https://www.ipmimages.org/browse/detail.cfm?imgnum=1578128
+7039,Late Blight,plantdoc:1999,field_adapt_train,Late Blight,0,True,https://www.isaaa.org/kc/cropbiotechupdate/article/default.asp?ID=20119
+7250,Septoria Leaf Spot,plantdoc:1688,field_dev,Septoria Leaf Spot,0,True,https://www.gardenanswers.com/plant-diseases/septoria-leaf-spot-10/
+7255,Septoria Leaf Spot,plantdoc:1687,field_adapt_train,Septoria Leaf Spot,0,True,https://gardenerspath.com/how-to/disease-and-pests/common-tomato-diseases/
+7259,Septoria Leaf Spot,plantdoc:1735,field_adapt_train,Septoria Leaf Spot,0,True,https://www.reddit.com/r/tomatoes/comments/1dlvfoi/whats_going_on_with_my_tomato_plants/
+7262,Septoria Leaf Spot,plantdoc:1736,field_adapt_train,Septoria Leaf Spot,0,True,https://iopscience.iop.org/article/10.1088/1755-1315/1038/1/012032/pdf
+7269,Septoria Leaf Spot,plantdoc:1751,field_adapt_train,Septoria Leaf Spot,4,True,https://www.rhs.org.uk/disease/mulberry-leaf-spot
+7270,Septoria Leaf Spot,plantdoc:1724,field_adapt_train,Septoria Leaf Spot,0,True,https://www.epicgardening.com/sneezeweed/
+7274,Septoria Leaf Spot,plantdoc:1922,field_adapt_train,Bacterial Spot,0,False,https://www.semanticscholar.org/paper/An-application-of-image-processing-techniques-for-Anand-Veni/061c7fe3eb7725d73cccb8e77221cc06b308c249/figure/1
+7276,Septoria Leaf Spot,plantdoc:1631,field_adapt_train,Septoria Leaf Spot,0,True,https://m.facebook.com/1658675314366910/photos/contestant-no8-arati-chapaiamong-the-various-disease-affecting-tomatoes-bacteria/2802390183328745/
+7280,Septoria Leaf Spot,plantdoc:1641,field_adapt_train,Septoria Leaf Spot,2,True,https://www.naturespot.org.uk/species/phragmidium-bulbosum
+7289,Septoria Leaf Spot,plantdoc:1737,field_adapt_train,Septoria Leaf Spot,0,True,http://ephytia.inra.fr/en/D/1034
+7295,Septoria Leaf Spot,plantdoc:1607,field_adapt_train,Early Blight,0,False,https://www.gardeningknowhow.com/edible/vegetables/potato/potato-blight-diseases.htm
+7297,Septoria Leaf Spot,plantdoc:1686,field_adapt_train,Septoria Leaf Spot,0,True,https://www.invasive.org/browse/detail.cfm?imgnum=1577157
+7300,Septoria Leaf Spot,plantdoc:2503,field_test,Septoria Leaf Spot,0,True,https://www.reddit.com/r/gardening/comments/hjdeny/is_my_mint_plant_sick/
+7306,Septoria Leaf Spot,plantdoc:1667,field_adapt_train,Septoria Leaf Spot,4,True,https://www.indystar.com/story/life/home-garden/2017/07/28/dick-crum/469669001/
+7307,Septoria Leaf Spot,plantdoc:1721,field_adapt_train,Septoria Leaf Spot,0,True,https://www.reddit.com/r/plantclinic/comments/18wfve9/tomato_crisis/
+7309,Septoria Leaf Spot,plantdoc:1719,field_adapt_train,Septoria Leaf Spot,0,True,https://www.reddit.com/r/gardening/comments/15ootnk/slow_growing_fruit_and_yellowingblack_spots_on/
+7313,Septoria Leaf Spot,plantdoc:2524,field_test,Bacterial Spot,0,False,https://www.semanticscholar.org/paper/Septoria-leaf-spot-of-tomato.-Endrinal-Celino/623ac787bf280694f614f0923c6e47123c822c6e
+7315,Septoria Leaf Spot,plantdoc:1863,field_adapt_train,Bacterial Spot,0,False,https://www.gbif.org/species/3203716
+10851,Bacterial Spot,plantdoc:1833,field_adapt_train,Bacterial Spot,0,True,https://gardenerspath.com/how-to/disease-and-pests/common-tomato-diseases/
+10874,Early Blight,plantdoc:1582,field_adapt_train,Early Blight,0,True,https://gardening.livejournal.com/2867367.html
+10877,Early Blight,plantdoc:1766,field_adapt_train,Septoria Leaf Spot,0,False,https://www.researchgate.net/figure/Healthy-Potato-An-example-of-an-image-of-a-potato-leaf-with-early-blight-is-shown-in-the_fig5_376191472
+10880,Early Blight,plantdoc:1574,field_adapt_train,Early Blight,2,True,https://www.researchgate.net/figure/Detection-of-late-blight-accuracy-95_fig2_327930730
+10888,Early Blight,plantdoc:2022,field_dev,Late Blight,0,False,https://www.graincentral.com/cropping/scientists-discover-cause-of-faba-bean-gall-disease/
+10915,Late Blight,plantdoc:1949,field_adapt_train,Late Blight,4,True,https://vegcropshotline.org/article/bacterial-canker-of-tomato-2/
+10976,Septoria Leaf Spot,plantdoc:1682,field_dev,Septoria Leaf Spot,0,True,https://www.invasive.org/browse/detail.cfm?imgnum=1568017
+10979,Septoria Leaf Spot,plantdoc:1722,field_adapt_train,Septoria Leaf Spot,0,True,https://www.ipmimages.org/browse/detail.cfm?imgnum=1576227
+10980,Septoria Leaf Spot,plantdoc:1720,field_adapt_train,Septoria Leaf Spot,2,True,https://universe.roboflow.com/bryan-b56jm/tomato-leaf-disease-ssoha
+10985,Septoria Leaf Spot,plantdoc:1898,field_adapt_train,Bacterial Spot,2,False,https://agrobaseapp.com/australia/disease/septoria-leaf-spot-of-tomato
+10986,Septoria Leaf Spot,plantdoc:1582,field_adapt_train,Early Blight,2,False,https://www.mdpi.com/2076-2607/12/3/457
+10987,Septoria Leaf Spot,plantdoc:1766,field_adapt_train,Septoria Leaf Spot,0,True,https://www.researchgate.net/figure/Healthy-Potato-An-example-of-an-image-of-a-potato-leaf-with-early-blight-is-shown-in-the_fig5_376191472
+10991,Septoria Leaf Spot,plantdoc:1627,field_dev,Early Blight,2,False,https://www.corn-states.com/app/uploads/2018/07/Managing20Insects20and20Diseases20in20Canola-TDA.pdf
+10994,Septoria Leaf Spot,plantdoc:1653,field_adapt_train,Septoria Leaf Spot,0,True,https://www.ipmimages.org/browse/detail.cfm?imgnum=1576227

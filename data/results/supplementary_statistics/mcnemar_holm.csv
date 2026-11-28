@@ -1,0 +1,11 @@
+family,model_a,model_b,n,only_a_correct,only_b_correct,exact_mcnemar_p,holm_adjusted_p,significant_holm_0_05
+external_field_v1,ResNet18 · Geometric + Mixed,ResNet18 · Lab baseline,62,24,10,0.024307,0.24307,False
+external_field_v1,ViT-Small · Mixed,ViT-Small · Lab baseline,62,11,8,0.647606,1.0,False
+external_field_v1,ResNet18 · Geometric + Mixed,ViT-Small · Mixed,62,9,7,0.803619,1.0,False
+external_field_v1,ViT-Small · Lab baseline,ResNet18 · Lab baseline,62,19,10,0.136046,1.0,False
+plantdoc_field_test,ResNet18 · Geometric + Mixed,ResNet18 · Lab baseline,47,8,6,0.790527,1.0,False
+plantdoc_field_test,ViT-Small · Mixed,ViT-Small · Lab baseline,47,6,2,0.289062,1.0,False
+plantdoc_field_test,ResNet18 · Geometric + Mixed,ViT-Small · Mixed,47,3,9,0.145996,1.0,False
+plantdoc_field_test,ViT-Small · Lab baseline,ResNet18 · Lab baseline,47,8,4,0.387695,1.0,False
+external_v1_online_disease_46,ResNet18 · Geometric + Mixed,ResNet18 · Lab baseline,46,12,10,0.831812,1.0,False
+external_v1_online_disease_46,ViT-Small · Mixed,ViT-Small · Lab baseline,46,5,8,0.581055,1.0,False

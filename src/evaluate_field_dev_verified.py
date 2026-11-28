@@ -247,6 +247,8 @@ def main():
     loader = DataLoader(dataset, batch_size=args.batch_size, shuffle=False, num_workers=0)
     device = torch.device(args.device)
 
+    if args.output_dir.exists() and any(args.output_dir.iterdir()):
+        raise FileExistsError(f"Refusing to overwrite committed evidence in {args.output_dir}; pass a new --output directory.")
     args.output_dir.mkdir(parents=True, exist_ok=True)
     results, per_class_results = [], []
     for variant, file_name in MODEL_FILES.items():

@@ -1,0 +1,6 @@
+{
+  "merge": "Septoria Leaf Spot (4) relabelled as Bacterial Spot (3) in both labels and predictions",
+  "source": "data/results/external_v3_plantseg/predictions.csv (argmax over all five classes)",
+  "tests": "as in the confirmatory run: exact McNemar (P1, P2), sign-flip on per-image seed means (P3), paired bootstrap 95% CI, Holm over the three comparisons",
+  "status": "exploratory, post-hoc, no new inference"
+}

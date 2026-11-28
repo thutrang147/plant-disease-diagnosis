@@ -1,0 +1,9 @@
+model,stratum,n,correct,accuracy,macro_f1_4class,predicted_healthy,loader
+ResNet18 · Lab baseline,online_disease_46,46,19,0.413,0.36,0,identical_to_canonical
+ResNet18 · Lab baseline,self_collected_healthy_16,16,0,0.0,,0,canonical_counts_from_notebook11
+ViT-Small · Lab baseline,online_disease_46,46,22,0.4783,0.4447,0,identical_to_canonical
+ViT-Small · Lab baseline,self_collected_healthy_16,16,5,0.3125,,5,canonical_counts_from_notebook11
+ResNet18 · Geometric + Mixed,online_disease_46,46,21,0.4565,0.4372,3,identical_to_canonical
+ResNet18 · Geometric + Mixed,self_collected_healthy_16,16,12,0.75,,12,canonical_counts_from_notebook11
+ViT-Small · Mixed,online_disease_46,46,19,0.413,0.3988,1,identical_to_canonical
+ViT-Small · Mixed,self_collected_healthy_16,16,13,0.8125,,13,canonical_counts_from_notebook11

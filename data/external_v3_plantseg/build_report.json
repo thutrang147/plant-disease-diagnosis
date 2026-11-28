@@ -1,0 +1,45 @@
+{
+  "plantseg": {
+    "repository": "LFTTim/plantseg_disease_segmentation",
+    "revision": "2fff5d63968d3fd0aca061e7348b0b1441c1535d",
+    "license": "CC BY-NC-ND 4.0",
+    "citation": "Wei et al., PlantSeg, arXiv:2409.04038"
+  },
+  "references": {
+    "plantdoc": {
+      "repository": "geraldmc/plantdoc-full",
+      "revision": "v0.1.0",
+      "rows": "all"
+    },
+    "plantvillage": {
+      "repository": "geraldmc/plantvillage-full",
+      "revision": "f808f2706d3ce50ce14652d2b6863d3cc30cf9c4",
+      "rows": "class_label starts with 'Tomato'"
+    },
+    "reference_images": 20738
+  },
+  "rules": {
+    "fingerprints": "raw-RGB SHA-256 after EXIF transpose; imagehash.phash (8x8 DCT)",
+    "reference_exclusion": "exact match or pHash distance <= 10",
+    "internal_deduplication": "pHash distance <= 4; keep lowest plantseg_row"
+  },
+  "counts": {
+    "candidates": 589,
+    "included": 486,
+    "excluded_reference_match": 94,
+    "excluded_internal_duplicate": 9,
+    "included_per_class": {
+      "Early Blight": 151,
+      "Late Blight": 148,
+      "Bacterial Spot": 97,
+      "Septoria Leaf Spot": 90
+    },
+    "excluded_matches_in_repo_manifests": 74,
+    "included_min_side_lt_224": 30
+  },
+  "shared_image_label_check": {
+    "images": 64,
+    "labels_agree": 51
+  },
+  "scope": "Screens known public references only. Does not establish independence from pretraining data, other web copies, or the correctness of PlantSeg labels."
+}

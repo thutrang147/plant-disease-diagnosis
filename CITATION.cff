@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this code or analysis, please cite it as below."
+title: "Tomato Disease Classification under Laboratory-to-Field Domain Shift"
+type: software
+authors:
+  - alias: thutrang147
+repository-code: "https://github.com/thutrang147/plant-disease-diagnosis"
+license: MIT
+date-released: 2026-11-27
+keywords:
+  - domain shift
+  - plant disease classification
+  - PlantVillage
+  - PlantDoc
+  - ResNet18
+  - ViT-Small

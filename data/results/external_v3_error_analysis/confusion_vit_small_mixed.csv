@@ -1,0 +1,5 @@
+label_id,Healthy,Early Blight,Late Blight,Bacterial Spot,Septoria Leaf Spot
+Early Blight,7,57,47,27,13
+Late Blight,6,20,85,28,9
+Bacterial Spot,4,8,17,28,40
+Septoria Leaf Spot,5,18,3,18,46

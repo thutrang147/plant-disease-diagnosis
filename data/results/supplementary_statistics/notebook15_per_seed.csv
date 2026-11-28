@@ -1,0 +1,4 @@
+seed,selected_epoch,test_field_only_macro_f1,test_mixed_macro_f1,test_only_field_only_correct,test_only_mixed_correct,test_prediction_agreement,dev_field_only_macro_f1_at_selected_epoch,dev_mixed_macro_f1_at_selected_epoch,dev_mixed_minus_field_only,row_2524_predictions
+42,8,0.4338,0.397,3,2,0.8298,0.4388,0.439,0.0002,4/4
+43,7,0.4214,0.384,1,0,0.9362,0.4361,0.4478,0.0117,4/4
+44,8,0.4349,0.4405,1,1,0.9362,0.4147,0.4327,0.018,4/4

@@ -128,6 +128,8 @@ def main():
     model = model.to(device).eval()
     transform = timm.data.create_transform(**checkpoint["preprocessing_config"], is_training=False)
 
+    if args.output.exists() and any(args.output.iterdir()):
+        raise FileExistsError(f"Refusing to overwrite committed evidence in {args.output}; pass a new --output directory.")
     args.output.mkdir(parents=True, exist_ok=True)
     print("Device:", device)
     print("Checkpoint validation macro-F1:", checkpoint["best_val_macro_f1"])

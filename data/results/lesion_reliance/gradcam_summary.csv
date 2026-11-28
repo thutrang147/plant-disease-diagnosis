@@ -1,0 +1,9 @@
+model,images,pointing_accuracy,pointing_chance,mean_energy_in_mask,mean_mask_area_share,median_energy_ratio
+nb15_field_only_s42,485,0.6536,0.46,0.2727,0.2222,1.2539
+nb15_field_only_s43,485,0.6412,0.46,0.2731,0.2222,1.2425
+nb15_field_only_s44,485,0.6454,0.46,0.2725,0.2222,1.2409
+nb15_mixed_s42,485,0.6474,0.46,0.2758,0.2222,1.2705
+nb15_mixed_s43,485,0.6515,0.46,0.2744,0.2222,1.2495
+nb15_mixed_s44,485,0.6557,0.46,0.2775,0.2222,1.2687
+resnet18_geometric_mixed,485,0.5794,0.46,0.2724,0.2222,1.2032
+resnet18_lab,485,0.6454,0.46,0.266,0.2222,1.233

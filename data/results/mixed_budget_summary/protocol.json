@@ -1,0 +1,23 @@
+{
+  "runs": "data/results/mixed_budget_amendment",
+  "seeds_in_comparison": [
+    42,
+    43,
+    44
+  ],
+  "excluded_runs": [],
+  "bootstrap_reps": 10000,
+  "bootstrap_seed": 0,
+  "endpoints": {
+    "primary": [
+      "field_dev_macro_f1",
+      "lab_test_macro_f1"
+    ],
+    "secondary_pre_declared_on_reused_set": [
+      "external_v3 accuracy",
+      "external_v3 disease macro-F1"
+    ]
+  },
+  "note": "Field Dev selected the epoch, so selected Field Dev is optimistic for both arms.",
+  "status": "exploratory, no new inference"
+}

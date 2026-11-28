@@ -30,17 +30,17 @@ requirements are listed below; none of the checkpoints is tracked in Git.
 
 Run commands from the repository root so `src` imports resolve. Preparation scripts are retained for provenance and deliberate future dataset construction. They are **not** prerequisites when the committed manifests already exist. In particular, `src/data_prep.py` writes original splits and label mappings, and the verified preparation script can replace derived splits with backups when explicitly requested. Neither was run during cleanup.
 
-The [final submission audit](submission_audit.md) supersedes dated cleanup observations below.
+The [final submission audit](archive/submission_audit.md) supersedes dated cleanup observations below.
 
 The current verified pair is `src/prepare_field_dev_verified.py` and `src/evaluate_field_dev_verified.py`. The latter validates manifests and loads frozen ResNet18 checkpoints through `load_model`. Baseline model loading also lives in `src/evaluate.py` (ResNet18) and `src/evaluate_vit.py` (timm `vit_small_patch16_224.augreg_in1k`). Field-adapted and mixed-domain loading is implemented in notebooks 06–08. No model factory was substituted or consolidated.
 
-Experiment parameters remain in notebook configuration cells. `configs/config.yaml`, `src/train.py`, and `src/models.py` are starter scaffolds, not an alternative reproduction pipeline. Moving notebook parameters into YAML would change the working code and is outside this cleanup.
+Experiment parameters remain in notebook configuration cells. The unused starter scaffold (`train.py`, `models.py`, `config.yaml` and the upload-only Streamlit app) has been moved to `archive/scaffold/`; it is not a reproduction pipeline.
 
 The current sequence contains fifteen main notebooks (01–15). Notebooks 11–14 add canonical external evaluation, error analysis, Healthy parent/crop analysis and exploratory spatial sensitivity. Notebook 15 reports the completed controlled three-seed ResNet18 comparison from portable prediction exports; its original Colab execution remains archived. Notebook 09 evaluates
 four fixed models on Lab Test and verified Field Dev; notebook 10 reads its
 predictions for error analysis and loads the two mixed models for visualization.
 Neither performs training. See the [research overview](../README.md) for results
-and the [documentation audit](documentation_audit.md) for editorial findings.
+and the [documentation audit](archive/documentation_audit.md) for editorial findings.
 
 ## Manifests and audit evidence
 
@@ -59,7 +59,7 @@ All paths below are relative to `data/splits/`:
 | `dataset_sources.json` | Source names, requested revisions, seed, lab splitting description |
 | `split_backups/` | Earlier random and exact-duplicate-grouped manifests/protocols |
 
-Four quarantined training rows are near original Field Test images and ten have label conflicts, according to the saved current protocol. The audit uses Field Test image content to detect contamination; model development does not use Field Test inference or labels for checkpoint selection. Source revision metadata is incomplete: do not invent resolved SHAs or refresh row-index manifests against a changed upstream dataset.
+Four quarantined training rows are near original Field Test images and ten have label conflicts, according to the saved current protocol. The audit uses Field Test image content to detect contamination; model development does not use Field Test inference or labels for checkpoint selection. The manifests were built on the upstream default branches. Round 2 pins PlantVillage to `f808f27`, where every manifest row's class label matches and the Lab baseline reproduces its recorded Lab Test result exactly; PlantDoc stays on `v0.1.0`. Do not refresh row-index manifests against a changed upstream dataset.
 
 ## Saved result families
 
@@ -120,7 +120,7 @@ recorded in the notebook. The code checks model/split metadata and selected-case
 predictions but does not verify both mixed checkpoint hashes against notebook
 09's exported record; exact cross-notebook identity depends on preserved files.
 
-Histories, predictions, summaries, plots, and experiment metadata are written alongside the Drive experiments. Preserve them there. This checkout contains six local checkpoints in ignored `models/`:
+Histories, predictions, summaries, plots, and experiment metadata are written alongside the Drive experiments. Preserve them there. `python scripts/download_checkpoints.py --group all` downloads the 16 registered checkpoints (`data/checkpoints.json`) into ignored `models/` and `outputs/`, verifying SHA-256. The six fixed checkpoints use these local names:
 
 | Local filename | Corresponding Drive checkpoint |
 | --- | --- |
@@ -131,7 +131,7 @@ Histories, predictions, summaries, plots, and experiment metadata are written al
 | `resnet18_geometric_mixed_best.pt` | `mixed_domain_verified/R2_resnet_geometric/mixed_domain_best.pt` |
 | `vit_small_mixed_best.pt` | `mixed_domain_verified/V1_vit_small/mixed_domain_best.pt` |
 
-The augmentation filenames differ locally from Drive; do not rename Drive source paths inside notebooks. Historical field-only histories/checkpoints and the full Notebook 09 prediction exports remain external. The two historical Mixed weights are present locally. Notebook 15's full controlled run and Colab assets have been imported under ignored `outputs/controlled_field_mixed/`; the [guide](notebook15_colab_guide.md) distinguishes these from the compact committed exports. A fresh clone does not include ignored local artifacts.
+The augmentation filenames differ locally from Drive; do not rename Drive source paths inside notebooks. The historical field-only checkpoints (A1, A2, ViT V1) are in the registry under `models/`; their histories and the full Notebook 09 prediction exports remain on Drive. The two historical Mixed weights are present locally. Notebook 15's full controlled run and Colab assets have been imported under ignored `outputs/controlled_field_mixed/`; the [guide](notebook15_colab_guide.md) distinguishes these from the compact committed exports. A fresh clone does not include ignored local artifacts.
 
 ## Re-evaluation without training
 
@@ -205,5 +205,5 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python data/external_evaluation/tomato_field
 Readiness has three separate scopes: the branch can be integrated technically;
 no unintended external photographs/private packages are added by the proposed
 commit; historical photographs and existing dataset galleries still require
-rights/access review for redistribution. The [final audit and cleanup record](submission_audit.md#cleanup-and-integration-handoff)
+rights/access review for redistribution. The [final audit and cleanup record](archive/submission_audit.md#cleanup-and-integration-handoff)
 contains the exact status, retained files and manual Git commands.
